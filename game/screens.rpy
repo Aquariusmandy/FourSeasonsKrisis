@@ -24,6 +24,8 @@ style hyperlink_text:
 style gui_text:
     properties gui.text_properties("interface")
 
+style chaptertitle_text is gui_text:
+    properties gui.text_properties("chaptertitle")
 
 style button:
     properties gui.button_properties("button")
@@ -119,7 +121,7 @@ style menuback_textbutton_text:
 style choice_textbutton is textbutton:
     idle_background Frame("system/choice_idle_background.png", xoffset=-0, yoffset=-0, xanchor=0, yanchor=0)
     hover_background Frame("system/choice_hover_background.png", xoffset=-0, yoffset=-0, xanchor=0, yanchor=0)
-    xysize (1200, 42)
+    xysize (1500, 42)
 
 style choice_textbutton_text:
     properties gui.text_properties("choice_button")
@@ -371,39 +373,9 @@ screen item_description_popup(item_click_background):
                     background item_click_background  # Change this to your description frame background
 
                 imagebutton idle "images/main_button/btn_close.png" action Hide("item_description_popup"):
-                    xpos 0.81
-                    ypos -11.3
+                    xpos 0.803
+                    ypos -11.057
 
-    elif active_set == "gallery":
-        hbox:
-            xalign -0.1
-            yalign 0.01
-            xsize 800
-            ysize 330 
-            vbox:
-                frame:
-                    background item_click_background  # Change this to your description frame background
-
-                imagebutton idle "images/main_button/btn_close_1.png" action Hide("item_description_popup"):
-                    xpos 2.5
-                    ypos -6.2
-
-    elif active_set == "cg":
-        hbox:
-            xalign 0.5
-            yalign 0.5
-            xysize(1800,1000)
-            vbox:
-                xalign 0.5
-                yalign 0.5
-                imagebutton idle "images/main_button/btn_close.png" action Hide("item_description_popup"):
-                    xpos 1.0
-                    ypos 0.0
-                image item_click_background:
-                    xysize(1600,900)
-                    xalign 0.5
-                    yalign 0.5
-                    # Change this to your description frame background
 
 screen gallery_popup(item_click_background,active_set,active_tab,index):
     modal True
@@ -613,7 +585,7 @@ style window:
     yalign gui.textbox_yalign
     ysize gui.textbox_height
 
-    background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
+    background Image("gui/gui/textbox.png", xalign=0.5, yalign=1.0)
 
 style namebox:
     xpos gui.name_xpos
@@ -716,7 +688,21 @@ screen quick_menu():
 
     ## Ensure this appears on top of other screens.
     zorder 100
+    # if renpy.seen_label("chapter_3"):
+    #     $titletext = "Chapter 4.  WINTER"
+    # elif renpy.seen_label("chapter_2"):
+    #     $titletext = "Chapter 3.  AUTUMN"
+    # elif renpy.labelseen("chapter_2"):
+    #     $titletext = "Chapter 2.  SUMMER"
+    # else:
+    #     $titletext = "Chapter 1.  SUMMER"
 
+    # text _(titletext) style "chaptertitle_text":
+    #     anchor(1,0)
+    #     xpos 0.03
+    #     ypos 0.032
+
+    
     ## Display the button image
     imagebutton:
         idle "temp/btn_HBMenu_default.png"  # Replace "your_button_image.png" with your button image path
@@ -816,6 +802,22 @@ style menuback_textbutton is quick_button
 screen navigation:
     add "temp/logo.png" ypos 0.1 xpos 0.6
 
+        ### Debug Quick Menu ###
+    vbox:
+        anchor(0, 0)
+        xpos 0.77
+        ypos 0.75
+        spacing 10
+        label _("Debug Quick Menu")
+        textbutton "Chapter 1" action Start("chapter_1"):
+            style "slime_textbutton"
+        textbutton "Chapter 2" action Start("chapter_2"):
+            style "slime_textbutton"
+        textbutton "Chapter 3" action Start("chapter_3"):
+            style "slime_textbutton"
+        textbutton "Chapter 4" action Start("chapter_4"):
+            style "slime_textbutton"
+
     vbox:
         style_prefix "navigation"
         xpos 0.8
@@ -844,8 +846,8 @@ screen navigation:
         textbutton _("Credits") action ShowMenu("about") style "navigation_textbutton" 
         # textbutton _("History") action ShowMenu("history") style "navigation_textbutton" 
 
-        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
-            textbutton _("Help") action ShowMenu("help") style "navigation_textbutton"
+        # if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+        #     textbutton _("Help") action ShowMenu("help") style "navigation_textbutton"
         
         if renpy.variant("pc"):
             textbutton _("Quit") action Quit(confirm=not main_menu) style "navigation_textbutton"
@@ -1082,7 +1084,6 @@ style game_menu_outer_frame:
 style game_menu_settings_frame:
     bottom_padding 45
     top_padding 100
-    left_padding 120
     xalign 0.5
     yalign 0.5
     background "system/settings_bg.png"
@@ -1349,6 +1350,8 @@ screen preferences():
 
     use game_menu(_("Preferences"), scroll="viewport"):
         vbox:
+            xanchor 0.0
+            xpos 0.15
             hbox:
                 box_wrap True
 

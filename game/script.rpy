@@ -432,7 +432,7 @@ default active_tab = "tab1"
 image 5 = "images/home_image.jpg"
 
 label splashscreen:
-    $ renpy.music.play("music/main_theme.mp3", channel="music", loop=True)
+    $ renpy.music.play("audio/main_theme.mp3", channel="music", loop=True)
     show white
     # Display the video
     $ renpy.movie_cutscene("movies/testingnew.webm", loops=20, stop_music=False) 
@@ -446,7 +446,8 @@ label splashscreen:
 image red_dot = "gui/menubutton/red_dot.png" 
 image white = "temp/white.jpg"
 
-init python: 
+init python:
+    achievement.clear_all() ### test if it can init
     class Item(object):
         def __init__(self, name, idle, hover, locked, background):
             self.name = name
@@ -660,6 +661,9 @@ init python:
                             filename
         ]
     achievement.register('sum_gallery')
+    achievement.register('aut_gallery')
+    achievement.register('win_gallery')
+    achievement.register('spr_gallery')
 
 
     example1 = Item("example", 
@@ -813,43 +817,68 @@ init python:
 
 default zorder = -2
 default red_dot_shown = False
+# ### achievement package ###
+# if (achievement.has('sum_st_edcg')== False):
+#     $ achievement.grant('sum_st_edcg')
+#     $ achievement.grant('sum_gallery')        
+#     show screen OverlayScreen1
+#     show screen ClickableArea
+# ### achievement package ###
+# ### ending screen ###
+# show screen OverlayScreen
+
+# ### obtain stuff in archive ###
+# $ achievement.grant('croissant')
+
+
+
+
+
 label start:
-    $ red_dot_hidden = True
+    call chapter_1 from _call_chapter_1
+    return
+
+
+label chapter_1:
+
     stop music fadeout 1.0  # Fade out the menu music
-    play music "music/sum/sum_bgm_01.mp3" loop fadein 1.0  # Loop game music with fade in
+    play music "audio/sum/sum_bgm_01.mp3" loop fadein 1.0  # Loop game music with fade in
 
     show sum_cv_img
+    # Wait for user to click
     pause
+
     scene sum_bg_beach1_img
-    ### red dot test ###
-    show screen OverlayScreen1
-    show screen ClickableArea
-    ######
     show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
-    play sound "music/sum/sum_se_waves_01.mp3" #The Sound of Waves
+    play sound "audio/sum/sum_se_waves_01.mp3" #The Sound of Waves
+
     window hide
     show van_sum_nor at center
     with fade
     vanta_char "3, 2, 1 ! Touchdown!"
+    hide van_sum_nor
+    show van_sum_hap at center
     "You are Vantacrow Bringer, fearsome tyrant and ace of the hero team Krisis."
     stop sound fadeout 3.0  #Stop sound effects
     "Ever since becoming a hero, you've been working tirelessly.\nYou save civilians, fight bad guys and say stuff like \"Crazy dayo\" or \"We ball!\""
-    hide van_sum_nor
-    show van_sum_hap at center
     vanta_char "My first summer vacation has finally started!"
     vanta_char "My friends recommended this small local beach, it looks just as nice as they said."
+    hide van_sum_hap
+    show van_sum_nor at center
     "The air is filled with a fresh sea-side breeze, and the hustle and bustle of people enjoying the summer."
     "Further along, there's a trendy drink shop that catches everyone’s attention with its visually captivating beverages."
     "As you stroll along the lively beach, you spot a souvenir shop ahead—"
-    hide van_sum_hap
+    hide van_sum_nor
     show van_sum_thi at center
     vanta_char "Oh? Is that a souvenir shop?"
     vanta_char "On god on god, for real for real?"
+    hide van_sum_thi
+    show van_sum_nor at center
     "Seeing the shop, you think about your teammates."
     "You wonder if you should take a look inside to see if there's anything worth buying."
     menu:
         "Enter the souvenir shop":
-            play sound "music/sum/sum_se_bell.mp3"  #Bell sounds
+            play sound "audio/sum/sum_se_bell.mp3"  #Bell sounds
             jump cho_one1_accepted
     label cho_one1_accepted:
        
@@ -858,12 +887,15 @@ label start:
     show van_sum_nor at center
     with fade
     "You browse through the shop and spot a cute croissant shaped keychain."
-    play sound "music/sum/sum_se_cash.mp3" #Cash register sound
+    play sound "audio/sum/sum_se_cash.mp3" #Cash register sound
     "You pay for it at the register, but as you are about to leave, you hear a shout from the other side of the shop."
-    "You pay for it at the register, but as you are about to leave, you hear a shout from the other side of the shop."
-    $ achievement.grant('croissant')
-    play sound "music/win/win_se_camera.mp3"
-
+    ### achievement package ###
+    if (achievement.has('croissant')== False):
+        $ achievement.grant('croissant')        
+        show screen OverlayScreen1
+        show screen ClickableArea
+        play sound "audio/collected_item_ping.mp3"
+    ### achievement package ###
     hide van_sum_nor
     show van_sum_thi at center
     show npc2_img at left
@@ -890,22 +922,26 @@ label start:
     npc1_char "Thank you for stepping in before it got worse; I was worried that you would cause trouble, too."
     npc1_char "I'm glad my assumptions were wrong. \nYou appeared from nowhere, just like a hero!"
     hide van_sum_nor
-    show van_sum_hap at right_2p
+    show van_sum_con at right_2p
     vanta_char "Haha! To tell you the truth, I am an incredibly influential individual, the true paragon of virtue. Standing before you is—"
     "The shopkeeper isn't paying attention to your glorious self introduction."
-    hide van_sum_hap
+    hide van_sum_con
+    show van_sum_nor at right_2p
+    "Instead she sighs and starts to talk about the recent events."
+    hide van_sum_nor
     show van_sum_thi at right_2p
-    "Instead he sighs and starts to talk about the recent events."
     npc1_char "I've seen a lot more people come to this beach. For some reason, they're getting out of control. Fights like today are happening more and more."
+    vanta_char "Did you notice anything that could be causing the fighting?"
     hide van_sum_thi
     show van_sum_nor at right_2p
-    vanta_char "Did you notice anything that could be causing the fighting?"
     npc1_char "I haven't had time to investigate, but something in my gut says it has to do with the new drinks shop, Octa-Brew."
     npc1_char "I love this place, and I wish everyone could enjoy the beautiful beach in peace..."
+    hide van_sum_nor
+    show van_sum_con at right_2p
     vanta_char "Thanks for all the info, I'll go check it out."
     menu:
         "Exit the Souvenir Shop":
-            play sound "music/sum/sum_se_bell.mp3"  #Bell sounds
+            play sound "audio/sum/sum_se_bell.mp3"  #Bell sounds
             jump cho_one2_accepted
     label cho_one2_accepted:
     
@@ -913,7 +949,7 @@ label start:
     show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     with fade
     
-    play sound "music/sum/sum_se_sand_01.mp3"  #Sound of walking on sand
+    play sound "audio/sum/sum_se_sand_01.mp3"  #Sound of walking on sand
     show van_sum_nor at center
     "You walk further down the beach and see a crowd outside of Octa-Brew. You decide to join the queue."
     stop sound
@@ -921,7 +957,7 @@ label start:
 
     menu:
         "Check the menu":
-            play sound "music/sum/sum_se_paper.mp3"  #Sound of flipping through menus
+            play sound "audio/sum/sum_se_paper.mp3"  #Sound of flipping through menus
             jump cho_one3_accepted
     label cho_one3_accepted:
 
@@ -931,6 +967,7 @@ label start:
         "Resist curiosity and not take a sip":
             vanta_char "I don't want to get told off for messing with the samples again, better not taste this."
             "You decide to be careful and send the drink to A.S.H. for analysis."
+            hide van_sum_nor
             jump JXJX_accepted
         "We ball! Take a sip of the drink":
             "You've defeated 100,000 armed combatants without breaking a sweat, what's the worst that could happen?"
@@ -939,7 +976,13 @@ label start:
             show van_sum_hap at center
             vanta_char "Huh. It actually tastes quite nice. Esperanza!"
             "Since it tastes so good and nothing happened, you decide to keep this one for yourself, and order another one to send to A.S.H. for analysis."
-            $ achievement.grant('drink')
+            ### achievement package ###
+            if (achievement.has('drink')== False):
+                $ achievement.grant('drink')        
+                show screen OverlayScreen1
+                show screen ClickableArea
+                play sound "audio/collected_item_ping.mp3"
+            ### achievement package ###
             hide van_sum_hap
             jump JXJX_accepted
     label JXJX_accepted:
@@ -957,55 +1000,49 @@ label start:
     show van_sum_nor at center
     with fade
     "The next day, you receive the analysis report from A.S.H."
+    hide van_sum_nor
+    show van_sum_sur at center
     "To your surprise, the investigation uncovered a troubling connection—"
     "A pharmaceutical company is the supplier of the drinks."
-    hide van_sum_nor
-    show van_sum_thi at center
     vanta_char "A pharmaceutical company? That can't be good!"
     vanta_char "I should find out more, something seems fishy."
 
     menu:
         "Go to Octa-Brew":
-            play sound "music/sum/sum_se_sand_01.mp3"  #Sound of walking on sand
+            play sound "audio/sum/sum_se_sand_01.mp3"  #Sound of walking on sand
             jump cho_one4_accepted
     label cho_one4_accepted:
     
     scene sum_bg_shop2_img
     show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     stop sound
-    show van_sum_nor at center
+    show van_sum_ser at center
     with fade
     vanta_char "I'm Special Agent Vantacrow Bringer from A.S.H. Mind if I take a look at your kitchen?"
     "The clerk seems shocked and starts to panic. They grab a bottle of unknown substance and run away."
-    hide van_sum_nor
+    hide van_sum_ser
     show van_sum_sur at center
     vanta_char "Hey, hey! Where do you think you're going?"
 
-    play sound "music/sum/sum_se_sand_02.mp3"  #Sound of running on sand
+    play sound "audio/sum/sum_se_sand_02.mp3"  #Sound of running on sand
     scene sum_bg_beach3_img
     show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     show van_sum_ser at center
     with dissolve
     "You chase after them, but the clerk, desperate to erase evidence, tosses the bottle into the ocean."
-    play sound "music/sum/sum_se_bochan.mp3" #The sound of something sinking into the water. Bo-chan.
+    play sound "audio/sum/sum_se_bochan.mp3" #The sound of something sinking into the water. Bo-chan.
     "You tackle the clerk to the ground.\nAs you click the handcuffs onto their wrists, you watch the bottle disappear into the waves."
 
-    play sound "music/sum/sum_se_tako_01.mp3" # Octopus Cry
-    play music "music/sum/sum_bgm_02.mp3" loop   # Loop game music
+    play sound "audio/sum/sum_se_tako_01.mp3" # Octopus Cry
+    play music "audio/sum/sum_bgm_02.mp3" loop   # Loop game music
     "All of a sudden, the waves in the sea start to thrash violently as a giant octopus rises from the water."
 
     scene sum_st_btst_img
-    ### achievement package ###
-    if (achievement.has('sum_st_btst')== False):
-        $ achievement.grant('sum_st_btst')        
-        show screen OverlayScreen1
-        show screen ClickableArea
-    ### achievement package ###
     show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     with fade
     pause 2.0 
     vanta_char "Holy guacamole! That thing is massive! What the frick frack snick snack?"
-    play sound "music/sum/sum_se_tako_04.mp3"
+    play sound "audio/sum/sum_se_tako_04.mp3"
     "The giant octopus lets out an ear-piercing roar. People begin to flee in a panic."
     "Faced with this unexpected threat, you make a prompt decision to—"
 
@@ -1019,9 +1056,13 @@ label start:
         "Evacuate the area first":
             "You notice a small child who tripped and is crying on the ground. \nYou quickly scoop her into your arms and bring her to a safe spot."
             "Once there are no civilians in the immediate vicinity, you run towards the ferocious octopus."
-            $ achievement.grant('takoyaki')
-            play sound "music/win/win_se_camera.mp3"
-            show image "red_dot.png"
+            ### achievement package ###
+            if (achievement.has('takoyaki')== False):
+                $ achievement.grant('takoyaki')        
+                show screen OverlayScreen1
+                show screen ClickableArea
+                play sound "audio/collected_item_ping.mp3"
+            ### achievement package ###
             jump BT1_accepted
     label BT1_accepted:
     vanta_char "Did the octopus just drink whatever was in the bottle? That must be what's driving people crazy!"
@@ -1030,27 +1071,34 @@ label start:
     show van_sum_con at center
     vanta_char "You're cooked! You're done! I'm the cook and I'm about to have takoyaki tonight!"
     "The octopus has no intention of becoming your dinner tonight."
-    play sound "music/sum/sum_se_tako_02.mp3"  #Sound of tentacles attacking
+    play sound "audio/sum/sum_se_tako_02.mp3"  #Sound of tentacles attacking
     "It hurtles one of its tentacles towards you. \nReacting immediately, you jump to the—"
     menu:
         "Right":
+            hide van_sum_con
+            show van_sum_hap at center
             vanta_char "AH HA! This is too easy! I'm always right!"
             "Grinning with excitement, you spin around, waving a hand to get the octopus' attention, then sprint off with a shout."
-            hide van_sum_con
+            hide van_sum_hap
             jump after_accepted
         "Left":
-            play sound "music/sum/sum_se_koke.mp3" #Cocking sound
+            play sound "audio/sum/sum_se_koke.mp3" #Cocking sound
             scene sum_st_fny_img
-
-            $ achievement.grant('sum_st_fny')
-
             show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
             with fade
             pause 2.0 
             "You trip over a particularly large shell lying innocently in the sand and fall to the ground rather ungracefully."
-            play sound "music/sum/sum_se_fanfan.mp3" #Sloppy fanfare
+            play sound "audio/sum/sum_se_fanfan.mp3" #Sloppy fanfare
             "The screech you let out was so unfitting of your appearance that even the octopus was too stunned to speak."
             "Embarrassed, you quickly stand up and brush the sand off you."
+            pause 0.5
+            ### achievement package ###
+            if (achievement.has('sum_st_fny')== False):
+                $ achievement.grant('sum_st_fny')        
+                show screen OverlayScreen1
+                show screen ClickableArea
+                play sound "audio/collected_item_ping.mp3"
+            ### achievement package ###
             scene sum_bg_beach2_img
             show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
             with fade
@@ -1063,13 +1111,11 @@ label start:
 
     show van_sum_con at center
     "You run further along the beach, leading the octopus away from people."
+    "It chases you, swinging its arms."
     hide van_sum_con
     show com_base_img
-    
-    "It chases you, swinging its arms."
-
     show sum_com_1_img at sum_com_1_upper
-    play sound "music/sum/sum_se_tako_03.mp3" #Sound of tentacles attacking
+    play sound "audio/sum/sum_se_tako_03.mp3" #Sound of tentacles attacking
     "A limb wraps around your leg and pulls you up in the air."
     hide sum_com_1_img
     show sum_com_2_img at sum_com_2_upper
@@ -1077,7 +1123,7 @@ label start:
     "To your luck, and the octopus' grief, you are no ordinary human."
     "You gain a huge burst of strength."
     "You twist your body upwards, punching hard into the tentacles, pushing them back."
-    play sound "music/sum/sum_se_kougeki_01.mp3" #Attack sound
+    play sound "audio/sum/sum_se_kougeki_01.mp3" #Attack sound
     hide sum_com_2_img
     show sum_com_3_img at sum_com_2_upper
     vanta_char "{size=50}PARCAW !{/size}"
@@ -1087,7 +1133,7 @@ label start:
     hide sum_com_3_img
     hide sum_com_4_img
     show sum_com_5_img at sum_com_2_upper
-    play sound "music/sum/sum_se_kougeki_02.mp3" #Attack sound
+    play sound "audio/sum/sum_se_kougeki_02.mp3" #Attack sound
     "In the final sprint, you somersault kick right between its eyes with all your might."
     hide sum_com_5_img
     show sum_com_6_img at sum_com_6_upper 
@@ -1095,58 +1141,72 @@ label start:
     show sum_com_7_img at sum_com_7_upper 
     "Your body bounces back in the air from the kick."
     "It was graceful, magnificent, breathtaking even."
-    play sound "music/sum/sum_se_syakin.mp3" #Sound of posing
+    play sound "audio/sum/sum_se_syakin.mp3" #Sound of posing
     hide sum_com_6_img
     hide sum_com_7_img
     show sum_com_8_img at sum_com_2_upper 
     "You land in a superhero pose, of course."
+    play sound "audio/sum/sum_se_cheer.mp3" #cheer
     "You can hear people clapping in the back."
     "Now that the exciting battle is over, you look back at the octopus. It has stopped moving."
-    play music "music/sum/sum_bgm_01.mp3" loop fadein 1.0   # Loop game music
+    play music "audio/sum/sum_bgm_01.mp3" loop fadein 1.0   # Loop game music
     scene sum_st_bten_img
-    $ achievement.grant('sum_st_bten')
     show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     with fade
     pause 2.0 
     vanta_char "Well, that's my workout done for today, nice!"
     "A.S.H. personnel arrive with the freshly developed antidotes.\nYou see the agents handing them out to the people who were affected by the drinks."
     "Everyone on the beach, including the shopkeeper, expresses their thanks to you and the A.S.H. team for averting disaster."
+    pause 0.5
+    ### achievement package ###
+    if (achievement.has('sum_st_btst')== False):
+        $ achievement.grant('sum_st_btst')   
+        $ achievement.grant('sum_st_bten')        
+        show screen OverlayScreen1
+        show screen ClickableArea
+        play sound "audio/collected_item_ping.mp3"
+    ### achievement package ###
     scene sum_bg_beach3_img
     show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     show van_sum_hap at center
     with fade
     vanta_char "Everyone's safe now. We can once again enjoy the beautiful beach in peace."
-    "You see the smile on everyone's face. The happiness of saving them all filled your heart.\nJust another day; you never get tired of it."
+    "You see the smile on everyone's face. The happiness of saving them all filled your heart.Just another day; you never get tired of it."
+    hide van_sum_hap
+    show van_sum_con at center
     vanta_char "Well, that was certainly one way for my vacation to go."
     "Your adventure has only just begun, and the world awaits your epic journey—"
-    show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
-    show text "{b}{size=64}To Be Continue{/size}{/b}" at Position(xalign=0.95, yalign=0.95)
-    show screen OverlayScreen
+
     show sum_edcg_img
-    $ achievement.grant('sum_st_edcg')
-    $ achievement.grant('sum_gallery')
+    ### achievement package ###
+    if (achievement.has('sum_st_edcg')== False):
+        $ achievement.grant('sum_st_edcg')
+        $ achievement.grant('sum_gallery')        
+        show screen OverlayScreen1
+        show screen ClickableArea
+        play sound "audio/collected_item_ping.mp3"
+    ### achievement package ###
     show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     with fade
-    
-    pause 
-    
+    ### ending screen ###
+    show screen OverlayScreen
+    # Wait until the user clicks
+    pause
+    call chapter_2 from _call_chapter_2
 
-    
-label label_aut:
+label chapter_2:
     hide screen OverlayScreen
     stop music fadeout 1.0  # Fade out menu music
-    play music "music/aut/aut_bgm_03.mp3" loop fadein 1.0  #Loop playback of peaceful songs with fade-in
+    play music "audio/aut/aut_bgm_01.mp3" loop fadein 1.0  #Loop playback of peaceful songs with fade-in
 
     show aut_cv_img
-    show text "{b}{size=34}Chapter 2.  AUTUMN{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     # Wait until the user clicks
-    $ achievement.grant('aut_st_main')
     pause
-
+ 
     scene aut_bg_village1_img
     show text "{b}{size=34}Chapter 2.  AUTUMN{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     with fade
-    play sound "music/aut/aut_se_bird.mp3" #birdcall
+    play sound "audio/aut/aut_se_bird.mp3" #birdcall
 
     window hide
 
@@ -1162,10 +1222,12 @@ label label_aut:
     zali_char "It's our pleasure to meet you. I'm Vezalius Bandage, the medic hero of our team Krisis."
     show wil_ci_nor at right
     wilson_char "We come when you call! I'm Yu Q. Wilson, the most talented hero of our team."
+    hide zal_ci_nor
+    show zal_ci_hap at left
     zali_char "Um, anyway, this is a lovely village."
     hide wil_ci_nor
     hide van_ci_nor
-    hide zal_ci_nor
+    hide zal_ci_hap
     show npc4_img at center 
     npc4_char "Absolutely, especially this time of year; look at how beautiful the mountains are!"
     scene aut_bg_village2_img
@@ -1178,19 +1240,20 @@ label label_aut:
     show npc4_img at left_2p
     hide zal_ci_nor
     show zal_ci_sur at right_2p
+    with dissolve
     zali_char "Gosh! That is terrible! Was anyone hurt?"
     npc4_char "Yes, there were some injuries, the bears spooked a few. They're resting in the infirmary over there."
     "The village leader points to a door across the room."
     hide zal_ci_sur
-    show wil_ci_nor at right_2p
+    show wil_ci_hap at right_2p
     wilson_char "You can trust Zali! They'll be in good hands."
-    hide wil_ci_nor
+    hide wil_ci_hap
     show zal_ci_nor at right_2p
     zali_char "Alright! You can count on us."
     hide zal_ci_nor
-    show van_ci_nor at right_2p
+    show van_ci_con at right_2p
     vanta_char "Let's get ready and head out before it gets dark. We need to investigate."
-    hide van_ci_nor
+    hide van_ci_con
     hide npc4_img
     
     scene black
@@ -1201,29 +1264,39 @@ label label_aut:
     show wil_hr_nor at right
     show van_hr_nor at left
     with fade
-    play sound "music/aut/aut_se_clothes.mp3" #Change into a hero costume
+    play sound "audio/aut/aut_se_clothes.mp3" #Change into a hero costume
     "You all decide to gear up for the mission. Meanwhile, you spot Wilson slipping a taser gun in his belt.\nYou raise an eyebrow and stare at him."
-    vanta_char "You're not bringing your sword? Feeling confident?"
-    wilson_char "It's just a bear, there's no job I can't do!"
     hide van_hr_nor
-    show van_hr_ser at left
+    show van_hr_3 at left
+    vanta_char "You're not bringing your sword? Feeling confident?"
+    hide wil_hr_nor
+    show wil_hr_sur at right
+    wilson_char "It's just a bear, there's no job I can't do!"
+    hide van_hr_3
+    show van_hr_con at left
     vanta_char "Look, I'm just saying, what if—"
-    show zal_hr_nor at center
+    hide van_hr_con
+    hide wil_hr_sur
+    show wil_hr_nor at right
+    show van_hr_nor at left 
+    show zal_hr_hap at center
     zali_char "Alright alright! Come on guys, let's focus on the mission!"
-    hide zal_hr_nor
-    show zal_hr_nor at center
     "Zali interrupts you and Wilson as he tosses you two walkie-talkies.\nYou catch them and pass one to Wilson."
-    $ achievement.grant('walkietalkie')
+    ### achievement package ###
+    if (achievement.has('walkietalkie')== False):
+        $ achievement.grant('walkietalkie')        
+        show screen OverlayScreen1
+        show screen ClickableArea
+        play sound "audio/collected_item_ping.mp3"
+    ### achievement package ###
+    hide zal_hr_hap
+    show zal_hr_nor at center
     zali_char "I'll stay behind and look after the people who were attacked."
     hide zal_hr_nor
     show zal_hr_ser at center
     zali_char "Be careful, don't die—if you do, then I can't heal you."
-    hide van_hr_ser
-    hide zal_hr_ser
-    show van_hr_nor at left
-    show zal_hr_nor at center
     "You give Zali a quick nod as he heads to the infirmary. You and Wilson turn towards the mountains."
-    play sound "music/aut/aut_se_bird.mp3" #birdcall   
+    play sound "audio/aut/aut_se_bird.mp3" #birdcall   
     scene aut_bg_forest1_img
     show text "{b}{size=34}Chapter 2.  AUTUMN{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     with fade
@@ -1259,9 +1332,9 @@ label label_aut:
     menu:
         "Give it a sniff.":
             hide van_hr_nor
-            show van_hr_ser at center
+            show van_hr_thi at center
             "You give it a sniff and decide that it's too risky to keep it. You drop the mushroom where you found it."
-            hide van_hr_ser
+            hide van_hr_thi
             jump aut_cho01_accepted
         "Take a small bite.":
             vanta_char "Hmm, the taste is familiar, I wish I could remember where I had it."
@@ -1269,7 +1342,13 @@ label label_aut:
             show van_hr_hap at center
             vanta_char "I like it though, I should grab some more! "
             "You grab a few more mushrooms, and put them in your pouch."
-            $ achievement.grant('mushroom')
+            ### achievement package ###
+            if (achievement.has('mushroom')== False):
+                $ achievement.grant('mushroom')        
+                show screen OverlayScreen1
+                show screen ClickableArea
+                play sound "audio/collected_item_ping.mp3"
+            ### achievement package ###
             hide van_hr_hap
             jump aut_cho01_accepted
     label aut_cho01_accepted:
@@ -1280,7 +1359,7 @@ label label_aut:
     hide van_hr_sur
     show van_hr_nor at center
     "Realizing that you left Wilson behind, you take out your walkie-talkie and turn it on."
-    play sound "music/aut/aut_se_transceiver.mp3" #Transceiver sound
+    play sound "audio/aut/aut_se_transceiver.mp3" #Transceiver sound
     show van_hr_nor at left
     show aut_bg_forest3_img
     show wil_hr_nor at right
@@ -1288,27 +1367,47 @@ label label_aut:
     wilson_char "Hello? Hello? Can you hear me? This is Wilson speaking. Over."
     wilson_char "Mr. Bringer, do you copy? Over."
     vanta_char "Hello? Wilson? This is Vantacrow Bringer. Over."
-    vanta_char "You see, there's this small situation I'm in. I may or may not be lost, I'm not sure where I am. Over." 
-    play sound "music/aut/aut_se_transceiver.mp3" #Transceiver sound
+    hide van_hr_nor
+    show van_hr_con at left
+    hide aut_bg_forest3_img
+    show aut_bg_forest3_img
     hide wil_hr_nor
-    show wil_hr_thi at right
+    show wil_hr_nor at right
+    vanta_char "You see, there's this small situation I'm in. I may or may not be lost, I'm not sure where I am. Over." 
+    play sound "audio/aut/aut_se_transceiver.mp3" #Transceiver sound
+    hide wil_hr_nor
+    show wil_hr_sur at right
     wilson_char "Vanta, Vanta, Vanta...I look away for 10 seconds and you are gone. Over." 
     wilson_char "Tell me what you can see. Over."
-    hide wil_hr_thi
+    hide van_hr_con
+    show van_hr_nor at left
+    hide aut_bg_forest3_img
+    show aut_bg_forest3_img
+    hide wil_hr_sur
     show wil_hr_nor at right
     "You look around, and you answer confidently—"
     menu:
         "I'm under a cloud.":
             "TThe walkie-talkie goes silent, is it broken?"           
             "Suddenly, laughter bursts from the speaker."
-            play sound "music/aut/aut_se_transceiver.mp3" #Transceiver sound
+            play sound "audio/aut/aut_se_transceiver.mp3" #Transceiver sound
             hide wil_hr_nor
             show wil_hr_hap at right
             wilson_char "Hahaha... Vanta, you're so stupid!"
             wilson_char "Just stay still, and I'll find you. Over."
+            hide van_hr_nor
+            show van_hr_ser at left
+            hide aut_bg_forest3_img
+            show aut_bg_forest3_img
+            hide wil_hr_hap
+            show wil_hr_hap at right
             vanta_char "Bro, I know this sounds insane, but the cloud I'm under actually looks like Tentapod! Over."
-            play sound "music/aut/aut_se_transceiver.mp3" #Transceiver sound
+            play sound "audio/aut/aut_se_transceiver.mp3" #Transceiver sound
             wilson_char "Hey Bro... This also sounds insane, but I know exactly where you are, I can see the Tentapod cloud, too! Over."
+            hide van_hr_ser
+            show van_hr_nor at left
+            hide aut_bg_forest3_img
+            show aut_bg_forest3_img
             hide wil_hr_hap
             show wil_hr_nor at right
             "Miraculously, against all odds, Wilson manages to track you down with nothing more than a vague description of a cloud's shape."
@@ -1317,60 +1416,57 @@ label label_aut:
             jump aut_cho02_accepted
 
         "I'm surrounded by ​​flowers":
-            play sound "music/aut/aut_se_transceiver.mp3" #Transceiver sound
+            play sound "audio/aut/aut_se_transceiver.mp3" #Transceiver sound
             hide wil_hr_nor
             show wil_hr_thi at right
             wilson_char "Vanta... that doesn't tell me anything. There must be something else around you. Over."
             hide wil_hr_thi
-            show wil_hr_nor at right
+            show wil_hr_hap at right
             wilson_char "Can you try to get to higher ground for a good vantage point? Haha."
             wilson_char "Try to find a huge rock or a tall tree to climb for a better view. Let me know what you see. Over."
             vanta_char "Wilson! Don't laugh at my pain. Alright, I can see a huge tree. I'm going to climb up the tree and take a look. Over."
-
-            play sound "music/aut/aut_se_tree.mp3" #The sound of swaying trees
+            play sound "audio/aut/aut_se_tree.mp3" #The sound of swaying trees
             "As you climb up the tree, you reach for a sturdy branch, inadvertently shaking it."
             "Suddenly, a bee hive plummets to the forest floor; you don't feel very good about this."
             hide van_hr_nor
-            show van_hr_sur at left
+            hide wil_hr_hap
+            show van_hr_emb at left
             hide aut_bg_forest3_img
             show aut_bg_forest3_img
-            hide wil_hr_nor
             show wil_hr_sur at right
             vanta_char "ARE YOU SERIOUS? PINEAPPLES!"
             "Yes, we are serious."
-
-            play sound "music/aut/aut_se_wasp.mp3" #buzz of a bee
+            play sound "audio/aut/aut_se_wasp.mp3" #buzz of a bee
             "The air fills with buzzing as hundreds of bees swarm around, seeking the source of the disturbance to their home."
             "You are so distraught that you can't hear Wilson calling for you from the walkie-talkie."
             vanta_char "Oh shittake mushroom—"
             vanta_char "Oh please, not like this!!"
+            hide van_hr_emb
+            show van_hr_sur at left
+            hide aut_bg_forest3_img
+            show aut_bg_forest3_img
+            hide wil_hr_sur
+            show wil_hr_sur at right
             vanta_char "AHHHHHHHHHH!!!"
-
-            play sound "music/aut/aut_se_tree.mp3" #The sound of swaying trees
+            play sound "audio/aut/aut_se_tree.mp3" #The sound of swaying trees
             "Panicked, you leap from the tree, but instead of landing in your signature hero pose, you stumble, struggling to maintain your balance."
-
-            play sound "music/aut/aut_se_transceiver.mp3" #Transceiver sound
+            play sound "audio/aut/aut_se_transceiver.mp3" #Transceiver sound
             wilson_char "Vanta? VANTA? Are you okay? Are you there?"
             wilson_char "Answer me! Tell me what's going on! OVER!"
             vanta_char "No No No No No No No! You can't see me! You can't see me! You can't see me!"
             vanta_char "{size=45}WILSON—SHUT UP!!{/size}"
             vanta_char "{size=45}AHHHHHH!{/size}"
-
-            play sound "music/aut/aut_se_wasp.mp3" #buzz of a bee
+            play sound "audio/aut/aut_se_wasp.mp3" #buzz of a bee
             "The enraged bees chase you relentlessly. Your heart races as you sprint through the forest, weaving between trees in a frantic attempt to throw off the bees."
-
-            play sound "music/aut/aut_se_leaves_02.mp3" #The sound of running on fallen leaves
+            play sound "audio/aut/aut_se_leaves_02.mp3" #The sound of running on fallen leaves
             "Adrenaline fuels your legs as you push yourself to your limits. Every step is a leap of faith."
             "This is not as easy as fighting a giant octopus, and certainly not feasible for an ordinary human. But you are Vantacrow Bringer, you refuse to be defeated."
             "You don't know how long you've been bolting, but the pursuit of the bees gradually fades into the distance."
             "You turn a corner with haste, colliding with something as a flash of yellow blocks your vision. Before you can regain your balance, strong arms wrap around you, lifting you effortlessly off your feet."
-           
             hide aut_bg_forest3_img
             show aut_st_fny_img
-            $ achievement.grant('aut_st_fny')
-            with fade   
-          
-            play sound "music/aut/aut_se_syojyo.mp3" #The Sound of Shoujo Manga
+            with fade
+            play sound "audio/aut/aut_se_syojyo.mp3" #The Sound of Shoujo Manga
             pause 2.0 
             "Startled, you find yourself in a princess carry, the unexpected encounter leaving you momentarily breathless as you gaze up into the eyes of..."
             "Yu Q. Wilson."
@@ -1379,6 +1475,14 @@ label label_aut:
             wilson_char "If you don't mind, can I let go now?"
             vanta_char "Wh—How would I know there would be a beehive on that tree?!"
             vanta_char "Anyway, thanks for the lift."
+            pause 0.5
+            ### achievement package ###
+            if (achievement.has('aut_st_fny')== False):   
+                $ achievement.grant('aut_st_fny')        
+                show screen OverlayScreen1
+                show screen ClickableArea
+                play sound "audio/collected_item_ping.mp3"
+            ### achievement package ###
             hide aut_st_fny_img
             hide wil_hr_sur
             hide van_hr_sur
@@ -1396,26 +1500,27 @@ label label_aut:
     hide wil_hr_nor
     show wil_hr_hap at right
     wilson_char "Oh my god, that is sho cyute. Oh! We should make sure it doesn't accidentally get into the trap."
-    hide wil_hr_hap
-    show wil_hr_nor at right
+    hide van_hr_nor
+    show van_hr_hap at left
     vanta_char "Oh yeah! I'll grab a leaf to entice the cub away from the trap."
     wilson_char "Oh no, if the cub is here..."
+    hide wil_hr_hap
+    show wil_hr_sur at right
     wilson_char "Then the mama bear must be nearby, we should watch out—"
-    play sound "music/aut/aut_se_bear_01.mp3" # Bear growling sound  
-    play music "music/sum/sum_bgm_02.mp3" loop fadein 1.0 # Battle music
+    play sound "audio/aut/aut_se_bear_01.mp3" # Bear growling sound  
+    play music "audio/sum/sum_bgm_02.mp3" loop fadein 1.0 # Battle music
     show aut_st_btst_img
-    $ achievement.grant('aut_st_btst')
     with fade
     pause 2.0 
     "All of a sudden, a low, rumbling growl echoes from behind you."
     "Your heart skips a beat, you turn to face the source of the ominous sound, only to find yourself locking eyes with a bear whose fur bristles with aggression."
     "Ah, just what you need—another item checked off the bucket list: getting chased by a bear. How thrilling!"
     
-    play sound "music/aut/aut_se_bear_02.mp3" # Bear growling sound
+    play sound "audio/aut/aut_se_bear_02.mp3" # Bear growling sound
     "The bear lets out a terrifying roar, the forest trembles in response. It exudes unusual agitation and aggression, its abnormally large form far surpassing any bears you've encountered before."
     "You and Wilson pause for a second, exchanging a look that says, 'Deuces!'."
 
-    play sound "music/aut/aut_se_leaves_02.mp3" # Sound of running on leaves
+    play sound "audio/aut/aut_se_leaves_02.mp3" # Sound of running on leaves
     "Without saying a word, you read your homie's mind, and simultaneously turn on your heels, racing down the mountain."
     stop sound fadeout 3.0 #Stop sound effects
     scene aut_bg_forest2_img
@@ -1434,28 +1539,28 @@ label label_aut:
     with fade 
     vandw_char "AHHHHHHHHH!!!"
 
-    play sound "music/aut/aut_se_leaves_02.mp3" # Sound of running on leaves
+    play sound "audio/aut/aut_se_leaves_02.mp3" # Sound of running on leaves
     "You and Wilson rapidly approach the village entrance. You see Zali, his presence a beacon of hope."
     stop sound fadeout 3.0 # Stop sound with a fadeout
     show aut_com_2_img at aut_com_2_upper
     zali_char "What the hell?! What did you guys do?!"
     zali_char "I said, 'Don't get hurt', not 'Bring me a surprise!'"
     
-    play sound "music/aut/aut_se_bear_02.mp3" # Bear growling sound
+    play sound "audio/aut/aut_se_bear_02.mp3" # Bear growling sound
     "The bear catches up to the three of you, slashing towards Wilson."
     "With lightning reflexes, he swiftly dodges to the side, narrowly avoiding the deadly swipe. However, the bear's sheer force collides with a nearby tree, sending it crashing to the ground."
     hide aut_com_1_img
     hide aut_com_2_img
     show aut_com_3_img at aut_com_3_upper
-    play sound "music/sum/sum_se_tako_02.mp3" # Sound of dodging an attack, reused.
+    play sound "audio/sum/sum_se_tako_02.mp3" # Sound of dodging an attack, reused.
     wilson_char "HA! You can't lay a finger on the best former hitman ever—"
     wilson_char "WOAHHHH!! Who put this thing here?!"
     show aut_com_4_img at aut_com_4_upper 
-    play sound "music/aut/aut_se_rope.mp3" # Sound of rope
+    play sound "audio/aut/aut_se_rope.mp3" # Sound of rope
     "As Wilson nimbly dodges the attack, he accidentally triggers a snare trap, finding himself abruptly hoisted upside down."
     zali_char "WILSON! Use your taser gun!"
     show aut_com_5_img at aut_com_5_upper
-    play sound "music/aut/aut_se_taser.mp3" # Sound of a taser gun
+    play sound "audio/aut/aut_se_taser.mp3" # Sound of a taser gun
     "Wilson draws his taser gun from his belt, he skillfully aims and fires at the bear while hanging upside down. To everyone's surprise, the bear is only stunned for a few seconds. It's about to attack again."
     wilson_char "MY GOD! That barely did anything, just how strong is this bear?"
     "Seeing Wilson in peril, you quickly assess the situation and leap into action. You rush to Wilson's side and begin to untie the trap, wanting to free him from his precarious predicament."
@@ -1465,12 +1570,12 @@ label label_aut:
     show aut_com_6_img at aut_com_6_upper
     vanta_char "Wilson, hang in there!"
     
-    play sound "music/aut/aut_se_rope.mp3" # Sound of rope
+    play sound "audio/aut/aut_se_rope.mp3" # Sound of rope
     vanta_char "God damn it. This rope is so fricking tight..."
     "However, you're not fast enough, the bear is about to strike again—"
     zali_char "Vanta! The bear!!!{size=40}WILSON—{/size}"
     
-    play sound "music/aut/aut_se_bandage.mp3" # Sound of bandages
+    play sound "audio/aut/aut_se_bandage.mp3" # Sound of bandages
     "As the bear unleashes another slashing attack on Wilson, strips of Zali's bandages shoot towards the bear's claws, ensnaring its movements and halting its impending strike."
     "The bear's immense strength begins to strain the bandages, causing them to fray as they are pulled."
     "As elegant as Zali has always been, his voice carries a tone of genuine concern for his teammates."
@@ -1481,7 +1586,7 @@ label label_aut:
     vanta_char "... That also sounds bad, forget it. {size=40}I'LL BE THERE IN JUST A SECOND!!{/size}"
     "After freeing Wilson from the trap, you shift your focus to Zali."
     show aut_com_7_img at aut_com_7_upper
-    play sound "music/sum/sum_se_kougeki_01.mp3" # Sound of tackling, reused.
+    play sound "audio/sum/sum_se_kougeki_01.mp3" # Sound of tackling, reused.
     "With unwavering determination, you leap onto the bear, swiftly wrapping your arms and legs around its massive form."
     "The moment Wilson's shoes touch the ground, he propels himself forward, launching into a fierce tackle aimed at the bear."
     vandw_char "{size=45}EUHHHHH AHHHHHH!!! ZALI! RIGHT NOW!!{/size}"
@@ -1489,15 +1594,22 @@ label label_aut:
     hide aut_com_6_img
     hide aut_com_7_img
     show aut_com_8_img at aut_com_8_upper
-    play sound "music/aut/aut_se_needle.mp3" # Sound of needle
+    play sound "audio/aut/aut_se_needle.mp3" # Sound of needle
     "Zali regains his composure and speaks with a soothing tone. He produces a syringe seemingly out of thin air, and before you can register any movement, the needle is already under the bear's skin."
+    show aut_com_9_img at aut_com_9_upper
     "The unknown liquid slowly disappears into the bear's body, as Zali expertly administers the sedative. "
-    play sound "music/sum/sum_se_koke.mp3" # Sound of bear collapsing, reused.
+    play sound "audio/sum/sum_se_koke.mp3" # Sound of bear collapsing, reused.
     "The tension in the bandages loosens as the bear slumps onto the ground, surrendering to the sedative's effects."
+    hide aut_com_9_img
+    show aut_com_10_img at aut_com_10_upper
+    show aut_com_9_img at aut_com_9_upper
+    "You and Wilson are stunned by the seamless execution of Zali's actions within mere seconds."
     hide com_base_img
     hide aut_com_8_img
+    hide aut_com_9_img
+    hide aut_com_10_img
+    hide com_base_img
     with dissolve
-    "You and Wilson are stunned by the seamless execution of Zali's actions within mere seconds."
     show zal_hr_nor at center
     zali_char "Alright! This potion will ensure that the bear sleeps peacefully until it gets to HQ."
     zali_char "I'll call A.S.H.'s team to get a case to take the bear back. If there are cubs, I'll take care of them, too."
@@ -1505,9 +1617,8 @@ label label_aut:
     show zal_hr_hap at center
     zali_char "Alright then! Nice, guys! That was quite close. But it all worked out in the end. Hahaha."
     stop music fadeout 1.0 
-    play music "music/aut/aut_bgm_01.mp3" loop fadein 1.0 # Peaceful music
+    play music "audio/aut/aut_bgm_01.mp3" loop fadein 1.0 # Peaceful music
     show aut_st_bten_img
-    $ achievement.grant('aut_st_bten')
     with fade
     pause 2.0 
     wilson_char "V… Vanta?"
@@ -1520,6 +1631,14 @@ label label_aut:
     "Zali looks at the two of you, clearly puzzled, but with a smile adorning his face."
     zali_char "Your faces look weird. Did I do something wrong?"
     vandw_char "{size=50}No-nothing!{/size}"
+    ### achievement package ###
+    if (achievement.has('sum_st_btst')== False):
+        $ achievement.grant('sum_st_btst')
+        $ achievement.grant('sum_st_bten')        
+        show screen OverlayScreen1
+        show screen ClickableArea
+        play sound "audio/collected_item_ping.mp3"
+    ### achievement package ###
     scene aut_bg_village1_img
     show text "{b}{size=34}Chapter 2.  AUTUMN{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     show van_hr_nor at left
@@ -1529,29 +1648,42 @@ label label_aut:
     "The A.S.H. logistics team arrives at the scene, just as the sun begins its descent, bringing with them a cage tailored for the massive bear."
     "As the intense battle finally concludes, the villagers express their appreciation for your efforts by offering a plethora of souvenirs."
     "They give you some locally made maple syrup and a bucket of their specialty mushrooms, each item symbolizing their heartfelt thanks."
-    $ achievement.grant('maple_syrup') 
+    ### achievement package ###
+    if (achievement.has('maplesyrup')== False):
+        $ achievement.grant('maplesyrup')        
+        show screen OverlayScreen1
+        show screen ClickableArea
+        play sound "audio/collected_item_ping.mp3"
+    ### achievement package ###
     "Zali examines the mushrooms closely before instructing the logistics team to store them in his lab back at A.S.H."
     zali_char "These mushrooms look very interesting... They have a unique smell. I want to see what I can do with them."
     "The three of you also indulge in some delicious mushroom dishes prepared by the villagers, savoring the flavors of their generosity."
     "As peace returns to the mountain, you bid the villagers farewell, the tranquility of the moment etched in your memory."
     "A single maple leaf gently lands on your shoulder, a poignant reminder that even as you depart, nature itself bids its own farewell to the season."
     show aut_edcg_img
-    $ achievement.grant('aut_st_edcg')
-    show text "{b}{size=34}Chapter 2.  AUTUMN{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
-    show screen OverlayScreen
+    
     with fade
     # Display END at the bottom right
-    show text "{b}{size=64}To Be Continue{/size}{/b}" at Position(xalign=0.95, yalign=0.95)
+    ### achievement package ###
+    if (achievement.has('aut_st_edcg')== False):
+        $ achievement.grant('aut_st_edcg')
+        $ achievement.grant('aut_gallery')        
+        show screen OverlayScreen1
+        show screen ClickableArea
+        play sound "audio/collected_item_ping.mp3"
+    ### achievement package ###
+    ### ending screen ###
+    show screen OverlayScreen
     # Wait for user to click
     pause
-    
-label label_winter:
+    call chapter_3 from _call_chapter_3
+
+label chapter_3:
     hide screen OverlayScreen
     stop music fadeout 1.0  # Fade out menu music
-    play music "music/win/win_bgm_01.mp3" loop fadein 1.0  #Loop playback of peaceful songs with fade-in
+    play music "audio/win/win_bgm_01.mp3" loop fadein 1.0  #Loop playback of peaceful songs with fade-in
 
     show win_cv_img
-    show text "{b}{size=34}Chapter 3.  WINTER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     # Wait until the user clicks
     pause
  
@@ -1571,10 +1703,10 @@ label label_winter:
     show van_ci_nor at center
     vanta_char "Guys, do you want any drinks? Something to eat? I'm going to grab some snacks real quick."
     hide van_ci_nor
-    show wil_ci_nor at center
+    show wil_ci_hap at center
     wilson_char "Ooo! I haven't had coffee today! I'm gonna go make myself a cup. Vanta, can I have a cheesecake, pwease?"
     wilson_char "Zali, do you want anything? A croissant maybe?"
-    hide wil_ci_nor
+    hide wil_ci_hap
     show zal_ci_hap at center
     zali_char "Haha, yeah sure! Anything sweet would be fine."
     zali_char "Oh, and hand me the report, Vanta. I'll help you finish this one."
@@ -1590,22 +1722,26 @@ label label_winter:
     vanta_char "Oh! My Crew! What are you doing in my coat? Were you napping? Did I wake you up? "
     "The Vantacrew woke up from hearing your voice, they seem to like being snug up in your coat."
     hide van_ci_sur
-    show van_ci_nor at right_2p
+    show van_ci_3 at right_2p
     vanta_char "Sorry guys, I need my coat; I'm going out."
-    play sound "music/win/win_se_slime_01.mp3" #slime sound
+    play sound "audio/win/win_se_slime_01.mp3" #slime sound
     "The Crew begins bouncing up and down, looking eager to leave with you."
     vanta_char "AND... you're staying here."
-    play sound "music/win/win_se_slime_01.mp3" #slime sound
+    play sound "audio/win/win_se_slime_01.mp3" #slime sound
+    hide van_ci_3
+    show van_ci_sur at right_2p
     hide crew3_nor_img
     show crew3_ang_img at left_2p
     "The Crew, in apparent defiance, begin to bounce more vigorously and emit disgruntled noises, clearly expressing their disagreement with being told to stay put."
     "They start to huddle around your legs to keep you from going out without them. Sometimes you wonder who’s really in charge here."
+    hide van_ci_sur
+    show van_ci_con at right_2p
     "You look down at them fondly—your Crew, a group of slimes that have been by your side since you joined A.S.H."
-    hide van_ci_nor
-    show van_ci_sur at right_2p
     vanta_char "You're telling me if you can't go, I can't either?"
     vanta_char "Ugh! Alright alright! Y'all are so stubborn.\nFine then, come on!"
-    play sound "music/win/win_se_slime_01.mp3" #slime sound
+    play sound "audio/win/win_se_slime_01.mp3" #slime sound
+    hide crew3_ang_img
+    show crew3_3_img at left_2p
     "Despite the hint of annoyance in your voice, you open your coat, leaning forward to allow the Crew to hop inside."
     "After all, it's snowing, and you couldn't bear to let them bounce around in the cold."
     "Who knew being kind to a bunch of tiny and seemingly tasty creatures could be so bothersome? Yet here you are, playing the reluctant hero once again."
@@ -1620,7 +1756,7 @@ label label_winter:
 
     menu:
         "Enter Le Petit Coin": 
-            play sound "music/sum/sum_se_bell.mp3" #Sound of bell, reused
+            play sound "audio/sum/sum_se_bell.mp3" #Sound of bell, reused
             jump win_cho_one1_accepted
     label win_cho_one1_accepted:
 
@@ -1629,34 +1765,45 @@ label label_winter:
     with fade
     "As you enter Le Petit Coin, the warmth of the store washes over you. Festive decorations adorn every corner, from twinkling lights to garlands of holly, casting a cheerful glow over the space."
     "You can't help but smile as you take in the merry atmosphere. With a sense of excitement, you begin to browse the aisles."
-    show van_ci_hap at center
+    show van_ci_con at center
     vanta_char "Oh? There are some samples over there. I'm gonna try it!\nOh my god, Zali is gonna hate these."
     "It looks like Le Petit Coin is promoting a new festive item—eggplant-shaped candy. You take a bite of the sample; it tastes nice, with a delightful grape flavor."
     "You decide to grab a bag for Zali, thinking maybe, just maybe, it might change his perception of eggplant."
-    $ achievement.grant('eggplant') 
+    hide van_ci_con
+    show van_ci_hap at center  
     vanta_char "Is that ice cream cake? I must get it for Wilson. Ahahaha."
-    $ achievement.grant('icecream_cake') 
-    vanta_char "I should also get something for myself to drink. Hmm, how about some diet soda?" 
-    $ achievement.grant('diet_soda') 
-    play sound "music/win/win_se_slime_01.mp3" #slime sound
-    show van_ci_hap at right_2p
+    vanta_char "I should also get something for myself to drink. Hmm, how about some diet soda?"
+    ### achievement package ###
+    if (achievement.has('dietsoda')== False):
+        $ achievement.grant('eggplant')
+        $ achievement.grant('dietsoda') 
+        $ achievement.grant('icecreamcake')         
+        show screen OverlayScreen1
+        show screen ClickableArea
+        play sound ["audio/collected_item_ping.mp3","audio/win/win_se_slime_01.mp3"]
+    ### achievement package ### 
+    play sound "audio/win/win_se_slime_01.mp3" #slime sound
     show crew3_hap_img at left_2p
+    show van_ci_hap at right_2p
     with dissolve
     "The Crew seems to be excited, too. Their cheerful burbles fill the air as you walk past a beautifully decorated Christmas tree."
+    hide van_ci_hap
+    show van_ci_con at right_2p 
     vanta_char "Oh? You guys like the Christmas tree? Merry Krisis!"
-    play sound "music/win/win_se_slime_01.mp3" #slime sound
+    play sound "audio/win/win_se_slime_01.mp3" #slime sound
     "They look eager to capture a festive photo, and you can't resist their enthusiasm.\nYou oblige and take out your phone."
     
     menu:
         "Take a selfie with the Christmas tree":
+            hide van_ci_con
             hide crew3_hap_img
             show van_ci_hap at right_2p
             show crew3_ang_img at left_2p
-            play sound "music/win/win_se_camera.mp3" #Camera shutter sound
+            play sound "audio/win/win_se_camera.mp3" #Camera shutter sound
             "You take a selfie with the twinkling Christmas tree; the Crew sound annoyed that they aren't in the picture with you."
-            play sound "music/win/win_se_slime_01.mp3" #slime sound
+            play sound "audio/win/win_se_slime_01.mp3" #slime sound
             vanta_char "Haha, I'm joking. I'll take one more with you guys in it."
-            play sound "music/win/win_se_camera.mp3" #Camera shutter sound
+            play sound "audio/win/win_se_camera.mp3" #Camera shutter sound
             hide crew3_ang_img
             show crew3_hap_img at left_2p
             "The second picture seems to make them happier."
@@ -1667,9 +1814,9 @@ label label_winter:
             show van_ci_hap at right_2p
             show crew3_hap_img at left_2p
             vanta_char "Alright! Come on, go in front of the tree, and smile!"
-            play sound "music/win/win_se_camera.mp3" #Camera shutter sound
+            play sound "audio/win/win_se_camera.mp3" #Camera shutter sound
             "You take a picture of the excited crew gathered around the tree, their tiny forms bobbing happily."
-            play sound "music/win/win_se_slime_01.mp3" #slime sound
+            play sound "audio/win/win_se_slime_01.mp3" #slime sound
             "One of the Crew accidentally gets their little leg entangled in the string lights, prompting a frantic tug. With a jolt, the wire gives way, and the tree begins to wobble."
             show win_st_fny_img
             with fade
@@ -1678,8 +1825,16 @@ label label_winter:
             "You manage to steady the swaying tree, preventing it from toppling over completely."
             vanta_char "Wo-woah!! Woah!! That was close!"
             vanta_char "You are banned from getting under the Christmas tree again. That was insane guys!"
-            play sound "music/win/win_se_slime_01.mp3" #slime sound
+            play sound "audio/win/win_se_slime_01.mp3" #slime sound
             "You stabilize the tree with a firm grip, the Crew looking somewhat apologetic. Laughter fills the air as you avert a potential disaster."
+            pause 0.5
+            ### achievement package ###
+            if (achievement.has('win_st_fny')== False):   
+                $ achievement.grant('win_st_fny')        
+                show screen OverlayScreen1
+                show screen ClickableArea
+                play sound "audio/collected_item_ping.mp3"
+            ### achievement package ###
             hide win_st_fny_img 
             scene win_bg_shop_img
             show text "{b}{size=34}Chapter 3.  WINTER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
@@ -1687,10 +1842,10 @@ label label_winter:
             jump  win_cho2p_accepted
     label win_cho2p_accepted:
 
-    show van_ci_nor at center
-    with dissolve
+    show van_ci_hap at center 
+    with dissolve  
     "You make your way to the counter to pay.\nAfter packing everything, you exit Le Petit Coin."
-    play sound "music/sum/sum_se_bell.mp3" # Sound of bell, reused
+    play sound "audio/sum/sum_se_bell.mp3" # Sound of bell, reused
     scene win_bg_park_img
     show text "{b}{size=34}Chapter 3.  WINTER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     show van_ci_nor at center
@@ -1698,9 +1853,11 @@ label label_winter:
     "As you head back to A.S.H., you walk past a nearby park..."
     "The snow has already started to lightly cover the playground, but you notice a small mound of bright colors that has yet to be covered."
     "Upon closer inspection, you notice that the colors are those of the coat of a little boy, crouched in the snow."
+    hide van_ci_nor
+    show van_ci_thi at center
     vanta_char "I wonder where his parents are. It's freezing out; let's go see if he's alright."
-    play sound "music/win/win_se_slime_01.mp3" #slime sound
-    show van_ci_nor at right_2p
+    play sound "audio/win/win_se_slime_01.mp3" #slime sound
+    show van_ci_thi at right_2p
     show crew1_nor_img at left_2p
     with dissolve
     "The Crew seem to grow concerned as well. One of them wiggles out of your coat and bounces ahead of you, eager to make sure the kid is okay."
@@ -1709,13 +1866,15 @@ label label_winter:
             jump win_cho_one2_accepted
     label win_cho_one2_accepted:
 
+    hide van_ci_thi
+    show van_ci_nor at right_2p
     vanta_char "Hey kiddo, what are you doing here by yourself?\nWhere's your family?"
     "You must seem tall and intimidating to him, which makes him a bit scared to speak."
-    play sound "music/win/win_se_kiran.mp3" #flash of inspiration sound
+    play sound "audio/win/win_se_kiran.mp3" #flash of inspiration sound
     hide van_ci_nor
     show van_ci_sur at right_2p
     "You look at the Vantacrew, and you have an idea!"
-    play sound "music/win/win_se_slime_01.mp3" #slime sound
+    play sound "audio/win/win_se_slime_01.mp3" #slime sound
     hide van_ci_sur
     show van_ci_3 at right_2p
     show crew1_3_img at left_2p
@@ -1726,7 +1885,7 @@ label label_winter:
     show van_ci_sur at right_2p
     show crew1_nor_img at left_2p
     vanta_char "No reaction? Really?\nOkay, that wasn't my best shot, let's try again!"
-    play sound "music/win/win_se_slime_01.mp3" #slime sound
+    play sound "audio/win/win_se_slime_01.mp3" #slime sound
     hide van_ci_sur
     hide crew1_nor_img
     show van_ci_3 at right_2p
@@ -1741,35 +1900,36 @@ label label_winter:
     npc5_char "I shouldn't have been so mean to her. She lent me her favorite game, and now I might not even have the chance to return such an important thing to her..."
     "You notice he's holding a game tightly. The familiar blue slime on the cover reminds you of the Vantacrew. Glancing back, you see some of them bouncing in the snow behind you."
     hide van_ci_nor
-    show van_ci_ser at right_2p
+    show van_ci_con at right_2p
     vanta_char "Listen kid, if your friend means a lot to you, you should go to her instead of waiting here for her to come to you."
     npc5_char "But...but...will I annoy her? What if she doesn't want to see me? What if she doesn't want to be friends with me anymore?"
     vanta_char "You know, sometimes you just shouldn't overthink things. You do what you can, and you can what you do.\nDon't be afraid of expressing your feelings to someone important to you."
-    play music "music/sum/sum_bgm_02.mp3" fadein 1.0 loop #Battle music
+    play music "audio/sum/sum_bgm_02.mp3" fadein 1.0 loop #Battle music
     show win_st_btst_img
     with fade
     pause 2.0  
     "With your encouragement, the boy asks you to accompany him to find his friend. Upon arriving at his friend's house, everything is gone, leaving only an empty house."
     "The boy starts to cry and you try to comfort him. You look around, realizing that the Vantacrew who were following behind you, have disappeared."
+    "Immediately, you implore Kurococco to track the Crew's location. The results reveal that they are in a moving vehicle."
+    vanta_char "Kid, ready for a little adventure? Hold on tight, and off we go!\nI'll dash so fast it'll feel like we're flying, even though it's just me running. You get what I'm saying, right?"
     scene win_bg_run_img
     show text "{b}{size=34}Chapter 3.  WINTER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     show com_base_img
     with fade
-    "Immediately, you implore Kurococco to track the Crew's location. The results reveal that they are in a moving vehicle."
     show win_com_1_img at win_com_1_upper
     with dissolve
-    vanta_char "Kid, ready for a little adventure? Hold on tight, and off we go!\nI'll dash so fast it'll feel like we're flying, even though it's just me running. You get what I'm saying, right?"
     "You effortlessly give the kid a piggyback while juggling the shopping bags like a pro. Multitasking is easy for an experienced hero like you."
-    play sound "music/win/win_se_snow_run.mp3" #Running on snow
+    play sound "audio/win/win_se_snow_run.mp3" #Running on snow
     "You leap into action, showing off your parkour prowess."
+    npc5_char "{size=45}WOW!! YOU'RE SO COOL!{/size}\nAre you Arachnid-Man? Oh, but... you're not wearing tights."
     hide win_com_1_img
     show win_com_2_img at win_com_1_upper
-    npc5_char "{size=45}WOW!! YOU'RE SO COOL!{/size}\nAre you Arachnid-Man? Oh, but... you're not wearing tights."
     vanta_char "I'm not Arachnid-Man! I'm a tyrant! A hero of Krisis!\nYeah, one of my fellow heroes does wear tights, but not all heroes wear tights!"
     scene win_bg_street2_img
+    show text "{b}{size=34}Chapter 3.  WINTER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     with fade
     "As you catch up to the moving car, its speed gradually decreases until it eventually comes to a stop in front of a house."
-    play sound "music/win/win_se_car.mp3" #The sound of a car door closing.
+    play sound "audio/win/win_se_car.mp3" #The sound of a car door closing.
     show npc6_img at left_2p
     show crew3_nor_img at right_2p
     "The door swings open, revealing a little girl accompanied by her parents. Among them, you spot the Vantacrew hopping out one after another, slipping by unnoticed."
@@ -1778,14 +1938,14 @@ label label_winter:
     show npc5_img at center
     npc5_char "Oh! That...that's my friend..."
     hide npc5_img
-    show van_ci_sur at center
+    show van_ci_thi at center
     vanta_char "Wait, really? LMAO? How did the Crew know...?"
-    hide van_ci_sur
-    play sound "music/win/win_se_slime_01.mp3" #slime sound
-    show crew3_nor_img at center
+    play sound "audio/win/win_se_slime_01.mp3" #slime sound
+    hide van_ci_thi
+    show crew3_hap_img at center
     "Watching the bouncing slimes, you can't help but think that there's absolutely not a single thought behind those colon three faces. It's probably just head empty, vibe happy!"
     "Well, at least it all worked out, just like in a Christmas movie."
-    hide crew3_nor_img
+    hide crew3_hap_img
     show win_com_3_img at win_com_3_upper
     "With a smile, you hand the boy the game he wishes to return and give him a reassuring push towards his friend's house."
     vanta_char "Come on, I believe in you.\nGo ahead and tell her how you feel."
@@ -1802,13 +1962,22 @@ label label_winter:
     npc5_char "Oh, that guy!\nUm, apparently, he's a hero, even though he's not wearing tights... I think!\nHe brought me here."
     "The boy has now reunited with his friend, and they appear to be in good spirits. Surrounded by their parents, they wave goodbye to you before heading into the girl's new house."
     stop music fadeout 1.0  # Fade out the menu music
-    play music "music/win/win_bgm_01.mp3" loop fadein 1.0  # Play a peaceful track on loop
+    play music "audio/win/win_bgm_01.mp3" loop fadein 1.0  # Play a peaceful track on loop
     show win_st_bten_img 
     with fade
     pause 2.0  
     "You bask in the satisfaction of being a friendly neighborhood hero today, and the Vantacrew seems equally pleased with themselves for locating the moving car."
-    play sound "music/win/win_se_phone.mp3" #Cell Phone Sounds
+    play sound "audio/win/win_se_phone.mp3" #Cell Phone Sounds
     "Simultaneously, your phone vibrates in your pocket, signaling an incoming call from your teammates."
+    pause 0.5
+    ### achievement package ###
+    if (achievement.has('win_st_btst')== False):
+        $ achievement.grant('win_st_btst')   
+        $ achievement.grant('win_st_bten')        
+        show screen OverlayScreen1
+        show screen ClickableArea
+        play sound "audio/collected_item_ping.mp3"
+    ### achievement package ###
     scene win_bg_street2_img
     show text "{b}{size=34}Chapter 3.  WINTER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     show win_bg_office2_img
@@ -1823,7 +1992,11 @@ label label_winter:
     hide wil_ci_sur
     show zal_ci_nor at left
     zali_char "We thought you just went to get some drinks and desserts. Wilson was yapping the whole time..."
+    hide zal_ci_nor
+    show zal_ci_thi at left 
     zali_char "Is everything alright now? Do you need us to come and help?"
+    hide zal_ci_thi
+    show zal_ci_nor at left 
     vanta_char "Nah, everything is good. We ball. I'm heading back now; let's have dinner together."
     "Glancing at the shopping bag, you notice the ice cream cake has begun to melt. Oh well, better pop it in the freezer pronto."
     hide van_ci_hap
@@ -1840,7 +2013,7 @@ label label_winter:
     hide zal_ci_hap
     show wil_ci_sur at left
     show van_ci_sur at right
-    vandw_char "{size=50}Please don't!{/size}"
+    wandv_char "{size=50}Please don't!{/size}"
     hide van_ci_sur
     hide wil_ci_sur
     hide win_bg_office2_img
@@ -1848,35 +2021,48 @@ label label_winter:
     show crew3_nor_img at left_2p
     with dissolve
     "You hang up the phone, scanning the area for the Vantacrew. Some are nestled at your feet, seeking warmth, while others frolic in the snow on the street."
-    vanta_char "Come on, let's go home, my Crew."
     hide van_ci_nor
+    show van_ci_con at right_2p  
+    vanta_char "Come on, let's go home, my Crew."
+    hide van_ci_con
     show van_ci_hap at right_2p
     vanta_char "{size=50}Ha...Merry Krisis!{/size}"
-    play sound "music/win/win_se_slime_01.mp3" #slime sound
+    play sound "audio/win/win_se_slime_01.mp3" #slime sound
     hide crew3_nor_img
     show crew3_hap_img at left_2p
     "You open your coat, and the Crew hop inside to snuggle with you.\nDespite the season's icy grip, an inner warmth envelops you, putting a smile on your face."
+
     show win_edcg_img
     show text "{b}{size=34}Chapter 3.  WINTER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
-    show screen OverlayScreen
     with fade
     # Display END at the bottom right
-    show text "{b}{size=64}To Be Continue{/size}{/b}" at Position(xalign=0.95, yalign=0.95)
+    ### achievement package ###
+    if (achievement.has('win_st_edcg')== False):
+        $ achievement.grant('win_st_edcg')
+        $ achievement.grant('win_gallery')        
+        show screen OverlayScreen1
+        show screen ClickableArea
+        play sound "audio/collected_item_ping.mp3"
+    ### achievement package ###
+    ### ending screen ###
+    show screen OverlayScreen
     # Wait for user to click
     pause
-    
-        
-label label_spring: 
+    call chapter_4 from _call_chapter_4
+
+
+
+label chapter_4:
     hide screen OverlayScreen
     stop music fadeout 1.0  # Fade out menu music
-    play music "music/spr/spr_bgm_01.mp3" loop fadein 1.0  #Loop playback with fade-in
+    play music "audio/spr/spr_bgm_01.mp3" loop fadein 1.0  #Loop playback with fade-in
 
     show spr_cv_img
     show text "{b}{size=34}Chapter 4.  SPRING{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     # Wait for user to click
     pause
  
-    scene spr_bg_office_01
+    scene spr_bg_office1_img
     show text "{b}{size=34}Chapter 4.  SPRING{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     with fade
     #Avoid momentary flickering when switching dialogue windows 
@@ -1900,12 +2086,16 @@ label label_spring:
     show wil_ci_nor at center
     with dissolve
     "Suddenly, someone opens the door. It's none other than Yu Q. Wilson, followed closely by a group of still sleepy Wilsoneers."
+    hide wil_ci_nor
+    show wil_ci_thi at center 
     wilson_char "WWITHOUT ME?\nI want to go see the cherry blossoms too!"
     vandz_char "Good morning, Wilson!"
-    hide wil_ci_nor
+    hide wil_ci_thi
     show wil_ci_sur at center
     wilson_char "Morning guys! You guys aren’t seriously going without me, are you?"
     zali_char " No, we were just talking about it. Don’t worry!"
+    hide van_ci_hap
+    show van_ci_con at right
     hide wil_ci_sur
     show wil_ci_nor at center
     vanta_char "Hey, how about this: We go see the cherry blossoms next week?"
@@ -1915,25 +2105,40 @@ label label_spring:
     wilson_char "I can’t wait!"
     hide zal_ci_hap
     hide wil_ci_hap
-    hide van_ci_hap
+    hide van_ci_con
     show van_ci_nor at right
     show zal_ci_nor at left
     show wil_ci_nor at center
     "Wilson walks over to the coffee maker and makes his French vanilla latte. He's about to add the syrup, like he normally does, until he realizes that it’s not there."
+    hide wil_ci_nor
+    show wil_ci_thi at center
     wilson_char "Oh shoot, did I run out?"
+    hide zal_ci_nor
+    hide wil_ci_thi
+    show zal_ci_sur at left
+    show wil_ci_thi at center
     zali_char "Run out of what?"
     wilson_char "My syrup for coffee."
+    hide zal_ci_sur
+    hide wil_ci_thi
+    show zal_ci_nor at left
+    show wil_ci_nor at center  
     vanta_char "We can go get more when we head out for today. I have just the thing in the meantime."
+    hide van_ci_nor
+    hide zal_ci_nor  
     hide wil_ci_nor
+    show van_ci_hap at right
+    show zal_ci_hap at left
     show wil_ci_hap at center
     wilson_char "You’re a lifesaver, thank you!"
     hide wil_ci_hap
-    hide zal_ci_nor
+    hide zal_ci_hap
+    hide van_ci_hap
     show van_ci_nor at center
     with dissolve
     "You walk over to the fridge and open the doors. Two items stand out; maple syrup and ice cream cake."
     hide van_ci_nor
-    show van_ci_con at center
+    show van_ci_3 at center
     "Maple syrup would work very well with Wilson’s coffee. Technically, the same can be said for the ice cream cake, but it’s been in here for a while…"
     "But for the content, it’s tempting to show off to Wilson. Even a few of the Vantacrew seem to snicker at the notion.\nYou decide to give Wilson—"
 
@@ -1947,29 +2152,39 @@ label label_spring:
             wilson_char "Oh my god! I remember this! Didn’t we get this from that one village we helped out?"
             vanta_char "Yeah! It’s still good, not close to expiring or anything like that."
             wilson_char "Now I really can’t wait for my coffee! Thank you!"
+            ### achievement package ###
+            if (achievement.has('spr_st_wilson')== False):
+                $ achievement.grant('spr_st_wilson')    
+                show screen OverlayScreen1
+                show screen ClickableArea
+                play sound "audio/collected_item_ping.mp3"
+            ### achievement package ###
             hide spr_st_wilson_img
             scene spr_bg_office1_img
             show text "{b}{size=34}Chapter 4.  SPRING{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
             with fade
             jump spr_cho2_1_accepted
         "Ice Cream Cake":
-            hide van_ci_con
-            show van_ci_hap at center
-            with dissolve
+            hide van_ci_3
+            show van_ci_con at center
             "Snickering to yourself, you bring out the ice cream cake, closing the doors with your back. You place the cake next to the coffee maker. Wilson turns in your direction and immediately furrows his brows."
-            show van_ci_hap at right_2p
-            show wil_ci_ser at left_2p
+            show van_ci_con at right_2p
+            show wil_ci_sur at left_2p
             with dissolve
             wilson_char "Vanta, what on earth is this…"
+            hide van_ci_con
+            show van_ci_3 at right_2p
             vanta_char "Listen, the moment I saw this, I just thought of you. I thought you would appreciate this gift while having some sweetness with your coffee."
+            hide wil_ci_sur
+            show wil_ci_ser at left_2p
             wilson_char "Whatever dude, get this out of my face."
             "Going to the fridge himself, Wilson looks around and finds the unopened maple syrup from a couple of months ago."
-            hide wil_ci_ser
-            show wil_ci_thi at left_2p
             wilson_char "You idiot, you could've used this instead!"
+            hide van_ci_3
+            show van_ci_hap at right_2p 
             "You laugh at Wilson's reaction while he groans in response, now quietly sipping his cup of coffee."
             hide van_ci_hap
-            hide wil_ci_thi
+            hide wil_ci_ser
             with dissolve
             jump spr_cho2_1_accepted
     label spr_cho2_1_accepted:
@@ -1978,11 +2193,13 @@ label label_spring:
     show van_ci_nor at right_2p
     "You, Zali, and Wilson begin to scroll through the website of the local bakery you frequently visit. Your eyes land on the pastries and you notice Zali looking at the croissants with expecting eyes."
     vanta_char "See something you like, Zali?"
+    hide zal_ci_nor
+    show zal_ci_hap at left_2p
     zali_char "Oh, I’m in the mood for that croissant, as always."
     hide van_ci_nor
     show van_ci_con at right_2p
     vanta_char "You know, Zali, it’s funny that you like croissants because they lowkey look like they’re eggplant-shaped."
-    hide zal_ci_nor
+    hide zal_ci_hap
     show zal_ci_thi at left_2p
     zali_char "Vanta, never joke about that ever again. My heart may never recover. Croissants do NOT look like eggplants. Oh, mon Dieu..."
     "In the end, you all order what you usually get."
@@ -1990,12 +2207,15 @@ label label_spring:
     show van_ci_con at center
     with dissolve
     "You let out a chuckle as you hold your hands up in defeat. Your attention shifts towards your desk."
+    hide van_ci_con
+    show van_ci_3 at center
     "Now is the perfect time to give Zali the gift you’ve been holding onto for a while."
     "There’s the eggplant-shaped candy: knowing how much he hates eggplant, it would be pretty funny to see his reaction to the gag gift. "
     "On the other hand, you bought the croissant keychain with Zali in mind because it reminded you of him.\nIn the end, you decided to give Zali—"
     menu:
         "Croissant Keychain":
             scene spr_st_zali_img
+            show text "{b}{size=34}Chapter 4.  SPRING{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
             with fade
             pause 2.0 
             "You grab the keychain from your desk and return to the kitchen. You tap Zali’s shoulder to get his attention. When he turns his head, you show him the croissant keychain."
@@ -2003,19 +2223,29 @@ label label_spring:
             vanta_char "I got it from a souvenir shop while I was on a brief vacation in the summer. I’ve been meaning to give it to you sooner, but there hasn’t been a good time lately."
             zali_char "Better now than never, right?"
             "Zali smiles at you, fully appreciative of the gift. Seeing his reaction makes your heart grow a couple of sizes. You're glad you were finally able to give the gift to Zali."
+            ### achievement package ###
+            if (achievement.has('spr_st_zali')== False):
+                $ achievement.grant('spr_st_zali')    
+                show screen OverlayScreen1
+                show screen ClickableArea
+                play sound "audio/collected_item_ping.mp3"
+            ### achievement package ###
             hide spr_st_zali_img
             scene spr_bg_office1_img
+            show text "{b}{size=34}Chapter 4.  SPRING{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
             with fade
             jump spr_cho2_2_accepted
         "Eggplant-shaped Candy":
-            hide van_ci_con
+            hide van_ci_3
             show van_ci_hap at right_2p
             show zal_ci_sur at left_2p
             with dissolve
             vanta_char "Have some candy to hold you over. Our order should be here soon!"
+            hide zal_ci_sur
+            show zal_ci_thi at left_2p
             zali_char "Ah, thank you! Wait, why is this in the shape of an eggplant?"
             vanta_char "Ah, that’s how the shop made it. Don’t worry, it doesn’t taste like eggplant, I promise."
-            hide zal_ci_sur
+            hide zal_ci_thi
             show zal_ci_ser at left_2p
             "You toss a piece of the eggplant-shaped candy over to Zali, who easily catches it. He opens the candy hesitantly and gives it a cautious sniff. He squints his eyes in your direction while you give a thumbs up in reassurance."
             "Zali puts the candy in his mouth, a little wary of the flavor. He widens his eyes in surprise, a small smile forming on his face."
@@ -2037,7 +2267,7 @@ label label_spring:
 
     show van_ci_nor at center
     with dissolve
-    play sound "music/spr/spr_se_buzzer.mp3" #Delivery Buzzer
+    play sound "audio/spr/spr_se_buzzer.mp3" #Delivery Buzzer
     "A buzzing sound can be heard from the door. You head over and open it, revealing the breakfast order you made in advance."
     "You check the contents of the bag, making sure everything is there and correct."
     hide van_ci_nor
@@ -2053,7 +2283,7 @@ label label_spring:
     show com_base_img
     show spr_com_1_img at spr_com_upper
     with dissolve
-    play sound "music/win/win_se_phone.mp3" #Cell phone sounds Used
+    play sound "audio/spr/spr_se_phone_vib.mp3" #Cell phone vibration
     "The three of you enjoy coffee and croissants for breakfast. Just as you take the last bite, all of your phones buzz simultaneously."
     stop sound fadeout 1.0 #Stop sound effects
     "You pull out your phone to find a new mission notification. The three of you read the brief together."
@@ -2069,17 +2299,19 @@ label label_spring:
     hide spr_com_2_img
     show spr_com_3_img at spr_com_upper
     wilson_char "Looks like it's happening. Alright, boys, let's gear up and get ready to roll."
+    stop music fadeout 1.0  #Fade out music
+    play music "audio/spr/spr_bgm_02.mp3" loop fadein 1.0  #Loop playback with fade-in
     hide spr_com_3_img
     show spr_com_4_img at spr_com_upper
-    play sound "music/aut/aut_se_clothes.mp3" #Sound of changing clothes Used
+    play sound "audio/aut/aut_se_clothes.mp3" #Sound of changing clothes Used
     "Getting ready for your mission is now, just second nature to you; you swiftly prepare. Your trusted partners, Tsuchi, Tentapod, and Kurococco, are also ready to go."
     hide spr_com_4_img
-    scene spr_bg_buil1_img
+    scene spr_bg_lab1_img
     show text "{b}{size=34}Chapter 4.  SPRING{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     show com_base_img
     show spr_com_5_img at spr_com_upper
     with fade
-    play sound "music/spr/spr_se_gatagata.mp3" #Rattling sound during infiltration
+    play sound "audio/spr/spr_se_gatagata.mp3" #Rattling sound during infiltration
     "You skillfully sneak into the location specified in the mission brief. Quietly infiltrating the building, you keep a sharp eye out for anything worth investigating."
     hide spr_com_5_img
     show spr_com_6_img at spr_com_upper
@@ -2088,7 +2320,7 @@ label label_spring:
     zali_char "Oh my goodness... What are these?"
     hide spr_com_6_img
     show spr_com_7_img at spr_com_upper
-    play sound "music/spr/spr_se_mystery.mp3" #The sound of seeing mushrooms
+    play sound "audio/spr/spr_se_mystery.mp3" #The sound of seeing mushrooms
     wilson_char "Oh... my... god..."
     hide spr_com_7_img
     show spr_com_8_img at spr_com_upper
@@ -2102,7 +2334,7 @@ label label_spring:
     wilson_char "Are they using these food products for mass human experimentation?"
     vanta_char "I'm unsure how we'll dispose of all these. It seems we may need to destroy them all together."
     zali_char "Alright, let me report this to Squad A so they're aware and can prepare if needed."
-    play sound "music/spr/spr_se_clanging.mp3" #Clanging sound of metal falling to the floor
+    play sound "audio/spr/spr_se_clanging.mp3" #Clanging sound of metal falling to the floor
     wilson_char "Wait, wait, wait... What's that noise, guys? Can you hear it? Where is it coming from?"
     zali_char "I heard it too. Sounds like something metallic dropped onto the floor..."
     hide spr_com_9_img
@@ -2113,10 +2345,14 @@ label label_spring:
     hide spr_com_10_img
     show spr_com_11_img at spr_com_upper
     wilson_char "Are you ready, Vanta?"
-    play sound "music/spr/spr_se_Tentapod.mp3" #Tentapod
+    play sound "audio/spr/spr_se_Tentapod.mp3" #Tentapod
     "You take a deep breath and nod at Wilson. With precision, Tentapod swiftly extends its robotic octopus arm and effortlessly hacks into the lockpad. The door is unlocked within a matter of seconds."
-    play sound "music/spr/spr_se_door.mp3" #Sound of a metal door opening
+    play sound "audio/spr/spr_se_door.mp3" #Sound of a metal door opening
+    scene spr_bg_lab2_img
+    show text "{b}{size=34}Chapter 4.  SPRING{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+    with dissolve
     "The heavy metal door emits a soft hiss as it opens slowly, revealing darkness beyond. You step inside cautiously, your senses on high alert, ready for whatever lies ahead."
+    show com_base_img
     hide spr_com_11_img
     show spr_com_12_img at spr_com_upper
     "You advance toward the source of the noise, with Zali and Wilson trailing a few steps behind you."
@@ -2125,17 +2361,17 @@ label label_spring:
     show spr_com_13_img at spr_com_upper 
     vanta_char "It... it's a fox?"
     vanta_char "No, it's a puppy."
-    play sound "music/spr/spr_se_scratch.mp3" #Dog scratching sound
+    play sound "audio/spr/spr_se_scratch.mp3" #Dog scratching sound
     "You turn your body sideways to show Zali and Wilson. Inside a small metal cage, an anxious puppy bites and scratches, whining with unease; its eyes pleading to be released."
     "You glance at the nearby table, suspecting that the puppy may have pushed the cage, causing it to fall to the floor and result in the noises you heard."
     wilson_char "Oh my god, it is sho small! Sho cyute!!"
     wilson_char "Is it a boy?\nOh yeah, it's a boy."
     zali_char "We need to be careful; we don't know if the puppy is already part of an experiment."
-    play sound "music/spr/spr_se_padlock.mp3" #Sound of breaking a padlock
+    play sound "audio/spr/spr_se_padlock.mp3" #Sound of breaking a padlock
     hide spr_com_13_img
     show spr_com_14_img at spr_com_upper
     "You grab the padlock on the cage and forcefully remove it, startling the puppy. It starts to run aimlessly in all directions within the cage, letting out loud cries."
-    play sound "music/spr/spr_se_dog.mp3" #Puppy noises
+    play sound "audio/spr/spr_se_dog.mp3" #Puppy noises
     "You quickly extend your hand into the cage, scooping the puppy into your arms. Miraculously, the moment it's in your embrace, it becomes docile immediately."
     vanta_char "Don't worry, buddy. We'll get you out of here."
     wilson_char "Seems like your tyrant reputation does wonders for calming down the puppy!"
@@ -2143,7 +2379,7 @@ label label_spring:
     "His paws are white, resembling tiny socks, and his belly is a soft cream color. His tail, mostly brown with a black tip, is curled up like a bun, giving him the appearance of a baby fox."
     hide spr_com_14_img
     show spr_com_15_img at spr_com_upper
-    play sound "music/spr/spr_se_keyboard.mp3" #keyboard sound
+    play sound "audio/spr/spr_se_keyboard.mp3" #keyboard sound
     zali_char "Oh my goodness. According to this data, the company was completely surprised by the effect of the octopus when it accidentally consumed a highly concentrated dosage of the mushroom solution. "
     zali_char "Now, they want to replicate these results by testing it on other animals. And this puppy is one of their test subjects."
     "Zali sifts through the recorded data on the computer, finding clips of the octopus incident captured by other witnesses. Among the files are numerous test results indicating ongoing experiments. "
@@ -2172,8 +2408,15 @@ label label_spring:
     pause 2.0  
     "You're responded to with a big yawn, followed by the puppy's paws shoving against your face."
     zandw_char "Hahahahahaha!"
+    ### achievement package ###
+    if (achievement.has('spr_st_fny')== False):   
+        $ achievement.grant('spr_st_fny')        
+        show screen OverlayScreen1
+        show screen ClickableArea
+        play sound "audio/collected_item_ping.mp3"
+    ### achievement package ###
     hide spr_st_fny_img
-    scene spr_bg_buil1_img at earthquake_before
+    scene spr_bg_lab2_img at earthquake_before
     show text "{b}{size=34}Chapter 4.  SPRING{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     show com_base_img
     show spr_com_18_img at spr_com_upper
@@ -2183,11 +2426,11 @@ label label_spring:
     zali_char "Oh. Let me handle this, I am so good with bondage, I will wrap him onto your back.\nLet's go!"
     wilson_char "Alright then! Are we ready to go, guys?"
     stop music fadeout 1.0  # Fade out music
-    play music "music/spr/spr_bgm_02.mp3" fadein 1.0 loop #Music for Battle
+    play music "audio/sum/sum_bgm_02.mp3" fadein 1.0 loop #Music for Battle
     hide spr_com_18_img
     show spr_com_19_img at spr_com_upper
     "Seeing Wilson's signal, you spring into action, activating the fire alarm. The loud, echoing sirens reverberate throughout the entire building, filling every corner with urgency. "
-    play sound "music/spr/spr_se_firealarm.mp3" #Fire alarm
+    play sound "audio/spr/spr_se_firealarm.mp3" #Fire alarm
     "Within moments, crimson lights flood each room, signaling the need for immediate evacuation, prompting people to swiftly leave the building."
     stop sound fadeout 2.0 #Stop sound effects
     wilson_char "Team Krisis to Squad A, come in. This is it."
@@ -2199,18 +2442,22 @@ label label_spring:
     show spr_com_20_img at spr_com_upper 
     "As several security personnel charge towards you, you brace yourself for a fight. However, before you can react, they all collapse in front of you. Turning around, you see Zali holding his tranquilizer gun."
     zali_char "No time to waste, let's move!"
-    play sound "music/spr/spr_se_firealarm.mp3" #Fire alarm
+    play sound "audio/spr/spr_se_firealarm.mp3" #Fire alarm
     "With the majority of people already evacuated due to the blaring siren, the three of you make your way to the ground floor. Racing towards the front door, you can see Squad A standing by, prepared to detonate."
-    play sound "music/spr/spr_se_explosion.mp3" #Explosion sound
+    play sound "audio/spr/spr_se_explosion.mp3" #Explosion sound
     hide spr_com_20_img
-    scene spr_bg_buil1_img at earthquake
+    scene spr_bg_lab2_img at earthquake
+    show text "{b}{size=34}Chapter 4.  SPRING{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+    show com_base_img
     show spr_com_21_img at spr_com_upper
     "Squad A spots your exit. With a quick gesture, the explosion detonates, sending shockwaves rippling through the structure."
-    play sound "music/spr/spr_se_ground.mp3" #rumble in the ground
+    play sound "audio/spr/spr_se_ground.mp3" #rumble in the ground
     "As the shockwave pushes against you, you suddenly remember the puppy secured on your back. With quick reflexes, you twist your body, shielding the puppy from the full force of the blast."
-    scene spr_bg_buil2_img
+    scene spr_bg_buil1_img
+    show text "{b}{size=34}Chapter 4.  SPRING{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     with fade 
     "Smoke rises into the sky as the once-standing building structure becomes rubble in a matter of seconds."
+    show com_base_img
     hide spr_com_21_img
     show spr_com_22_img at spr_com_upper
     zandw_char "{size=50}VANTA!!!{/size}"
@@ -2227,45 +2474,59 @@ label label_spring:
     show spr_com_24_img at spr_com_upper 
     wilson_char "Excusez-moi, guys! Find your footing, or you're going to squash me."
     "You feel Wilson's hands shaking behind you as you stand up properly. Zali releases his grip on your harness a bit too quickly, causing the harness to snap back onto your chest with a crisp, loud whip."
-    play sound "music/spr/spr_se_belt.mp3" #The sound of a belt
+    play sound "audio/spr/spr_se_belt.mp3" #The sound of a belt
     vanta_char "{size=45}AHHHHH!!! F—THAT HURTS!!!{/size}"
     zali_char "Ah hahah, sorry Vanta!!"
     stop music fadeout 1.0  # Fade out music
-    play music "music/spr/spr_bgm_01.mp3" loop fadein 1.0  #Loop playback with song fade-in  
+    play music "audio/spr/spr_bgm_01.mp3" loop fadein 1.0  #Loop playback with song fade-in  
     hide spr_com_24_img
     show spr_com_25_img at spr_com_upper 
     "You turn around to check if the puppy is okay, and to your relief, he gazes up at you and proceeds to lick your ear affectionately."
     wilson_char "Looks like another successful mission for us! Shall we leave the rest to the team?"
     wilson_char "Let's head back and ensure Vanta wasn't impacted by the blast."
     zali_char "Yeah, Wilson has a point. Vanta, you feeling alright?"
-    hide spr_com_25_img
-    show spr_com_26_img at spr_com_upper
     "There's a hint of melancholy in your voice as you take a deep breath, the flashbacks still vivid in your mind."
     "The fact that your teammates will do anything for you, even in the most dangerous moments, fills you with an overwhelming warmth."
     vanta_char "I believe... I feel alright. Perhaps I wasn't impacted by the mushrooms. It's been quite a year, with its ups and downs. I have my moments of vulnerability, and sometimes I tend to overthink things."
+    hide spr_com_25_img
+    show spr_com_26_img at spr_com_upper
     "Just then, the Vezcrewneers arrive, surrounding the three of you with their cheerful presence, a constant reminder of the support you've had every step of the way."
     vanta_char "The Vantacrow Bringer from the past was alone, but not anymore. I couldn't have made it this far without you guys."
     "Zali places a reassuring hand on your shoulder. "
     zali_char "You're doing great, Vanta. We're all in this together.\nI mean, we may be Kris sometimes, but we are always Krisis, forever."
     "Wilson nods, a grin spreading across his face. He lightly bumps your chest with his fist."
     wilson_char "Absolutely. You've come a long way since we first teamed up.\nEven if you always disagree with me, I will always have your back."
-    scene spr_bg_buil3_img
+    scene spr_bg_buil2_img
     show text "{b}{size=34}Chapter 4.  SPRING{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     show van_hr_nor at center    
     show wil_hr_nor at right
     show zal_hr_nor at left
     with fade 
     "As you look at everyone surrounding you, a swell of pride fills your chest."
+    hide wil_ci_nor
+    hide zal_ci_nor
+    hide van_ci_nor
+    show van_hr_hap at center    
+    show wil_hr_hap at right
+    show zal_hr_hap at left
     "Laughter bubbles up, echoing the silliness and bickering you've shared. Even the puppy on your back gives you a little nudge of encouragement with his head."
     "Together, you all laugh, sharing a moment that solidifies the countless memories you've made. You feel a profound sense of belonging, knowing you've found a family in these two."
     "Under the gentle sway of cherry blossoms and their petals carpeting the ground, you link arms with Zali and Wilson, stepping away from the debris behind you."
     "As you move forward, the flowers signal the arrival of a new season. With each step, you embrace the promise of many seasons ahead—filled with love, support, and adventures waiting to unfold."
     "Cherry blossoms will continue bloom."
 
-    show spr_edcg_img
+    ### achievement package ###
+    if (achievement.has('spr_st_edcg')== False):
+        $ achievement.grant('spr_st_edcg') #the ending cg video
+        $ achievement.grant('spr_gallery')
+    # no need to notify in the end(?)        
+    #     show screen OverlayScreen1
+    #     show screen ClickableArea
+    # ### achievement package ###
+    # ### ending screen ###
+    # show screen OverlayScreen
+
     # ユーザーがクリックするまで待つ
     pause
-    $ renpy.movie_cutscene("movies/sample.webm")
-    scene black 
-    pause 1.0 
+    $ renpy.movie_cutscene("movies/video.webm",loops=3, stop_music=False)
     return

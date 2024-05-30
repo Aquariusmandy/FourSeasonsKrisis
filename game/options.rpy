@@ -11,7 +11,7 @@
 ## title, and shows up in the interface and error reports.
 ##
 ## The _() surrounding the string marks it as eligible for translation.
-define config.name = _("compiled_alpha")
+define config.name = _("Full_alpha")
 
 define build.itch_project = "testcrew/test2"
 
@@ -37,7 +37,7 @@ define gui.about = _p("""
 ## distribution. This must be ASCII-only, and must not contain spaces, colons,
 ## or semicolons.
 
-define build.name = "compiled_alpha"
+define build.name = "Full_alpha"
 
 
 ## Sounds and music ############################################################
@@ -120,7 +120,7 @@ define config.window_hide_transition = Dissolve(.2)
 ## Controls the default text speed. The default, 0, is infinite, while any other
 ## number is the number of characters per second to type out.
 
-default preferences.text_cps = 0
+default preferences.text_cps = 35 ### from KY
 
 
 ## The default auto-forward delay. Larger numbers lead to longer waits, with 0

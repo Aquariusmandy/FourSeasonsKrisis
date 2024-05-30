@@ -92,6 +92,8 @@ define gui.content_text_yalign = 0.5
 define gui.chapterend_text_size = 64
 define gui.chapterend_text_yalign = 0.5
 
+define gui.chaptertitle_text_font = "BaiJamjuree-Bold.ttf"
+define gui.chaptertitle_text_size = 34
 ## Main and Game Menus #########################################################
 
 ## The images used for the main and game menus.
