@@ -3,7 +3,9 @@
 ################################################################################
 
 init offset = -1
-
+init python:
+    for i in range(100):
+        FileDelete(i)
 
 ################################################################################
 ## Styles
@@ -32,7 +34,7 @@ style button:
 
 style button_text is gui_text:
     properties gui.text_properties("button")
-    yalign 0.5
+    yalign 0.0
 
 style content_text is gui_text:
     properties gui.text_properties("content", accent=True)
@@ -99,7 +101,8 @@ style slime_textbutton is textbutton:
 
 style slime_textbutton_text:
     properties gui.text_properties("label")
-    xalign 0.5 yalign 0.2
+    anchor (0.5,0.5)
+    xpos 0.5 ypos 0.4
 
 style chapterend_textbutton is textbutton:
     idle_background Frame("menubutton/btn_default.png", xoffset=-0, yoffset=-0, xanchor=0, yanchor=0)
@@ -116,7 +119,8 @@ style menuback_textbutton is textbutton:
     xysize (230, 42)
 style menuback_textbutton_text:
     properties gui.text_properties("label")
-    xalign 0.5 yalign 0.2
+    anchor (0.5,0.5)
+    xpos 0.5 ypos 0.4
 
 style choice_textbutton is textbutton:
     idle_background Frame("system/choice_idle_background.png", xoffset=-0, yoffset=-0, xanchor=0, yanchor=0)
@@ -286,7 +290,8 @@ screen inventory_screen():
                                         image item_locked:
                                             anchor (0.5,0.5)
                                             xpos 0.5
-                                            ypos 0.5                                    
+                                            ypos 0.5
+                                   
                             elif active_set == "cg":
                                 frame:
                                     style "inventory_screen_frame" # make the frame empty
@@ -353,9 +358,9 @@ screen inventory_screen():
                                             anchor (0.5,0.5)
                                             xpos 0.5
                                             ypos 0.5
-                # if active_set == 'gallery':
-                #     hbox: # create the vertical spacing
-                #         xysize (1300,5)  
+                if active_set == 'set1':
+                    hbox: # create the vertical spacing
+                        xysize (1300,5)  
 
 
 screen item_description_popup(item_click_background):
@@ -393,7 +398,7 @@ screen gallery_popup(item_click_background,active_set,active_tab,index):
         if(index_right <length):
             $ name_right = get_item_name(active_set, active_tab, index_right)
         # left click then show the previous (index-1) cg
-        if (index_left > -1) and (achievement.has(name_left)):
+        if (index_left > -1):
             $ item_background = get_item_background(active_set, active_tab, index_left)
             imagebutton idle "gui/archive/Seasonal Album/btn/btn_left_1.png" hover "gui/archive/Seasonal Album/btn/btn_left_2.png" action [Show("gallery_popup",item_click_background=item_background,active_set=active_set ,active_tab=active_tab,index=index_left)]:
                 xanchor 0.0
@@ -704,6 +709,13 @@ screen quick_menu():
 
     
     ## Display the button image
+    vbox:
+        anchor (0,0)
+        xpos 0.03
+        ypos 0.03
+        text _("Debug Quick Menu")
+        textbutton _("Back") action Rollback() style "slime_textbutton"
+        textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True) style "slime_textbutton"
     imagebutton:
         idle "temp/btn_HBMenu_default.png"  # Replace "your_button_image.png" with your button image path
         hover "temp/btn_HBMenu_hover.png"  # Replace "your_button_image_hover.png" with hover image path
@@ -785,6 +797,7 @@ style quick_button:
 
 style quick_button_text:
     properties gui.text_properties("quick_button")
+
 style slime_textbutton is quick_button
 style menuback_textbutton is quick_button
 
@@ -1262,8 +1275,13 @@ screen file_slots(title):
 
                         text FileSaveName(slot):
                             style "slot_name_text"
+                        # this is for debug    
+                        # textbutton _("delete") action FileDelete(slot):
+                        #     style "quick_menu_text"
+                        #     ypos -0.9
 
                         key "save_delete" action FileDelete(slot)
+                        
 
             ## Buttons to access other pages.
             vbox:
@@ -1375,7 +1393,7 @@ screen preferences():
                     label _("Language")
                     # Real languages should go alphabetical order by English name.
                     textbutton _("English") text_font "DejaVuSans.ttf" action Language(None)
-                    textbutton _("繁體中文") text_font "GlowSansSC-Normal-Regular.ttf" action Language("TraditionalChinese")
+                    textbutton _("繁體中文") text_font "GlowSansSC-Normal-Regular.ttf" action Language("Mandarin")
                     textbutton _("日本語") text_font "GlowSansSC-Normal-Regular.ttf" action Language("Japanese")
 
 
@@ -1798,7 +1816,7 @@ screen confirm(message, yes_action, no_action):
             hbox:
                 xalign 0.5
                 yalign 0.7
-                spacing 150
+                spacing 50
 
                 textbutton _("Yes") action yes_action style "menuback_textbutton"
                 textbutton _("No") action no_action style "menuback_textbutton"

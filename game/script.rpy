@@ -432,8 +432,9 @@ default active_tab = "tab1"
 image 5 = "images/home_image.jpg"
 
 label splashscreen:
-    $ renpy.music.play("audio/main_theme.mp3", channel="music", loop=True)
+    
     show white
+    $ renpy.music.play("audio/main_theme.mp3", channel="music", loop=True)
     # Display the video
     $ renpy.movie_cutscene("movies/testingnew.webm", loops=20, stop_music=False) 
     show white with dissolve
@@ -523,12 +524,12 @@ init python:
     
     
     ### CGs ###
-    cglist = ['sum_st_main','sum_st_fny','sum_st_btst','sum_st_bten','sum_st_edcg',
-            'aut_st_main','aut_st_fny','aut_st_btst','aut_st_bten','aut_st_edcg',
-            'win_st_main',"win_st_fny",'win_st_btst','win_st_bten','win_st_edcg',
-            'spr_st_main','spr_st_fny','spr_st_zali','spr_st_wilson']
+    cglist = ['sum_cv','sum_st_fny','sum_st_btst','sum_st_bten','sum_st_edcg',
+            'aut_cv','aut_st_fny','aut_st_btst','aut_st_bten','aut_st_edcg',
+            'win_cv',"win_st_fny",'win_st_btst','win_st_bten','win_st_edcg',
+            'spr_cv','spr_st_fny','spr_st_zali','spr_st_wilson','spr_st_edcg']
 
-    sum_st_main = Item("sum_st_main", 
+    sum_cv = Item("sum_cv", 
                     "gui/archive/sum_st_fny_thu.png",
                     "gui/archive/sum_st_fny_thu.png",
                     "gui/archive/sum_st_fny_thu_blur.png",
@@ -558,7 +559,7 @@ init python:
                     "gui/archive/sum_st_bten_thu_blur.png",
                     "images/still/sum_st_bten.png",
     )
-    aut_st_main = Item("aut_st_main", 
+    aut_cv = Item("aut_cv", 
                     "gui/archive/aut_st_fny_thu.png",
                     "gui/archive/aut_st_fny_thu.png",
                     "gui/archive/aut_st_fny_thu_sil.png",
@@ -588,7 +589,7 @@ init python:
                     "gui/archive/aut_st_bten_thu_sil.png",
                     "images/still/aut_st_bten.png",
     )
-    win_st_main = Item("win_st_main", 
+    win_cv = Item("win_cv", 
                     "gui/archive/win_st_fny_thu.png",
                     "gui/archive/win_st_fny_thu.png",
                     "gui/archive/win_st_fny_thu_blur.png",
@@ -618,7 +619,7 @@ init python:
                     "gui/archive/win_st_bten_thu_blur.png",
                     "images/still/win_st_bten.png",
     )
-    spr_st_main = Item("spr_st_main", 
+    spr_cv = Item("spr_cv", 
                     "gui/archive/spr_st_fny_thu.png",
                     "gui/archive/spr_st_fny_thu.png",
                     "gui/archive/spr_st_fny_thu_blur.png",
@@ -642,6 +643,12 @@ init python:
                     "gui/archive/spr_st_fny_thu_blur.png",
                     "images/still/spr_st_wilson.png",
     )
+    spr_st_edcg = Item("spr_st_edcg", 
+                    "gui/archive/spr_st_fny_thu.png",
+                    "gui/archive/spr_st_fny_thu.png",
+                    "gui/archive/spr_st_fny_thu_blur.png",
+                    "images/still/spr_st_edcg.png",
+    )
     
     ### claim gallery contents ###
     sum_gallery_list = {}
@@ -660,18 +667,68 @@ init python:
                             lockname,
                             filename
         ]
+    aut_gallery_list = {}
+    for i in range(14):
+        j = i+1
+        if j<10:
+            name = 'fsk_gall_aut_0'+str(j)
+
+        else:
+            name = 'fsk_gall_aut_'+str(j)
+        filename ="images/gallery/"+name +".webp"
+        lockname = "gui/archive/Collected Items/btn/btn_soda_locked.png"
+        aut_gallery_list[j]=[name,
+                            filename,
+                            filename,
+                            lockname,
+                            filename
+        ]
+
+    spr_gallery_list = {}
+    for i in range(13):
+        j = i+1
+        if j<10:
+            name = 'fsk_gall_spr_0'+str(j)
+
+        else:
+            name = 'fsk_gall_spr_'+str(j)
+        filename ="images/gallery/"+name +".webp"
+        lockname = "gui/archive/Collected Items/btn/btn_soda_locked.png"
+        spr_gallery_list[j]=[name,
+                            filename,
+                            filename,
+                            lockname,
+                            filename
+        ]
+    win_gallery_list = {}
+    for i in range(10):
+        j = i+1
+        if j<10:
+            name = 'fsk_gall_win_0'+str(j)
+
+        else:
+            name = 'fsk_gall_win_'+str(j)
+        filename ="images/gallery/"+name +".png"
+        lockname = "gui/archive/Collected Items/btn/btn_soda_locked.png"
+        win_gallery_list[j]=[name,
+                            filename,
+                            filename,
+                            lockname,
+                            filename
+        ]
+    ### claim gallery contents ###
+
     achievement.register('sum_gallery')
     achievement.register('aut_gallery')
     achievement.register('win_gallery')
     achievement.register('spr_gallery')
-
-
     example1 = Item("example", 
                 "gui/archive/sum_st_bten_thu.png",
                 "gui/archive/sum_st_bten_thu.png",
                 "gui/archive/Collected Items/btn/btn_soda_locked.png",
                 "images/still/aut_st_bten.png",
     )
+
 
 
     # Try to use achievement to implement the "lock item" function
@@ -760,53 +817,78 @@ init python:
                 {"name": sum_gallery_list[14][0], "idle": sum_gallery_list[14][1], "hover": sum_gallery_list[14][2], "locked": sum_gallery_list[14][3], "background": sum_gallery_list[14][4]},
             ],
             "tab2": [
-                {"name": example.name, "idle": example.idle, "hover": example.hover , "locked": example.locked, "background": example.background},
-                {"name": example.name, "idle": example.idle, "hover": example.hover , "locked": example.locked, "background": example.background},
+                {"name": aut_gallery_list[1][0], "idle": aut_gallery_list[1][1], "hover": aut_gallery_list[1][2], "locked": aut_gallery_list[1][3], "background": aut_gallery_list[1][4]},
+                {"name": aut_gallery_list[2][0], "idle": aut_gallery_list[2][1], "hover": aut_gallery_list[2][2], "locked": aut_gallery_list[2][3], "background": aut_gallery_list[2][4]},
+                {"name": aut_gallery_list[3][0], "idle": aut_gallery_list[3][1], "hover": aut_gallery_list[3][2], "locked": aut_gallery_list[3][3], "background": aut_gallery_list[3][4]},
+                {"name": aut_gallery_list[4][0], "idle": aut_gallery_list[4][1], "hover": aut_gallery_list[4][2], "locked": aut_gallery_list[4][3], "background": aut_gallery_list[4][4]},
+                {"name": aut_gallery_list[5][0], "idle": aut_gallery_list[5][1], "hover": aut_gallery_list[5][2], "locked": aut_gallery_list[5][3], "background": aut_gallery_list[5][4]},
+                {"name": aut_gallery_list[6][0], "idle": aut_gallery_list[6][1], "hover": aut_gallery_list[6][2], "locked": aut_gallery_list[6][3], "background": aut_gallery_list[6][4]},
+                {"name": aut_gallery_list[7][0], "idle": aut_gallery_list[7][1], "hover": aut_gallery_list[7][2], "locked": aut_gallery_list[7][3], "background": aut_gallery_list[7][4]},
+                {"name": aut_gallery_list[8][0], "idle": aut_gallery_list[8][1], "hover": aut_gallery_list[8][2], "locked": aut_gallery_list[8][3], "background": aut_gallery_list[8][4]},
+                {"name": aut_gallery_list[9][0], "idle": aut_gallery_list[9][1], "hover": aut_gallery_list[9][2], "locked": aut_gallery_list[9][3], "background": aut_gallery_list[9][4]},
+                {"name": aut_gallery_list[10][0], "idle": aut_gallery_list[10][1], "hover": aut_gallery_list[10][2], "locked": aut_gallery_list[10][3], "background": aut_gallery_list[10][4]},
+                {"name": aut_gallery_list[11][0], "idle": aut_gallery_list[11][1], "hover": aut_gallery_list[11][2], "locked": aut_gallery_list[11][3], "background": aut_gallery_list[11][4]},
+                {"name": aut_gallery_list[12][0], "idle": aut_gallery_list[12][1], "hover": aut_gallery_list[12][2], "locked": aut_gallery_list[12][3], "background": aut_gallery_list[12][4]},
+                {"name": aut_gallery_list[13][0], "idle": aut_gallery_list[13][1], "hover": aut_gallery_list[13][2], "locked": aut_gallery_list[13][3], "background": aut_gallery_list[13][4]},
+                {"name": aut_gallery_list[14][0], "idle": aut_gallery_list[14][1], "hover": aut_gallery_list[14][2], "locked": aut_gallery_list[14][3], "background": aut_gallery_list[14][4]},
             ],
             "tab3": [
-                {"name": drink.name, "idle": drink.idle, "hover": drink.hover, "locked": drink.locked, "background": drink.background},
-                {"name": drink.name, "idle": drink.idle, "hover": drink.hover, "locked": drink.locked, "background": drink.background},
-                {"name": drink.name, "idle": drink.idle, "hover": drink.hover, "locked": drink.locked, "background": drink.background},
-                {"name": drink.name, "idle": drink.idle, "hover": drink.hover, "locked": drink.locked, "background": drink.background},
-                {"name": drink.name, "idle": drink.idle, "hover": drink.hover, "locked": drink.locked, "background": drink.background},
+                {"name": win_gallery_list[1][0], "idle": win_gallery_list[1][1], "hover": win_gallery_list[1][2], "locked": win_gallery_list[1][3], "background": win_gallery_list[1][4]},
+                {"name": win_gallery_list[2][0], "idle": win_gallery_list[2][1], "hover": win_gallery_list[2][2], "locked": win_gallery_list[2][3], "background": win_gallery_list[2][4]},
+                {"name": win_gallery_list[3][0], "idle": win_gallery_list[3][1], "hover": win_gallery_list[3][2], "locked": win_gallery_list[3][3], "background": win_gallery_list[3][4]},
+                {"name": win_gallery_list[4][0], "idle": win_gallery_list[4][1], "hover": win_gallery_list[4][2], "locked": win_gallery_list[4][3], "background": win_gallery_list[4][4]},
+                {"name": win_gallery_list[5][0], "idle": win_gallery_list[5][1], "hover": win_gallery_list[5][2], "locked": win_gallery_list[5][3], "background": win_gallery_list[5][4]},
+                {"name": win_gallery_list[6][0], "idle": win_gallery_list[6][1], "hover": win_gallery_list[6][2], "locked": win_gallery_list[6][3], "background": win_gallery_list[6][4]},
+                {"name": win_gallery_list[7][0], "idle": win_gallery_list[7][1], "hover": win_gallery_list[7][2], "locked": win_gallery_list[7][3], "background": win_gallery_list[7][4]},
+                {"name": win_gallery_list[8][0], "idle": win_gallery_list[8][1], "hover": win_gallery_list[8][2], "locked": win_gallery_list[8][3], "background": win_gallery_list[8][4]},
+                {"name": win_gallery_list[9][0], "idle": win_gallery_list[9][1], "hover": win_gallery_list[9][2], "locked": win_gallery_list[9][3], "background": win_gallery_list[9][4]},
+                {"name": win_gallery_list[10][0], "idle": win_gallery_list[10][1], "hover": win_gallery_list[10][2], "locked": win_gallery_list[10][3], "background": win_gallery_list[10][4]},
             ],
             "tab4": [
-                {"name": croissant.name, "idle": croissant.idle, "hover": croissant.hover, "locked": croissant.locked, "background": croissant.background},
-                {"name": croissant.name, "idle": croissant.idle, "hover": croissant.hover, "locked": croissant.locked, "background": croissant.background},
-                {"name": croissant.name, "idle": croissant.idle, "hover": croissant.hover, "locked": croissant.locked, "background": croissant.background},
-                {"name": croissant.name, "idle": croissant.idle, "hover": croissant.hover, "locked": croissant.locked, "background": croissant.background},
-                {"name": croissant.name, "idle": croissant.idle, "hover": croissant.hover, "locked": croissant.locked, "background": croissant.background},
-                {"name": croissant.name, "idle": croissant.idle, "hover": croissant.hover, "locked": croissant.locked, "background": croissant.background},
-            ],
+                {"name": spr_gallery_list[1][0], "idle": spr_gallery_list[1][1], "hover": spr_gallery_list[1][2], "locked": spr_gallery_list[1][3], "background": spr_gallery_list[1][4]},
+                {"name": spr_gallery_list[2][0], "idle": spr_gallery_list[2][1], "hover": spr_gallery_list[2][2], "locked": spr_gallery_list[2][3], "background": spr_gallery_list[2][4]},
+                {"name": spr_gallery_list[3][0], "idle": spr_gallery_list[3][1], "hover": spr_gallery_list[3][2], "locked": spr_gallery_list[3][3], "background": spr_gallery_list[3][4]},
+                {"name": spr_gallery_list[4][0], "idle": spr_gallery_list[4][1], "hover": spr_gallery_list[4][2], "locked": spr_gallery_list[4][3], "background": spr_gallery_list[4][4]},
+                {"name": spr_gallery_list[5][0], "idle": spr_gallery_list[5][1], "hover": spr_gallery_list[5][2], "locked": spr_gallery_list[5][3], "background": spr_gallery_list[5][4]},
+                {"name": spr_gallery_list[6][0], "idle": spr_gallery_list[6][1], "hover": spr_gallery_list[6][2], "locked": spr_gallery_list[6][3], "background": spr_gallery_list[6][4]},
+                {"name": spr_gallery_list[7][0], "idle": spr_gallery_list[7][1], "hover": spr_gallery_list[7][2], "locked": spr_gallery_list[7][3], "background": spr_gallery_list[7][4]},
+                {"name": spr_gallery_list[8][0], "idle": spr_gallery_list[8][1], "hover": spr_gallery_list[8][2], "locked": spr_gallery_list[8][3], "background": spr_gallery_list[8][4]},
+                {"name": spr_gallery_list[9][0], "idle": spr_gallery_list[9][1], "hover": spr_gallery_list[9][2], "locked": spr_gallery_list[9][3], "background": spr_gallery_list[9][4]},
+                {"name": spr_gallery_list[10][0], "idle": spr_gallery_list[10][1], "hover": spr_gallery_list[10][2], "locked": spr_gallery_list[10][3], "background": spr_gallery_list[10][4]},
+                {"name": spr_gallery_list[11][0], "idle": spr_gallery_list[11][1], "hover": spr_gallery_list[11][2], "locked": spr_gallery_list[11][3], "background": spr_gallery_list[11][4]},
+                {"name": spr_gallery_list[12][0], "idle": spr_gallery_list[12][1], "hover": spr_gallery_list[12][2], "locked": spr_gallery_list[12][3], "background": spr_gallery_list[12][4]},   
+                {"name": spr_gallery_list[13][0], "idle": spr_gallery_list[13][1], "hover": spr_gallery_list[13][2], "locked": spr_gallery_list[13][3], "background": spr_gallery_list[13][4]},         
+                ],
             # Add images for other tabs in gallery here
         },
         "cg": {
             "tab1": [
-                {"name": sum_st_main.name, "idle": sum_st_main.idle, "hover": sum_st_main.hover , "locked": sum_st_main.locked, "background": sum_st_main.background},
+                {"name": sum_cv.name, "idle": sum_cv.idle, "hover": sum_cv.hover , "locked": sum_cv.locked, "background": sum_cv.background},
                 {"name": sum_st_fny.name, "idle": sum_st_fny.idle, "hover": sum_st_fny.hover , "locked": sum_st_fny.locked, "background": sum_st_fny.background},
                 {"name": sum_st_btst.name, "idle": sum_st_btst.idle, "hover": sum_st_btst.hover , "locked": sum_st_btst.locked, "background": sum_st_btst.background},
                 {"name": sum_st_bten.name, "idle": sum_st_bten.idle, "hover": sum_st_bten.hover , "locked": sum_st_bten.locked, "background": sum_st_bten.background},
                 {"name": sum_st_edcg.name, "idle": sum_st_edcg.idle, "hover": sum_st_edcg.hover , "locked": sum_st_edcg.locked, "background": sum_st_edcg.background},   
             ],
             "tab2": [
-                {"name": aut_st_main.name, "idle": aut_st_main.idle, "hover": aut_st_main.hover , "locked": aut_st_main.locked, "background": aut_st_main.background},
+                {"name": aut_cv.name, "idle": aut_cv.idle, "hover": aut_cv.hover , "locked": aut_cv.locked, "background": aut_cv.background},
                 {"name": aut_st_fny.name, "idle": aut_st_fny.idle, "hover": aut_st_fny.hover , "locked": aut_st_fny.locked, "background": aut_st_fny.background},
                 {"name": aut_st_btst.name, "idle": aut_st_btst.idle, "hover": aut_st_btst.hover , "locked": aut_st_btst.locked, "background": aut_st_btst.background},
                 {"name": aut_st_bten.name, "idle": aut_st_bten.idle, "hover": aut_st_bten.hover , "locked": aut_st_bten.locked, "background": aut_st_bten.background},
                 {"name": aut_st_edcg.name, "idle": aut_st_edcg.idle, "hover": aut_st_edcg.hover , "locked": aut_st_edcg.locked, "background": aut_st_edcg.background},
             ],
             "tab3": [
-                {"name": win_st_main.name, "idle": win_st_main.idle, "hover": win_st_main.hover , "locked": win_st_main.locked, "background": win_st_main.background},
+                {"name": win_cv.name, "idle": win_cv.idle, "hover": win_cv.hover , "locked": win_cv.locked, "background": win_cv.background},
                 {"name": win_st_fny.name, "idle": win_st_fny.idle, "hover": win_st_fny.hover , "locked": win_st_fny.locked, "background": win_st_fny.background},
                 {"name": win_st_btst.name, "idle": win_st_btst.idle, "hover": win_st_btst.hover , "locked": win_st_btst.locked, "background": win_st_btst.background},
                 {"name": win_st_bten.name, "idle": win_st_bten.idle, "hover": win_st_bten.hover , "locked": win_st_bten.locked, "background": win_st_bten.background},
                 {"name": win_st_edcg.name, "idle": win_st_edcg.idle, "hover": win_st_edcg.hover , "locked": win_st_edcg.locked, "background": win_st_edcg.background},
             ],
             "tab4": [
-                {"name": spr_st_main.name, "idle": spr_st_main.idle, "hover": spr_st_main.hover , "locked": spr_st_main.locked, "background": spr_st_main.background},
+                {"name": spr_cv.name, "idle": spr_cv.idle, "hover": spr_cv.hover , "locked": spr_cv.locked, "background": spr_cv.background},
                 {"name": spr_st_fny.name, "idle": spr_st_fny.idle, "hover": spr_st_fny.hover , "locked": spr_st_fny.locked, "background": spr_st_fny.background},
                 {"name": spr_st_zali.name, "idle": spr_st_zali.idle, "hover": spr_st_zali.hover , "locked": spr_st_zali.locked, "background": spr_st_zali.background},
                 {"name": spr_st_wilson.name, "idle": spr_st_wilson.idle, "hover": spr_st_wilson.hover , "locked": spr_st_wilson.locked, "background": spr_st_wilson.background},
+                {"name": spr_st_edcg.name, "idle": spr_st_edcg.idle, "hover": spr_st_edcg.hover , "locked": spr_st_edcg.locked, "background": spr_st_edcg.background},
 
             ],
             # Add images for other tabs in cg here
@@ -817,12 +899,15 @@ init python:
 
 default zorder = -2
 default red_dot_shown = False
+default havetakoyaki = False
 # ### achievement package ###
 # if (achievement.has('sum_st_edcg')== False):
 #     $ achievement.grant('sum_st_edcg')
 #     $ achievement.grant('sum_gallery')        
 #     show screen OverlayScreen1
 #     show screen ClickableArea
+#     python:
+#
 # ### achievement package ###
 # ### ending screen ###
 # show screen OverlayScreen
@@ -849,7 +934,7 @@ label chapter_1:
     pause
 
     scene sum_bg_beach1_img
-    show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+    # show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     play sound "audio/sum/sum_se_waves_01.mp3" #The Sound of Waves
 
     window hide
@@ -883,7 +968,7 @@ label chapter_1:
     label cho_one1_accepted:
        
     scene sum_bg_shop1_img
-    show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+    # show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     show van_sum_nor at center
     with fade
     "You browse through the shop and spot a cute croissant shaped keychain."
@@ -895,6 +980,9 @@ label chapter_1:
         show screen OverlayScreen1
         show screen ClickableArea
         play sound "audio/collected_item_ping.mp3"
+        python:
+            active_set = "set1"
+            active_tab ="tab1"
     ### achievement package ###
     hide van_sum_nor
     show van_sum_thi at center
@@ -946,7 +1034,7 @@ label chapter_1:
     label cho_one2_accepted:
     
     scene sum_bg_shop2_img
-    show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+    # show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     with fade
     
     play sound "audio/sum/sum_se_sand_01.mp3"  #Sound of walking on sand
@@ -982,6 +1070,9 @@ label chapter_1:
                 show screen OverlayScreen1
                 show screen ClickableArea
                 play sound "audio/collected_item_ping.mp3"
+                python:
+                    active_set = "set1"
+                    active_tab = "tab1"
             ### achievement package ###
             hide van_sum_hap
             jump JXJX_accepted
@@ -992,11 +1083,11 @@ label chapter_1:
 
     # Screen fades to black once, then fades back in
     scene black
-    show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+    # show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     with fade
     pause(0.3)  # Wait a bit while the screen is dark
     scene sum_bg_beach1_img
-    show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+    # show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     show van_sum_nor at center
     with fade
     "The next day, you receive the analysis report from A.S.H."
@@ -1014,7 +1105,7 @@ label chapter_1:
     label cho_one4_accepted:
     
     scene sum_bg_shop2_img
-    show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+    # show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     stop sound
     show van_sum_ser at center
     with fade
@@ -1026,7 +1117,7 @@ label chapter_1:
 
     play sound "audio/sum/sum_se_sand_02.mp3"  #Sound of running on sand
     scene sum_bg_beach3_img
-    show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+    # show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     show van_sum_ser at center
     with dissolve
     "You chase after them, but the clerk, desperate to erase evidence, tosses the bottle into the ocean."
@@ -1038,16 +1129,25 @@ label chapter_1:
     "All of a sudden, the waves in the sea start to thrash violently as a giant octopus rises from the water."
 
     scene sum_st_btst_img
-    show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+    # show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     with fade
     pause 2.0 
     vanta_char "Holy guacamole! That thing is massive! What the frick frack snick snack?"
     play sound "audio/sum/sum_se_tako_04.mp3"
     "The giant octopus lets out an ear-piercing roar. People begin to flee in a panic."
     "Faced with this unexpected threat, you make a prompt decision to—"
+    ### achievement package ###
+    if (achievement.has('sum_st_btst')== False):
+        $ achievement.grant('sum_st_btst')          
+        show screen OverlayScreen1
+        show screen ClickableArea
+        python:
+            active_set = "cg"
+            active_tab = "tab1"
+    ### achievement package ###
 
     scene sum_bg_beach2_img
-    show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+    # show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     show van_sum_ser at center
     with fade
     menu:
@@ -1056,13 +1156,8 @@ label chapter_1:
         "Evacuate the area first":
             "You notice a small child who tripped and is crying on the ground. \nYou quickly scoop her into your arms and bring her to a safe spot."
             "Once there are no civilians in the immediate vicinity, you run towards the ferocious octopus."
-            ### achievement package ###
-            if (achievement.has('takoyaki')== False):
-                $ achievement.grant('takoyaki')        
-                show screen OverlayScreen1
-                show screen ClickableArea
-                play sound "audio/collected_item_ping.mp3"
-            ### achievement package ###
+            python:
+                havetakoyaki = True
             jump BT1_accepted
     label BT1_accepted:
     vanta_char "Did the octopus just drink whatever was in the bottle? That must be what's driving people crazy!"
@@ -1074,17 +1169,11 @@ label chapter_1:
     play sound "audio/sum/sum_se_tako_02.mp3"  #Sound of tentacles attacking
     "It hurtles one of its tentacles towards you. \nReacting immediately, you jump to the—"
     menu:
-        "Right":
-            hide van_sum_con
-            show van_sum_hap at center
-            vanta_char "AH HA! This is too easy! I'm always right!"
-            "Grinning with excitement, you spin around, waving a hand to get the octopus' attention, then sprint off with a shout."
-            hide van_sum_hap
-            jump after_accepted
+
         "Left":
             play sound "audio/sum/sum_se_koke.mp3" #Cocking sound
             scene sum_st_fny_img
-            show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+            # show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
             with fade
             pause 2.0 
             "You trip over a particularly large shell lying innocently in the sand and fall to the ground rather ungracefully."
@@ -1097,16 +1186,27 @@ label chapter_1:
                 $ achievement.grant('sum_st_fny')        
                 show screen OverlayScreen1
                 show screen ClickableArea
-                play sound "audio/collected_item_ping.mp3"
+                python:
+                    active_set = "cg"
+                    active_tab = "tab1"
             ### achievement package ###
             scene sum_bg_beach2_img
-            show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+            # show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
             with fade
             show van_sum_emb at center
             vanta_char "Ahem!! Moving on!"
             "Moving swiftly on from your embarrassing performance, you give a war cry."
             hide van_sum_emb
             jump after_accepted
+
+        "Right":
+            hide van_sum_con
+            show van_sum_hap at center
+            vanta_char "AH HA! This is too easy! I'm always right!"
+            "Grinning with excitement, you spin around, waving a hand to get the octopus' attention, then sprint off with a shout."
+            hide van_sum_hap
+            jump after_accepted
+
     label after_accepted:
 
     show van_sum_con at center
@@ -1151,23 +1251,34 @@ label chapter_1:
     "Now that the exciting battle is over, you look back at the octopus. It has stopped moving."
     play music "audio/sum/sum_bgm_01.mp3" loop fadein 1.0   # Loop game music
     scene sum_st_bten_img
-    show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+    # show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     with fade
     pause 2.0 
     vanta_char "Well, that's my workout done for today, nice!"
+    ### achievement package ###
+    if (achievement.has('takoyaki')== False) and (havetakoyaki == True):
+        $ achievement.grant('takoyaki')        
+        show screen OverlayScreen1
+        show screen ClickableArea
+        python:
+            active_set = "set1"
+            active_tab = "tab1"
+        play sound "audio/collected_item_ping.mp3"
+    ### achievement package ###
     "A.S.H. personnel arrive with the freshly developed antidotes.\nYou see the agents handing them out to the people who were affected by the drinks."
     "Everyone on the beach, including the shopkeeper, expresses their thanks to you and the A.S.H. team for averting disaster."
     pause 0.5
     ### achievement package ###
-    if (achievement.has('sum_st_btst')== False):
-        $ achievement.grant('sum_st_btst')   
-        $ achievement.grant('sum_st_bten')        
+    if (achievement.has('sum_st_bten')== False):
+        $ achievement.grant('sum_st_bten')         
         show screen OverlayScreen1
         show screen ClickableArea
-        play sound "audio/collected_item_ping.mp3"
+        python:
+            active_set = "cg"
+            active_tab = "tab1"
     ### achievement package ###
     scene sum_bg_beach3_img
-    show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+    # show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     show van_sum_hap at center
     with fade
     vanta_char "Everyone's safe now. We can once again enjoy the beautiful beach in peace."
@@ -1179,14 +1290,19 @@ label chapter_1:
 
     show sum_edcg_img
     ### achievement package ###
-    if (achievement.has('sum_st_edcg')== False):
+    if (achievement.has('sum_st_edcg')== False) or(achievement.has('sum_cv')== False) or(achievement.has('sum_gallery')== False):
         $ achievement.grant('sum_st_edcg')
+        $ achievement.grant('sum_cv')
         $ achievement.grant('sum_gallery')        
         show screen OverlayScreen1
         show screen ClickableArea
-        play sound "audio/collected_item_ping.mp3"
+        python:
+            active_set = "gallery"
+            active_tab = "tab1"
+        # add a popup screen?
+        # play sound "audio/collected_item_ping.mp3"
     ### achievement package ###
-    show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+    # show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     with fade
     ### ending screen ###
     show screen OverlayScreen
@@ -1196,15 +1312,17 @@ label chapter_1:
 
 label chapter_2:
     hide screen OverlayScreen
+
+    python:
+        active_tab="tab2"
     stop music fadeout 1.0  # Fade out menu music
     play music "audio/aut/aut_bgm_01.mp3" loop fadein 1.0  #Loop playback of peaceful songs with fade-in
-
     show aut_cv_img
     # Wait until the user clicks
     pause
  
     scene aut_bg_village1_img
-    show text "{b}{size=34}Chapter 2.  AUTUMN{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+    # show text "{b}{size=34}Chapter 2.  AUTUMN{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     with fade
     play sound "audio/aut/aut_se_bird.mp3" #birdcall
 
@@ -1231,7 +1349,7 @@ label chapter_2:
     show npc4_img at center 
     npc4_char "Absolutely, especially this time of year; look at how beautiful the mountains are!"
     scene aut_bg_village2_img
-    show text "{b}{size=34}Chapter 2.  AUTUMN{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+    # show text "{b}{size=34}Chapter 2.  AUTUMN{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     with fade
     "As you discuss the details of the mission, the village leader guides you to the town hall."
     show npc4_img at center
@@ -1257,10 +1375,10 @@ label chapter_2:
     hide npc4_img
     
     scene black
-    show text "{b}{size=34}Chapter 2.  AUTUMN{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+    # show text "{b}{size=34}Chapter 2.  AUTUMN{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     with fade
     scene aut_bg_village1_img
-    show text "{b}{size=34}Chapter 2.  AUTUMN{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+    # show text "{b}{size=34}Chapter 2.  AUTUMN{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     show wil_hr_nor at right
     show van_hr_nor at left
     with fade
@@ -1287,6 +1405,9 @@ label chapter_2:
         $ achievement.grant('walkietalkie')        
         show screen OverlayScreen1
         show screen ClickableArea
+        python:
+            active_set = "set1"
+            active_tab = "tab1"
         play sound "audio/collected_item_ping.mp3"
     ### achievement package ###
     hide zal_hr_hap
@@ -1298,7 +1419,7 @@ label chapter_2:
     "You give Zali a quick nod as he heads to the infirmary. You and Wilson turn towards the mountains."
     play sound "audio/aut/aut_se_bird.mp3" #birdcall   
     scene aut_bg_forest1_img
-    show text "{b}{size=34}Chapter 2.  AUTUMN{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+    # show text "{b}{size=34}Chapter 2.  AUTUMN{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     with fade
     "The two of you hike along the path, taking in the surrounding scenery."
     "Everything is breathtaking—from the towering trees, to the crunching of the leaves underfoot, to the crisp autumn air."
@@ -1323,7 +1444,7 @@ label chapter_2:
     "The scent is familiar, it's something earthy."
     "Intrigued by the smell, you want to find out where it comes from."
     scene aut_bg_forest2_img
-    show text "{b}{size=34}Chapter 2.  AUTUMN{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+    # show text "{b}{size=34}Chapter 2.  AUTUMN{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     with dissolve
     "You head off the path, and Wilson's yapping voice slowly fades behind you."
     show van_hr_nor at center
@@ -1347,6 +1468,9 @@ label chapter_2:
                 $ achievement.grant('mushroom')        
                 show screen OverlayScreen1
                 show screen ClickableArea
+                python:
+                    active_set="set1"
+                    active_tab="tab1"
                 play sound "audio/collected_item_ping.mp3"
             ### achievement package ###
             hide van_hr_hap
@@ -1481,7 +1605,9 @@ label chapter_2:
                 $ achievement.grant('aut_st_fny')        
                 show screen OverlayScreen1
                 show screen ClickableArea
-                play sound "audio/collected_item_ping.mp3"
+                python:
+                    active_set = "cg"
+                    active_tab = "tab2"
             ### achievement package ###
             hide aut_st_fny_img
             hide wil_hr_sur
@@ -1515,6 +1641,15 @@ label chapter_2:
     "All of a sudden, a low, rumbling growl echoes from behind you."
     "Your heart skips a beat, you turn to face the source of the ominous sound, only to find yourself locking eyes with a bear whose fur bristles with aggression."
     "Ah, just what you need—another item checked off the bucket list: getting chased by a bear. How thrilling!"
+    ### achievement package ###
+    if (achievement.has('aut_st_btst')== False):
+        $ achievement.grant('aut_st_btst')      
+        show screen OverlayScreen1
+        show screen ClickableArea
+        python:
+            active_set = "cg"
+            active_tab = "tab2"
+    ### achievement package ###
     
     play sound "audio/aut/aut_se_bear_02.mp3" # Bear growling sound
     "The bear lets out a terrifying roar, the forest trembles in response. It exudes unusual agitation and aggression, its abnormally large form far surpassing any bears you've encountered before."
@@ -1524,7 +1659,7 @@ label chapter_2:
     "Without saying a word, you read your homie's mind, and simultaneously turn on your heels, racing down the mountain."
     stop sound fadeout 3.0 #Stop sound effects
     scene aut_bg_forest2_img
-    show text "{b}{size=34}Chapter 2.  AUTUMN{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+    # show text "{b}{size=34}Chapter 2.  AUTUMN{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     show van_hr_sur at left
     show wil_hr_sur at right
     with fade 
@@ -1533,7 +1668,7 @@ label chapter_2:
     vanta_char "Ahhh!!  THAT IS HUGE..."
     vanta_char "...That's what she said."
     scene aut_bg_forest1_img
-    show text "{b}{size=34}Chapter 2.  AUTUMN{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+    # show text "{b}{size=34}Chapter 2.  AUTUMN{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     show com_base_img
     show aut_com_1_img at aut_com_1_upper
     with fade 
@@ -1632,15 +1767,16 @@ label chapter_2:
     zali_char "Your faces look weird. Did I do something wrong?"
     vandw_char "{size=50}No-nothing!{/size}"
     ### achievement package ###
-    if (achievement.has('sum_st_btst')== False):
-        $ achievement.grant('sum_st_btst')
-        $ achievement.grant('sum_st_bten')        
+    if (achievement.has('aut_st_bten')== False):
+        $ achievement.grant('aut_st_bten')        
         show screen OverlayScreen1
         show screen ClickableArea
-        play sound "audio/collected_item_ping.mp3"
+        python:
+            active_set = "cg"
+            active_tab = "tab2"
     ### achievement package ###
     scene aut_bg_village1_img
-    show text "{b}{size=34}Chapter 2.  AUTUMN{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+    # show text "{b}{size=34}Chapter 2.  AUTUMN{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     show van_hr_nor at left
     show wil_hr_nor at right
     show zal_hr_nor at center
@@ -1653,6 +1789,9 @@ label chapter_2:
         $ achievement.grant('maplesyrup')        
         show screen OverlayScreen1
         show screen ClickableArea
+        python:
+            active_set="set1"
+            active_tab="tab1"
         play sound "audio/collected_item_ping.mp3"
     ### achievement package ###
     "Zali examines the mushrooms closely before instructing the logistics team to store them in his lab back at A.S.H."
@@ -1665,12 +1804,15 @@ label chapter_2:
     with fade
     # Display END at the bottom right
     ### achievement package ###
-    if (achievement.has('aut_st_edcg')== False):
+    if (achievement.has('aut_st_edcg')== False)or(achievement.has('aut_cv')== False) or(achievement.has('aut_gallery')== False):
         $ achievement.grant('aut_st_edcg')
+        $ achievement.grant('aut_cv')
         $ achievement.grant('aut_gallery')        
         show screen OverlayScreen1
         show screen ClickableArea
-        play sound "audio/collected_item_ping.mp3"
+        python:
+            active_set ="gallery"
+            active_tab ="tab2"
     ### achievement package ###
     ### ending screen ###
     show screen OverlayScreen
@@ -1680,6 +1822,8 @@ label chapter_2:
 
 label chapter_3:
     hide screen OverlayScreen
+    python:
+        active_tab="tab1"
     stop music fadeout 1.0  # Fade out menu music
     play music "audio/win/win_bgm_01.mp3" loop fadein 1.0  #Loop playback of peaceful songs with fade-in
 
@@ -1688,7 +1832,7 @@ label chapter_3:
     pause
  
     scene win_bg_office1_img
-    show text "{b}{size=34}Chapter 3.  WINTER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+    # show text "{b}{size=34}Chapter 3.  WINTER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     with fade
 
     window hide
@@ -1747,7 +1891,7 @@ label chapter_3:
     "Who knew being kind to a bunch of tiny and seemingly tasty creatures could be so bothersome? Yet here you are, playing the reluctant hero once again."
  
     scene win_bg_street1_img
-    show text "{b}{size=34}Chapter 3.  WINTER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+    # show text "{b}{size=34}Chapter 3.  WINTER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     with fade 
     "As you step out of A.S.H. HQ, a blast of cold wind smacks you in the face; you clutch your coat tighter around you, and the Crew bunch up in your booba—the best place to be."
     "You head to the store 'Le Petit Coin' just around the corner, which translates to 'the little corner'."
@@ -1761,7 +1905,7 @@ label chapter_3:
     label win_cho_one1_accepted:
 
     scene win_bg_shop_img
-    show text "{b}{size=34}Chapter 3.  WINTER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+    # show text "{b}{size=34}Chapter 3.  WINTER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     with fade
     "As you enter Le Petit Coin, the warmth of the store washes over you. Festive decorations adorn every corner, from twinkling lights to garlands of holly, casting a cheerful glow over the space."
     "You can't help but smile as you take in the merry atmosphere. With a sense of excitement, you begin to browse the aisles."
@@ -1780,6 +1924,9 @@ label chapter_3:
         $ achievement.grant('icecreamcake')         
         show screen OverlayScreen1
         show screen ClickableArea
+        python:
+            active_set="set1"
+            active_tab="tab1"
         play sound ["audio/collected_item_ping.mp3","audio/win/win_se_slime_01.mp3"]
     ### achievement package ### 
     play sound "audio/win/win_se_slime_01.mp3" #slime sound
@@ -1794,22 +1941,6 @@ label chapter_3:
     "They look eager to capture a festive photo, and you can't resist their enthusiasm.\nYou oblige and take out your phone."
     
     menu:
-        "Take a selfie with the Christmas tree":
-            hide van_ci_con
-            hide crew3_hap_img
-            show van_ci_hap at right_2p
-            show crew3_ang_img at left_2p
-            play sound "audio/win/win_se_camera.mp3" #Camera shutter sound
-            "You take a selfie with the twinkling Christmas tree; the Crew sound annoyed that they aren't in the picture with you."
-            play sound "audio/win/win_se_slime_01.mp3" #slime sound
-            vanta_char "Haha, I'm joking. I'll take one more with you guys in it."
-            play sound "audio/win/win_se_camera.mp3" #Camera shutter sound
-            hide crew3_ang_img
-            show crew3_hap_img at left_2p
-            "The second picture seems to make them happier."
-            hide crew3_hap_img
-            hide van_ci_hap
-            jump  win_cho2p_accepted
         "Ask the Crew to nestle around the tree, and take a picture together":
             show van_ci_hap at right_2p
             show crew3_hap_img at left_2p
@@ -1833,13 +1964,33 @@ label chapter_3:
                 $ achievement.grant('win_st_fny')        
                 show screen OverlayScreen1
                 show screen ClickableArea
-                play sound "audio/collected_item_ping.mp3"
+                python:
+                    active_set ="cg"
+                    active_tab="tab3"
             ### achievement package ###
             hide win_st_fny_img 
             scene win_bg_shop_img
-            show text "{b}{size=34}Chapter 3.  WINTER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+            # show text "{b}{size=34}Chapter 3.  WINTER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
             with fade
             jump  win_cho2p_accepted
+
+        "Take a selfie with the Christmas tree":
+            hide van_ci_con
+            hide crew3_hap_img
+            show van_ci_hap at right_2p
+            show crew3_ang_img at left_2p
+            play sound "audio/win/win_se_camera.mp3" #Camera shutter sound
+            "You take a selfie with the twinkling Christmas tree; the Crew sound annoyed that they aren't in the picture with you."
+            play sound "audio/win/win_se_slime_01.mp3" #slime sound
+            vanta_char "Haha, I'm joking. I'll take one more with you guys in it."
+            play sound "audio/win/win_se_camera.mp3" #Camera shutter sound
+            hide crew3_ang_img
+            show crew3_hap_img at left_2p
+            "The second picture seems to make them happier."
+            hide crew3_hap_img
+            hide van_ci_hap
+            jump  win_cho2p_accepted
+
     label win_cho2p_accepted:
 
     show van_ci_hap at center 
@@ -1847,7 +1998,7 @@ label chapter_3:
     "You make your way to the counter to pay.\nAfter packing everything, you exit Le Petit Coin."
     play sound "audio/sum/sum_se_bell.mp3" # Sound of bell, reused
     scene win_bg_park_img
-    show text "{b}{size=34}Chapter 3.  WINTER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+    # show text "{b}{size=34}Chapter 3.  WINTER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     show van_ci_nor at center
     with fade
     "As you head back to A.S.H., you walk past a nearby park..."
@@ -1912,8 +2063,17 @@ label chapter_3:
     "The boy starts to cry and you try to comfort him. You look around, realizing that the Vantacrew who were following behind you, have disappeared."
     "Immediately, you implore Kurococco to track the Crew's location. The results reveal that they are in a moving vehicle."
     vanta_char "Kid, ready for a little adventure? Hold on tight, and off we go!\nI'll dash so fast it'll feel like we're flying, even though it's just me running. You get what I'm saying, right?"
+    ### achievement package ###
+    if (achievement.has('win_st_btst')== False):
+        $ achievement.grant('win_st_btst')       
+        show screen OverlayScreen1
+        show screen ClickableArea
+        python:
+            active_set = "cg"
+            active_tab = "tab3"
+    ### achievement package ###
     scene win_bg_run_img
-    show text "{b}{size=34}Chapter 3.  WINTER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+    # show text "{b}{size=34}Chapter 3.  WINTER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     show com_base_img
     with fade
     show win_com_1_img at win_com_1_upper
@@ -1926,7 +2086,7 @@ label chapter_3:
     show win_com_2_img at win_com_1_upper
     vanta_char "I'm not Arachnid-Man! I'm a tyrant! A hero of Krisis!\nYeah, one of my fellow heroes does wear tights, but not all heroes wear tights!"
     scene win_bg_street2_img
-    show text "{b}{size=34}Chapter 3.  WINTER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+    # show text "{b}{size=34}Chapter 3.  WINTER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     with fade
     "As you catch up to the moving car, its speed gradually decreases until it eventually comes to a stop in front of a house."
     play sound "audio/win/win_se_car.mp3" #The sound of a car door closing.
@@ -1971,15 +2131,16 @@ label chapter_3:
     "Simultaneously, your phone vibrates in your pocket, signaling an incoming call from your teammates."
     pause 0.5
     ### achievement package ###
-    if (achievement.has('win_st_btst')== False):
-        $ achievement.grant('win_st_btst')   
-        $ achievement.grant('win_st_bten')        
+    if (achievement.has('win_st_bten')== False):
+        $ achievement.grant('win_st_bten')         
         show screen OverlayScreen1
         show screen ClickableArea
-        play sound "audio/collected_item_ping.mp3"
+        python:
+            active_set = "cg"
+            active_tab = "tab3"
     ### achievement package ###
     scene win_bg_street2_img
-    show text "{b}{size=34}Chapter 3.  WINTER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+    # show text "{b}{size=34}Chapter 3.  WINTER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     show win_bg_office2_img
     show van_ci_nor at right
     show wil_ci_sur at left
@@ -2033,16 +2194,19 @@ label chapter_3:
     "You open your coat, and the Crew hop inside to snuggle with you.\nDespite the season's icy grip, an inner warmth envelops you, putting a smile on your face."
 
     show win_edcg_img
-    show text "{b}{size=34}Chapter 3.  WINTER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+    # show text "{b}{size=34}Chapter 3.  WINTER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     with fade
     # Display END at the bottom right
     ### achievement package ###
-    if (achievement.has('win_st_edcg')== False):
+    if (achievement.has('win_st_edcg')== False)or(achievement.has('win_cv')== False) or(achievement.has('win_gallery')== False):
         $ achievement.grant('win_st_edcg')
+        $ achievement.grant('win_cv')
         $ achievement.grant('win_gallery')        
         show screen OverlayScreen1
         show screen ClickableArea
-        play sound "audio/collected_item_ping.mp3"
+        python:
+            active_set = "gallery"
+            active_tab = "tab3"
     ### achievement package ###
     ### ending screen ###
     show screen OverlayScreen
@@ -2053,17 +2217,19 @@ label chapter_3:
 
 
 label chapter_4:
+    python:
+        active_tab="tab4"
     hide screen OverlayScreen
     stop music fadeout 1.0  # Fade out menu music
     play music "audio/spr/spr_bgm_01.mp3" loop fadein 1.0  #Loop playback with fade-in
 
     show spr_cv_img
-    show text "{b}{size=34}Chapter 4.  SPRING{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+    # show text "{b}{size=34}Chapter 4.  SPRING{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     # Wait for user to click
     pause
  
     scene spr_bg_office1_img
-    show text "{b}{size=34}Chapter 4.  SPRING{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+    # show text "{b}{size=34}Chapter 4.  SPRING{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     with fade
     #Avoid momentary flickering when switching dialogue windows 
     window hide
@@ -2143,27 +2309,7 @@ label chapter_4:
     "But for the content, it’s tempting to show off to Wilson. Even a few of the Vantacrew seem to snicker at the notion.\nYou decide to give Wilson—"
 
     menu:
-        "Maple Syrup":
-            scene spr_st_wilson_img
-            show text "{b}{size=34}Chapter 4.  SPRING{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
-            with fade
-            pause 2.0  
-            "Despite how tempting it is to grab the ice cream cake, you decide to be a good teammate and grab the maple syrup. You close the fridge and hand Wilson the bottle."
-            wilson_char "Oh my god! I remember this! Didn’t we get this from that one village we helped out?"
-            vanta_char "Yeah! It’s still good, not close to expiring or anything like that."
-            wilson_char "Now I really can’t wait for my coffee! Thank you!"
-            ### achievement package ###
-            if (achievement.has('spr_st_wilson')== False):
-                $ achievement.grant('spr_st_wilson')    
-                show screen OverlayScreen1
-                show screen ClickableArea
-                play sound "audio/collected_item_ping.mp3"
-            ### achievement package ###
-            hide spr_st_wilson_img
-            scene spr_bg_office1_img
-            show text "{b}{size=34}Chapter 4.  SPRING{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
-            with fade
-            jump spr_cho2_1_accepted
+        
         "Ice Cream Cake":
             hide van_ci_3
             show van_ci_con at center
@@ -2186,6 +2332,29 @@ label chapter_4:
             hide van_ci_hap
             hide wil_ci_ser
             with dissolve
+            jump spr_cho2_1_accepted
+        "Maple Syrup":
+            scene spr_st_wilson_img
+            # show text "{b}{size=34}Chapter 4.  SPRING{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+            with fade
+            pause 2.0  
+            "Despite how tempting it is to grab the ice cream cake, you decide to be a good teammate and grab the maple syrup. You close the fridge and hand Wilson the bottle."
+            wilson_char "Oh my god! I remember this! Didn’t we get this from that one village we helped out?"
+            vanta_char "Yeah! It’s still good, not close to expiring or anything like that."
+            wilson_char "Now I really can’t wait for my coffee! Thank you!"
+            ### achievement package ###
+            if (achievement.has('spr_st_wilson')== False):
+                $ achievement.grant('spr_st_wilson')    
+                show screen OverlayScreen1
+                show screen ClickableArea
+                python:
+                    active_set = "cg"
+                    active_tab = "tab4"
+            ### achievement package ###
+            hide spr_st_wilson_img
+            scene spr_bg_office1_img
+            # show text "{b}{size=34}Chapter 4.  SPRING{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+            with fade
             jump spr_cho2_1_accepted
     label spr_cho2_1_accepted:
     
@@ -2215,7 +2384,7 @@ label chapter_4:
     menu:
         "Croissant Keychain":
             scene spr_st_zali_img
-            show text "{b}{size=34}Chapter 4.  SPRING{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+            # show text "{b}{size=34}Chapter 4.  SPRING{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
             with fade
             pause 2.0 
             "You grab the keychain from your desk and return to the kitchen. You tap Zali’s shoulder to get his attention. When he turns his head, you show him the croissant keychain."
@@ -2228,11 +2397,13 @@ label chapter_4:
                 $ achievement.grant('spr_st_zali')    
                 show screen OverlayScreen1
                 show screen ClickableArea
-                play sound "audio/collected_item_ping.mp3"
+                python:
+                    active_set = "cg"
+                    active_tab = "tab4"
             ### achievement package ###
             hide spr_st_zali_img
             scene spr_bg_office1_img
-            show text "{b}{size=34}Chapter 4.  SPRING{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+            # show text "{b}{size=34}Chapter 4.  SPRING{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
             with fade
             jump spr_cho2_2_accepted
         "Eggplant-shaped Candy":
@@ -2307,7 +2478,7 @@ label chapter_4:
     "Getting ready for your mission is now, just second nature to you; you swiftly prepare. Your trusted partners, Tsuchi, Tentapod, and Kurococco, are also ready to go."
     hide spr_com_4_img
     scene spr_bg_lab1_img
-    show text "{b}{size=34}Chapter 4.  SPRING{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+    # show text "{b}{size=34}Chapter 4.  SPRING{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     show com_base_img
     show spr_com_5_img at spr_com_upper
     with fade
@@ -2349,7 +2520,7 @@ label chapter_4:
     "You take a deep breath and nod at Wilson. With precision, Tentapod swiftly extends its robotic octopus arm and effortlessly hacks into the lockpad. The door is unlocked within a matter of seconds."
     play sound "audio/spr/spr_se_door.mp3" #Sound of a metal door opening
     scene spr_bg_lab2_img
-    show text "{b}{size=34}Chapter 4.  SPRING{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+    # show text "{b}{size=34}Chapter 4.  SPRING{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     with dissolve
     "The heavy metal door emits a soft hiss as it opens slowly, revealing darkness beyond. You step inside cautiously, your senses on high alert, ready for whatever lies ahead."
     show com_base_img
@@ -2403,7 +2574,7 @@ label chapter_4:
     vanta_char "You were just a nameless Shiba without a home, but not anymore. From this moment forward, you belong to me, Vantacrow Bringer. You are my puppy."
     hide spr_com_17_img
     scene spr_st_fny_img
-    show text "{b}{size=34}Chapter 4.  SPRING{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+    # show text "{b}{size=34}Chapter 4.  SPRING{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     with fade
     pause 2.0  
     "You're responded to with a big yawn, followed by the puppy's paws shoving against your face."
@@ -2413,11 +2584,13 @@ label chapter_4:
         $ achievement.grant('spr_st_fny')        
         show screen OverlayScreen1
         show screen ClickableArea
-        play sound "audio/collected_item_ping.mp3"
+        python:
+            active_set = "cg"
+            active_tab = "tab4"
     ### achievement package ###
     hide spr_st_fny_img
     scene spr_bg_lab2_img at earthquake_before
-    show text "{b}{size=34}Chapter 4.  SPRING{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+    # show text "{b}{size=34}Chapter 4.  SPRING{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     show com_base_img
     show spr_com_18_img at spr_com_upper
     with fade
@@ -2447,14 +2620,14 @@ label chapter_4:
     play sound "audio/spr/spr_se_explosion.mp3" #Explosion sound
     hide spr_com_20_img
     scene spr_bg_lab2_img at earthquake
-    show text "{b}{size=34}Chapter 4.  SPRING{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+    # show text "{b}{size=34}Chapter 4.  SPRING{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     show com_base_img
     show spr_com_21_img at spr_com_upper
     "Squad A spots your exit. With a quick gesture, the explosion detonates, sending shockwaves rippling through the structure."
     play sound "audio/spr/spr_se_ground.mp3" #rumble in the ground
     "As the shockwave pushes against you, you suddenly remember the puppy secured on your back. With quick reflexes, you twist your body, shielding the puppy from the full force of the blast."
     scene spr_bg_buil1_img
-    show text "{b}{size=34}Chapter 4.  SPRING{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+    # show text "{b}{size=34}Chapter 4.  SPRING{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     with fade 
     "Smoke rises into the sky as the once-standing building structure becomes rubble in a matter of seconds."
     show com_base_img
@@ -2497,7 +2670,7 @@ label chapter_4:
     "Wilson nods, a grin spreading across his face. He lightly bumps your chest with his fist."
     wilson_char "Absolutely. You've come a long way since we first teamed up.\nEven if you always disagree with me, I will always have your back."
     scene spr_bg_buil2_img
-    show text "{b}{size=34}Chapter 4.  SPRING{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
+    # show text "{b}{size=34}Chapter 4.  SPRING{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     show van_hr_nor at center    
     show wil_hr_nor at right
     show zal_hr_nor at left
@@ -2516,9 +2689,13 @@ label chapter_4:
     "Cherry blossoms will continue bloom."
 
     ### achievement package ###
-    if (achievement.has('spr_st_edcg')== False):
-        $ achievement.grant('spr_st_edcg') #the ending cg video
+    if (achievement.has('spr_st_edcg')== False)or(achievement.has('spr_cv')== False) or(achievement.has('spr_gallery')== False):
+        $ achievement.grant('spr_st_edcg')
+        $ achievement.grant('spr_cv') #the ending cg video
         $ achievement.grant('spr_gallery')
+        python:
+            active_set = "gallery"
+            active_tav = "tab4"
     # no need to notify in the end(?)        
     #     show screen OverlayScreen1
     #     show screen ClickableArea
