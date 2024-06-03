@@ -11,7 +11,7 @@
 ## title, and shows up in the interface and error reports.
 ##
 ## The _() surrounding the string marks it as eligible for translation.
-define config.name = _("Full_alpha")
+define config.name = _("Full_alpha_2")
 
 define build.itch_project = "testcrew/test2"
 
@@ -23,7 +23,7 @@ define gui.show_name = True
 
 ## The version of the game.
 
-define config.version = "1.1"
+define config.version = ".0"
 
 
 ## Text that is placed on the game's about screen. Place the text between the
@@ -37,7 +37,7 @@ define gui.about = _p("""
 ## distribution. This must be ASCII-only, and must not contain spaces, colons,
 ## or semicolons.
 
-define build.name = "Full_alpha"
+define build.name = "Full_alpha_2"
 
 
 ## Sounds and music ############################################################

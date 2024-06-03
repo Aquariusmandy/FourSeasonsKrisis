@@ -140,6 +140,7 @@ screen inventory_screen():
     tag menu
     modal True
     add gui.inventory_background
+    $ showItem = -1 # if click on the inventory, then reset the var "showItem"
 
     if active_set == "set1":
         add "images/main_button/frame_item.png":
@@ -147,7 +148,7 @@ screen inventory_screen():
             yalign 0.8
         add "gui/archive/inventory-top.png":
             xalign 0.06
-            yalign 0.115
+            yalign 0.115  
     elif active_set == "cg":
         add "images/main_button/frame_cg1.png":
             xalign 0.35  # Move the frame to the left
@@ -362,6 +363,67 @@ screen inventory_screen():
                     hbox: # create the vertical spacing
                         xysize (1300,5)  
 
+screen item_description_popup_2(showItem):
+    zorder 180
+    modal True
+    # $ count = len(showItem)
+    add "transparent2.png" xpos -0.1 ypos -0.8
+    
+    $ current_state = "seen_"+str(showItem)
+    
+    $ nextone = showItem-1
+    $ next_state = "seen_"+str(nextone)
+
+    if (nextone>-1) and (seenlist[next_state]==False):
+        $ item_background = get_item_background("set1", "tab1", showItem)
+        $ seenlist[current_state] = True
+        hbox:
+            xpos 0.3
+            ypos 0.3
+            xsize 800
+            ysize 330 
+            vbox:
+                frame:
+                    background item_background  # Change this to your description frame background
+                $ active_set = "set1"
+                $ active_tab = "tab1"
+                imagebutton idle "images/main_button/btn_close.png" action [Show("item_description_popup_2",showItem=nextone)]:
+                    xpos 0.803
+                    ypos -11.057
+    elif (nextone<0) or (seenlist[next_state]==True):
+        $ item_background = get_item_background("set1", "tab1", showItem)
+        $ seenlist[current_state] = True
+        hbox:
+            xpos 0.3
+            ypos 0.3
+            xsize 800
+            ysize 330 
+            vbox:
+                frame:
+                    background item_background  # Change this to your description frame background
+                $ active_set = "set1"
+                $ active_tab = "tab1"
+                imagebutton idle "images/main_button/btn_close.png" action [ShowMenu("inventory")]:
+                    xpos 0.803
+                    ypos -11.057
+                
+    
+    # elif count == 1:
+    #     $ item_background = get_item_background("set1", "tab1", item_index)
+    #     $ showItem.remove(item_name)
+    #     hbox:
+    #         xpos 0.3
+    #         ypos 0.3
+    #         xsize 800
+    #         ysize 330 
+    #         vbox:
+    #             frame:
+    #                 background item_background  # Change this to your description frame background
+
+    #             imagebutton idle "images/main_button/btn_close.png" action [ShowMenu("inventory"),SetVariable("IsItem", False)]:
+    #                 xpos 0.803
+    #                 ypos -11.057
+        
 
 screen item_description_popup(item_click_background):
     modal True
@@ -485,6 +547,31 @@ screen picture_popup(item_click_background,active_set,active_tab,index):
                 xpos 0.93
                 yalign 0.5
 
+screen chapterend_popup():
+    style_prefix "confirm"
+
+    add "transparent2.png" xpos -0.1 ypos -0.8
+
+    frame:
+
+        vbox:
+            xalign .55
+            yalign .5
+            spacing 45
+
+            label _("Congratulations! We ball!\n Visit the A.S.H. Archive to see your progress, including Collected Items, Secret Snaps of amazing moments caught in 4K, and extra memories of Krisis and the Vezcrewneers in the Seasonal Album!"):
+                style "confirm_prompt"
+                xalign 0.5
+                yalign 0.5
+
+            hbox:
+                xalign 0.5
+                yalign 0.7
+                spacing 50
+
+                textbutton _("Check now!") action [ShowMenu("inventory"),Hide("chapterend_popup")] style "menuback_textbutton"
+
+
 
 
 screen OverlayScreen():
@@ -495,17 +582,19 @@ screen OverlayScreen():
     # Vertical box to contain your overlay content.
     vbox:
         
-        xalign 0.96
+        xalign 0.9
         yalign 0.9
         spacing 10  # Adjust the spacing between items as needed.
-        text _("To Be Continue") style "chapterend_text":
-            anchor(0,0)
-            xpos 0.1
-        # Add your image buttons here.
-        textbutton _("Check A.S.H. Archive") action ShowMenu("inventory") style "chapterend_textbutton":
-            anchor (0,0)
-            xpos 0.5
-            ypos 0.88
+
+        # text _("To Be Continue") style "chapterend_text":
+        #     anchor(0,0)
+        #     xpos 0.1
+        # # Add your image buttons here.
+
+        # textbutton _("Check A.S.H. Archive") action ShowMenu("inventory") style "chapterend_textbutton":
+        #     anchor (0,0)
+        #     xpos 0.5
+        #     ypos 0.88
         textbutton _("Next Chapter") action Return() style "chapterend_textbutton":
             anchor (0,0)
             xpos 0.5
@@ -526,7 +615,11 @@ screen ClickableArea():
         yanchor 0.0
         idle "temp/transparent3.png"
         hover "menubutton/btn_Archive_hover.png"
-        action Function(renpy.hide_screen, "OverlayScreen1"), ShowMenu("inventory_screen")
+        if showItem is not -1:
+            action Function(renpy.hide_screen, "OverlayScreen1"),Show("item_description_popup_2",showItem=showItem),Show("inventory_screen")# add popup function
+            # ShowMenu("inventory"),
+        else:   
+            action Function(renpy.hide_screen, "OverlayScreen1"), ShowMenu("inventory_screen")
 
 screen white_fade:
     modal True
@@ -709,6 +802,26 @@ screen quick_menu():
 
     
     ## Display the button image
+    
+    imagebutton:
+        idle "temp/btn_HBMenu_default.png"  # Replace "your_button_image.png" with your button image path
+        hover "temp/btn_HBMenu_hover.png"  # Replace "your_button_image_hover.png" with hover image path
+        action ShowMenu("quick_menu_options")  # Display the menu options upon clicking
+        anchor(1,0)
+        xpos 0.95  # Align the image button to the right
+        ypos 0.032  # Align the image button to the top
+    imagebutton:
+        idle "temp/btn_Archive_default.png"  
+        hover "temp/btn_Archive_hover.png"
+        if showItem is not -1:
+            action [ShowMenu("item_description_popup_2",showItem)] # add popup function
+            # ShowMenu("inventory"),
+        else:  
+            action ShowMenu("inventory")  
+        anchor(1,0)
+        xpos 0.9  # Align the image button to the right
+        ypos 0.032  # Align the image button to the top
+
     vbox:
         anchor (0,0)
         xpos 0.03
@@ -716,21 +829,7 @@ screen quick_menu():
         text _("Debug Quick Menu")
         textbutton _("Back") action Rollback() style "slime_textbutton"
         textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True) style "slime_textbutton"
-    imagebutton:
-        idle "temp/btn_HBMenu_default.png"  # Replace "your_button_image.png" with your button image path
-        hover "temp/btn_HBMenu_hover.png"  # Replace "your_button_image_hover.png" with hover image path
-        action [ShowMenu("quick_menu_options")]  # Display the menu options upon clicking
-        anchor(1,0)
-        xpos 0.95  # Align the image button to the right
-        ypos 0.032  # Align the image button to the top
-    imagebutton:
-        idle "temp/btn_Archive_default.png"  
-        hover "temp/btn_Archive_hover.png"  
-        action ShowMenu("inventory")  
-        anchor(1,0)
-        xpos 0.9  # Align the image button to the right
-        ypos 0.032  # Align the image button to the top
-
+        
 ## Define the menu options
 
 ## Define the menu options
@@ -819,7 +918,7 @@ screen navigation:
     vbox:
         anchor(0, 0)
         xpos 0.77
-        ypos 0.75
+        ypos 0.7
         spacing 10
         label _("Debug Quick Menu")
         textbutton "Chapter 1" action Start("chapter_1"):
@@ -830,6 +929,7 @@ screen navigation:
             style "slime_textbutton"
         textbutton "Chapter 4" action Start("chapter_4"):
             style "slime_textbutton"
+        # textbutton _("ResetInventory") action achievement.clear_all() style "slime_textbutton"
 
     vbox:
         style_prefix "navigation"
@@ -869,8 +969,8 @@ screen navigation:
 screen gamemenu_navigation:
 
     vbox:
-        xpos 0.02
-        ypos 0.3
+        xpos 68
+        ypos 364
         spacing gui.navigation_spacing
         
 
@@ -880,6 +980,7 @@ screen gamemenu_navigation:
         textbutton _("History") action ShowMenu("history") 
         textbutton _("Settings") action ShowMenu("preferences") 
         textbutton _("Credits") action ShowMenu("about") 
+        # textbutton _("ResetInventory") action achievement.clear_all() 
         if not main_menu:
             textbutton _("Main Menu") action MainMenu() 
         else:
@@ -983,27 +1084,39 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
             style "game_menu_settings_frame"
             text _("Setting"):
                 style "main_menu_title"
-                xalign 0.03
-                yalign -0.1
+                # xyanchor (0,0)
+                xanchor 0.0
+                yanchor 1.0
+                xpos 68
+                ypos 27
 
         elif CurrentScreenName() == "save":
             style "game_menu_save_frame"
             text _("Save"):
                 style "main_menu_title"
-                xalign 0.03
-                yalign -0.1
+                # xyanchor (0,0)
+                xanchor 0.0
+                yanchor 1.0
+                xpos 68
+                ypos 27
         elif CurrentScreenName() == "load":
             style "game_menu_load_frame"
             text _("Load"):
                 style "main_menu_title"
-                xalign 0.03
-                yalign -0.1
+                # xyanchor (0,0)
+                xanchor 0.0
+                yanchor 1.0
+                xpos 68
+                ypos 27
         elif CurrentScreenName() == "history":
             style "game_menu_history_frame"
             text _("History"):
                 style "main_menu_title"
-                xalign 0.03
-                yalign -0.1
+                # xyanchor (0,0)
+                xanchor 0.0
+                yanchor 1.0
+                xpos 68
+                ypos 27
         else:
             style "game_menu_outer_frame"
         

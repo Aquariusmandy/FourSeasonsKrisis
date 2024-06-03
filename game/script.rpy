@@ -312,6 +312,15 @@ init:
     image spr_com_25_img = "images/comic/spr/spr_com_25.png"
     image spr_com_26_img = "images/comic/spr/spr_com_26.png"
 
+    ### Tsumire add chapter ending msg ###
+    image ending_msg = "temp/check_archive.png"
+
+
+#the ending msg position
+transform top_right:
+    xalign 0.8
+    yalign 0.03
+
 
 #キャラクターの立ち位置2人の時
 transform left_2p:
@@ -749,7 +758,11 @@ init python:
         achievement.register(cglist[i])
     achievement.clear_all()
 
-
+    seenlist = {}
+    ### popup first see item
+    for i in range(9):
+        name = "seen_"+str(i)
+        seenlist[name] = True
 
 
     # Obtain items
@@ -900,6 +913,10 @@ init python:
 default zorder = -2
 default red_dot_shown = False
 default havetakoyaki = False
+default showItem = -1
+
+
+
 # ### achievement package ###
 # if (achievement.has('sum_st_edcg')== False):
 #     $ achievement.grant('sum_st_edcg')
@@ -962,7 +979,7 @@ label chapter_1:
     "Seeing the shop, you think about your teammates."
     "You wonder if you should take a look inside to see if there's anything worth buying."
     menu:
-        "Enter the souvenir shop":
+        "Enter the Souvenir Shop":
             play sound "audio/sum/sum_se_bell.mp3"  #Bell sounds
             jump cho_one1_accepted
     label cho_one1_accepted:
@@ -971,7 +988,7 @@ label chapter_1:
     # show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     show van_sum_nor at center
     with fade
-    "You browse through the shop and spot a cute croissant shaped keychain."
+    "You browse through the shop and spot a cute croissant-shaped keychain."
     play sound "audio/sum/sum_se_cash.mp3" #Cash register sound
     "You pay for it at the register, but as you are about to leave, you hear a shout from the other side of the shop."
     ### achievement package ###
@@ -983,6 +1000,8 @@ label chapter_1:
         python:
             active_set = "set1"
             active_tab ="tab1"
+            showItem = 0
+            seenlist['seen_0'] = False
     ### achievement package ###
     hide van_sum_nor
     show van_sum_thi at center
@@ -994,7 +1013,7 @@ label chapter_1:
     show van_sum_ser at center
     vanta_char "Hey hey hey, chill!"
     vanta_char "This is a public space, don't yell like that."
-    vanta_char "You should know not to eat iron. We're done here."
+    vanta_char "You should know not to eat iron, alright? We're done here."
     npc2_char "Oh, I'm so sorry. I've been agitated all day. This place is just...driving me crazy."
     npc3_char "Yeah, me too... Sorry for yelling at you..."
     hide van_sum_ser
@@ -1008,7 +1027,7 @@ label chapter_1:
     show van_sum_nor at right_2p
     with dissolve
     npc1_char "Thank you for stepping in before it got worse; I was worried that you would cause trouble, too."
-    npc1_char "I'm glad my assumptions were wrong. \nYou appeared from nowhere, just like a hero!"
+    npc1_char "Phew! I'm glad my assumptions were wrong. You appeared from nowhere, just like a hero!"
     hide van_sum_nor
     show van_sum_con at right_2p
     vanta_char "Haha! To tell you the truth, I am an incredibly influential individual, the true paragon of virtue. Standing before you is—"
@@ -1059,7 +1078,7 @@ label chapter_1:
             jump JXJX_accepted
         "We ball! Take a sip of the drink":
             "You've defeated 100,000 armed combatants without breaking a sweat, what's the worst that could happen?"
-            "You taste the drink... and nothing happens"
+            "You taste the drink...and nothing happens"
             hide van_sum_nor
             show van_sum_hap at center
             vanta_char "Huh. It actually tastes quite nice. Esperanza!"
@@ -1073,6 +1092,8 @@ label chapter_1:
                 python:
                     active_set = "set1"
                     active_tab = "tab1"
+                    showItem = 1
+                    seenlist['seen_1'] = False
             ### achievement package ###
             hide van_sum_hap
             jump JXJX_accepted
@@ -1113,7 +1134,7 @@ label chapter_1:
     "The clerk seems shocked and starts to panic. They grab a bottle of unknown substance and run away."
     hide van_sum_ser
     show van_sum_sur at center
-    vanta_char "Hey, hey! Where do you think you're going?"
+    vanta_char " {size=40}Hey, hey! Where do you think you're going?{/size}"
 
     play sound "audio/sum/sum_se_sand_02.mp3"  #Sound of running on sand
     scene sum_bg_beach3_img
@@ -1122,7 +1143,7 @@ label chapter_1:
     with dissolve
     "You chase after them, but the clerk, desperate to erase evidence, tosses the bottle into the ocean."
     play sound "audio/sum/sum_se_bochan.mp3" #The sound of something sinking into the water. Bo-chan.
-    "You tackle the clerk to the ground.\nAs you click the handcuffs onto their wrists, you watch the bottle disappear into the waves."
+    "You tackle the clerk to the ground. As you click the handcuffs onto their wrists, you watch the bottle disappear into the waves."
 
     play sound "audio/sum/sum_se_tako_01.mp3" # Octopus Cry
     play music "audio/sum/sum_bgm_02.mp3" loop   # Loop game music
@@ -1132,7 +1153,7 @@ label chapter_1:
     # show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     with fade
     pause 2.0 
-    vanta_char "Holy guacamole! That thing is massive! What the frick frack snick snack?"
+    vanta_char "{size=40}Holy guacamole! {/size}That thing is massive! What the frick frack snick snack?"
     play sound "audio/sum/sum_se_tako_04.mp3"
     "The giant octopus lets out an ear-piercing roar. People begin to flee in a panic."
     "Faced with this unexpected threat, you make a prompt decision to—"
@@ -1154,7 +1175,7 @@ label chapter_1:
         "Run towards the ferocious octopus and fight":
             jump BT1_accepted
         "Evacuate the area first":
-            "You notice a small child who tripped and is crying on the ground. \nYou quickly scoop her into your arms and bring her to a safe spot."
+            "You notice a small child who tripped and is crying on the ground. You quickly scoop her into your arms and bring her to a safe spot."
             "Once there are no civilians in the immediate vicinity, you run towards the ferocious octopus."
             python:
                 havetakoyaki = True
@@ -1167,7 +1188,8 @@ label chapter_1:
     vanta_char "You're cooked! You're done! I'm the cook and I'm about to have takoyaki tonight!"
     "The octopus has no intention of becoming your dinner tonight."
     play sound "audio/sum/sum_se_tako_02.mp3"  #Sound of tentacles attacking
-    "It hurtles one of its tentacles towards you. \nReacting immediately, you jump to the—"
+    "It hurtles one of its tentacles towards you."
+    "Reacting immediately, you jump to the—"
     menu:
 
         "Left":
@@ -1194,7 +1216,7 @@ label chapter_1:
             # show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
             with fade
             show van_sum_emb at center
-            vanta_char "Ahem!! Moving on!"
+            vanta_char "{size=50}Ahem!! Moving on!{/size}"
             "Moving swiftly on from your embarrassing performance, you give a war cry."
             hide van_sum_emb
             jump after_accepted
@@ -1202,7 +1224,7 @@ label chapter_1:
         "Right":
             hide van_sum_con
             show van_sum_hap at center
-            vanta_char "AH HA! This is too easy! I'm always right!"
+            vanta_char "{size=50}AH HA! {/size}This is too easy! I'm always right!"
             "Grinning with excitement, you spin around, waving a hand to get the octopus' attention, then sprint off with a shout."
             hide van_sum_hap
             jump after_accepted
@@ -1263,9 +1285,11 @@ label chapter_1:
         python:
             active_set = "set1"
             active_tab = "tab1"
+            showItem = 2
+            seenlist['seen_2'] = False
         play sound "audio/collected_item_ping.mp3"
     ### achievement package ###
-    "A.S.H. personnel arrive with the freshly developed antidotes.\nYou see the agents handing them out to the people who were affected by the drinks."
+    "A.S.H. personnel arrive with the freshly developed antidotes. You see the agents handing them out to the people who were affected by the drinks."
     "Everyone on the beach, including the shopkeeper, expresses their thanks to you and the A.S.H. team for averting disaster."
     pause 0.5
     ### achievement package ###
@@ -1282,13 +1306,15 @@ label chapter_1:
     show van_sum_hap at center
     with fade
     vanta_char "Everyone's safe now. We can once again enjoy the beautiful beach in peace."
-    "You see the smile on everyone's face. The happiness of saving them all filled your heart.Just another day; you never get tired of it."
+    "You see the smile on everyone's face. The happiness of saving them all filled your heart. Just another day; you never get tired of it."
     hide van_sum_hap
     show van_sum_con at center
     vanta_char "Well, that was certainly one way for my vacation to go."
     "Your adventure has only just begun, and the world awaits your epic journey—"
 
     show sum_edcg_img
+    with fade
+    pause 1.0
     ### achievement package ###
     if (achievement.has('sum_st_edcg')== False) or(achievement.has('sum_cv')== False) or(achievement.has('sum_gallery')== False):
         $ achievement.grant('sum_st_edcg')
@@ -1303,9 +1329,9 @@ label chapter_1:
         # play sound "audio/collected_item_ping.mp3"
     ### achievement package ###
     # show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
-    with fade
     ### ending screen ###
     show screen OverlayScreen
+    show screen chapterend_popup
     # Wait until the user clicks
     pause
     call chapter_2 from _call_chapter_2
@@ -1314,6 +1340,7 @@ label chapter_2:
     hide screen OverlayScreen
 
     python:
+        active_set="cg"
         active_tab="tab2"
     stop music fadeout 1.0  # Fade out menu music
     play music "audio/aut/aut_bgm_01.mp3" loop fadein 1.0  #Loop playback of peaceful songs with fade-in
@@ -1408,6 +1435,8 @@ label chapter_2:
         python:
             active_set = "set1"
             active_tab = "tab1"
+            showItem = 3
+            seenlist['seen_3'] = False
         play sound "audio/collected_item_ping.mp3"
     ### achievement package ###
     hide zal_hr_hap
@@ -1471,6 +1500,8 @@ label chapter_2:
                 python:
                     active_set="set1"
                     active_tab="tab1"
+                    showItem = 4
+                    seenlist['seen_4'] = False
                 play sound "audio/collected_item_ping.mp3"
             ### achievement package ###
             hide van_hr_hap
@@ -1792,6 +1823,8 @@ label chapter_2:
         python:
             active_set="set1"
             active_tab="tab1"
+            showItem = 5
+            seenlist['seen_5'] = False
         play sound "audio/collected_item_ping.mp3"
     ### achievement package ###
     "Zali examines the mushrooms closely before instructing the logistics team to store them in his lab back at A.S.H."
@@ -1800,8 +1833,7 @@ label chapter_2:
     "As peace returns to the mountain, you bid the villagers farewell, the tranquility of the moment etched in your memory."
     "A single maple leaf gently lands on your shoulder, a poignant reminder that even as you depart, nature itself bids its own farewell to the season."
     show aut_edcg_img
-    
-    with fade
+    with fade   
     # Display END at the bottom right
     ### achievement package ###
     if (achievement.has('aut_st_edcg')== False)or(achievement.has('aut_cv')== False) or(achievement.has('aut_gallery')== False):
@@ -1815,9 +1847,12 @@ label chapter_2:
             active_tab ="tab2"
     ### achievement package ###
     ### ending screen ###
-    show screen OverlayScreen
     # Wait for user to click
-    pause
+    show ending_msg at top_right
+    pause 3.0
+    hide ending_msg
+    show screen OverlayScreen
+    pause 1.0
     call chapter_3 from _call_chapter_3
 
 label chapter_3:
@@ -1869,8 +1904,8 @@ label chapter_3:
     show van_ci_3 at right_2p
     vanta_char "Sorry guys, I need my coat; I'm going out."
     play sound "audio/win/win_se_slime_01.mp3" #slime sound
-    "The Crew begins bouncing up and down, looking eager to leave with you."
-    vanta_char "AND... you're staying here."
+    "The Crew begin bouncing up and down, looking eager to leave with you."
+    vanta_char "AND... You're staying here."
     play sound "audio/win/win_se_slime_01.mp3" #slime sound
     hide van_ci_3
     show van_ci_sur at right_2p
@@ -1882,7 +1917,7 @@ label chapter_3:
     show van_ci_con at right_2p
     "You look down at them fondly—your Crew, a group of slimes that have been by your side since you joined A.S.H."
     vanta_char "You're telling me if you can't go, I can't either?"
-    vanta_char "Ugh! Alright alright! Y'all are so stubborn.\nFine then, come on!"
+    vanta_char "Ugh! Alright alright! Y'all are so stubborn. Fine then, come on!"
     play sound "audio/win/win_se_slime_01.mp3" #slime sound
     hide crew3_ang_img
     show crew3_3_img at left_2p
@@ -1896,7 +1931,7 @@ label chapter_3:
     "As you step out of A.S.H. HQ, a blast of cold wind smacks you in the face; you clutch your coat tighter around you, and the Crew bunch up in your booba—the best place to be."
     "You head to the store 'Le Petit Coin' just around the corner, which translates to 'the little corner'."
     show van_ci_nor at center
-    vanta_char "Let's see, I'll need to get... A cheesecake for Wilson, a croissant, something sweet... and what else..."
+    vanta_char "Let's see, I'll need to get... A cheesecake for Wilson, a croissant, something sweet... And what else..."
 
     menu:
         "Enter Le Petit Coin": 
@@ -1910,12 +1945,12 @@ label chapter_3:
     "As you enter Le Petit Coin, the warmth of the store washes over you. Festive decorations adorn every corner, from twinkling lights to garlands of holly, casting a cheerful glow over the space."
     "You can't help but smile as you take in the merry atmosphere. With a sense of excitement, you begin to browse the aisles."
     show van_ci_con at center
-    vanta_char "Oh? There are some samples over there. I'm gonna try it!\nOh my god, Zali is gonna hate these."
+    vanta_char "Oh? There are some samples over there. I'm gonna try it! Oh my god, Zali is gonna hate these."
     "It looks like Le Petit Coin is promoting a new festive item—eggplant-shaped candy. You take a bite of the sample; it tastes nice, with a delightful grape flavor."
     "You decide to grab a bag for Zali, thinking maybe, just maybe, it might change his perception of eggplant."
     hide van_ci_con
     show van_ci_hap at center  
-    vanta_char "Is that ice cream cake? I must get it for Wilson. Ahahaha."
+    vanta_char "Is that ice cream cake? I must get it for Wilson. Ahahaha!"
     vanta_char "I should also get something for myself to drink. Hmm, how about some diet soda?"
     ### achievement package ###
     if (achievement.has('dietsoda')== False):
@@ -1927,6 +1962,10 @@ label chapter_3:
         python:
             active_set="set1"
             active_tab="tab1"
+            showItem = 8
+            seenlist['seen_6'] = False
+            seenlist['seen_7'] = False
+            seenlist['seen_8'] = False
         play sound ["audio/collected_item_ping.mp3","audio/win/win_se_slime_01.mp3"]
     ### achievement package ### 
     play sound "audio/win/win_se_slime_01.mp3" #slime sound
@@ -1936,9 +1975,9 @@ label chapter_3:
     "The Crew seems to be excited, too. Their cheerful burbles fill the air as you walk past a beautifully decorated Christmas tree."
     hide van_ci_hap
     show van_ci_con at right_2p 
-    vanta_char "Oh? You guys like the Christmas tree? Merry Krisis!"
+    vanta_char "Oh? You guys like the Christmas tree? {size=40}Merry Krisis!{/size}"
     play sound "audio/win/win_se_slime_01.mp3" #slime sound
-    "They look eager to capture a festive photo, and you can't resist their enthusiasm.\nYou oblige and take out your phone."
+    "They look eager to capture a festive photo, and you can't resist their enthusiasm. You oblige and take out your phone."
     
     menu:
         "Ask the Crew to nestle around the tree, and take a picture together":
@@ -1954,7 +1993,7 @@ label chapter_3:
             pause 2.0
             "Your instinct kicks in, you swiftly dart forward to intercept its downward trajectory."
             "You manage to steady the swaying tree, preventing it from toppling over completely."
-            vanta_char "Wo-woah!! Woah!! That was close!"
+            vanta_char "{size=40}Wo-woah!! Woah!!{/size} That was close!"
             vanta_char "You are banned from getting under the Christmas tree again. That was insane guys!"
             play sound "audio/win/win_se_slime_01.mp3" #slime sound
             "You stabilize the tree with a firm grip, the Crew looking somewhat apologetic. Laughter fills the air as you avert a potential disaster."
@@ -1995,7 +2034,7 @@ label chapter_3:
 
     show van_ci_hap at center 
     with dissolve  
-    "You make your way to the counter to pay.\nAfter packing everything, you exit Le Petit Coin."
+    "You make your way to the counter to pay. After packing everything, you exit Le Petit Coin."
     play sound "audio/sum/sum_se_bell.mp3" # Sound of bell, reused
     scene win_bg_park_img
     # show text "{b}{size=34}Chapter 3.  WINTER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
@@ -2019,7 +2058,7 @@ label chapter_3:
 
     hide van_ci_thi
     show van_ci_nor at right_2p
-    vanta_char "Hey kiddo, what are you doing here by yourself?\nWhere's your family?"
+    vanta_char "Hey kiddo, what are you doing here by yourself? Where's your family?"
     "You must seem tall and intimidating to him, which makes him a bit scared to speak."
     play sound "audio/win/win_se_kiran.mp3" #flash of inspiration sound
     hide van_ci_nor
@@ -2035,13 +2074,13 @@ label chapter_3:
     hide crew1_3_img
     show van_ci_sur at right_2p
     show crew1_nor_img at left_2p
-    vanta_char "No reaction? Really?\nOkay, that wasn't my best shot, let's try again!"
+    vanta_char "No reaction? Really? Okay, that wasn't my best shot, let's try again!"
     play sound "audio/win/win_se_slime_01.mp3" #slime sound
     hide van_ci_sur
     hide crew1_nor_img
     show van_ci_3 at right_2p
     show crew1_3_img at left_2p
-    vandc_char "{size=120}:3{/size}"
+    vandc_char "{size=100}:3{/size}"
     "The kid finally smiles, bringing a sense of relief to both you and the Vantacrew."
     hide crew1_3_img
     hide van_ci_3
@@ -2054,7 +2093,7 @@ label chapter_3:
     show van_ci_con at right_2p
     vanta_char "Listen kid, if your friend means a lot to you, you should go to her instead of waiting here for her to come to you."
     npc5_char "But...but...will I annoy her? What if she doesn't want to see me? What if she doesn't want to be friends with me anymore?"
-    vanta_char "You know, sometimes you just shouldn't overthink things. You do what you can, and you can what you do.\nDon't be afraid of expressing your feelings to someone important to you."
+    vanta_char "You know, sometimes you just shouldn't overthink things. You do what you can, and you can what you do. Don't be afraid of expressing your feelings to someone important to you."
     play music "audio/sum/sum_bgm_02.mp3" fadein 1.0 loop #Battle music
     show win_st_btst_img
     with fade
@@ -2108,7 +2147,7 @@ label chapter_3:
     hide crew3_hap_img
     show win_com_3_img at win_com_3_upper
     "With a smile, you hand the boy the game he wishes to return and give him a reassuring push towards his friend's house."
-    vanta_char "Come on, I believe in you.\nGo ahead and tell her how you feel."
+    vanta_char "Come on, I believe in you. Go ahead and tell her how you feel."
     "The boy mustered up the courage to step forward and say hello to his friend."
     hide win_com_3_img
     show npc6_img at left_2p
@@ -2119,7 +2158,7 @@ label chapter_3:
     hide npc6_img
     show win_com_4_img at win_com_1_upper
     npc6_char "Why are there so many slimes here? And who is that behind you? I'll protect you from him if he's doing anything suspicious."
-    npc5_char "Oh, that guy!\nUm, apparently, he's a hero, even though he's not wearing tights... I think!\nHe brought me here."
+    npc5_char "Oh, that guy! Um, apparently, he's a hero, even though he's not wearing tights... I think! He brought me here."
     "The boy has now reunited with his friend, and they appear to be in good spirits. Surrounded by their parents, they wave goodbye to you before heading into the girl's new house."
     stop music fadeout 1.0  # Fade out the menu music
     play music "audio/win/win_bgm_01.mp3" loop fadein 1.0  # Play a peaceful track on loop
@@ -2191,7 +2230,7 @@ label chapter_3:
     play sound "audio/win/win_se_slime_01.mp3" #slime sound
     hide crew3_nor_img
     show crew3_hap_img at left_2p
-    "You open your coat, and the Crew hop inside to snuggle with you.\nDespite the season's icy grip, an inner warmth envelops you, putting a smile on your face."
+    "You open your coat, and the Crew hop inside to snuggle with you. Despite the season's icy grip, an inner warmth envelops you, putting a smile on your face."
 
     show win_edcg_img
     # show text "{b}{size=34}Chapter 3.  WINTER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
