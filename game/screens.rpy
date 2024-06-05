@@ -363,6 +363,9 @@ screen inventory_screen():
                     hbox: # create the vertical spacing
                         xysize (1300,5)  
 
+### pop screen for option2 ###
+# when we collecta a new item, we will receive a popup msg which is the item description after we first click the inventory button#
+# if there are multiple ones, the newest would be showed first#
 screen item_description_popup_2(showItem):
     zorder 180
     modal True
@@ -623,9 +626,11 @@ screen ClickableArea(showItem):
         yanchor 0.0
         idle "temp/transparent3.png"
         hover "menubutton/btn_Archive_hover.png"
+
+        ### this is for option 2 ###
         if achievement.has('controlnew'):
             action Function(renpy.hide_screen, "OverlayScreen1"),Show("item_description_popup_2",showItem=showItem),Show("inventory_screen")# add popup function
-            # ShowMenu("inventory"),
+
         else:   
             action Function(renpy.hide_screen, "OverlayScreen1"), ShowMenu("inventory_screen")
 
