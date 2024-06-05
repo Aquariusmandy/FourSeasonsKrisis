@@ -659,17 +659,17 @@ init python:
                     "images/still/spr_st_edcg.png",
     )
     
-    ### claim gallery contents ###
+    ### claim gallery contents ###  
     sum_gallery_list = {}
-    for i in range(14):
+    for i in range(15):
         j = i+1
         if j<10:
             name = 'fsk_gall_sum_0'+str(j)
 
         else:
             name = 'fsk_gall_sum_'+str(j)
-        filename ="images/gallery/"+name +".png"
-        lockname = "gui/archive/Collected Items/btn/btn_soda_locked.png"
+        filename ="images/gallery/"+name +".webp"
+        lockname = "gui/archive/Secret Snaps/frame_snaps_locked.png"
         sum_gallery_list[j]=[name,
                             filename,
                             filename,
@@ -685,7 +685,7 @@ init python:
         else:
             name = 'fsk_gall_aut_'+str(j)
         filename ="images/gallery/"+name +".webp"
-        lockname = "gui/archive/Collected Items/btn/btn_soda_locked.png"
+        lockname ="gui/archive/Secret Snaps/frame_snaps_locked.png"
         aut_gallery_list[j]=[name,
                             filename,
                             filename,
@@ -702,7 +702,7 @@ init python:
         else:
             name = 'fsk_gall_spr_'+str(j)
         filename ="images/gallery/"+name +".webp"
-        lockname = "gui/archive/Collected Items/btn/btn_soda_locked.png"
+        lockname = "gui/archive/Secret Snaps/frame_snaps_locked.png"
         spr_gallery_list[j]=[name,
                             filename,
                             filename,
@@ -710,22 +710,21 @@ init python:
                             filename
         ]
     win_gallery_list = {}
-    for i in range(10):
+    for i in range(11):
         j = i+1
         if j<10:
             name = 'fsk_gall_win_0'+str(j)
 
         else:
             name = 'fsk_gall_win_'+str(j)
-        filename ="images/gallery/"+name +".png"
-        lockname = "gui/archive/Collected Items/btn/btn_soda_locked.png"
+        filename ="images/gallery/"+name +".webp"
+        lockname = "gui/archive/Secret Snaps/frame_snaps_locked.png"
         win_gallery_list[j]=[name,
                             filename,
                             filename,
                             lockname,
                             filename
         ]
-    ### claim gallery contents ###
 
     achievement.register('sum_gallery')
     achievement.register('aut_gallery')
@@ -751,6 +750,8 @@ init python:
     achievement.register('eggplant')
     achievement.register('icecreamcake')
     achievement.register('dietsoda')
+
+    achievement.register('controlnew')
 
     # Lock cgs
 
@@ -828,6 +829,7 @@ init python:
                 {"name": sum_gallery_list[12][0], "idle": sum_gallery_list[12][1], "hover": sum_gallery_list[12][2], "locked": sum_gallery_list[12][3], "background": sum_gallery_list[12][4]},
                 {"name": sum_gallery_list[13][0], "idle": sum_gallery_list[13][1], "hover": sum_gallery_list[13][2], "locked": sum_gallery_list[13][3], "background": sum_gallery_list[13][4]},
                 {"name": sum_gallery_list[14][0], "idle": sum_gallery_list[14][1], "hover": sum_gallery_list[14][2], "locked": sum_gallery_list[14][3], "background": sum_gallery_list[14][4]},
+                {"name": sum_gallery_list[15][0], "idle": sum_gallery_list[15][1], "hover": sum_gallery_list[15][2], "locked": sum_gallery_list[15][3], "background": sum_gallery_list[15][4]},
             ],
             "tab2": [
                 {"name": aut_gallery_list[1][0], "idle": aut_gallery_list[1][1], "hover": aut_gallery_list[1][2], "locked": aut_gallery_list[1][3], "background": aut_gallery_list[1][4]},
@@ -856,6 +858,7 @@ init python:
                 {"name": win_gallery_list[8][0], "idle": win_gallery_list[8][1], "hover": win_gallery_list[8][2], "locked": win_gallery_list[8][3], "background": win_gallery_list[8][4]},
                 {"name": win_gallery_list[9][0], "idle": win_gallery_list[9][1], "hover": win_gallery_list[9][2], "locked": win_gallery_list[9][3], "background": win_gallery_list[9][4]},
                 {"name": win_gallery_list[10][0], "idle": win_gallery_list[10][1], "hover": win_gallery_list[10][2], "locked": win_gallery_list[10][3], "background": win_gallery_list[10][4]},
+                {"name": win_gallery_list[11][0], "idle": win_gallery_list[11][1], "hover": win_gallery_list[11][2], "locked": win_gallery_list[11][3], "background": win_gallery_list[11][4]},
             ],
             "tab4": [
                 {"name": spr_gallery_list[1][0], "idle": spr_gallery_list[1][1], "hover": spr_gallery_list[1][2], "locked": spr_gallery_list[1][3], "background": spr_gallery_list[1][4]},
@@ -1002,6 +1005,7 @@ label chapter_1:
             active_tab ="tab1"
             showItem = 0
             seenlist['seen_0'] = False
+        $ achievement.grant('controlnew') 
     ### achievement package ###
     hide van_sum_nor
     show van_sum_thi at center
@@ -1094,6 +1098,7 @@ label chapter_1:
                     active_tab = "tab1"
                     showItem = 1
                     seenlist['seen_1'] = False
+                $ achievement.grant('controlnew') 
             ### achievement package ###
             hide van_sum_hap
             jump JXJX_accepted
@@ -1165,6 +1170,7 @@ label chapter_1:
         python:
             active_set = "cg"
             active_tab = "tab1"
+
     ### achievement package ###
 
     scene sum_bg_beach2_img
@@ -1287,6 +1293,7 @@ label chapter_1:
             active_tab = "tab1"
             showItem = 2
             seenlist['seen_2'] = False
+        $ achievement.grant('controlnew') 
         play sound "audio/collected_item_ping.mp3"
     ### achievement package ###
     "A.S.H. personnel arrive with the freshly developed antidotes. You see the agents handing them out to the people who were affected by the drinks."
@@ -1437,6 +1444,7 @@ label chapter_2:
             active_tab = "tab1"
             showItem = 3
             seenlist['seen_3'] = False
+        $ achievement.grant('controlnew') 
         play sound "audio/collected_item_ping.mp3"
     ### achievement package ###
     hide zal_hr_hap
@@ -1502,6 +1510,7 @@ label chapter_2:
                     active_tab="tab1"
                     showItem = 4
                     seenlist['seen_4'] = False
+                $ achievement.grant('controlnew') 
                 play sound "audio/collected_item_ping.mp3"
             ### achievement package ###
             hide van_hr_hap
@@ -1825,6 +1834,7 @@ label chapter_2:
             active_tab="tab1"
             showItem = 5
             seenlist['seen_5'] = False
+        $ achievement.grant('controlnew') 
         play sound "audio/collected_item_ping.mp3"
     ### achievement package ###
     "Zali examines the mushrooms closely before instructing the logistics team to store them in his lab back at A.S.H."
@@ -1966,6 +1976,7 @@ label chapter_3:
             seenlist['seen_6'] = False
             seenlist['seen_7'] = False
             seenlist['seen_8'] = False
+        $ achievement.grant('controlnew') 
         play sound ["audio/collected_item_ping.mp3","audio/win/win_se_slime_01.mp3"]
     ### achievement package ### 
     play sound "audio/win/win_se_slime_01.mp3" #slime sound

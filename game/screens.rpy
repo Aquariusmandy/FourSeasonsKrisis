@@ -367,21 +367,20 @@ screen item_description_popup_2(showItem):
     zorder 180
     modal True
     # $ count = len(showItem)
-    add "transparent2.png" xpos -0.1 ypos -0.8
-    
+
     $ current_state = "seen_"+str(showItem)
-    
     $ nextone = showItem-1
     $ next_state = "seen_"+str(nextone)
 
     if (nextone>-1) and (seenlist[next_state]==False):
         $ item_background = get_item_background("set1", "tab1", showItem)
         $ seenlist[current_state] = True
+        add "transparent2.png" xpos -0.1 ypos -0.8
         hbox:
             xpos 0.3
             ypos 0.3
             xsize 800
-            ysize 330 
+            ysize 330
             vbox:
                 frame:
                     background item_background  # Change this to your description frame background
@@ -391,22 +390,31 @@ screen item_description_popup_2(showItem):
                     xpos 0.803
                     ypos -11.057
     elif (nextone<0) or (seenlist[next_state]==True):
-        $ item_background = get_item_background("set1", "tab1", showItem)
-        $ seenlist[current_state] = True
-        hbox:
-            xpos 0.3
-            ypos 0.3
-            xsize 800
-            ysize 330 
-            vbox:
-                frame:
-                    background item_background  # Change this to your description frame background
-                $ active_set = "set1"
-                $ active_tab = "tab1"
-                imagebutton idle "images/main_button/btn_close.png" action [ShowMenu("inventory")]:
-                    xpos 0.803
-                    ypos -11.057
+        if (seenlist[current_state]==False):
+            $ item_background = get_item_background("set1", "tab1", showItem)
+            $ seenlist[current_state] = True
+            $ showItem = -1
+            $ achievement.clear('controlnew') 
+            add "transparent2.png" xpos -0.1 ypos -0.8
+            hbox:
+                xpos 0.3
+                ypos 0.3
+                xsize 800
+                ysize 330
+                vbox:
+                    frame:
+                        background item_background # Change this to your description frame background
+                    $ active_set = "set1"
+                    $ active_tab = "tab1"
+                    imagebutton idle "images/main_button/btn_close.png" action [ShowMenu("inventory"),Hide("inventory_screen"),Hide("item_description_popup_2")]:
+                        xpos 0.803
+                        ypos -11.057
+        # else:
+        #     text _(showItem):
+        #         style "menuback_textbutton_text"
                 
+
+        
     
     # elif count == 1:
     #     $ item_background = get_item_background("set1", "tab1", item_index)
@@ -605,7 +613,7 @@ screen OverlayScreen1():
     zorder 102
     modal False 
 
-screen ClickableArea():
+screen ClickableArea(showItem):
     zorder 101
     modal False
     imagebutton:
@@ -615,7 +623,7 @@ screen ClickableArea():
         yanchor 0.0
         idle "temp/transparent3.png"
         hover "menubutton/btn_Archive_hover.png"
-        if showItem is not -1:
+        if achievement.has('controlnew'):
             action Function(renpy.hide_screen, "OverlayScreen1"),Show("item_description_popup_2",showItem=showItem),Show("inventory_screen")# add popup function
             # ShowMenu("inventory"),
         else:   
@@ -813,11 +821,7 @@ screen quick_menu():
     imagebutton:
         idle "temp/btn_Archive_default.png"  
         hover "temp/btn_Archive_hover.png"
-        if showItem is not -1:
-            action [ShowMenu("item_description_popup_2",showItem)] # add popup function
-            # ShowMenu("inventory"),
-        else:  
-            action ShowMenu("inventory")  
+        action ShowMenu("inventory")  
         anchor(1,0)
         xpos 0.9  # Align the image button to the right
         ypos 0.032  # Align the image button to the top
@@ -929,7 +933,7 @@ screen navigation:
             style "slime_textbutton"
         textbutton "Chapter 4" action Start("chapter_4"):
             style "slime_textbutton"
-        # textbutton _("ResetInventory") action achievement.clear_all() style "slime_textbutton"
+        textbutton _("ResetInventory") action achievement.clear_all() style "slime_textbutton"
 
     vbox:
         style_prefix "navigation"
