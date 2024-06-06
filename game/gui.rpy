@@ -86,11 +86,14 @@ define gui.notify_text_size = 28
 define gui.title_text_size = 75
 
 ## Smaller text 
+define gui.twenty_text_size = 20
+define gui.twenty_text_yalign = 0.5
+
 define gui.content_text_size = 24
 define gui.content_text_yalign = 0.5
 
-define gui.chapterend_text_size = 64
-define gui.chapterend_text_yalign = 0.5
+define gui.thirty_text_size = 30
+define gui.thirty_text_yalign = 0.5
 
 define gui.chaptertitle_text_font = "BaiJamjuree-Bold.ttf"
 define gui.chaptertitle_text_size = 34
@@ -306,6 +309,8 @@ define gui.frame_borders = Borders(0, 0, 0, 0)
 
 ## The frame that is used as part of the confirm screen.
 define gui.confirm_frame_borders = Borders(100, 100, 100, 45)
+
+define gui.chapterend_popup_frame_borders = Borders(50, 100, 50, 45)
 
 ## The frame that is used as part of the skip screen.
 define gui.skip_frame_borders = Borders(24, 8, 75, 8)

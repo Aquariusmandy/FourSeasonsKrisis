@@ -130,6 +130,70 @@ style choice_textbutton is textbutton:
 style choice_textbutton_text:
     properties gui.text_properties("choice_button")
     xalign 0.5 
+
+style chapterend_popup_text:
+    properties gui.text_properties("twenty")
+    xalign 0.5
+
+style chapterend_title_popup_text:
+    properties gui.text_properties("thirty")
+    xalign 0.5  
+
+
+###### this is for option 1 ######
+init python:
+    # Set the initial state of achievement popup to not shown
+    persistent.achievement_popup_shown = False
+
+    persistent.croissant = False
+    persistent.drink = False
+    persistent.takoyaki = False
+    persistent.walkietalkie = False
+    persistent.mushroom = False
+    persistent.maplesyrup = False
+    persistent.eggplant = False
+    persistent.dietsoda = False
+    persistent.icecreamcake = False
+
+# Function to mark achievement popup as shown
+init python:
+    # def set_achievement_popup_shown():
+    #     # Set the persistent variable to indicate that the popup has been shown
+    #     # persistent.achievement_popup_shown = True
+    def set_croissant_shown():
+        persistent.croissant = True
+    def set_drink_shown():
+        persistent.drink = True
+    def set_takoyaki_shown():
+        persistent.takoyaki = True
+    def set_walkietalkie_shown():
+        persistent.walkietalkie = True
+    def set_mushroom_shown():
+        persistent.mushroom = True
+    def set_maplesyrup_shown():
+        persistent.maplesyrup = True
+    def set_eggplant_shown():
+        persistent.eggplant = True
+    def set_dietsoda_shown():
+        persistent.dietsoda = True
+    def set_icecreamcake_shown():
+        persistent.icecreamcake = True
+
+# Function to reset achievement popup to not shown
+init python:
+    def reset_achievement_popup_shown(achievement_name):
+        # Reset the persistent variable to indicate that the popup has not been shown
+        persistent.achievement_popup_shown = False
+
+    # def check_achievement_popup_shown(achievement_name):
+    #     # Reset the persistent variable to indicate that the popup has not been shown
+    #     persistent.achievement_popup_shown = False
+
+# Function to get the image for a specific achievement
+init python:
+    def get_achievement_image():
+        # Map achievement names to corresponding image paths
+        return "temp/Group 120.png"  # Return an empty string if no matching image is found
     
 
 ################################################################################
@@ -283,15 +347,110 @@ screen inventory_screen():
                                     #items
                                     xysize (380, 250)
                                     if achievement.has(item_name):
-                                        imagebutton idle image_dict["idle"] hover image_dict["hover"] action [Show("item_description_popup",item_click_background=item_background)]:
-                                            anchor (0.5,0.5)
-                                            xpos 0.5
-                                            ypos 0.5
+                                        if item_name == "croissant" and persistent.croissant==False:
+                                            imagebutton idle image_dict["idle"] hover image_dict["hover"] action Function(set_croissant_shown),Show("item_description_popup",item_click_background=item_background):
+                                                anchor (0.5,0.5)
+                                                xpos 0.5
+                                                ypos 0.5
+                                            imagebutton action NullAction() idle get_achievement_image() xysize (100, 100):
+                                                anchor (0.0,0.0)
+                                                xpos 0.85
+                                                ypos 0.1
+                                        elif item_name == "drink" and persistent.drink==False:
+                                            imagebutton idle image_dict["idle"] hover image_dict["hover"] action Function(set_drink_shown),Show("item_description_popup",item_click_background=item_background):
+                                                anchor (0.5,0.5)
+                                                xpos 0.5
+                                                ypos 0.5
+                                            imagebutton action NullAction() idle get_achievement_image() xysize (100, 100):
+                                                anchor (0.0,0.0)
+                                                xpos 0.85
+                                                ypos 0.1
+                                        elif item_name == "takoyaki" and persistent.takoyaki==False:
+                                            imagebutton idle image_dict["idle"] hover image_dict["hover"] action Function(set_takoyaki_shown),Show("item_description_popup",item_click_background=item_background):
+                                                anchor (0.5,0.5)
+                                                xpos 0.5
+                                                ypos 0.5
+                                            imagebutton action NullAction() idle get_achievement_image() xysize (100, 100):
+                                                anchor (0.0,0.0)
+                                                xpos 0.85
+                                                ypos 0.1
+                                        elif item_name == "walkietalkie" and persistent.walkietalkie==False:
+                                            imagebutton idle image_dict["idle"] hover image_dict["hover"] action Function(set_walkietalkie_shown),Show("item_description_popup",item_click_background=item_background):
+                                                anchor (0.5,0.5)
+                                                xpos 0.5
+                                                ypos 0.5
+                                            imagebutton action NullAction() idle get_achievement_image() xysize (100, 100):
+                                                anchor (0.0,0.0)
+                                                xpos 0.85
+                                                ypos 0.1
+                                        elif item_name == "mushroom" and persistent.mushroom==False:
+                                            imagebutton idle image_dict["idle"] hover image_dict["hover"] action Function(set_mushroom_shown),Show("item_description_popup",item_click_background=item_background):
+                                                anchor (0.5,0.5)
+                                                xpos 0.5
+                                                ypos 0.5
+                                            imagebutton action NullAction() idle get_achievement_image() xysize (100, 100):
+                                                anchor (0.0,0.0)
+                                                xpos 0.85
+                                                ypos 0.1
+                                        elif item_name == "maplesyrup" and persistent.maplesyrup==False:
+                                            imagebutton idle image_dict["idle"] hover image_dict["hover"] action Function(set_maplesyrup_shown),Show("item_description_popup",item_click_background=item_background):
+                                                anchor (0.5,0.5)
+                                                xpos 0.5
+                                                ypos 0.5
+                                            imagebutton action NullAction() idle get_achievement_image() xysize (100, 100):
+                                                anchor (0.0,0.0)
+                                                xpos 0.85
+                                                ypos 0.1
+                                        elif item_name == "eggplant" and persistent.eggplant==False:
+                                            imagebutton idle image_dict["idle"] hover image_dict["hover"] action Function(set_eggplant_shown),Show("item_description_popup",item_click_background=item_background):
+                                                anchor (0.5,0.5)
+                                                xpos 0.5
+                                                ypos 0.5
+                                            imagebutton action NullAction() idle get_achievement_image() xysize (100, 100):
+                                                anchor (0.0,0.0)
+                                                xpos 0.85
+                                                ypos 0.1
+                                        elif item_name == "dietsoda" and persistent.dietsoda==False:
+                                            imagebutton idle image_dict["idle"] hover image_dict["hover"] action Function(set_dietsoda_shown),Show("item_description_popup",item_click_background=item_background):
+                                                anchor (0.5,0.5)
+                                                xpos 0.5
+                                                ypos 0.5
+                                            imagebutton action NullAction() idle get_achievement_image() xysize (100, 100):
+                                                anchor (0.0,0.0)
+                                                xpos 0.85
+                                                ypos 0.1
+                                        elif item_name == "icecreamcake" and persistent.icecreamcake==False:
+                                            imagebutton idle image_dict["idle"] hover image_dict["hover"] action Function(set_icecreamcake_shown),Show("item_description_popup",item_click_background=item_background):
+                                                anchor (0.5,0.5)
+                                                xpos 0.5
+                                                ypos 0.5
+                                            imagebutton action NullAction() idle get_achievement_image() xysize (100, 100):
+                                                anchor (0.0,0.0)
+                                                xpos 0.85
+                                                ypos 0.1
+                                        else:
+                                            imagebutton idle image_dict["idle"] hover image_dict["hover"] action [Show("item_description_popup",item_click_background=item_background)]:
+                                                anchor (0.5,0.5)
+                                                xpos 0.5
+                                                ypos 0.5
                                     else:
                                         image item_locked:
                                             anchor (0.5,0.5)
                                             xpos 0.5
                                             ypos 0.5
+                                    # if not persistent.achievement_popup_shown:
+                                    #     # Define a vertical box (vbox) to contain the achievement popups
+                                    #     vbox:
+                                    #         # Apply a style group to the vbox for consistent styling
+                                    #         style_group "achievement_popup"
+                                            
+                                    #         # Iterate over each achievement
+                                    #         for ach in ['croissant', 'drink', 'mushroom']:
+                                    #             # Check if the player has unlocked the current achievement
+                                    #             if achievement.has(ach):
+                                    #                 # Create an image button for the achievement popup
+                                    #                 imagebutton action Function(set_achievement_popup_shown) idle get_achievement_image(ach) xysize (1000, 1000)    
+
                                    
                             elif active_set == "cg":
                                 frame:
@@ -359,59 +518,71 @@ screen inventory_screen():
                                             anchor (0.5,0.5)
                                             xpos 0.5
                                             ypos 0.5
+                        
                 if active_set == 'set1':
                     hbox: # create the vertical spacing
                         xysize (1300,5)  
+                    # Check if the achievement popup has not been shown previously
+    # Check if the achievement popup has not been shown previously
+    # if not persistent.achievement_popup_shown:
+    #     # Define a vertical box (vbox) to contain the achievement popups
+    #     vbox:           
+    #         # Iterate over each achievement
+    #         for ach in ['croissant', 'drink', 'takoyaki', 'mushroom']:
+    #             # Check if the player has unlocked the current achievement
+    #             if achievement.has(ach):
+    #                 # Create an image button for the achievement popup
+    #                 imagebutton action Function(set_achievement_popup_shown) idle get_achievement_image(ach) xysize (500, 500)                
 
 ### pop screen for option2 ###
 # when we collecta a new item, we will receive a popup msg which is the item description after we first click the inventory button#
 # if there are multiple ones, the newest would be showed first#
-screen item_description_popup_2(showItem):
-    zorder 180
-    modal True
-    # $ count = len(showItem)
+# screen item_description_popup_2(showItem):
+#     zorder 180
+#     modal True
+#     # $ count = len(showItem)
 
-    $ current_state = "seen_"+str(showItem)
-    $ nextone = showItem-1
-    $ next_state = "seen_"+str(nextone)
+#     $ current_state = "seen_"+str(showItem)
+#     $ nextone = showItem-1
+#     $ next_state = "seen_"+str(nextone)
 
-    if (nextone>-1) and (seenlist[next_state]==False):
-        $ item_background = get_item_background("set1", "tab1", showItem)
-        $ seenlist[current_state] = True
-        add "transparent2.png" xpos -0.1 ypos -0.8
-        hbox:
-            xpos 0.3
-            ypos 0.3
-            xsize 800
-            ysize 330
-            vbox:
-                frame:
-                    background item_background  # Change this to your description frame background
-                $ active_set = "set1"
-                $ active_tab = "tab1"
-                imagebutton idle "images/main_button/btn_close.png" action [Show("item_description_popup_2",showItem=nextone)]:
-                    xpos 0.803
-                    ypos -11.057
-    elif (nextone<0) or (seenlist[next_state]==True):
-        if (seenlist[current_state]==False):
-            $ item_background = get_item_background("set1", "tab1", showItem)
-            $ seenlist[current_state] = True
-            $ showItem = -1
-            $ achievement.clear('controlnew') 
-            add "transparent2.png" xpos -0.1 ypos -0.8
-            hbox:
-                xpos 0.3
-                ypos 0.3
-                xsize 800
-                ysize 330
-                vbox:
-                    frame:
-                        background item_background # Change this to your description frame background
-                    $ active_set = "set1"
-                    $ active_tab = "tab1"
-                    imagebutton idle "images/main_button/btn_close.png" action [ShowMenu("inventory"),Hide("inventory_screen"),Hide("item_description_popup_2")]:
-                        xpos 0.803
-                        ypos -11.057
+#     if (nextone>-1) and (seenlist[next_state]==False):
+#         $ item_background = get_item_background("set1", "tab1", showItem)
+#         $ seenlist[current_state] = True
+#         add "transparent2.png" xpos -0.1 ypos -0.8
+#         hbox:
+#             xpos 0.3
+#             ypos 0.3
+#             xsize 800
+#             ysize 330
+#             vbox:
+#                 frame:
+#                     background item_background  # Change this to your description frame background
+#                 $ active_set = "set1"
+#                 $ active_tab = "tab1"
+#                 imagebutton idle "images/main_button/btn_close.png" action [Show("item_description_popup_2",showItem=nextone)]:
+#                     xpos 0.803
+#                     ypos -11.057
+#     elif (nextone<0) or (seenlist[next_state]==True):
+#         if (seenlist[current_state]==False):
+#             $ item_background = get_item_background("set1", "tab1", showItem)
+#             $ seenlist[current_state] = True
+#             $ showItem = -1
+#             $ achievement.clear('controlnew') 
+#             add "transparent2.png" xpos -0.1 ypos -0.8
+#             hbox:
+#                 xpos 0.3
+#                 ypos 0.3
+#                 xsize 800
+#                 ysize 330
+#                 vbox:
+#                     frame:
+#                         background item_background # Change this to your description frame background
+#                     $ active_set = "set1"
+#                     $ active_tab = "tab1"
+#                     imagebutton idle "images/main_button/btn_close.png" action [ShowMenu("inventory"),Hide("inventory_screen"),Hide("item_description_popup_2")]:
+#                         xpos 0.803
+#                         ypos -11.057
         # else:
         #     text _(showItem):
         #         style "menuback_textbutton_text"
@@ -530,6 +701,18 @@ screen picture_popup(item_click_background,active_set,active_tab,index):
                 xanchor 0.0
                 xpos -0.05
                 yalign 0.5
+        elif (index_left > 0):
+            for i in range(index_left):
+                $ j = index_left - i
+                $ name_temp = get_item_name(active_set, active_tab, j)
+                if achievement.has(name_temp):
+                    break
+            $ item_background = get_item_background(active_set, active_tab, j)
+            imagebutton idle "gui/archive/Seasonal Album/btn/btn_left_1.png" hover "gui/archive/Seasonal Album/btn/btn_left_2.png" action [Show("picture_popup",item_click_background=item_background,active_set=active_set ,active_tab=active_tab,index=j)]:
+                xanchor 0.0
+                xpos -0.05
+                yalign 0.5
+
         else:
             imagebutton idle "gui/archive/Seasonal Album/btn/btn_left_1.png" hover "gui/archive/Seasonal Album/btn/btn_left_1.png" action NullAction():
                 xanchor 0.0
@@ -552,14 +735,26 @@ screen picture_popup(item_click_background,active_set,active_tab,index):
                 xanchor 1.0
                 xpos 0.93
                 yalign 0.5
+        elif (index_right < length-1):
+            for i in range(length - index_right):
+                $ j = index_right + i
+                $ name_temp = get_item_name(active_set, active_tab, j)
+                if achievement.has(name_temp):
+                    break
+            $ item_background = get_item_background(active_set, active_tab, j)
+            imagebutton idle "gui/archive/Seasonal Album/btn/btn_right_1.png" hover "gui/archive/Seasonal Album/btn/btn_right_2.png" action [Show("picture_popup",item_click_background=item_background,active_set=active_set ,active_tab=active_tab,index=j)]:
+                xanchor 0.0
+                xpos -0.05
+                yalign 0.5
         else:
             imagebutton idle "gui/archive/Seasonal Album/btn/btn_right_1.png" hover "gui/archive/Seasonal Album/btn/btn_right_1.png" action NullAction():
                 xanchor 1.0
                 xpos 0.93
                 yalign 0.5
 
-screen chapterend_popup():
-    style_prefix "confirm"
+### the ending msg for each chapter 
+screen chapterend_popup(msg):
+    style_prefix "chapterend_popup"
 
     add "transparent2.png" xpos -0.1 ypos -0.8
 
@@ -570,8 +765,12 @@ screen chapterend_popup():
             yalign .5
             spacing 45
 
-            label _("Congratulations! We ball!\n Visit the A.S.H. Archive to see your progress, including Collected Items, Secret Snaps of amazing moments caught in 4K, and extra memories of Krisis and the Vezcrewneers in the Seasonal Album!"):
-                style "confirm_prompt"
+            text _(msg):
+                style "chapterend_title_popup_text"
+                xalign 0.5
+                yalign 0.5
+            text _("Visit the A.S.H. Archive to see your progress, including Collected Items, Secret Snaps of amazing\nmoments caught in 4K, and extra memories of Krisis and the Vezcrewneers in the Seasonal Album!"):
+                style "chapterend_popup_text"
                 xalign 0.5
                 yalign 0.5
 
@@ -579,11 +778,22 @@ screen chapterend_popup():
                 xalign 0.5
                 yalign 0.7
                 spacing 50
-
                 textbutton _("Check now!") action [ShowMenu("inventory"),Hide("chapterend_popup")] style "menuback_textbutton"
+        
+    imagebutton idle "gui/archive/Seasonal Album/btn/btn_close_2.png" action Hide("chapterend_popup"):
+        xpos 0.734
+        ypos 0.337
 
 
-
+style chapterend_popup_text is gui_text
+style chapterend_title_popup_text is gui_text
+style chapterend_popup_frame is gui_frame
+style chapterend_popup_frame:
+    background Frame([ "system/system_popup.png", "system/system_popup.png"], gui.chapterend_popup_frame_borders, tile=gui.frame_tile)
+    # background Frame([ "gui/confirm_frame.png", "temp/frame_album_default.png"], gui.confirm_frame_borders, tile=gui.frame_tile)
+    padding gui.chapterend_popup_frame_borders.padding
+    xalign .5
+    yalign .5
 
 screen OverlayScreen():
     modal True
@@ -626,13 +836,14 @@ screen ClickableArea(showItem):
         yanchor 0.0
         idle "temp/transparent3.png"
         hover "menubutton/btn_Archive_hover.png"
+        action Function(renpy.hide_screen, "OverlayScreen1"), ShowMenu("inventory_screen")
 
         ### this is for option 2 ###
-        if achievement.has('controlnew'):
-            action Function(renpy.hide_screen, "OverlayScreen1"),Show("item_description_popup_2",showItem=showItem),Show("inventory_screen")# add popup function
+        # if achievement.has('controlnew'):
+        #     action Function(renpy.hide_screen, "OverlayScreen1"),Show("item_description_popup_2",showItem=showItem),Show("inventory_screen")# add popup function
 
-        else:   
-            action Function(renpy.hide_screen, "OverlayScreen1"), ShowMenu("inventory_screen")
+        # else:   
+        #     action Function(renpy.hide_screen, "OverlayScreen1"), ShowMenu("inventory_screen")
 
 screen white_fade:
     modal True
@@ -1044,7 +1255,7 @@ style main_menu_text is gui_text
 
 style main_menu_title is main_menu_text
 style main_menu_version is main_menu_text
-style chapterend_text is gui_text
+# style chapterend_text is gui_text
 
 style main_menu_frame:
     xsize 420
@@ -1069,10 +1280,10 @@ style main_menu_title:
 style main_menu_version:
     properties gui.text_properties("version")
 
-style chapterend_text:
-    properties gui.text_properties("chapterend")
-    outlines [ (absolute(1), "#000", absolute(2), absolute(2)) ]
-    color "#ffffff"
+# style chapterend_text:
+#     properties gui.text_properties("chapterend")
+#     outlines [ (absolute(1), "#000", absolute(2), absolute(2)) ]
+#     color "#ffffff"
 
 
 ## Game Menu screen ############################################################

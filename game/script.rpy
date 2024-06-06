@@ -312,14 +312,6 @@ init:
     image spr_com_25_img = "images/comic/spr/spr_com_25.png"
     image spr_com_26_img = "images/comic/spr/spr_com_26.png"
 
-    ### Tsumire add chapter ending msg ###
-    image ending_msg = "temp/check_archive.png"
-
-
-#the ending msg position
-transform top_right:
-    xalign 0.8
-    yalign 0.03
 
 
 #キャラクターの立ち位置2人の時
@@ -916,7 +908,18 @@ init python:
 default zorder = -2
 default red_dot_shown = False
 default havetakoyaki = False
-default showItem = -1
+default showItem = -1 #this is for option 2
+default persistent.achievement_popup_shown = False # this is for option 1
+default persistent.croissant = False
+default persistent.drink = False
+default persistent.takoyaki = False
+default persistent.walkietalkie = False
+default persistent.mushroom = False
+default persistent.maplesyrup = False
+default persistent.eggplant = False
+default persistent.dietsoda = False
+default persistent.icecreamcake = False
+
 
 
 
@@ -1338,13 +1341,14 @@ label chapter_1:
     # show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     ### ending screen ###
     show screen OverlayScreen
-    show screen chapterend_popup
+    show screen chapterend_popup("Congratulations! We ball!")
     # Wait until the user clicks
     pause
     call chapter_2 from _call_chapter_2
 
 label chapter_2:
     hide screen OverlayScreen
+    hide screen chapterend_popup
 
     python:
         active_set="cg"
@@ -1858,15 +1862,14 @@ label chapter_2:
     ### achievement package ###
     ### ending screen ###
     # Wait for user to click
-    show ending_msg at top_right
-    pause 3.0
-    hide ending_msg
     show screen OverlayScreen
+    show screen chapterend_popup("Congratulations! Let's make conversation!")
     pause 1.0
     call chapter_3 from _call_chapter_3
 
 label chapter_3:
     hide screen OverlayScreen
+    hide screen chapterend_popup
     python:
         active_tab="tab1"
     stop music fadeout 1.0  # Fade out menu music
@@ -2079,7 +2082,7 @@ label chapter_3:
     hide van_ci_sur
     show van_ci_3 at right_2p
     show crew1_3_img at left_2p
-    vandc_char "{size=70}:3{/size}"
+    vandc_char "{size=60}:3{/size}"
     "The boy looks confused, clearly unsure of what's going on."
     hide van_ci_3
     hide crew1_3_img
@@ -2260,6 +2263,7 @@ label chapter_3:
     ### achievement package ###
     ### ending screen ###
     show screen OverlayScreen
+    show screen chapterend_popup("Congratulations! Oh my goodness!")
     # Wait for user to click
     pause
     call chapter_4 from _call_chapter_4
@@ -2270,6 +2274,7 @@ label chapter_4:
     python:
         active_tab="tab4"
     hide screen OverlayScreen
+    hide screen chapterend_popup
     stop music fadeout 1.0  # Fade out menu music
     play music "audio/spr/spr_bgm_01.mp3" loop fadein 1.0  #Loop playback with fade-in
 
