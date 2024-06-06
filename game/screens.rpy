@@ -514,7 +514,7 @@ screen inventory_screen():
                                             xpos 0.5
                                             ypos 0.5
                                         image item_locked:
-                                            xysize(379,211)
+                                            xysize(384,216)
                                             anchor (0.5,0.5)
                                             xpos 0.5
                                             ypos 0.5
@@ -588,24 +588,7 @@ screen inventory_screen():
         #         style "menuback_textbutton_text"
                 
 
-        
     
-    # elif count == 1:
-    #     $ item_background = get_item_background("set1", "tab1", item_index)
-    #     $ showItem.remove(item_name)
-    #     hbox:
-    #         xpos 0.3
-    #         ypos 0.3
-    #         xsize 800
-    #         ysize 330 
-    #         vbox:
-    #             frame:
-    #                 background item_background  # Change this to your description frame background
-
-    #             imagebutton idle "images/main_button/btn_close.png" action [ShowMenu("inventory"),SetVariable("IsItem", False)]:
-    #                 xpos 0.803
-    #                 ypos -11.057
-        
 
 screen item_description_popup(item_click_background):
     modal True
@@ -676,7 +659,7 @@ screen gallery_popup(item_click_background,active_set,active_tab,index):
                 xpos 0.93
                 yalign 0.5
 
-
+image spr_st_edcg_v = Movie(play="movies/video.webm")
 
 
 screen picture_popup(item_click_background,active_set,active_tab,index):
@@ -718,16 +701,31 @@ screen picture_popup(item_click_background,active_set,active_tab,index):
                 xanchor 0.0
                 xpos -0.05
                 yalign 0.5           
-        vbox:
-            xalign 0.5
-            yalign 0.5
-            imagebutton idle "gui/archive/Seasonal Album/btn/btn_close_2.png" action Hide("picture_popup"):
-                xpos 1.0
-                ypos 0.0
-            image item_click_background:
-                xysize(1600,900)
+        
+        ### body ###
+        if (active_set == 'cg') and (active_tab == 'tab4') and (index==4):
+            vbox:
                 xalign 0.5
                 yalign 0.5
+                imagebutton idle "gui/archive/Seasonal Album/btn/btn_close_2.png" action Hide("picture_popup"):
+                    xpos 1.0
+                    ypos 0.0
+                add "spr_st_edcg_v":
+                    xysize(1600,900)
+                    xalign 0.5
+                    yalign 0.5
+                # textbutton "Start" action Start() xalign 0.5 yalign 0.5
+        else:
+            vbox:
+                xalign 0.5
+                yalign 0.5
+                imagebutton idle "gui/archive/Seasonal Album/btn/btn_close_2.png" action Hide("picture_popup"):
+                    xpos 1.0
+                    ypos 0.0
+                image item_click_background:
+                    xysize(1600,900)
+                    xalign 0.5
+                    yalign 0.5
         # right click then show the next (index+1) cg
         if (index_right < length) and (achievement.has(name_right)):
             $ item_background = get_item_background(active_set, active_tab, index_right)
@@ -778,7 +776,7 @@ screen chapterend_popup(msg):
                 xalign 0.5
                 yalign 0.7
                 spacing 50
-                textbutton _("Check now!") action [ShowMenu("inventory"),Hide("chapterend_popup")] style "menuback_textbutton"
+                textbutton _("Check now!") action [ShowMenu("inventory"),Hide("chapterend_popup"),Function(renpy.hide_screen, "OverlayScreen1")] style "menuback_textbutton"
         
     imagebutton idle "gui/archive/Seasonal Album/btn/btn_close_2.png" action Hide("chapterend_popup"):
         xpos 0.734
@@ -1149,7 +1147,7 @@ screen navigation:
             style "slime_textbutton"
         textbutton "Chapter 4" action Start("chapter_4"):
             style "slime_textbutton"
-        textbutton _("ResetInventory") action achievement.clear_all() style "slime_textbutton"
+        # textbutton _("ResetInventory") action achievement.clear_all() style "slime_textbutton"
 
     vbox:
         style_prefix "navigation"

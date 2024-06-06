@@ -312,6 +312,9 @@ init:
     image spr_com_25_img = "images/comic/spr/spr_com_25.png"
     image spr_com_26_img = "images/comic/spr/spr_com_26.png"
 
+    ### spring ending cg
+    image spr_st_edcg_v = Movie(play="movies/video.webm")
+
 
 
 #キャラクターの立ち位置2人の時
@@ -1006,9 +1009,9 @@ label chapter_1:
         python:
             active_set = "set1"
             active_tab ="tab1"
-            showItem = 0
-            seenlist['seen_0'] = False
-        $ achievement.grant('controlnew') 
+            showItem = 0 # this is for option 2
+            seenlist['seen_0'] = False # this is for option 2
+        $ achievement.grant('controlnew') # this is for option 2
     ### achievement package ###
     hide van_sum_nor
     show van_sum_thi at center
