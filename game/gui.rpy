@@ -310,7 +310,7 @@ define gui.frame_borders = Borders(0, 0, 0, 0)
 ## The frame that is used as part of the confirm screen.
 define gui.confirm_frame_borders = Borders(100, 100, 100, 45)
 
-define gui.chapterend_popup_frame_borders = Borders(50, 100, 50, 45)
+define gui.chapterend_popup_frame_borders = Borders(60, 100, 60, 45)
 
 ## The frame that is used as part of the skip screen.
 define gui.skip_frame_borders = Borders(24, 8, 75, 8)

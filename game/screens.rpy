@@ -132,7 +132,7 @@ style choice_textbutton_text:
     xalign 0.5 
 
 style chapterend_popup_text:
-    properties gui.text_properties("twenty")
+    properties gui.text_properties("content")
     xalign 0.5
 
 style chapterend_title_popup_text:
@@ -352,7 +352,7 @@ screen inventory_screen():
                                                 anchor (0.5,0.5)
                                                 xpos 0.5
                                                 ypos 0.5
-                                            imagebutton action NullAction() idle get_achievement_image() xysize (100, 100):
+                                            imagebutton action Function(set_croissant_shown),Show("item_description_popup",item_click_background=item_background) idle get_achievement_image() xysize (100, 100):
                                                 anchor (0.0,0.0)
                                                 xpos 0.85
                                                 ypos 0.1
@@ -361,7 +361,7 @@ screen inventory_screen():
                                                 anchor (0.5,0.5)
                                                 xpos 0.5
                                                 ypos 0.5
-                                            imagebutton action NullAction() idle get_achievement_image() xysize (100, 100):
+                                            imagebutton action Function(set_drink_shown),Show("item_description_popup",item_click_background=item_background) idle get_achievement_image() xysize (100, 100):
                                                 anchor (0.0,0.0)
                                                 xpos 0.85
                                                 ypos 0.1
@@ -370,7 +370,7 @@ screen inventory_screen():
                                                 anchor (0.5,0.5)
                                                 xpos 0.5
                                                 ypos 0.5
-                                            imagebutton action NullAction() idle get_achievement_image() xysize (100, 100):
+                                            imagebutton action Function(set_takoyaki_shown),Show("item_description_popup",item_click_background=item_background) idle get_achievement_image() xysize (100, 100):
                                                 anchor (0.0,0.0)
                                                 xpos 0.85
                                                 ypos 0.1
@@ -379,7 +379,7 @@ screen inventory_screen():
                                                 anchor (0.5,0.5)
                                                 xpos 0.5
                                                 ypos 0.5
-                                            imagebutton action NullAction() idle get_achievement_image() xysize (100, 100):
+                                            imagebutton action Function(set_walkietalkie_shown),Show("item_description_popup",item_click_background=item_background) idle get_achievement_image() xysize (100, 100):
                                                 anchor (0.0,0.0)
                                                 xpos 0.85
                                                 ypos 0.1
@@ -388,7 +388,7 @@ screen inventory_screen():
                                                 anchor (0.5,0.5)
                                                 xpos 0.5
                                                 ypos 0.5
-                                            imagebutton action NullAction() idle get_achievement_image() xysize (100, 100):
+                                            imagebutton action Function(set_mushroom_shown),Show("item_description_popup",item_click_background=item_background) idle get_achievement_image() xysize (100, 100):
                                                 anchor (0.0,0.0)
                                                 xpos 0.85
                                                 ypos 0.1
@@ -397,7 +397,7 @@ screen inventory_screen():
                                                 anchor (0.5,0.5)
                                                 xpos 0.5
                                                 ypos 0.5
-                                            imagebutton action NullAction() idle get_achievement_image() xysize (100, 100):
+                                            imagebutton action Function(set_maplesyrup_shown),Show("item_description_popup",item_click_background=item_background) idle get_achievement_image() xysize (100, 100):
                                                 anchor (0.0,0.0)
                                                 xpos 0.85
                                                 ypos 0.1
@@ -406,7 +406,7 @@ screen inventory_screen():
                                                 anchor (0.5,0.5)
                                                 xpos 0.5
                                                 ypos 0.5
-                                            imagebutton action NullAction() idle get_achievement_image() xysize (100, 100):
+                                            imagebutton action Function(set_eggplant_shown),Show("item_description_popup",item_click_background=item_background) idle get_achievement_image() xysize (100, 100):
                                                 anchor (0.0,0.0)
                                                 xpos 0.85
                                                 ypos 0.1
@@ -415,7 +415,7 @@ screen inventory_screen():
                                                 anchor (0.5,0.5)
                                                 xpos 0.5
                                                 ypos 0.5
-                                            imagebutton action NullAction() idle get_achievement_image() xysize (100, 100):
+                                            imagebutton action Function(set_dietsoda_shown),Show("item_description_popup",item_click_background=item_background) idle get_achievement_image() xysize (100, 100):
                                                 anchor (0.0,0.0)
                                                 xpos 0.85
                                                 ypos 0.1
@@ -424,7 +424,7 @@ screen inventory_screen():
                                                 anchor (0.5,0.5)
                                                 xpos 0.5
                                                 ypos 0.5
-                                            imagebutton action NullAction() idle get_achievement_image() xysize (100, 100):
+                                            imagebutton action Function(set_icecreamcake_shown),Show("item_description_popup",item_click_background=item_background) idle get_achievement_image() xysize (100, 100):
                                                 anchor (0.0,0.0)
                                                 xpos 0.85
                                                 ypos 0.1
@@ -651,12 +651,12 @@ screen gallery_popup(item_click_background,active_set,active_tab,index):
             $ item_background = get_item_background(active_set, active_tab, index_right)
             imagebutton idle "gui/archive/Seasonal Album/btn/btn_right_1.png" hover "gui/archive/Seasonal Album/btn/btn_right_2.png" action [Show("gallery_popup",item_click_background=item_background,active_set=active_set ,active_tab=active_tab,index=index_right)]:
                 xanchor 1.0
-                xpos 0.93
+                xpos 1.05
                 yalign 0.5
         else:
             imagebutton idle "gui/archive/Seasonal Album/btn/btn_right_1.png" hover "gui/archive/Seasonal Album/btn/btn_right_1.png" action NullAction():
                 xanchor 1.0
-                xpos 0.93
+                xpos 1.05
                 yalign 0.5
 
 image spr_st_edcg_v = Movie(play="movies/video.webm")
@@ -731,7 +731,7 @@ screen picture_popup(item_click_background,active_set,active_tab,index):
             $ item_background = get_item_background(active_set, active_tab, index_right)
             imagebutton idle "gui/archive/Seasonal Album/btn/btn_right_1.png" hover "gui/archive/Seasonal Album/btn/btn_right_2.png" action [Show("picture_popup",item_click_background=item_background,active_set=active_set ,active_tab=active_tab,index=index_right)]:
                 xanchor 1.0
-                xpos 0.93
+                xpos 1.05
                 yalign 0.5
         elif (index_right < length-1):
             for i in range(length - index_right):
@@ -741,13 +741,13 @@ screen picture_popup(item_click_background,active_set,active_tab,index):
                     break
             $ item_background = get_item_background(active_set, active_tab, j)
             imagebutton idle "gui/archive/Seasonal Album/btn/btn_right_1.png" hover "gui/archive/Seasonal Album/btn/btn_right_2.png" action [Show("picture_popup",item_click_background=item_background,active_set=active_set ,active_tab=active_tab,index=j)]:
-                xanchor 0.0
-                xpos -0.05
+                xanchor 1.0
+                xpos 1.05
                 yalign 0.5
         else:
             imagebutton idle "gui/archive/Seasonal Album/btn/btn_right_1.png" hover "gui/archive/Seasonal Album/btn/btn_right_1.png" action NullAction():
                 xanchor 1.0
-                xpos 0.93
+                xpos 1.05
                 yalign 0.5
 
 ### the ending msg for each chapter 
@@ -767,20 +767,21 @@ screen chapterend_popup(msg):
                 style "chapterend_title_popup_text"
                 xalign 0.5
                 yalign 0.5
-            text _("Visit the A.S.H. Archive to see your progress, including Collected Items, Secret Snaps of amazing\nmoments caught in 4K, and extra memories of Krisis and the Vezcrewneers in the Seasonal Album!"):
+            text _("Visit the A.S.H. Archive to see your progress,\nincluding Collected Items, Secret Snaps of amazing\nmoments caught in 4K, and extra memories of Krisis\nand the Vezcrewneers in the Seasonal Album!"):
                 style "chapterend_popup_text"
                 xalign 0.5
                 yalign 0.5
+                text_align 0.5 
 
             hbox:
                 xalign 0.5
                 yalign 0.7
                 spacing 50
-                textbutton _("Check now!") action [ShowMenu("inventory"),Hide("chapterend_popup"),Function(renpy.hide_screen, "OverlayScreen1")] style "menuback_textbutton"
+                textbutton _("Check Now!") action [ShowMenu("inventory"),Hide("chapterend_popup"),Function(renpy.hide_screen, "OverlayScreen1")] style "menuback_textbutton"
         
     imagebutton idle "gui/archive/Seasonal Album/btn/btn_close_2.png" action Hide("chapterend_popup"):
-        xpos 0.734
-        ypos 0.337
+        xpos 0.655
+        ypos 0.305
 
 
 style chapterend_popup_text is gui_text
@@ -1147,7 +1148,7 @@ screen navigation:
             style "slime_textbutton"
         textbutton "Chapter 4" action Start("chapter_4"):
             style "slime_textbutton"
-        # textbutton _("ResetInventory") action achievement.clear_all() style "slime_textbutton"
+        textbutton _("ResetInventory") action achievement.clear_all() style "slime_textbutton"
 
     vbox:
         style_prefix "navigation"
