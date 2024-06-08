@@ -443,7 +443,7 @@ label splashscreen:
     $ renpy.movie_cutscene("movies/testingnew.webm", loops=20, stop_music=False) 
     show white with dissolve
     # show 5 with dissolve
-    pause 3.0
+    pause 0.5
 
     # Hide the image with dissolve
     # hide 5 
@@ -452,6 +452,12 @@ image red_dot = "gui/menubutton/red_dot.png"
 image white = "temp/white.jpg"
 
 init python:
+
+    # translate_font("Mandarin", "GlowSansSC-Normal-BRegular.ttf")
+    # translate_font("Japanese", "GlowSansSC-Normal-BRegular.ttf")
+        
+
+
     achievement.clear_all() ### test if it can init
     class Item(object):
         def __init__(self, name, idle, hover, locked, background):
@@ -2351,7 +2357,7 @@ label chapter_4:
     show van_ci_nor at right
     show zal_ci_nor at left
     show wil_ci_nor at center
-    "Wilson walks over to the coffee maker and makes his French vanilla latte. He's about to add the syrup, like he normally does, until he realizes that it’s not there."
+    "Wilson walks over to the coffee maker and makes his French vanilla latte. He's about to add the French vanilla coffee creamer, like he normally does, until he realizes that it’s not there."
     hide wil_ci_nor
     show wil_ci_thi at center
     wilson_char "Oh shoot, did I run out?"
@@ -2360,7 +2366,7 @@ label chapter_4:
     show zal_ci_sur at left
     show wil_ci_thi at center
     zali_char "Run out of what?"
-    wilson_char "My syrup for coffee."
+    wilson_char "My coffee creamer."
     hide zal_ci_sur
     hide wil_ci_thi
     show zal_ci_nor at left
@@ -2451,7 +2457,8 @@ label chapter_4:
     hide zal_ci_thi
     show van_ci_con at center
     with dissolve
-    "You let out a chuckle as you hold your hands up in defeat. Your attention shifts towards your desk."
+    "You let out a chuckle as you hold your hands up in defeat. In the end, you all order what you usually get."
+    "An idea pops into your mind, prompting you to glance over your desk."
     hide van_ci_con
     show van_ci_3 at center
     "Now is the perfect time to give Zali the gift you’ve been holding onto for a while."
@@ -2584,7 +2591,7 @@ label chapter_4:
     wilson_char "Are they using these food products for mass human experimentation?"
     vanta_char "I'm unsure how we'll dispose of all these. It seems we may need to destroy them all together."
     zali_char "Alright, let me report this to Squad A so they're aware and can prepare if needed."
-    play sound "audio/spr/spr_se_clanging.mp3" #Clanging sound of metal falling to the floor
+    play sound "audio/spr/spr_se_crush.mp3" #Clanging sound of metal falling to the floor
     wilson_char "Wait, wait, wait... What's that noise, guys? Can you hear it? Where is it coming from?"
     zali_char "I heard it too. Sounds like something metallic dropped onto the floor..."
     hide spr_com_9_img
@@ -2611,7 +2618,7 @@ label chapter_4:
     show spr_com_13_img at spr_com_upper 
     vanta_char "It... It's a fox?"
     vanta_char "No, it's a puppy."
-    play sound "audio/spr/spr_se_scratch.mp3" #Dog scratching sound
+    play sound "audio/spr/spr_se_scrape.mp3" #Dog scratching sound
     "You turn your body sideways to show Zali and Wilson. Inside a small metal cage, an anxious puppy bites and scratches, whining with unease; its eyes pleading to be released."
     "You glance at the nearby table, suspecting that the puppy may have pushed the cage, causing it to fall to the floor and result in the noises you heard."
     wilson_char "Oh my god, it is sho small! Sho cyute!!"

@@ -1,8 +1,8 @@
-﻿# TODO: Translation updated at 2024-05-31 18:16
+﻿# TODO: Translation updated at 2024-06-08 01:57
 
-translate Japanese strings:
+translate japanese strings:
 
     # game/options.rpy:14
-    old "Full_alpha"
+    old "Full_alpha_2"
     new ""
 

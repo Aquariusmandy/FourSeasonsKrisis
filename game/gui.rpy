@@ -10,6 +10,20 @@ init offset = -2
 ## width and height of the game.
 init python:
     gui.init(1920, 1080)
+    
+
+    if _preferences.language == "mandarin":
+        presistent_text_font = u"SourceHanSansLite.ttf"
+        presistent_medium_text_font = u"GlowSansSC-Normal-Medium.ttf"
+        presistent_bold_text_font = u"GlowSansSC-Normal-Bold.ttf"
+    elif _preferences.language == "japanese":
+        presistent_text_font = u"GlowSansSC-Normal-Regular.ttf"
+        presistent_medium_text_font = u"GlowSansSC-Normal-Medium.ttf"
+        presistent_bold_text_font = u"GlowSansSC-Normal-Bold.ttf"
+    elif _preferences.language == None:
+        presistent_text_font = "BaiJamjuree-Regular.ttf"
+        presistent_medium_text_font = "BaiJamjuree-SemiBold.ttf"
+        presistent_bold_text_font = "BaiJamjuree-Bold.ttf"
 
 ## Enable checks for invalid or unstable properties in screens or transforms
 define config.check_conflicting_properties = True
@@ -57,15 +71,15 @@ define gui.interface_text_color = '#ffffff'
 ## Fonts and Font Sizes ########################################################
 
 ## The font used for in-game text.
-define gui.text_font = "BaiJamjuree-Regular.ttf"
+define gui.text_font = presistent_text_font
 
 ## The font used for character names.
-define gui.name_text_font = "BaiJamjuree-SemiBold.ttf"
+define gui.name_text_font = presistent_medium_text_font
 
 ## The font used for out-of-game text.
-define gui.interface_text_font = "BaiJamjuree-Regular.ttf"
+define gui.interface_text_font = presistent_text_font
 
-define gui.chapterend_text_font = "BaiJamjuree-Bold.ttf"
+define gui.chapterend_text_font = presistent_bold_text_font
 
 ## The size of normal dialogue text.
 define gui.text_size = 30
@@ -95,12 +109,12 @@ define gui.content_text_yalign = 0.5
 define gui.thirty_text_size = 30
 define gui.thirty_text_yalign = 0.5
 
-define gui.chaptertitle_text_font = "BaiJamjuree-Bold.ttf"
+define gui.chaptertitle_text_font = presistent_bold_text_font
 define gui.chaptertitle_text_size = 34
 ## Main and Game Menus #########################################################
 
 ## The images used for the main and game menus.
-define gui.main_menu_background = "gui/main_menu.png"
+define gui.main_menu_background = "images/cvisual/main_menu.png"
 define gui.game_menu_background = "gui/game_menu.png"
 
 ## Inventory #########################################################

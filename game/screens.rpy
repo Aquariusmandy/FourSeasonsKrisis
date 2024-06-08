@@ -248,22 +248,29 @@ screen inventory_screen():
         $ items_per_column = 3
 
     vbox:
-        xpos 0.88
+        xpos 0.876
         ypos 0.36
         # spacing 5
-
-        imagebutton idle "images/main_button/btn_item_defalut.png" hover "images/main_button/btn_item_hover.png" action [SetVariable("active_set", "set1"), SetVariable("active_tab", "tab1")]:
-            # xpos 900
-            ypos 130
-            # xalign 1.0 
-            # yalign 1.0
-        imagebutton idle "images/main_button/btn_album_default.png" hover "images/main_button/btn_album_hover.png" action [SetVariable("active_set", "gallery"), SetVariable("active_tab", "tab1")]:
-            ypos 65
-            # xalign 1.7 
-            # yalign 1.0
-        imagebutton idle "images/main_button/btn_snaps_default.png" hover "images/main_button/btn_snaps_default-1.png" action [SetVariable("active_set", "cg"), SetVariable("active_tab", "tab1")]:
-            xalign 1.7 
-            yalign 1.0
+        if (active_set == "set1"):
+            imagebutton idle "images/main_button/btn_item_hover.png" hover "images/main_button/btn_item_hover.png" action [SetVariable("active_set", "set1"), SetVariable("active_tab", "tab1")]:
+                ypos 130
+        else:
+            imagebutton idle "images/main_button/btn_item_defalut.png" hover "images/main_button/btn_item_hover.png" action [SetVariable("active_set", "set1"), SetVariable("active_tab", "tab1")]:
+                ypos 130
+        if (active_set == "gallery"):    
+            imagebutton idle "images/main_button/btn_album_hover.png" hover "images/main_button/btn_album_hover.png" action [SetVariable("active_set", "gallery"), SetVariable("active_tab", "tab1")]:
+                ypos 65
+        else:
+            imagebutton idle "images/main_button/btn_album_default.png" hover "images/main_button/btn_album_hover.png" action [SetVariable("active_set", "gallery"), SetVariable("active_tab", "tab1")]:
+                ypos 65
+        if (active_set == "cg"):
+            imagebutton idle "images/main_button/btn_snaps_default-1.png" hover "images/main_button/btn_snaps_default-1.png" action [SetVariable("active_set", "cg"), SetVariable("active_tab", "tab1")]:
+                xalign 1.7 
+                yalign 1.0
+        else:
+            imagebutton idle "images/main_button/btn_snaps_default.png" hover "images/main_button/btn_snaps_default-1.png" action [SetVariable("active_set", "cg"), SetVariable("active_tab", "tab1")]:
+                xalign 1.7 
+                yalign 1.0
 
     # Define gallery tabs
     if (active_set == "gallery") or (active_set == "cg"):
@@ -273,22 +280,42 @@ screen inventory_screen():
             ypos 0.224 # Adjust this value to move the gallery tabs up or down
             xpos 0.123  
             # Gallery Tab 1
-            imagebutton idle "images/main_button/btn_summer_default.png" hover "images/main_button/btn_summer_pressed.png" action [SetVariable("active_tab", "tab1")]:
-                yanchor 1.0
-                ypos 35
+            if (active_tab == "tab1"):
+                imagebutton idle "images/main_button/btn_summer_pressed.png" hover "images/main_button/btn_summer_pressed.png" action [SetVariable("active_tab", "tab1")]:
+                    yanchor 1.0
+                    ypos 35
+            else:
+                imagebutton idle "images/main_button/btn_summer_default.png" hover "images/main_button/btn_summer_pressed.png" action [SetVariable("active_tab", "tab1")]:
+                    yanchor 1.0
+                    ypos 35
             # Gallery Tab 2
-            imagebutton idle "images/main_button/btn_autumn_default.png" hover "images/main_button/btn_autumn_pressed.png" action [SetVariable("active_tab", "tab2")]:
-                yanchor 1.0
-                ypos 35
+            if (active_tab == "tab2"):
+                imagebutton idle "images/main_button/btn_autumn_pressed.png" hover "images/main_button/btn_autumn_pressed.png" action [SetVariable("active_tab", "tab2")]:
+                    yanchor 1.0
+                    ypos 35
+            else:
+                imagebutton idle "images/main_button/btn_autumn_default.png" hover "images/main_button/btn_autumn_pressed.png" action [SetVariable("active_tab", "tab2")]:
+                    yanchor 1.0
+                    ypos 35
 
             # Gallery Tab 3
-            imagebutton idle "images/main_button/btn_winter_default.png" hover "images/main_button/btn_winter_pressed.png" action [SetVariable("active_tab", "tab3")]:
-                yanchor 1.0
-                ypos 35
+            if (active_tab == "tab3"):
+                imagebutton idle "images/main_button/btn_winter_pressed.png" hover "images/main_button/btn_winter_pressed.png" action [SetVariable("active_tab", "tab3")]:
+                    yanchor 1.0
+                    ypos 35
+            else:
+                imagebutton idle "images/main_button/btn_winter_default.png" hover "images/main_button/btn_winter_pressed.png" action [SetVariable("active_tab", "tab3")]:
+                    yanchor 1.0
+                    ypos 35
             # Gallery Tab 4
-            imagebutton idle "images/main_button/btn_spring_default.png" hover "images/main_button/btn_spring_pressed.png" action [SetVariable("active_tab", "tab4")]:
-                yanchor 1.0 
-                ypos 35           
+            if (active_tab == "tab4"):
+                imagebutton idle "images/main_button/btn_spring_pressed.png" hover "images/main_button/btn_spring_pressed.png" action [SetVariable("active_tab", "tab4")]:
+                    yanchor 1.0 
+                    ypos 35
+            else:
+                imagebutton idle "images/main_button/btn_spring_default.png" hover "images/main_button/btn_spring_pressed.png" action [SetVariable("active_tab", "tab4")]:
+                    yanchor 1.0 
+                    ypos 35           
         
         image "gui/archive/Seasonal Album/album_line.png":
             yanchor 0.0
@@ -1131,14 +1158,14 @@ style menuback_textbutton is quick_button
 # Define a custom class to handle idle and hover images
 # Adjust the size of the button to match the image size
 screen navigation:
-    add "temp/logo.png" ypos 0.1 xpos 0.6
+    add "images/cvisual/main_logo.png" xanchor 0.0 yanchor 0.0 ypos 0.705 xpos 0.41
 
         ### Debug Quick Menu ###
     vbox:
         anchor(0, 0)
-        xpos 0.77
-        ypos 0.7
-        spacing 10
+        xpos 0.05
+        ypos 0.02
+        spacing 5
         label _("Debug Quick Menu")
         textbutton "Chapter 1" action Start("chapter_1"):
             style "slime_textbutton"
@@ -1148,13 +1175,13 @@ screen navigation:
             style "slime_textbutton"
         textbutton "Chapter 4" action Start("chapter_4"):
             style "slime_textbutton"
-        textbutton _("ResetInventory") action achievement.clear_all() style "slime_textbutton"
+        # textbutton _("ResetInventory") action achievement.clear_all() style "slime_textbutton"
 
     vbox:
         style_prefix "navigation"
         xpos 0.8
-        yalign 0.5
-        spacing gui.navigation_spacing
+        yalign 0.33
+        spacing 15
         
 
         ## Define the style for the textbuttons
@@ -1560,7 +1587,8 @@ screen load():
 
 screen file_slots(title):
 
-    default page_name_value = FilePageNameInputValue(pattern=_("Page {}"), auto=_("Automatic saves"), quick=_("Quick saves"))
+    default page_name_value = FilePageNameInputValue(pattern=_("Page {}"))
+    # auto=_("Automatic saves"), quick=_("Quick saves")
 
     use game_menu(title):
 
@@ -1725,8 +1753,8 @@ screen preferences():
                     label _("Language")
                     # Real languages should go alphabetical order by English name.
                     textbutton _("English") text_font "DejaVuSans.ttf" action Language(None)
-                    textbutton _("繁體中文") text_font "GlowSansSC-Normal-Regular.ttf" action Language("Mandarin")
-                    textbutton _("日本語") text_font "GlowSansSC-Normal-Regular.ttf" action Language("Japanese")
+                    # textbutton _("繁體中文") text_font "GlowSansSC-Normal-Regular.ttf" action Language("mandarin")
+                    # textbutton _("日本語") text_font "GlowSansSC-Normal-Regular.ttf" action Language("japanese")
 
 
                 ## Additional vboxes of type "radio_pref" or "check_pref" can be

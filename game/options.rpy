@@ -23,7 +23,7 @@ define gui.show_name = True
 
 ## The version of the game.
 
-define config.version = ".1"
+define config.version = ".2"
 
 
 ## Text that is placed on the game's about screen. Place the text between the
@@ -224,4 +224,12 @@ init python:
 
 # define build.itch_project = "renpytom/test-project"
 # options.rpy
- 
+    # if _preferences.language == "traditionalchinese":
+    #     style.default.font = "GlowSansSC-Normal-Regular.ttf" #（該中文字體應放入/renpy/common下）
+    #     style.default.language = "eastasian"
+    # elif _preferences.language == "japanese":
+    #     style.default.font = "GlowSansSC-Normal-Regular.ttf" 
+    #     style.default.language = "eastasian"
+    # elif _preferences.language == None:
+    #     style.default.font = "BaiJamjuree-Regular.ttf" 
+    
