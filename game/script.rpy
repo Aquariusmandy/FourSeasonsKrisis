@@ -3,25 +3,25 @@ define config.main_menu_music = "audio/main_theme.mp3"
 
 # セリフテキストボックスの定義。20は左右上下の余白
 style narration_window:
-    background Frame("gui/narration_window.png", 20, 20)   
+    background Frame("gui/narration_window.png", 20,20)   
 style vanta_window:
-    background Frame("gui/gui/ui_dialoguebox_vanta.png", 20, 20)   
+    background Frame("gui/gui/ui_dialoguebox_vanta.png", 20,20)   
 style wilson_window:
-    background Frame("gui/gui/ui_dialoguebox_wilson.png", 20, 20)   
+    background Frame("gui/gui/ui_dialoguebox_wilson.png", 20,20)   
 style zali_window:
-    background Frame("gui/gui/ui_dialoguebox_zali.png", 20, 20)   
+    background Frame("gui/gui/ui_dialoguebox_zali.png", 20,20)   
 style npc_window:
-    background Frame("gui/gui/ui_dialoguebox_npc.png", 20, 20)
+    background Frame("gui/gui/ui_dialoguebox_npc.png", 20,20)
 style vandw_window:
-    background Frame("gui/gui/ui_dialoguebox_v&w.png", 20, 20)
+    background Frame("gui/gui/ui_dialoguebox_v&w.png", 20,20)
 style wandv_window:
-    background Frame("gui/gui/ui_dialoguebox_w&v.png", 20, 20) 
+    background Frame("gui/gui/ui_dialoguebox_w&v.png", 20,20) 
 style vandz_window:
-    background Frame("gui/gui/ui_dialoguebox_v&z.png", 20, 20)  
+    background Frame("gui/gui/ui_dialoguebox_v&z.png", 20,20)  
 style zandw_window:
-    background Frame("gui/gui/ui_dialoguebox_z&w.png", 20, 20)        
+    background Frame("gui/gui/ui_dialoguebox_z&w.png", 20,20)        
 style vandc_window:
-    background Frame("gui/gui/ui_dialoguebox_crew.png", 20, 20)       
+    background Frame("gui/gui/ui_dialoguebox_crew.png", 20,20)       
     
 # ネームボックスの定義
 style vanta_namebox:
@@ -458,7 +458,7 @@ init python:
         
 
 
-    achievement.clear_all() ### test if it can init
+    # achievement.clear_all() ### test if it can init
     class Item(object):
         def __init__(self, name, idle, hover, locked, background):
             self.name = name
@@ -758,7 +758,7 @@ init python:
 
     for i in range(len(cglist)):
         achievement.register(cglist[i])
-    achievement.clear_all()
+    # achievement.clear_all()
 
     seenlist = {}
     ### popup first see item
@@ -880,32 +880,36 @@ init python:
         },
         "cg": {
             "tab1": [
-                {"name": sum_cv.name, "idle": sum_cv.idle, "hover": sum_cv.hover , "locked": sum_cv.locked, "background": sum_cv.background},
+                
                 {"name": sum_st_fny.name, "idle": sum_st_fny.idle, "hover": sum_st_fny.hover , "locked": sum_st_fny.locked, "background": sum_st_fny.background},
                 {"name": sum_st_btst.name, "idle": sum_st_btst.idle, "hover": sum_st_btst.hover , "locked": sum_st_btst.locked, "background": sum_st_btst.background},
                 {"name": sum_st_bten.name, "idle": sum_st_bten.idle, "hover": sum_st_bten.hover , "locked": sum_st_bten.locked, "background": sum_st_bten.background},
-                {"name": sum_st_edcg.name, "idle": sum_st_edcg.idle, "hover": sum_st_edcg.hover , "locked": sum_st_edcg.locked, "background": sum_st_edcg.background},   
+                {"name": sum_st_edcg.name, "idle": sum_st_edcg.idle, "hover": sum_st_edcg.hover , "locked": sum_st_edcg.locked, "background": sum_st_edcg.background},
+                {"name": sum_cv.name, "idle": sum_cv.idle, "hover": sum_cv.hover , "locked": sum_cv.locked, "background": sum_cv.background},   
             ],
             "tab2": [
-                {"name": aut_cv.name, "idle": aut_cv.idle, "hover": aut_cv.hover , "locked": aut_cv.locked, "background": aut_cv.background},
+                
                 {"name": aut_st_fny.name, "idle": aut_st_fny.idle, "hover": aut_st_fny.hover , "locked": aut_st_fny.locked, "background": aut_st_fny.background},
                 {"name": aut_st_btst.name, "idle": aut_st_btst.idle, "hover": aut_st_btst.hover , "locked": aut_st_btst.locked, "background": aut_st_btst.background},
                 {"name": aut_st_bten.name, "idle": aut_st_bten.idle, "hover": aut_st_bten.hover , "locked": aut_st_bten.locked, "background": aut_st_bten.background},
                 {"name": aut_st_edcg.name, "idle": aut_st_edcg.idle, "hover": aut_st_edcg.hover , "locked": aut_st_edcg.locked, "background": aut_st_edcg.background},
+                {"name": aut_cv.name, "idle": aut_cv.idle, "hover": aut_cv.hover , "locked": aut_cv.locked, "background": aut_cv.background},
             ],
             "tab3": [
-                {"name": win_cv.name, "idle": win_cv.idle, "hover": win_cv.hover , "locked": win_cv.locked, "background": win_cv.background},
+                
                 {"name": win_st_fny.name, "idle": win_st_fny.idle, "hover": win_st_fny.hover , "locked": win_st_fny.locked, "background": win_st_fny.background},
                 {"name": win_st_btst.name, "idle": win_st_btst.idle, "hover": win_st_btst.hover , "locked": win_st_btst.locked, "background": win_st_btst.background},
                 {"name": win_st_bten.name, "idle": win_st_bten.idle, "hover": win_st_bten.hover , "locked": win_st_bten.locked, "background": win_st_bten.background},
                 {"name": win_st_edcg.name, "idle": win_st_edcg.idle, "hover": win_st_edcg.hover , "locked": win_st_edcg.locked, "background": win_st_edcg.background},
+                {"name": win_cv.name, "idle": win_cv.idle, "hover": win_cv.hover , "locked": win_cv.locked, "background": win_cv.background},
             ],
             "tab4": [
-                {"name": spr_cv.name, "idle": spr_cv.idle, "hover": spr_cv.hover , "locked": spr_cv.locked, "background": spr_cv.background},
-                {"name": spr_st_fny.name, "idle": spr_st_fny.idle, "hover": spr_st_fny.hover , "locked": spr_st_fny.locked, "background": spr_st_fny.background},
-                {"name": spr_st_zali.name, "idle": spr_st_zali.idle, "hover": spr_st_zali.hover , "locked": spr_st_zali.locked, "background": spr_st_zali.background},
+                
                 {"name": spr_st_wilson.name, "idle": spr_st_wilson.idle, "hover": spr_st_wilson.hover , "locked": spr_st_wilson.locked, "background": spr_st_wilson.background},
+                {"name": spr_st_zali.name, "idle": spr_st_zali.idle, "hover": spr_st_zali.hover , "locked": spr_st_zali.locked, "background": spr_st_zali.background},
+                {"name": spr_st_fny.name, "idle": spr_st_fny.idle, "hover": spr_st_fny.hover , "locked": spr_st_fny.locked, "background": spr_st_fny.background},
                 {"name": spr_st_edcg.name, "idle": spr_st_edcg.idle, "hover": spr_st_edcg.hover , "locked": spr_st_edcg.locked, "background": spr_st_edcg.background},
+                {"name": spr_cv.name, "idle": spr_cv.idle, "hover": spr_cv.hover , "locked": spr_cv.locked, "background": spr_cv.background},
 
             ],
             # Add images for other tabs in cg here
@@ -929,7 +933,7 @@ default persistent.eggplant = False
 default persistent.dietsoda = False
 default persistent.icecreamcake = False
 
-
+default current_ch = 0
 
 
 # ### achievement package ###
@@ -957,7 +961,7 @@ label start:
 
 
 label chapter_1:
-
+    $ current_ch = 1
     stop music fadeout 1.0  # Fade out the menu music
     play music "audio/sum/sum_bgm_01.mp3" loop fadein 1.0  # Loop game music with fade in
 
@@ -983,7 +987,7 @@ label chapter_1:
     hide van_sum_hap
     show van_sum_nor at center
     "The air is filled with a fresh sea-side breeze, and the hustle and bustle of people enjoying the summer."
-    "Further along, there's a trendy drink shop that catches everyone’s attention with its visually captivating beverages."
+    "Further along, there's a trendy drink shop that catches everyone's attention with its visually captivating beverages."
     "As you stroll along the lively beach, you spot a souvenir shop ahead—"
     hide van_sum_nor
     show van_sum_thi at center
@@ -1267,7 +1271,7 @@ label chapter_1:
     hide sum_com_2_img
     show sum_com_3_img at sum_com_2_upper
     vanta_char "{size=50}PARCAW !{/size}"
-    "You parkour through the other waving limbs to get closer to the octopus’ body."
+    "You parkour through the other waving limbs to get closer to the octopus' body."
     show sum_com_4_img at sum_com_4_upper
     "With each forceful stomp on the arms, they drop to the ground, paralyzed."
     hide sum_com_3_img
@@ -1364,6 +1368,7 @@ label chapter_2:
     hide screen chapterend_popup
 
     python:
+        current_ch = 2
         active_set="cg"
         active_tab="tab2"
     stop music fadeout 1.0  # Fade out menu music
@@ -1891,7 +1896,9 @@ label chapter_3:
     hide screen OverlayScreen
     hide screen chapterend_popup
     python:
-        active_tab="tab1"
+        current_ch = 3
+        active_set="cg"
+        active_tab="tab3"
     stop music fadeout 1.0  # Fade out menu music
     play music "audio/win/win_bgm_01.mp3" loop fadein 1.0  #Loop playback of peaceful songs with fade-in
 
@@ -1945,7 +1952,7 @@ label chapter_3:
     hide crew3_nor_img
     show crew3_ang_img at left_2p
     "The Crew, in apparent defiance, begin to bounce more vigorously and emit disgruntled noises, clearly expressing their disagreement with being told to stay put."
-    "They start to huddle around your legs to keep you from going out without them. Sometimes you wonder who’s really in charge here."
+    "They start to huddle around your legs to keep you from going out without them. Sometimes you wonder who's really in charge here."
     hide van_ci_sur
     show van_ci_con at right_2p
     "You look down at them fondly—your Crew, a group of slimes that have been by your side since you joined A.S.H."
@@ -2015,6 +2022,7 @@ label chapter_3:
     
     menu:
         "Ask the Crew to nestle around the tree, and take a picture together":
+            hide van_ci_con #### Tsumire
             show van_ci_hap at right_2p
             show crew3_hap_img at left_2p
             vanta_char "Alright! Come on, go in front of the tree, and smile!"
@@ -2221,6 +2229,7 @@ label chapter_3:
     stop sound fadeout 3.0 #Stop sound effects
     vanta_char "Hello? This is Vanta speaking."
     wilson_char "Vanta, what the hell? Zali and I are waiting for you!\nWhere did you go? Are you okay?"
+    hide van_ci_nor #### Tsumire
     show van_ci_hap at right
     vanta_char "Oh, sorry bro, I'm okay! \nI got sidetracked by a small task; I helped a little kid! "
     hide wil_ci_sur
@@ -2293,12 +2302,15 @@ label chapter_3:
     
     # Wait for user to click
     pause
-    call chapter_4 from _call_chapter_4
+    jump chapter_4 
+    # from _call_chapter_4
 
 
 
 label chapter_4:
     python:
+        current_ch = 4
+        active_set="cg"
         active_tab="tab4"
     hide screen OverlayScreen
     hide screen chapterend_popup
@@ -2340,8 +2352,8 @@ label chapter_4:
     vandz_char "Good morning, Wilson!"
     hide wil_ci_thi
     show wil_ci_sur at center
-    wilson_char "Morning guys! You guys aren’t seriously going without me, are you?"
-    zali_char " No, we were just talking about it. Don’t worry!"
+    wilson_char "Morning guys! You guys aren't seriously going without me, are you?"
+    zali_char " No, we were just talking about it. Don't worry!"
     hide van_ci_hap
     show van_ci_con at right
     hide wil_ci_sur
@@ -2350,14 +2362,14 @@ label chapter_4:
     zali_char "Alright! Sounds good!"
     hide wil_ci_nor
     show wil_ci_hap at center
-    wilson_char "I can’t wait!"
+    wilson_char "I can't wait!"
     hide zal_ci_hap
     hide wil_ci_hap
     hide van_ci_con
     show van_ci_nor at right
     show zal_ci_nor at left
     show wil_ci_nor at center
-    "Wilson walks over to the coffee maker and makes his French vanilla latte. He's about to add the French vanilla coffee creamer, like he normally does, until he realizes that it’s not there."
+    "Wilson walks over to the coffee maker and makes his French vanilla latte. He's about to add the French vanilla coffee creamer, like he normally does, until he realizes that it's not there."
     hide wil_ci_nor
     show wil_ci_thi at center
     wilson_char "Oh shoot, did I run out?"
@@ -2378,7 +2390,7 @@ label chapter_4:
     show van_ci_hap at right
     show zal_ci_hap at left
     show wil_ci_hap at center
-    wilson_char "You’re a lifesaver, thank you!"
+    wilson_char "You're a lifesaver, thank you!"
     hide wil_ci_hap
     hide zal_ci_hap
     hide van_ci_hap
@@ -2387,8 +2399,8 @@ label chapter_4:
     "You walk over to the fridge and open the doors. Two items stand out; maple syrup and ice cream cake."
     hide van_ci_nor
     show van_ci_3 at center
-    "Maple syrup would work very well with Wilson’s coffee. Technically, the same can be said for the ice cream cake, but it’s been in here for a while…"
-    "But for the content, it’s tempting to show off to Wilson. Even a few of the Vantacrew seem to snicker at the notion. You decide to give Wilson—"
+    "Maple syrup would work very well with Wilson's coffee. Technically, the same can be said for the ice cream cake, but it's been in here for a while…"
+    "But for the content, it's tempting to show off to Wilson. Even a few of the Vantacrew seem to snicker at the notion. You decide to give Wilson—"
 
     menu:
         
@@ -2421,9 +2433,9 @@ label chapter_4:
             with fade
             pause 2.0  
             "Despite how tempting it is to grab the ice cream cake, you decide to be a good teammate and grab the maple syrup. You close the fridge and hand Wilson the bottle."
-            wilson_char "Oh my god! I remember this! Didn’t we get this from that one village we helped out?"
-            vanta_char "Yeah! It’s still good, not close to expiring or anything like that."
-            wilson_char "Now I really can’t wait for my coffee! Thank you!"
+            wilson_char "Oh my god! I remember this! Didn't we get this from that one village we helped out?"
+            vanta_char "Yeah! It's still good, not close to expiring or anything like that."
+            wilson_char "Now I really can't wait for my coffee! Thank you!"
             ### achievement package ###
             if (achievement.has('spr_st_wilson')== False):
                 $ achievement.grant('spr_st_wilson')    
@@ -2446,10 +2458,10 @@ label chapter_4:
     vanta_char "See something you like, Zali?"
     hide zal_ci_nor
     show zal_ci_hap at left_2p
-    zali_char "Oh, I’m in the mood for that croissant, as always."
+    zali_char "Oh, I'm in the mood for that croissant, as always."
     hide van_ci_nor
     show van_ci_con at right_2p
-    vanta_char "You know, Zali, it’s funny that you like croissants because they lowkey look like they’re eggplant-shaped."
+    vanta_char "You know, Zali, it's funny that you like croissants because they lowkey look like they're eggplant-shaped."
     hide zal_ci_hap
     show zal_ci_thi at left_2p
     zali_char "Vanta, never joke about that ever again. My heart may never recover. Croissants do NOT look like eggplants. Oh, mon Dieu..."
@@ -2461,8 +2473,8 @@ label chapter_4:
     "An idea pops into your mind, prompting you to glance over your desk."
     hide van_ci_con
     show van_ci_3 at center
-    "Now is the perfect time to give Zali the gift you’ve been holding onto for a while."
-    "There’s the eggplant-shaped candy: knowing how much he hates eggplant, it would be pretty funny to see his reaction to the gag gift. "
+    "Now is the perfect time to give Zali the gift you've been holding onto for a while."
+    "There's the eggplant-shaped candy: knowing how much he hates eggplant, it would be pretty funny to see his reaction to the gag gift. "
     "On the other hand, you bought the croissant keychain with Zali in mind because it reminded you of him. In the end, you decided to give Zali—"
     menu:
         "Croissant Keychain":
@@ -2470,9 +2482,9 @@ label chapter_4:
             # show text "{b}{size=34}Chapter 4.  SPRING{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
             with fade
             pause 2.0 
-            "You grab the keychain from your desk and return to the kitchen. You tap Zali’s shoulder to get his attention. When he turns his head, you show him the croissant keychain."
+            "You grab the keychain from your desk and return to the kitchen. You tap Zali's shoulder to get his attention. When he turns his head, you show him the croissant keychain."
             zali_char "Haha, this is cute! Where did you get it?"
-            vanta_char "I got it from a souvenir shop while I was on a brief vacation in the summer. I’ve been meaning to give it to you sooner, but there hasn’t been a good time lately."
+            vanta_char "I got it from a souvenir shop while I was on a brief vacation in the summer. I've been meaning to give it to you sooner, but there hasn't been a good time lately."
             zali_char "Better now than never, right?"
             "Zali smiles at you, fully appreciative of the gift. Seeing his reaction makes your heart grow a couple of sizes. You're glad you were finally able to give the gift to him."
             ### achievement package ###
@@ -2498,7 +2510,7 @@ label chapter_4:
             hide zal_ci_sur
             show zal_ci_thi at left_2p
             zali_char "Ah, thank you! Wait, why is this in the shape of an eggplant?"
-            vanta_char "Ah, that’s how the shop made it. Don’t worry, it doesn’t taste like eggplant, I promise."
+            vanta_char "Ah, that's how the shop made it. Don't worry, it doesn't taste like eggplant, I promise."
             hide zal_ci_thi
             show zal_ci_ser at left_2p
             "You toss a piece of the eggplant-shaped candy over to Zali, who easily catches it. He opens the candy hesitantly and gives it a cautious sniff. He squints his eyes in your direction while you give a thumbs up in reassurance."
@@ -2773,7 +2785,7 @@ label chapter_4:
     "Under the gentle sway of cherry blossoms and their petals carpeting the ground, you link arms with Zali and Wilson, stepping away from the debris behind you."
     "As you move forward, the flowers signal the arrival of a new season. With each step, you embrace the promise of many seasons ahead—filled with love, support, and adventures waiting to unfold."
     "Cherry blossoms will continue bloom."
-    pause 1.5
+    pause 0.8
     stop music fadeout 4.0  # Fade out music
     hide wil_hr_hap with dissolve
     hide zal_hr_hap with dissolve
@@ -2798,6 +2810,9 @@ label chapter_4:
     pause 1.0
     show white with dissolve 
     pause 3.0
-    $ renpy.movie_cutscene("movies/video.webm",loops=1, stop_music=False)
-    $ renpy.movie_cutscene("movies/testingnew.webm",loops=1, stop_music=False)
+    show screen unclickable_screen
+    $ renpy.movie_cutscene("movies/video.webm", stop_music=False)
+    $ renpy.movie_cutscene("movies/credit v1.webm", stop_music=False)
+    hide screen unclickable_screen
+    # $ renpy.show_screen("main_menu")  
     return

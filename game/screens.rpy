@@ -6,6 +6,7 @@ init offset = -1
 init python:
     for i in range(100):
         FileDelete(i)
+    _preferences.language = None
 
 ################################################################################
 ## Styles
@@ -141,19 +142,19 @@ style chapterend_title_popup_text:
 
 
 ###### this is for option 1 ######
-init python:
+# init python:
     # Set the initial state of achievement popup to not shown
-    persistent.achievement_popup_shown = False
+    # persistent.achievement_popup_shown = False
 
-    persistent.croissant = False
-    persistent.drink = False
-    persistent.takoyaki = False
-    persistent.walkietalkie = False
-    persistent.mushroom = False
-    persistent.maplesyrup = False
-    persistent.eggplant = False
-    persistent.dietsoda = False
-    persistent.icecreamcake = False
+    # persistent.croissant = False
+    # persistent.drink = False
+    # persistent.takoyaki = False
+    # persistent.walkietalkie = False
+    # persistent.mushroom = False
+    # persistent.maplesyrup = False
+    # persistent.eggplant = False
+    # persistent.dietsoda = False
+    # persistent.icecreamcake = False
 
 # Function to mark achievement popup as shown
 init python:
@@ -622,18 +623,19 @@ screen item_description_popup(item_click_background):
     add "transparent2.png" xpos -0.1 ypos -0.8
     
     if active_set == "set1":
-        hbox:
-            xpos 0.3
-            ypos 0.3
-            xsize 800
-            ysize 330 
-            vbox:
-                frame:
-                    background item_click_background  # Change this to your description frame background
+        # hbox:
+            # xpos 0.3
+            # ypos 0.3
+            # xsize 800
+            # ysize 330 
+        
 
-                imagebutton idle "images/main_button/btn_close.png" action Hide("item_description_popup"):
-                    xpos 0.803
-                    ypos -11.057
+        image item_click_background:  # Change this to your description frame background
+            xalign 0.5
+            yalign 0.5
+        imagebutton idle "images/main_button/btn_close.png" action Hide("item_description_popup"):
+            xpos 0.6948
+            ypos 0.366
 
 
 screen gallery_popup(item_click_background,active_set,active_tab,index):
@@ -693,6 +695,7 @@ screen picture_popup(item_click_background,active_set,active_tab,index):
     modal True
     add "transparent2.png" xpos -0.1 ypos -0.8
     $length = len(image_button_images[active_set][active_tab])
+    $haveunlocked = False
     hbox:
         xalign 0.5
         yalign 0.5
@@ -716,12 +719,20 @@ screen picture_popup(item_click_background,active_set,active_tab,index):
                 $ j = index_left - i
                 $ name_temp = get_item_name(active_set, active_tab, j)
                 if achievement.has(name_temp):
+                    $ haveunlocked = True
                     break
-            $ item_background = get_item_background(active_set, active_tab, j)
-            imagebutton idle "gui/archive/Seasonal Album/btn/btn_left_1.png" hover "gui/archive/Seasonal Album/btn/btn_left_2.png" action [Show("picture_popup",item_click_background=item_background,active_set=active_set ,active_tab=active_tab,index=j)]:
-                xanchor 0.0
-                xpos -0.05
-                yalign 0.5
+            if (haveunlocked == True):
+                $ haveunlocked = False
+                $ item_background = get_item_background(active_set, active_tab, j)
+                imagebutton idle "gui/archive/Seasonal Album/btn/btn_left_1.png" hover "gui/archive/Seasonal Album/btn/btn_left_2.png" action [Show("picture_popup",item_click_background=item_background,active_set=active_set ,active_tab=active_tab,index=j)]:
+                    xanchor 0.0
+                    xpos -0.05
+                    yalign 0.5
+            else:
+                imagebutton idle "gui/archive/Seasonal Album/btn/btn_left_1.png" hover "gui/archive/Seasonal Album/btn/btn_left_1.png" action NullAction():
+                    xanchor 0.0
+                    xpos -0.05
+                    yalign 0.5   
 
         else:
             imagebutton idle "gui/archive/Seasonal Album/btn/btn_left_1.png" hover "gui/archive/Seasonal Album/btn/btn_left_1.png" action NullAction():
@@ -765,17 +776,26 @@ screen picture_popup(item_click_background,active_set,active_tab,index):
                 $ j = index_right + i
                 $ name_temp = get_item_name(active_set, active_tab, j)
                 if achievement.has(name_temp):
+                    $ haveunlocked = True
                     break
-            $ item_background = get_item_background(active_set, active_tab, j)
-            imagebutton idle "gui/archive/Seasonal Album/btn/btn_right_1.png" hover "gui/archive/Seasonal Album/btn/btn_right_2.png" action [Show("picture_popup",item_click_background=item_background,active_set=active_set ,active_tab=active_tab,index=j)]:
-                xanchor 1.0
-                xpos 1.05
-                yalign 0.5
+            if (haveunlocked == True):
+                $ haveunlocked = False
+                $ item_background = get_item_background(active_set, active_tab, j)
+                imagebutton idle "gui/archive/Seasonal Album/btn/btn_right_1.png" hover "gui/archive/Seasonal Album/btn/btn_right_2.png" action [Show("picture_popup",item_click_background=item_background,active_set=active_set ,active_tab=active_tab,index=j)]:
+                    xanchor 1.0
+                    xpos 1.05
+                    yalign 0.5
+            else:
+                imagebutton idle "gui/archive/Seasonal Album/btn/btn_right_1.png" hover "gui/archive/Seasonal Album/btn/btn_right_1.png" action NullAction():
+                    xanchor 1.0
+                    xpos 1.05
+                    yalign 0.5
         else:
             imagebutton idle "gui/archive/Seasonal Album/btn/btn_right_1.png" hover "gui/archive/Seasonal Album/btn/btn_right_1.png" action NullAction():
                 xanchor 1.0
                 xpos 1.05
                 yalign 0.5
+
 
 ### the ending msg for each chapter 
 screen chapterend_popup(msg):
@@ -815,7 +835,7 @@ style chapterend_popup_text is gui_text
 style chapterend_title_popup_text is gui_text
 style chapterend_popup_frame is gui_frame
 style chapterend_popup_frame:
-    background Frame([ "system/system_popup.png", "system/system_popup.png"], gui.chapterend_popup_frame_borders, tile=gui.frame_tile)
+    background Frame([ "system/system_popup_2.png", "system/system_popup_2.png"], gui.chapterend_popup_frame_borders, tile=gui.frame_tile)
     # background Frame([ "gui/confirm_frame.png", "temp/frame_album_default.png"], gui.confirm_frame_borders, tile=gui.frame_tile)
     padding gui.chapterend_popup_frame_borders.padding
     xalign .5
@@ -878,6 +898,10 @@ screen white_fade:
 
 style frame is default
 style inventory_screen_frame is empty
+
+screen unclickable_screen:
+    modal True
+    add Solid("#000000", xalign=0.5, yalign=0.5, width=renpy.config.screen_width, height=renpy.config.screen_height)
 
 ## Say screen ##################################################################
 ##

@@ -155,18 +155,18 @@ define config.save_directory = "test38-1714853493"
 
 define config.window_icon = "gui/window_icon.png"
 
-# define config.mouse = { }
-# define config.mouse['default'] = [ ( "temp/handpointer.png", 0, 0) ]
-# define config.mouse['spin' ] = [
-#     ( "temp/handpointer.png", 7, 7 ),
-#     ( "temp/handpointer.png", 7, 7 ),
-#     ( "temp/handpointer.png", 7, 7 ),
-#     ( "temp/handpointer.png", 7, 7 ),
-#     ( "temp/handpointer.png", 7, 7 ),
-#     ( "temp/handpointer.png", 7, 7 ),
-#     ( "temp/handpointer.png", 7, 7 ),
-#     ( "temp/handpointer.png", 7, 7 ),
-# ]
+define config.mouse = { }
+define config.mouse['default'] = [ ( "system/cursor.png", 0, 0) ]
+define config.mouse['spin' ] = [
+    ( "system/cursor.png", 7, 7 ),
+    ( "system/cursor.png", 7, 7 ),
+    ( "system/cursor.png", 7, 7 ),
+    ( "system/cursor.png", 7, 7 ),
+    ( "system/cursor.png", 7, 7 ),
+    ( "system/cursor.png", 7, 7 ),
+    ( "system/cursor.png", 7, 7 ),
+    ( "system/cursor.png", 7, 7 ),
+]
 
 
 ## Build configuration #########################################################

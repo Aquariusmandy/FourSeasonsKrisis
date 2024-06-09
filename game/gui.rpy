@@ -11,19 +11,19 @@ init offset = -2
 init python:
     gui.init(1920, 1080)
     
-
-    if _preferences.language == "mandarin":
-        presistent_text_font = u"SourceHanSansLite.ttf"
-        presistent_medium_text_font = u"GlowSansSC-Normal-Medium.ttf"
-        presistent_bold_text_font = u"GlowSansSC-Normal-Bold.ttf"
-    elif _preferences.language == "japanese":
-        presistent_text_font = u"GlowSansSC-Normal-Regular.ttf"
-        presistent_medium_text_font = u"GlowSansSC-Normal-Medium.ttf"
-        presistent_bold_text_font = u"GlowSansSC-Normal-Bold.ttf"
-    elif _preferences.language == None:
-        presistent_text_font = "BaiJamjuree-Regular.ttf"
-        presistent_medium_text_font = "BaiJamjuree-SemiBold.ttf"
-        presistent_bold_text_font = "BaiJamjuree-Bold.ttf"
+    
+    # if _preferences.language == "mandarin":
+    #     presistent_text_font = u"SourceHanSansLite.ttf"
+    #     presistent_medium_text_font = u"GlowSansSC-Normal-Medium.ttf"
+    #     presistent_bold_text_font = u"GlowSansSC-Normal-Bold.ttf"
+    # elif _preferences.language == "japanese":
+    #     presistent_text_font = u"GlowSansSC-Normal-Regular.ttf"
+    #     presistent_medium_text_font = u"GlowSansSC-Normal-Medium.ttf"
+    #     presistent_bold_text_font = u"GlowSansSC-Normal-Bold.ttf"
+    # elif _preferences.language == None:
+    presistent_text_font = "BaiJamjuree-Regular.ttf"
+    presistent_medium_text_font = "BaiJamjuree-SemiBold.ttf"
+    presistent_bold_text_font = "BaiJamjuree-Bold.ttf"
 
 ## Enable checks for invalid or unstable properties in screens or transforms
 define config.check_conflicting_properties = True
@@ -164,7 +164,7 @@ define gui.namebox_tile = False
 ## number of pixels relative to the left or top side of the textbox, or 0.5 to
 ## center.
 define gui.dialogue_xpos = 402
-define gui.dialogue_ypos = 75
+define gui.dialogue_ypos = 60
 
 ## The maximum width of dialogue text, in pixels.
 define gui.dialogue_width = 1116
