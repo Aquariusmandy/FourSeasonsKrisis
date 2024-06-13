@@ -153,7 +153,7 @@ define config.save_directory = "test38-1714853493"
 ##
 ## The icon displayed on the taskbar or dock.
 
-define config.window_icon = "gui/window_icon.png"
+define config.window_icon = "system/game-logo_250.png"
 
 define config.mouse = { }
 define config.mouse['default'] = [ ( "system/cursor.png", 0, 0) ]

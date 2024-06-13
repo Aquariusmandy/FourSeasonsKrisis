@@ -4,15 +4,15 @@ translate mandarin strings:
 
     # game/screens.rpy:770
     old "Visit the A.S.H. Archive to see your progress,\nincluding Collected Items, Secret Snaps of amazing\nmoments caught in 4K, and extra memories of Krisis\nand the Vezcrewneers in the Seasonal Album!"
-    new ""
+    new "現在打開A.S.H. 檔案室確認你的遊戲進度，\n包括收集到的物品、高畫質的秘密焦點時刻，\n以及季節相冊中關於Krisis和Vezcrewneers的回憶！"
 
     # game/screens.rpy:780
     old "Check Now!"
-    new ""
+    new "馬上查看！"
 
     # game/screens.rpy:818
     old "Next Chapter"
-    new ""
+    new "下一章"
 
     # game/screens.rpy:1048
     old "Debug Quick Menu"
@@ -20,35 +20,35 @@ translate mandarin strings:
 
     # game/screens.rpy:1049
     old "Back"
-    new ""
+    new "返回"
 
     # game/screens.rpy:1050
     old "Skip"
-    new ""
+    new "跳過"
 
     # game/screens.rpy:1087
     old "Save"
-    new ""
+    new "存檔"
 
     # game/screens.rpy:1089
     old "Load"
-    new ""
+    new "讀檔"
 
     # game/screens.rpy:1091
     old "History"
-    new ""
+    new "對話歷史"
 
     # game/screens.rpy:1093
     old "Settings"
-    new ""
+    new "設定"
 
     # game/screens.rpy:1095
     old "Main Menu"
-    new ""
+    new "主選單"
 
     # game/screens.rpy:1097
     old "Quit"
-    new ""
+    new "退出"
 
     # game/screens.rpy:1151
     old "ResetInventory"
@@ -56,15 +56,15 @@ translate mandarin strings:
 
     # game/screens.rpy:1163
     old "New Game"
-    new ""
+    new "開始遊戲"
 
     # game/screens.rpy:1169
     old "Load Game"
-    new ""
+    new "讀取遊戲"
 
     # game/screens.rpy:1170
     old "A.S.H. Archive"
-    new ""
+    new "A.S.H. 檔案室"
 
     # game/screens.rpy:1174
     old "End Replay"
@@ -72,7 +72,7 @@ translate mandarin strings:
 
     # game/screens.rpy:1178
     old "Credits"
-    new ""
+    new "致謝名單"
 
     # game/screens.rpy:1304
     old "Setting"
@@ -80,83 +80,83 @@ translate mandarin strings:
 
     # game/screens.rpy:1509
     old "About"
-    new ""
+    new "關於"
 
     # game/screens.rpy:1517
     old "Version [config.version!t]\n"
-    new "Version [config.version!t]\n"
+    new "版本 [config.version!t]\n"
 
     # game/screens.rpy:1523
     old "Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]"
-    new ""
+    new "由Ren'Py製作"
 
     # game/screens.rpy:1563
     old "Page {}"
-    new ""
+    new "頁面"
 
     # game/screens.rpy:1563
     old "Automatic saves"
-    new ""
+    new "自動存檔"
 
     # game/screens.rpy:1563
     old "Quick saves"
-    new ""
+    new "快速存檔"
 
     # game/screens.rpy:1605
     old "{#file_time}%A, %B %d %Y, %H:%M"
-    new ""
+    new "{#file_time}%Y %B %d %A, %H:%M"
 
     # game/screens.rpy:1605
     old "empty slot"
-    new ""
+    new "空白欄位"
 
     # game/screens.rpy:1631
     old "<"
-    new ""
+    new "<"
 
     # game/screens.rpy:1634
     old "{#auto_page}A"
-    new ""
+    new "{#auto_page}A"
 
     # game/screens.rpy:1637
     old "{#quick_page}Q"
-    new ""
+    new "{#quick_page}Q"
 
     # game/screens.rpy:1643
     old ">"
-    new ""
+    new ">"
 
     # game/screens.rpy:1701
     old "Preferences"
-    new ""
+    new "偏好"
 
     # game/screens.rpy:1712
     old "Display"
-    new ""
+    new "顯示"
 
     # game/screens.rpy:1713
     old "Window"
-    new ""
+    new "視窗化"
 
     # game/screens.rpy:1714
     old "Fullscreen"
-    new ""
+    new "全螢幕"
 
     # game/screens.rpy:1719
     old "Unseen Text"
-    new ""
+    new "未閱讀文本"
 
     # game/screens.rpy:1720
     old "After Choices"
-    new ""
+    new "選擇後內容"
 
     # game/screens.rpy:1721
     old "Transitions"
-    new ""
+    new "轉場"
 
     # game/screens.rpy:1725
     old "Language"
-    new ""
+    new "語言"
 
     # game/screens.rpy:1727
     old "English"
@@ -172,35 +172,35 @@ translate mandarin strings:
 
     # game/screens.rpy:1743
     old "Text Speed"
-    new ""
+    new "文字速度"
 
     # game/screens.rpy:1747
     old "Auto-Forward Time"
-    new ""
+    new "自動進時"
 
     # game/screens.rpy:1754
     old "Music Volume"
-    new ""
+    new "音樂音量"
 
     # game/screens.rpy:1761
     old "Sound Volume"
-    new ""
+    new "音效音量"
 
     # game/screens.rpy:1767
     old "Test"
-    new ""
+    new "測試"
 
     # game/screens.rpy:1782
     old "Mute All"
-    new ""
+    new "全部靜音"
 
     # game/screens.rpy:1905
     old "The dialogue history is empty."
-    new ""
+    new "尚未有對話歷史"
 
     # game/screens.rpy:1965
     old "Help"
-    new ""
+    new "幫助"
 
     # game/screens.rpy:1974
     old "Keyboard"
@@ -340,21 +340,20 @@ translate mandarin strings:
 
     # game/screens.rpy:2153
     old "Yes"
-    new ""
+    new "是"
 
     # game/screens.rpy:2154
     old "No"
-    new ""
+    new "否"
 
     # game/screens.rpy:2202
     old "Skipping"
-    new ""
+    new "跳過"
 
     # game/screens.rpy:2513
     old "Auto"
-    new ""
+    new "自動"
 
     # game/screens.rpy:2514
     old "Menu"
-    new ""
-
+    new "選單"

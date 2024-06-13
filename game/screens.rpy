@@ -179,7 +179,25 @@ init python:
         persistent.dietsoda = True
     def set_icecreamcake_shown():
         persistent.icecreamcake = True
+    
+    ### define language text fonts ###
+    def update_fonts(language):
+        if _preferences.language == "mandarin":
+            presistent_text_font = "GlowSansSC-Normal-Regular.ttf"
+            presistent_medium_text_font = "GlowSansSC-Normal-Medium.ttf"
+            presistent_bold_text_font = "GlowSansSC-Normal-Bold.ttf"
+        elif _preferences.language == "japanese":
+            presistent_text_font = "GlowSansSC-Normal-Regular.ttf"
+            presistent_medium_text_font = "GlowSansSC-Normal-Medium.ttf"
+            presistent_bold_text_font = "GlowSansSC-Normal-Bold.ttf"
+        elif _preferences.language == None:
+            presistent_text_font = "BaiJamjuree-Regular.ttf"
+            presistent_medium_text_font = "BaiJamjuree-SemiBold.ttf"
+            presistent_bold_text_font = "BaiJamjuree-Bold.ttf"
 
+    # Initialize fonts based on the current language
+    update_fonts(_preferences.language)
+    
 # Function to reset achievement popup to not shown
 init python:
     def reset_achievement_popup_shown(achievement_name):
@@ -195,6 +213,13 @@ init python:
     def get_achievement_image():
         # Map achievement names to corresponding image paths
         return "temp/Group 120.png"  # Return an empty string if no matching image is found
+
+init python:
+    # Define a function to restart the game
+    def restart_game():
+        renpy.restart()
+    persistent.new_game_clicked = False 
+default persistent.new_game_clicked = True
     
 
 ################################################################################
@@ -688,7 +713,7 @@ screen gallery_popup(item_click_background,active_set,active_tab,index):
                 xpos 1.05
                 yalign 0.5
 
-image spr_st_edcg_v = Movie(play="movies/video.webm")
+image spr_st_edcg_v = Movie(play="movies/Vantacrew.webm")
 
 
 screen picture_popup(item_click_background,active_set,active_tab,index):
@@ -741,7 +766,7 @@ screen picture_popup(item_click_background,active_set,active_tab,index):
                 yalign 0.5           
         
         ### body ###
-        if (active_set == 'cg') and (active_tab == 'tab4') and (index==4):
+        if (active_set == 'cg') and (active_tab == 'tab4') and (index==3):
             vbox:
                 xalign 0.5
                 yalign 0.5
@@ -1212,6 +1237,7 @@ screen navigation:
         
         if main_menu:
             textbutton _("New Game") action Start() style "navigation_textbutton"
+            textbutton _("Continue") action Continue() style "navigation_textbutton"
 
         else:
             
@@ -1311,7 +1337,7 @@ style main_menu_frame:
     xsize 420
     yfill True
 
-    background "gui/overlay/main_menu.png"
+    background "images/cvisual/main_menu.png"
 
 style main_menu_vbox:
     xalign 7.0
@@ -2208,6 +2234,15 @@ screen confirm(message, yes_action, no_action):
     ## Right-click and escape answer "no".
     key "game_menu" action no_action
 
+
+#confirm start screen
+screen confirm_start:
+    modal True
+    add "system/system_popup.png" xpos 0.3 ypos 0.2
+    hbox:
+        text _("Are you sure you want to start a new game?") xpos 1.2 ypos 4.3
+        textbutton _("Yes") action Start() xpos 1.5 ypos 4.6
+        textbutton _("No") action Function(renpy.hide_screen, "confirm_start") xpos 1.8 ypos 4.6
 
 style confirm_frame is gui_frame
 style confirm_prompt is gui_prompt

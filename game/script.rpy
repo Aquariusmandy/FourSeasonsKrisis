@@ -236,6 +236,8 @@ init:
     image spr_bg_buil2_img = "images/bg/spr_bg_buil_02.png"
     image spr_bg_lab1_img = "images/bg/spr_bg_lab_01.png"
     image spr_bg_lab2_img = "images/bg/spr_bg_lab_02.png"
+    image spr_bg_hall1_img = "images/bg/spr_bg_hall_01.png"
+    image spr_bg_hall2_img = "images/bg/spr_bg_hall_02.png"
 
     image sum_st_btst_img = "images/still/sum_st_btst.png"
     image sum_st_bten_img = "images/still/sum_st_bten.png"
@@ -313,7 +315,7 @@ init:
     image spr_com_26_img = "images/comic/spr/spr_com_26.png"
 
     ### spring ending cg
-    image spr_st_edcg_v = Movie(play="movies/video.webm")
+    # image spr_st_edcg_v = Movie(play="movies/Vantacrew.webm")
 
 
 
@@ -642,21 +644,21 @@ init python:
                     "images/still/spr_st_fny.png",
     )
     spr_st_zali = Item("spr_st_zali", 
-                    "gui/archive/spr_st_fny_thu.png",
-                    "gui/archive/spr_st_fny_thu.png",
-                    "gui/archive/spr_st_fny_thu_blur.png",
+                    "gui/archive/spr_st_zali_thu.png",
+                    "gui/archive/spr_st_zali_thu.png",
+                    "gui/archive/spr_st_zali_thu_sil.png",
                     "images/still/spr_st_zali.png",
     )
     spr_st_wilson = Item("spr_st_wilson", 
-                    "gui/archive/spr_st_fny_thu.png",
-                    "gui/archive/spr_st_fny_thu.png",
-                    "gui/archive/spr_st_fny_thu_blur.png",
+                    "gui/archive/spr_st_wilson_thu.png",
+                    "gui/archive/spr_st_wilson_thu.png",
+                    "gui/archive/spr_st_wilson_thu_sil.png",
                     "images/still/spr_st_wilson.png",
     )
     spr_st_edcg = Item("spr_st_edcg", 
-                    "gui/archive/spr_st_fny_thu.png",
-                    "gui/archive/spr_st_fny_thu.png",
-                    "gui/archive/spr_st_fny_thu_blur.png",
+                    "gui/archive/spr_st_end_thu.png",
+                    "gui/archive/spr_st_end_thu.png",
+                    "gui/archive/spr_st_end_thu_sil.png",
                     "images/still/spr_st_edcg.png",
     )
     
@@ -956,6 +958,10 @@ default current_ch = 0
 
 
 label start:
+    $ achievement.clear_all()
+    $ persistent._clear()
+    $ renpy.clear_retain()
+    $ renpy.restart_interaction() 
     call chapter_1 from _call_chapter_1
     return
 
@@ -2699,8 +2705,13 @@ label chapter_4:
     stop music fadeout 1.0  # Fade out music
     play music "audio/sum/sum_bgm_02.mp3" fadein 1.0 loop #Music for Battle
     hide spr_com_18_img
+    hide spr_bg_lab2_img
+    scene spr_bg_hall1_img
     show spr_com_19_img at spr_com_upper
     "Seeing Wilson's signal, you spring into action, activating the fire alarm. The loud, echoing sirens reverberate throughout the entire building, filling every corner with urgency. "
+    hide spr_bg_hall1_img
+    scene spr_bg_hall2_img
+    show spr_com_19_img at spr_com_upper
     play sound "audio/spr/spr_se_firealarm.mp3" #Fire alarm
     "Within moments, crimson lights flood each room, signaling the need for immediate evacuation, prompting people to swiftly leave the building."
     stop sound fadeout 2.0 #Stop sound effects
@@ -2717,7 +2728,7 @@ label chapter_4:
     "With the majority of people already evacuated due to the blaring siren, the three of you make your way to the ground floor. Racing towards the front door, you can see Squad A standing by, prepared to detonate."
     play sound "audio/spr/spr_se_explosion.mp3" #Explosion sound
     hide spr_com_20_img
-    scene spr_bg_lab2_img at earthquake
+    scene spr_bg_hall2_img at earthquake
     # show text "{b}{size=34}Chapter 4.  SPRING{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     show com_base_img
     show spr_com_21_img at spr_com_upper
@@ -2811,7 +2822,7 @@ label chapter_4:
     show white with dissolve 
     pause 3.0
     show screen unclickable_screen
-    $ renpy.movie_cutscene("movies/video.webm", stop_music=False)
+    $ renpy.movie_cutscene("movies/Vantacrew.webm", stop_music=False)
     $ renpy.movie_cutscene("movies/credit v1.webm", stop_music=False)
     hide screen unclickable_screen
     # $ renpy.show_screen("main_menu")  
