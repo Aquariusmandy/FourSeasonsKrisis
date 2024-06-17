@@ -132,155 +132,155 @@ translate japanese strings:
 
     # renpy/common/00action_file.rpy:26
     old "{#weekday}Monday"
-    new ""
+    new "月曜日"
 
     # renpy/common/00action_file.rpy:26
     old "{#weekday}Tuesday"
-    new ""
+    new "火曜日"
 
     # renpy/common/00action_file.rpy:26
     old "{#weekday}Wednesday"
-    new ""
+    new "水曜日"
 
     # renpy/common/00action_file.rpy:26
     old "{#weekday}Thursday"
-    new ""
+    new "木曜日"
 
     # renpy/common/00action_file.rpy:26
     old "{#weekday}Friday"
-    new ""
+    new "金曜日"
 
     # renpy/common/00action_file.rpy:26
     old "{#weekday}Saturday"
-    new ""
+    new "土曜日"
 
     # renpy/common/00action_file.rpy:26
     old "{#weekday}Sunday"
-    new ""
+    new "日曜日"
 
     # renpy/common/00action_file.rpy:37
     old "{#weekday_short}Mon"
-    new ""
+    new "月"
 
     # renpy/common/00action_file.rpy:37
     old "{#weekday_short}Tue"
-    new ""
+    new "火"
 
     # renpy/common/00action_file.rpy:37
     old "{#weekday_short}Wed"
-    new ""
+    new "水"
 
     # renpy/common/00action_file.rpy:37
     old "{#weekday_short}Thu"
-    new ""
+    new "木"
 
     # renpy/common/00action_file.rpy:37
     old "{#weekday_short}Fri"
-    new ""
+    new "金"
 
     # renpy/common/00action_file.rpy:37
     old "{#weekday_short}Sat"
-    new ""
+    new "土"
 
     # renpy/common/00action_file.rpy:37
     old "{#weekday_short}Sun"
-    new ""
+    new "日"
 
     # renpy/common/00action_file.rpy:47
     old "{#month}January"
-    new ""
+    new "一月"
 
     # renpy/common/00action_file.rpy:47
     old "{#month}February"
-    new ""
+    new "二月"
 
     # renpy/common/00action_file.rpy:47
     old "{#month}March"
-    new ""
+    new "三月"
 
     # renpy/common/00action_file.rpy:47
     old "{#month}April"
-    new ""
+    new "四月"
 
     # renpy/common/00action_file.rpy:47
     old "{#month}May"
-    new ""
+    new "五月"
 
     # renpy/common/00action_file.rpy:47
     old "{#month}June"
-    new ""
+    new "六月"
 
     # renpy/common/00action_file.rpy:47
     old "{#month}July"
-    new ""
+    new "七月"
 
     # renpy/common/00action_file.rpy:47
     old "{#month}August"
-    new ""
+    new "八月"
 
     # renpy/common/00action_file.rpy:47
     old "{#month}September"
-    new ""
+    new "九月"
 
     # renpy/common/00action_file.rpy:47
     old "{#month}October"
-    new ""
+    new "十月"
 
     # renpy/common/00action_file.rpy:47
     old "{#month}November"
-    new ""
+    new "十一月"
 
     # renpy/common/00action_file.rpy:47
     old "{#month}December"
-    new ""
+    new "十二月"
 
     # renpy/common/00action_file.rpy:63
     old "{#month_short}Jan"
-    new ""
+    new "一月"
 
     # renpy/common/00action_file.rpy:63
     old "{#month_short}Feb"
-    new ""
+    new "二月"
 
     # renpy/common/00action_file.rpy:63
     old "{#month_short}Mar"
-    new ""
+    new "三月"
 
     # renpy/common/00action_file.rpy:63
     old "{#month_short}Apr"
-    new ""
+    new "四月"
 
     # renpy/common/00action_file.rpy:63
     old "{#month_short}May"
-    new ""
+    new "五月"
 
     # renpy/common/00action_file.rpy:63
     old "{#month_short}Jun"
-    new ""
+    new "六月"
 
     # renpy/common/00action_file.rpy:63
     old "{#month_short}Jul"
-    new ""
+    new "七月"
 
     # renpy/common/00action_file.rpy:63
     old "{#month_short}Aug"
-    new ""
+    new "八月"
 
     # renpy/common/00action_file.rpy:63
     old "{#month_short}Sep"
-    new ""
+    new "九月"
 
     # renpy/common/00action_file.rpy:63
     old "{#month_short}Oct"
-    new ""
+    new "十月"
 
     # renpy/common/00action_file.rpy:63
     old "{#month_short}Nov"
-    new ""
+    new "十一月"
 
     # renpy/common/00action_file.rpy:63
     old "{#month_short}Dec"
-    new ""
+    new "十二月"
 
     # renpy/common/00action_file.rpy:258
     old "%b %d, %H:%M"
@@ -464,27 +464,27 @@ translate japanese strings:
 
     # renpy/common/00gui.rpy:449
     old "Are you sure you want to delete this save?"
-    new ""
+    new "本当にこのセーブデータを削除しますか？"
 
     # renpy/common/00gui.rpy:450
     old "Are you sure you want to overwrite your save?"
-    new ""
+    new "本当にこのセーブスロットにデータを上書きしますか？"
 
     # renpy/common/00gui.rpy:451
     old "Loading will lose unsaved progress.\nAre you sure you want to do this?"
-    new ""
+    new "読み込みを実行すると現在のデータは消えてしまいます。\nよろしいですか？"
 
     # renpy/common/00gui.rpy:452
     old "Are you sure you want to quit?"
-    new ""
+    new "本当に戻りますか？"
 
     # renpy/common/00gui.rpy:453
     old "Are you sure you want to return to the main menu?\nThis will lose unsaved progress."
-    new ""
+    new "ゲームを終了してメインメニューへ戻りますか？\n現在のデータは失われます。"
 
     # renpy/common/00gui.rpy:454
     old "Are you sure you want to continue where you left off?"
-    new ""
+    new "前回の続きからプレイしますか？"
 
     # renpy/common/00gui.rpy:455
     old "Are you sure you want to end the replay?"
@@ -1197,4 +1197,3 @@ translate japanese strings:
     # renpy/common/_errorhandling.rpym:782
     old "Parsing the script failed."
     new ""
-

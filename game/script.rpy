@@ -1,6 +1,9 @@
 ﻿#メインメニューの音楽
 define config.main_menu_music = "audio/main_theme.mp3"
 
+style default:
+    font FontGroup().add("BaiJamjuree-Regular.ttf", 0x0020, 0x007f).add("GlowSansSC-Normal-Regular.ttf", 0x0000, 0xffff)
+
 # セリフテキストボックスの定義。20は左右上下の余白
 style narration_window:
     background Frame("gui/narration_window.png", 20,20)   
@@ -23,104 +26,476 @@ style zandw_window:
 style vandc_window:
     background Frame("gui/gui/ui_dialoguebox_crew.png", 20,20)       
     
-# ネームボックスの定義
-style vanta_namebox:
-    background "gui/gui/ui_namebox_vanta.png"
-    xalign 0.135
-    xoffset 2 # これはピクセル単位での指定です。
-    yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-    yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+init:    
+    # ネームボックスの定義
+    if (_preferences.language == "japanese"):
+        style vanta_namebox:
+            background "gui/gui/jp/ui_namebox_vanta_jp.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
 
-style wilson_namebox:
-    background "gui/gui/ui_namebox_wilson.png"
-    xalign 0.135
-    xoffset 2 # これはピクセル単位での指定です。
-    yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-    yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+        style wilson_namebox:
+            background "gui/gui/jp/ui_namebox_wilson_jp.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
 
-style zali_namebox:
-    background "gui/gui/ui_namebox_zali.png"
-    xalign 0.135
-    xoffset 2 # これはピクセル単位での指定です。
-    yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-    yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+        style zali_namebox:
+            background "gui/gui/jp/ui_namebox_zali_jp.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
 
-style vandw_namebox:
-    background "gui/gui/ui_namebox_v&w.png"
-    xalign 0.135
-    xoffset 2 # これはピクセル単位での指定です。
-    yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-    yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+        style vandw_namebox:
+            background "gui/gui/jp/ui_namebox_v&w_jp.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
 
-style wandv_namebox:
-    background "gui/gui/ui_namebox_w+v.png"
-    xalign 0.135
-    xoffset 2 # これはピクセル単位での指定です。
-    yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-    yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+        style wandv_namebox:
+            background "gui/gui/jp/ui_namebox_w&v_jp.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
 
-style vandz_namebox:
-    background "gui/gui/ui_namebox_v&z.png"
-    xalign 0.135
-    xoffset 2 # これはピクセル単位での指定です。
-    yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-    yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+        style vandz_namebox:
+            background "gui/gui/jp/ui_namebox_z&v_jp.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
 
-style zandw_namebox:
-    background "gui/gui/ui_namebox_z&w.png"
-    xalign 0.135
-    xoffset 2 # これはピクセル単位での指定です。
-    yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-    yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+        style zandw_namebox:
+            background "gui/gui/jp/ui_namebox_z&w_jp.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
 
-style vandc_namebox:
-    background "gui/gui/ui_namebox_v&c.png"
-    xalign 0.135
-    xoffset 2 # これはピクセル単位での指定です。
-    yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-    yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+        style vandc_namebox:
+            background "gui/gui/jp/ui_namebox_v&c_jp.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+        style npc01_namebox:
+            background "gui/gui/jp/ui_namebox_npc03_jp.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
 
-style npc01_namebox:
-    background "gui/gui/ui_namebox_npc01.png"
-    xalign 0.135
-    xoffset 2 # これはピクセル単位での指定です。
-    yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-    yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+        style npc02_namebox:
+            background "gui/gui/jp/ui_namebox_npc02_jp.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
 
-style npc02_namebox:
-    background "gui/gui/ui_namebox_npc02.png"
-    xalign 0.135
-    xoffset 2 # これはピクセル単位での指定です。
-    yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-    yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+        style npc03_namebox:
+            background "gui/gui/jp/ui_namebox_npc01_jp.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
 
-style npc03_namebox:
-    background "gui/gui/ui_namebox_npc03.png"
-    xalign 0.135
-    xoffset 2 # これはピクセル単位での指定です。
-    yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-    yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+        style npc04_namebox:
+            background "gui/gui/jp/ui_namebox_npc04_jp.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
 
-style npc04_namebox:
-    background "gui/gui/ui_namebox_npc04.png"
-    xalign 0.135
-    xoffset 2 # これはピクセル単位での指定です。
-    yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-    yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+        style npc05_namebox:
+            background "gui/gui/jp/ui_namebox_npc05_jp.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
 
-style npc05_namebox:
-    background "gui/gui/ui_namebox_npc05.png"
-    xalign 0.135
-    xoffset 2 # これはピクセル単位での指定です。
-    yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-    yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+        style npc06_namebox:
+            background "gui/gui/jp/ui_namebox_npc06_jp.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+    elif (_preferences.language == "mandarin"):
+        style vanta_namebox:
+            background "gui/gui/ui_namebox_vanta.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
 
-style npc06_namebox:
-    background "gui/gui/ui_namebox_npc06.png"
-    xalign 0.135
-    xoffset 2 # これはピクセル単位での指定です。
-    yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-    yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+        style wilson_namebox:
+            background "gui/gui/ui_namebox_wilson.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style zali_namebox:
+            background "gui/gui/ui_namebox_zali.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style vandw_namebox:
+            background "gui/gui/ui_namebox_v&w.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style wandv_namebox:
+            background "gui/gui/ui_namebox_w+v.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style vandz_namebox:
+            background "gui/gui/ui_namebox_v&z.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style zandw_namebox:
+            background "gui/gui/ui_namebox_z&w.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style vandc_namebox:
+            background "gui/gui/ui_namebox_v&c.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+        
+        style npc01_namebox:
+            background "gui/gui/cn/ui_namebox_npc03_cn.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style npc02_namebox:
+            background "gui/gui/cn/ui_namebox_npc02_cn.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style npc03_namebox:
+            background "gui/gui/cn/ui_namebox_npc01_cn.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style npc04_namebox:
+            background "gui/gui/cn/ui_namebox_npc04_cn.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style npc05_namebox:
+            background "gui/gui/cn/ui_namebox_npc05_cn.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style npc06_namebox:
+            background "gui/gui/cn/ui_namebox_npc06_cn.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+    else:
+        style vanta_namebox:
+            background "gui/gui/ui_namebox_vanta.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style wilson_namebox:
+            background "gui/gui/ui_namebox_wilson.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style zali_namebox:
+            background "gui/gui/ui_namebox_zali.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style vandw_namebox:
+            background "gui/gui/ui_namebox_v&w.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style wandv_namebox:
+            background "gui/gui/ui_namebox_w+v.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style vandz_namebox:
+            background "gui/gui/ui_namebox_v&z.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style zandw_namebox:
+            background "gui/gui/ui_namebox_z&w.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style vandc_namebox:
+            background "gui/gui/ui_namebox_v&c.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+        style npc01_namebox:
+            background "gui/gui/ui_namebox_npc01.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style npc02_namebox:
+            background "gui/gui/ui_namebox_npc02.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style npc03_namebox:
+            background "gui/gui/ui_namebox_npc03.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style npc04_namebox:
+            background "gui/gui/ui_namebox_npc04.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style npc05_namebox:
+            background "gui/gui/ui_namebox_npc05.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style npc06_namebox:
+            background "gui/gui/ui_namebox_npc06.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+init:
+    # キャラクター画像の定義
+    image van_sum_nor = "images/chara/van_sum_nor.png"
+    image van_sum_thi = "images/chara/van_sum_thi.png"
+    image van_sum_ser = "images/chara/van_sum_ser.png"
+    image van_sum_hap = "images/chara/van_sum_hap.png"
+    image van_sum_sur = "images/chara/van_sum_sur.png"
+    image van_sum_emb = "images/chara/van_sum_emb.png"
+    image van_sum_con = "images/chara/van_sum_con.png"
+
+    image van_ci_nor = "images/chara/van_ci_nor.png"
+    image van_ci_thi = "images/chara/van_ci_thi.png"
+    image van_ci_ser = "images/chara/van_ci_ser.png"
+    image van_ci_hap = "images/chara/van_ci_hap.png"
+    image van_ci_sur = "images/chara/van_ci_sur.png"
+    image van_ci_emb = "images/chara/van_ci_emb.png"
+    image van_ci_con = "images/chara/van_ci_con.png"
+    image van_ci_3 = "images/chara/van_ci_3.png" 
+
+    image van_hr_nor = "images/chara/van_hr_nor.png"
+    image van_hr_thi = "images/chara/van_hr_thi.png"
+    image van_hr_ser = "images/chara/van_hr_ser.png"
+    image van_hr_hap = "images/chara/van_hr_hap.png"
+    image van_hr_sur = "images/chara/van_hr_sur.png"
+    image van_hr_emb = "images/chara/van_hr_emb.png"
+    image van_hr_con = "images/chara/van_hr_con.png"
+    image van_hr_3 = "images/chara/van_hr_3.png"
+
+    image wil_ci_nor = "images/chara/wil_ci_nor.png"
+    image wil_ci_thi = "images/chara/wil_ci_thi.png"
+    image wil_ci_ser = "images/chara/wil_ci_ser.png"
+    image wil_ci_hap = "images/chara/wil_ci_hap.png"
+    image wil_ci_sur = "images/chara/wil_ci_sur.png"
+    
+    image wil_hr_nor = "images/chara/wil_hr_nor.png"
+    image wil_hr_thi = "images/chara/wil_hr_thi.png"
+    image wil_hr_ser = "images/chara/wil_hr_ser.png"
+    image wil_hr_hap = "images/chara/wil_hr_hap.png"
+    image wil_hr_sur = "images/chara/wil_hr_sur.png"
+
+    image zal_ci_nor = "images/chara/zal_ci_nor.png"
+    image zal_ci_thi = "images/chara/zal_ci_thi.png"
+    image zal_ci_ser = "images/chara/zal_ci_ser.png"
+    image zal_ci_hap = "images/chara/zal_ci_hap.png"
+    image zal_ci_sur = "images/chara/zal_ci_sur.png"
+    
+    image zal_hr_nor = "images/chara/zal_hr_nor.png"
+    image zal_hr_thi = "images/chara/zal_hr_thi.png"
+    image zal_hr_ser = "images/chara/zal_hr_ser.png"
+    image zal_hr_hap = "images/chara/zal_hr_hap.png"
+    image zal_hr_sur = "images/chara/zal_hr_sur.png"
+    
+    image crew1_nor_img = "images/chara/crew1_nor.png"
+    image crew1_3_img = "images/chara/crew1_3.png"
+    image crew3_nor_img = "images/chara/crew3_nor.png"
+    image crew3_ang_img = "images/chara/crew3_ang.png"
+    image crew3_hap_img = "images/chara/crew3_hap.png"
+    image crew3_3_img = "images/chara/crew3_3.png"
+
+    image npc1_img = "images/chara/npc_01.png"
+    image npc2_img = "images/chara/npc_02.png"
+    image npc3_img = "images/chara/npc_03.png"
+    image npc4_img = "images/chara/npc_04.png"
+    image npc5_img = "images/chara/npc_05.png"
+    image npc6_img = "images/chara/npc_06.png"
+
+    image sum_cv_img = "images/cvisual/sum_cv.png"
+    image aut_cv_img = "images/cvisual/aut_cv.png"
+    image win_cv_img = "images/cvisual/win_cv.png"
+    image spr_cv_img = "images/cvisual/spr_cv.png"
+
+    image sum_bg_beach1_img = "images/bg/sum_bg_beach_01.png"
+    image sum_bg_beach2_img = "images/bg/sum_bg_beach_02.png"
+    image sum_bg_beach3_img = "images/bg/sum_bg_beach_03.png"
+    image sum_bg_beach4_img = "images/bg/sum_bg_beach_04.png"
+    image sum_bg_shop1_img = "images/bg/sum_bg_shop_01.png"
+    image sum_bg_shop2_img = "images/bg/sum_bg_shop_02.png"
+
+    image aut_bg_village1_img = "images/bg/aut_bg_village_01.png"
+    image aut_bg_village2_img = "images/bg/aut_bg_village_02.png"
+    image aut_bg_forest1_img = "images/bg/aut_bg_forest_01.png"
+    image aut_bg_forest2_img = "images/bg/aut_bg_forest_02.png"
+    image aut_bg_forest3_img = "images/bg/aut_bg_forest_03.png"
+
+    image win_bg_office1_img = "images/bg/win_bg_office_01.png"
+    image win_bg_office2_img = "images/bg/win_bg_office_02.png"
+    image win_bg_shop_img = "images/bg/win_bg_shop_01.png"
+    image win_bg_park_img = "images/bg/win_bg_park_01.png"
+    image win_bg_home_img = "images/bg/win_bg_home_01.png"
+    image win_bg_street1_img = "images/bg/win_bg_street_01.png"
+    image win_bg_street2_img = "images/bg/win_bg_street_02.png"
+    image win_bg_run_img = "images/bg/win_bg_run.png"
+
+    image spr_bg_office1_img = "images/bg/spr_bg_office_01.png"
+    image spr_bg_buil1_img = "images/bg/spr_bg_buil_01.png"
+    image spr_bg_buil2_img = "images/bg/spr_bg_buil_02.png"
+    image spr_bg_lab1_img = "images/bg/spr_bg_lab_01.png"
+    image spr_bg_lab2_img = "images/bg/spr_bg_lab_02.png"
+    image spr_bg_hall1_img = "images/bg/spr_bg_hall_01.png"
+    image spr_bg_hall2_img = "images/bg/spr_bg_hall_02.png"
+
+    image sum_st_btst_img = "images/still/sum_st_btst.png"
+    image sum_st_bten_img = "images/still/sum_st_bten.png"
+    image sum_st_fny_img = "images/still/sum_st_fny.png"
+    image sum_edcg_img = "images/still/sum_st_edcg.png"
+
+    image aut_st_btst_img = "images/still/aut_st_btst.png"
+    image aut_st_bten_img = "images/still/aut_st_bten.png"
+    image aut_st_fny_img = "images/still/aut_st_fny.png"
+    image aut_edcg_img = "images/still/aut_st_edcg.png"
+
+    image win_st_btst_img = "images/still/win_st_btst.png"
+    image win_st_bten_img = "images/still/win_st_bten.png"
+    image win_st_fny_img = "images/still/win_st_fny.png"
+    image win_edcg_img = "images/still/win_st_edcg.png"
+
+    image spr_st_wilson_img = "images/still/spr_st_wilson.png"
+    image spr_st_zali_img = "images/still/spr_st_zali.png"
+    image spr_st_fny_img = "images/still/spr_st_fny.png"
+    image spr_edcg_img = "images/still/spr_st_edcg.png"
+
+    image com_base_img = "images/comic/com_base.png"
+
+    image sum_com_1_img = "images/comic/sum_com_1.png"
+    image sum_com_2_img = "images/comic/sum_com_2.png"
+    image sum_com_3_img = "images/comic/sum_com_3.png"
+    image sum_com_4_img = "images/comic/sum_com_4.png"
+    image sum_com_5_img = "images/comic/sum_com_5.png"
+    image sum_com_6_img = "images/comic/sum_com_6.png"
+    image sum_com_7_img = "images/comic/sum_com_7.png"
+    image sum_com_8_img = "images/comic/sum_com_8.png"
+
+    image aut_com_1_img = "images/comic/aut_com_1.png"
+    image aut_com_2_img = "images/comic/aut_com_2.png"
+    image aut_com_3_img = "images/comic/aut_com_3.png"
+    image aut_com_4_img = "images/comic/aut_com_4.png"
+    image aut_com_5_img = "images/comic/aut_com_5.png"
+    image aut_com_6_img = "images/comic/aut_com_6.png"
+    image aut_com_7_img = "images/comic/aut_com_7.png"
+    image aut_com_8_img = "images/comic/aut_com_8.png"
+    image aut_com_9_img = "images/comic/aut_com_9.png"
+    image aut_com_10_img = "images/comic/aut_com_10.png"
+
+    image win_com_1_img = "images/comic/win_com_1.png"
+    image win_com_2_img = "images/comic/win_com_2.png"
+    image win_com_3_img = "images/comic/win_com_3.png"
+    image win_com_4_img = "images/comic/win_com_4.png"
+    image win_com_5_img = "images/comic/win_com_5.png"
+
+    image spr_com_1_img = "images/comic/spr/spr_com_01.png"
+    image spr_com_2_img = "images/comic/spr/spr_com_02.png"
+    image spr_com_3_img = "images/comic/spr/spr_com_03.png"
+    image spr_com_4_img = "images/comic/spr/spr_com_04.png"
+    image spr_com_5_img = "images/comic/spr/spr_com_05.png"
+    image spr_com_6_img = "images/comic/spr/spr_com_06.png"
+    image spr_com_7_img = "images/comic/spr/spr_com_07.png"
+    image spr_com_8_img = "images/comic/spr/spr_com_08.png"
+    image spr_com_9_img = "images/comic/spr/spr_com_09.png"
+    image spr_com_10_img = "images/comic/spr/spr_com_10.png"
+    image spr_com_11_img = "images/comic/spr/spr_com_11.png"
+    image spr_com_12_img = "images/comic/spr/spr_com_12.png"
+    image spr_com_13_img = "images/comic/spr/spr_com_13.png"
+    image spr_com_14_img = "images/comic/spr/spr_com_14.png"
+    image spr_com_15_img = "images/comic/spr/spr_com_15.png"
+    image spr_com_16_img = "images/comic/spr/spr_com_16.png"
+    image spr_com_17_img = "images/comic/spr/spr_com_17.png"
+    image spr_com_18_img = "images/comic/spr/spr_com_18.png"
+    image spr_com_19_img = "images/comic/spr/spr_com_19.png"
+    image spr_com_20_img = "images/comic/spr/spr_com_20.png"
+    image spr_com_21_img = "images/comic/spr/spr_com_21.png"
+    image spr_com_22_img = "images/comic/spr/spr_com_22.png"
+    image spr_com_23_img = "images/comic/spr/spr_com_23.png"
+    image spr_com_24_img = "images/comic/spr/spr_com_24.png"
+    image spr_com_25_img = "images/comic/spr/spr_com_25.png"
+    image spr_com_26_img = "images/comic/spr/spr_com_26.png"
 
 # キャラクター定義
 define vanta_char = Character("", color="#ffffff", window_style='vanta_window', namebox_style="vanta_namebox")
@@ -442,7 +817,7 @@ label splashscreen:
     show white
     $ renpy.music.play("audio/main_theme.mp3", channel="music", loop=True)
     # Display the video
-    $ renpy.movie_cutscene("movies/testingnew.webm", loops=20, stop_music=False) 
+    $ renpy.movie_cutscene("movies/testingnew.webm", loops=0, stop_music=False) 
     show white with dissolve
     # show 5 with dissolve
     pause 0.5
@@ -469,70 +844,25 @@ init python:
             self.locked = locked
             self.background = background
     # Initialize items
-    example = Item(
-        "example",
-        "gui/archive/Collected Items/btn/btn_cake_default.png",
-        "gui/archive/Collected Items/btn/btn_cake_hover.png",
-        "gui/archive/Collected Items/btn/btn_cake_locked.png",
-        "gui/archive/Collected Items/popup_cake.png",
-        )
-    croissant = Item("croissant", 
-                        "gui/archive/Collected Items/btn/btn_croissant_default.png",
-        "gui/archive/Collected Items/btn/btn_croissant_hover.png",
-        "gui/archive/Collected Items/btn/btn_croissant_locked.png",
-        "gui/archive/Collected Items/popup_croissant.png",
-    )
-    drink = Item("drink", 
-                        "gui/archive/Collected Items/btn/btn_drink_default.png",
-        "gui/archive/Collected Items/btn/btn_drink_hover.png",
-        "gui/archive/Collected Items/btn/btn_drink_locked.png",
-        "gui/archive/Collected Items/popup_drink.png",
-    )
-    takoyaki = Item("takoyaki", 
-                        "gui/archive/Collected Items/btn/btn_takoyaki_default.png",
-        "gui/archive/Collected Items/btn/btn_takoyaki_hover.png",
-        "gui/archive/Collected Items/btn/btn_takoyaki_locked.png",
-        "gui/archive/Collected Items/popup_takoyaki.png",
-    )
-    walkietalkie = Item("walkietalkie", 
-                        "gui/archive/Collected Items/btn/btn_walkietalkie_default.png",
-        "gui/archive/Collected Items/btn/btn_walkietalkie_hover.png",
-        "gui/archive/Collected Items/btn/btn_walkietalkie_locked.png",
-        "gui/archive/Collected Items/popup_walkietalkie.png",
-                    )
-    
-    mushroom = Item("mushroom", 
-                    "gui/archive/Collected Items/btn/btn_mushroom_default.png",
-        "gui/archive/Collected Items/btn/btn_mushroom_hover.png",
-        "gui/archive/Collected Items/btn/btn_mushroom_locked.png",
-        "gui/archive/Collected Items/popup_mushroom.png",
-    )
-    maple_syrup = Item("maplesyrup", 
-                    "gui/archive/Collected Items/btn/btn_maplesyrup_default.png",
-        "gui/archive/Collected Items/btn/btn_maplesyrup_hover.png",
-        "gui/archive/Collected Items/btn/btn_maplesyrup_locked.png",
-        "gui/archive/Collected Items/popup_maplesyrup.png", 
-    )
- 
+    items = ['croissant', 'drink', 'takoyaki', 'walkietalkie', 'mushroom', 'maplesyrup', 'eggplant', 'icecreamcake', 'dietsoda']
 
-    eggplant = Item("eggplant", 
-                    "gui/archive/Collected Items/btn/btn_candy_default.png",
-        "gui/archive/Collected Items/btn/btn_candy_hover.png",
-        "gui/archive/Collected Items/btn/btn_candy_locked.png",
-        "gui/archive/Collected Items/popup_candy.png",
-    )
-    icecream_cake = Item("icecreamcake", 
-                "gui/archive/Collected Items/btn/btn_cake_default.png",
-        "gui/archive/Collected Items/btn/btn_cake_hover.png",
-        "gui/archive/Collected Items/btn/btn_cake_locked.png",
-        "gui/archive/Collected Items/popup_cake.png",)
-
-    diet_soda = Item("dietsoda", 
-                    "gui/archive/Collected Items/btn/btn_soda_default.png",
-        "gui/archive/Collected Items/btn/btn_soda_hover.png",
-        "gui/archive/Collected Items/btn/btn_soda_locked.png",
-        "gui/archive/Collected Items/popup_soda.png",
-    )
+    itemlist = {}
+    for i in items:
+        name = i
+        defaultname ="gui/archive/Collected Items/btn/btn_"+name+"_default.png"
+        hovername="gui/archive/Collected Items/btn/btn_"+name+"_hover.png"
+        lockname = "gui/archive/Collected Items/btn/btn_"+name+"_locked.png"
+        popname = "gui/archive/Collected Items/popup_"+name+".png"
+        jppopname = "gui/archive/Collected Items/jp/popup_"+name+"_jp.png"
+        cnpopname = "gui/archive/Collected Items/cn/popup_"+name+"_cn.png"
+        itemlist[i]=[name,
+                            defaultname,
+                            hovername,
+                            lockname,
+                            popname,
+                            jppopname,
+                            cnpopname
+        ]
     
     
     ### CGs ###
@@ -542,9 +872,9 @@ init python:
             'spr_cv','spr_st_fny','spr_st_zali','spr_st_wilson','spr_st_edcg']
 
     sum_cv = Item("sum_cv", 
-                    "gui/archive/sum_st_fny_thu.png",
-                    "gui/archive/sum_st_fny_thu.png",
-                    "gui/archive/sum_st_fny_thu_blur.png",
+                    "gui/archive/sum_cv_thu.png",
+                    "gui/archive/sum_cv_thu.png",
+                    "gui/archive/sum_cv_thu_sil.png",
                     "images/cvisual/sum_cv.png",
     )
     sum_st_fny = Item("sum_st_fny", 
@@ -572,9 +902,9 @@ init python:
                     "images/still/sum_st_bten.png",
     )
     aut_cv = Item("aut_cv", 
-                    "gui/archive/aut_st_fny_thu.png",
-                    "gui/archive/aut_st_fny_thu.png",
-                    "gui/archive/aut_st_fny_thu_sil.png",
+                    "gui/archive/aut_cv_thu.png",
+                    "gui/archive/aut_cv_thu.png",
+                    "gui/archive/aut_cv_thu_sil.png",
                     "images/cvisual/aut_cv.png",
     )
     aut_st_fny = Item("aut_st_fny", 
@@ -602,9 +932,9 @@ init python:
                     "images/still/aut_st_bten.png",
     )
     win_cv = Item("win_cv", 
-                    "gui/archive/win_st_fny_thu.png",
-                    "gui/archive/win_st_fny_thu.png",
-                    "gui/archive/win_st_fny_thu_blur.png",
+                    "gui/archive/win_cv_thu.png",
+                    "gui/archive/win_cv_thu.png",
+                    "gui/archive/win_cv_thu_sil.png",
                     "images/cvisual/win_cv.png",
     )
     win_st_fny = Item("win_st_fny", 
@@ -632,9 +962,9 @@ init python:
                     "images/still/win_st_bten.png",
     )
     spr_cv = Item("spr_cv", 
-                    "gui/archive/spr_st_fny_thu.png",
-                    "gui/archive/spr_st_fny_thu.png",
-                    "gui/archive/spr_st_fny_thu_blur.png",
+                    "gui/archive/spr_cv_thu.png",
+                    "gui/archive/spr_cv_thu.png",
+                    "gui/archive/spr_cv_thu_sil.png",
                     "images/cvisual/spr_cv.png",
     )
     spr_st_fny = Item("spr_st_fny", 
@@ -786,6 +1116,18 @@ init python:
         except KeyError:
             return "Background not available"  # Return a default placeholder image if background is not available
 
+    def get_item_jpbackground(set_name, tab_name, item_index):
+        try:
+            return image_button_images[set_name][tab_name][item_index]["jpbackground"]
+            
+        except KeyError:
+            return "Background not available"
+    def get_item_cnbackground(set_name, tab_name, item_index):
+        try:
+            return image_button_images[set_name][tab_name][item_index]["cnbackground"]
+            
+        except KeyError:
+            return "Background not available"
 
     def get_item_name(set_name, tab_name, item_index):
         try:
@@ -803,15 +1145,15 @@ init python:
     image_button_images = {
         "set1": {
             "tab1": [
-                {"name": croissant.name, "idle": croissant.idle, "hover": croissant.hover, "locked": croissant.locked,"background": croissant.background },
-                {"name": drink.name, "idle": drink.idle, "hover": drink.hover, "locked": drink.locked, "background": drink.background},
-                {"name": takoyaki.name, "idle": takoyaki.idle, "hover": takoyaki.hover, "locked": takoyaki.locked, "background": takoyaki.background},
-                {"name": walkietalkie.name, "idle": walkietalkie.idle, "hover": walkietalkie.hover, "locked": walkietalkie.locked, "background": walkietalkie.background},
-                {"name": mushroom.name, "idle": mushroom.idle, "hover": mushroom.hover , "locked": mushroom.locked, "background": mushroom.background},
-                {"name": maple_syrup.name, "idle": maple_syrup.idle, "hover": maple_syrup.hover , "locked": maple_syrup.locked, "background": maple_syrup.background},
-                {"name": eggplant.name, "idle": eggplant.idle, "hover": eggplant.hover , "locked": eggplant.locked, "background": eggplant.background},
-                {"name": diet_soda.name, "idle": diet_soda.idle, "hover": diet_soda.hover , "locked": diet_soda.locked, "background": diet_soda.background},
-                {"name": icecream_cake.name, "idle": icecream_cake.idle, "hover": icecream_cake.hover , "locked": icecream_cake.locked, "background": icecream_cake.background},
+                {"name": itemlist['croissant'][0], "idle": itemlist['croissant'][1], "hover": itemlist['croissant'][2], "locked": itemlist['croissant'][3],"background": itemlist['croissant'][4],"jpbackground": itemlist['croissant'][5],"cnbackground": itemlist['croissant'][6] },
+                {"name": itemlist['drink'][0], "idle": itemlist['drink'][1], "hover": itemlist['drink'][2], "locked": itemlist['drink'][3], "background": itemlist['drink'][4],"jpbackground": itemlist['drink'][5],"cnbackground": itemlist['drink'][6] },
+                {"name": itemlist['takoyaki'][0], "idle": itemlist['takoyaki'][1], "hover": itemlist['takoyaki'][2], "locked": itemlist['takoyaki'][3], "background": itemlist['takoyaki'][4],"jpbackground": itemlist['takoyaki'][5],"cnbackground": itemlist['takoyaki'][6] },
+                {"name": itemlist['walkietalkie'][0], "idle": itemlist['walkietalkie'][1], "hover": itemlist['walkietalkie'][2], "locked": itemlist['walkietalkie'][3], "background": itemlist['walkietalkie'][4],"jpbackground": itemlist['walkietalkie'][5],"cnbackground": itemlist['walkietalkie'][6] },
+                {"name": itemlist['mushroom'][0], "idle": itemlist['mushroom'][1], "hover":itemlist['mushroom'][2] , "locked": itemlist['mushroom'][3], "background": itemlist['mushroom'][4],"jpbackground": itemlist['mushroom'][5],"cnbackground": itemlist['mushroom'][6] },
+                {"name": itemlist['maplesyrup'][0], "idle": itemlist['maplesyrup'][1], "hover": itemlist['maplesyrup'][2] , "locked": itemlist['maplesyrup'][3], "background": itemlist['maplesyrup'][4],"jpbackground": itemlist['maplesyrup'][5],"cnbackground": itemlist['maplesyrup'][6] },
+                {"name": itemlist['eggplant'][0], "idle": itemlist['eggplant'][1], "hover": itemlist['eggplant'][2], "locked": itemlist['eggplant'][3], "background": itemlist['eggplant'][4],"jpbackground": itemlist['eggplant'][5],"cnbackground": itemlist['eggplant'][6] },
+                {"name": itemlist['dietsoda'][0], "idle": itemlist['dietsoda'][1], "hover": itemlist['dietsoda'][2] , "locked": itemlist['dietsoda'][3], "background": itemlist['dietsoda'][4],"jpbackground": itemlist['dietsoda'][5],"cnbackground": itemlist['dietsoda'][6] },
+                {"name": itemlist['icecreamcake'][0], "idle": itemlist['icecreamcake'][1], "hover": itemlist['icecreamcake'][2] , "locked": itemlist['icecreamcake'][3], "background": itemlist['icecreamcake'][4],"jpbackground": itemlist['icecreamcake'][5],"cnbackground": itemlist['icecreamcake'][6] },
                 
 
             ],
@@ -882,36 +1224,36 @@ init python:
         },
         "cg": {
             "tab1": [
-                
+                {"name": sum_cv.name, "idle": sum_cv.idle, "hover": sum_cv.hover , "locked": sum_cv.locked, "background": sum_cv.background},
                 {"name": sum_st_fny.name, "idle": sum_st_fny.idle, "hover": sum_st_fny.hover , "locked": sum_st_fny.locked, "background": sum_st_fny.background},
                 {"name": sum_st_btst.name, "idle": sum_st_btst.idle, "hover": sum_st_btst.hover , "locked": sum_st_btst.locked, "background": sum_st_btst.background},
                 {"name": sum_st_bten.name, "idle": sum_st_bten.idle, "hover": sum_st_bten.hover , "locked": sum_st_bten.locked, "background": sum_st_bten.background},
                 {"name": sum_st_edcg.name, "idle": sum_st_edcg.idle, "hover": sum_st_edcg.hover , "locked": sum_st_edcg.locked, "background": sum_st_edcg.background},
-                {"name": sum_cv.name, "idle": sum_cv.idle, "hover": sum_cv.hover , "locked": sum_cv.locked, "background": sum_cv.background},   
+                   
             ],
             "tab2": [
-                
+                {"name": aut_cv.name, "idle": aut_cv.idle, "hover": aut_cv.hover , "locked": aut_cv.locked, "background": aut_cv.background},
                 {"name": aut_st_fny.name, "idle": aut_st_fny.idle, "hover": aut_st_fny.hover , "locked": aut_st_fny.locked, "background": aut_st_fny.background},
                 {"name": aut_st_btst.name, "idle": aut_st_btst.idle, "hover": aut_st_btst.hover , "locked": aut_st_btst.locked, "background": aut_st_btst.background},
                 {"name": aut_st_bten.name, "idle": aut_st_bten.idle, "hover": aut_st_bten.hover , "locked": aut_st_bten.locked, "background": aut_st_bten.background},
                 {"name": aut_st_edcg.name, "idle": aut_st_edcg.idle, "hover": aut_st_edcg.hover , "locked": aut_st_edcg.locked, "background": aut_st_edcg.background},
-                {"name": aut_cv.name, "idle": aut_cv.idle, "hover": aut_cv.hover , "locked": aut_cv.locked, "background": aut_cv.background},
+                
             ],
             "tab3": [
-                
+                {"name": win_cv.name, "idle": win_cv.idle, "hover": win_cv.hover , "locked": win_cv.locked, "background": win_cv.background},
                 {"name": win_st_fny.name, "idle": win_st_fny.idle, "hover": win_st_fny.hover , "locked": win_st_fny.locked, "background": win_st_fny.background},
                 {"name": win_st_btst.name, "idle": win_st_btst.idle, "hover": win_st_btst.hover , "locked": win_st_btst.locked, "background": win_st_btst.background},
                 {"name": win_st_bten.name, "idle": win_st_bten.idle, "hover": win_st_bten.hover , "locked": win_st_bten.locked, "background": win_st_bten.background},
                 {"name": win_st_edcg.name, "idle": win_st_edcg.idle, "hover": win_st_edcg.hover , "locked": win_st_edcg.locked, "background": win_st_edcg.background},
-                {"name": win_cv.name, "idle": win_cv.idle, "hover": win_cv.hover , "locked": win_cv.locked, "background": win_cv.background},
+                
             ],
             "tab4": [
-                
+                {"name": spr_cv.name, "idle": spr_cv.idle, "hover": spr_cv.hover , "locked": spr_cv.locked, "background": spr_cv.background},
                 {"name": spr_st_wilson.name, "idle": spr_st_wilson.idle, "hover": spr_st_wilson.hover , "locked": spr_st_wilson.locked, "background": spr_st_wilson.background},
                 {"name": spr_st_zali.name, "idle": spr_st_zali.idle, "hover": spr_st_zali.hover , "locked": spr_st_zali.locked, "background": spr_st_zali.background},
                 {"name": spr_st_fny.name, "idle": spr_st_fny.idle, "hover": spr_st_fny.hover , "locked": spr_st_fny.locked, "background": spr_st_fny.background},
                 {"name": spr_st_edcg.name, "idle": spr_st_edcg.idle, "hover": spr_st_edcg.hover , "locked": spr_st_edcg.locked, "background": spr_st_edcg.background},
-                {"name": spr_cv.name, "idle": spr_cv.idle, "hover": spr_cv.hover , "locked": spr_cv.locked, "background": spr_cv.background},
+                
 
             ],
             # Add images for other tabs in cg here
@@ -972,6 +1314,7 @@ label chapter_1:
     play music "audio/sum/sum_bgm_01.mp3" loop fadein 1.0  # Loop game music with fade in
 
     show sum_cv_img
+    $ achievement.grant('sum_cv')
     # Wait for user to click
     pause
 
@@ -1187,8 +1530,8 @@ label chapter_1:
     ### achievement package ###
     if (achievement.has('sum_st_btst')== False):
         $ achievement.grant('sum_st_btst')          
-        show screen OverlayScreen1
-        show screen ClickableArea
+        # show screen OverlayScreen1
+        # show screen ClickableArea
         python:
             active_set = "cg"
             active_tab = "tab1"
@@ -1234,8 +1577,8 @@ label chapter_1:
             ### achievement package ###
             if (achievement.has('sum_st_fny')== False):
                 $ achievement.grant('sum_st_fny')        
-                show screen OverlayScreen1
-                show screen ClickableArea
+                # show screen OverlayScreen1
+                # show screen ClickableArea
                 python:
                     active_set = "cg"
                     active_tab = "tab1"
@@ -1324,8 +1667,8 @@ label chapter_1:
     ### achievement package ###
     if (achievement.has('sum_st_bten')== False):
         $ achievement.grant('sum_st_bten')         
-        show screen OverlayScreen1
-        show screen ClickableArea
+        # show screen OverlayScreen1
+        # show screen ClickableArea
         python:
             active_set = "cg"
             active_tab = "tab1"
@@ -1345,9 +1688,8 @@ label chapter_1:
     with fade
     pause 1.5
     ### achievement package ###
-    if (achievement.has('sum_st_edcg')== False) or(achievement.has('sum_cv')== False) or(achievement.has('sum_gallery')== False):
+    if (achievement.has('sum_st_edcg')== False) or(achievement.has('sum_gallery')== False):
         $ achievement.grant('sum_st_edcg')
-        $ achievement.grant('sum_cv')
         $ achievement.grant('sum_gallery')        
         show screen OverlayScreen1
         show screen ClickableArea
@@ -1380,6 +1722,7 @@ label chapter_2:
     stop music fadeout 1.0  # Fade out menu music
     play music "audio/aut/aut_bgm_01.mp3" loop fadein 1.0  #Loop playback of peaceful songs with fade-in
     show aut_cv_img
+    $ achievement.grant('aut_cv')
     # Wait until the user clicks
     pause
  
@@ -1671,8 +2014,8 @@ label chapter_2:
             ### achievement package ###
             if (achievement.has('aut_st_fny')== False):   
                 $ achievement.grant('aut_st_fny')        
-                show screen OverlayScreen1
-                show screen ClickableArea
+                # show screen OverlayScreen1
+                # show screen ClickableArea
                 python:
                     active_set = "cg"
                     active_tab = "tab2"
@@ -1712,8 +2055,8 @@ label chapter_2:
     ### achievement package ###
     if (achievement.has('aut_st_btst')== False):
         $ achievement.grant('aut_st_btst')      
-        show screen OverlayScreen1
-        show screen ClickableArea
+        # show screen OverlayScreen1
+        # show screen ClickableArea
         python:
             active_set = "cg"
             active_tab = "tab2"
@@ -1837,8 +2180,8 @@ label chapter_2:
     ### achievement package ###
     if (achievement.has('aut_st_bten')== False):
         $ achievement.grant('aut_st_bten')        
-        show screen OverlayScreen1
-        show screen ClickableArea
+        # show screen OverlayScreen1
+        # show screen ClickableArea
         python:
             active_set = "cg"
             active_tab = "tab2"
@@ -1875,9 +2218,8 @@ label chapter_2:
     pause 1.5
     # Display END at the bottom right
     ### achievement package ###
-    if (achievement.has('aut_st_edcg')== False)or(achievement.has('aut_cv')== False) or(achievement.has('aut_gallery')== False):
+    if (achievement.has('aut_st_edcg')== False) or(achievement.has('aut_gallery')== False):
         $ achievement.grant('aut_st_edcg')
-        $ achievement.grant('aut_cv')
         $ achievement.grant('aut_gallery')        
         show screen OverlayScreen1
         show screen ClickableArea
@@ -1909,6 +2251,7 @@ label chapter_3:
     play music "audio/win/win_bgm_01.mp3" loop fadein 1.0  #Loop playback of peaceful songs with fade-in
 
     show win_cv_img
+    $ achievement.grant('win_cv')
     # Wait until the user clicks
     pause
  
@@ -2049,8 +2392,8 @@ label chapter_3:
             ### achievement package ###
             if (achievement.has('win_st_fny')== False):   
                 $ achievement.grant('win_st_fny')        
-                show screen OverlayScreen1
-                show screen ClickableArea
+                # show screen OverlayScreen1
+                # show screen ClickableArea
                 python:
                     active_set ="cg"
                     active_tab="tab3"
@@ -2153,8 +2496,8 @@ label chapter_3:
     ### achievement package ###
     if (achievement.has('win_st_btst')== False):
         $ achievement.grant('win_st_btst')       
-        show screen OverlayScreen1
-        show screen ClickableArea
+        # show screen OverlayScreen1
+        # show screen ClickableArea
         python:
             active_set = "cg"
             active_tab = "tab3"
@@ -2168,10 +2511,10 @@ label chapter_3:
     "You effortlessly give the kid a piggyback while juggling the shopping bags like a pro. Multitasking is easy for an experienced hero like you."
     play sound "audio/win/win_se_snow_run.mp3" #Running on snow
     "You leap into action, showing off your parkour prowess."
-    npc5_char "{size=45}WOW!! YOU'RE SO COOL!{/size}\nAre you Arachnid-Man? Oh, but... you're not wearing tights."
+    npc5_char "{size=45}WOW!! YOU'RE SO COOL!{/size}\nAre you Spider Guy? Oh, but... you're not wearing tights."
     hide win_com_1_img
     show win_com_2_img at win_com_1_upper
-    vanta_char "I'm not Arachnid-Man! I'm a tyrant! A hero of Krisis!\nYeah, one of my fellow heroes does wear tights, but not all heroes wear tights!"
+    vanta_char "I'm not Spider Guy! I'm a tyrant! A hero of Krisis!\nYeah, one of my fellow heroes does wear tights, but not all heroes wear tights!"
     scene win_bg_street2_img
     # show text "{b}{size=34}Chapter 3.  WINTER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     with fade
@@ -2220,8 +2563,8 @@ label chapter_3:
     ### achievement package ###
     if (achievement.has('win_st_bten')== False):
         $ achievement.grant('win_st_bten')         
-        show screen OverlayScreen1
-        show screen ClickableArea
+        # show screen OverlayScreen1
+        # show screen ClickableArea
         python:
             active_set = "cg"
             active_tab = "tab3"
@@ -2287,9 +2630,8 @@ label chapter_3:
     pause 1.5
     # Display END at the bottom right
     ### achievement package ###
-    if (achievement.has('win_st_edcg')== False)or(achievement.has('win_cv')== False) or(achievement.has('win_gallery')== False):
+    if (achievement.has('win_st_edcg')== False) or(achievement.has('win_gallery')== False):
         $ achievement.grant('win_st_edcg')
-        $ achievement.grant('win_cv')
         $ achievement.grant('win_gallery')        
         show screen OverlayScreen1
         show screen ClickableArea
@@ -2324,6 +2666,7 @@ label chapter_4:
     play music "audio/spr/spr_bgm_01.mp3" loop fadein 1.0  #Loop playback with fade-in
 
     show spr_cv_img
+    $ achievement.grant('spr_cv') 
     # show text "{b}{size=34}Chapter 4.  SPRING{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     # Wait for user to click
     pause
@@ -2445,8 +2788,8 @@ label chapter_4:
             ### achievement package ###
             if (achievement.has('spr_st_wilson')== False):
                 $ achievement.grant('spr_st_wilson')    
-                show screen OverlayScreen1
-                show screen ClickableArea
+                # show screen OverlayScreen1
+                # show screen ClickableArea
                 python:
                     active_set = "cg"
                     active_tab = "tab4"
@@ -2471,7 +2814,6 @@ label chapter_4:
     hide zal_ci_hap
     show zal_ci_thi at left_2p
     zali_char "Vanta, never joke about that ever again. My heart may never recover. Croissants do NOT look like eggplants. Oh, mon Dieu..."
-    "In the end, you all order what you usually get."
     hide zal_ci_thi
     show van_ci_con at center
     with dissolve
@@ -2496,8 +2838,8 @@ label chapter_4:
             ### achievement package ###
             if (achievement.has('spr_st_zali')== False):
                 $ achievement.grant('spr_st_zali')    
-                show screen OverlayScreen1
-                show screen ClickableArea
+                # show screen OverlayScreen1
+                # show screen ClickableArea
                 python:
                     active_set = "cg"
                     active_tab = "tab4"
@@ -2578,7 +2920,7 @@ label chapter_4:
     play music "audio/spr/spr_bgm_02.mp3" loop fadein 1.0  #Loop playback with fade-in
     hide spr_com_3_img
     show spr_com_4_img at spr_com_upper
-    play sound "audio/aut/aut_se_clothes.mp3" #Sound of changing clothes Used
+    # play sound "audio/aut/aut_se_clothes.mp3" #Sound of changing clothes Used
     "Getting ready for your mission is now, just second nature to you; you swiftly prepare. Your trusted partners, Tsuchi, Tentapod, and Kurococco, are also ready to go."
     hide spr_com_4_img
     scene spr_bg_lab1_img
@@ -2686,8 +3028,8 @@ label chapter_4:
     ### achievement package ###
     if (achievement.has('spr_st_fny')== False):   
         $ achievement.grant('spr_st_fny')        
-        show screen OverlayScreen1
-        show screen ClickableArea
+        # show screen OverlayScreen1
+        # show screen ClickableArea
         python:
             active_set = "cg"
             active_tab = "tab4"
@@ -2803,9 +3145,8 @@ label chapter_4:
     hide van_hr_hap with dissolve
     play music "audio/main_theme.mp3" fadein 5.0 loop #Music for Battle
     ### achievement package ###
-    if (achievement.has('spr_st_edcg')== False)or(achievement.has('spr_cv')== False) or(achievement.has('spr_gallery')== False):
-        $ achievement.grant('spr_st_edcg')
-        $ achievement.grant('spr_cv') #the ending cg video
+    if (achievement.has('spr_st_edcg')== False) or(achievement.has('spr_gallery')== False):
+        $ achievement.grant('spr_st_edcg')#the ending cg video
         $ achievement.grant('spr_gallery')
         python:
             active_set = "gallery"
@@ -2822,8 +3163,8 @@ label chapter_4:
     show white with dissolve 
     pause 3.0
     show screen unclickable_screen
-    $ renpy.movie_cutscene("movies/Vantacrew.webm", stop_music=False)
-    $ renpy.movie_cutscene("movies/credit v1.webm", stop_music=False)
+    $ renpy.movie_cutscene("movies/spr_animation.webm", stop_music=False)
+    $ renpy.movie_cutscene("movies/credits_v3.webm", stop_music=False)
     hide screen unclickable_screen
     # $ renpy.show_screen("main_menu")  
     return

@@ -25,8 +25,13 @@ init python:
     presistent_medium_text_font = "BaiJamjuree-SemiBold.ttf"
     presistent_bold_text_font = "BaiJamjuree-Bold.ttf"
 
+    config.font_replacement_map["BaiJamjuree-SemiBold.ttf", False, True] = ("BaiJamjuree-SemiBoldItalic.ttf", False, False)
+    config.keymap['game_menu'].remove('mouseup_3')
+
 ## Enable checks for invalid or unstable properties in screens or transforms
 define config.check_conflicting_properties = True
+
+
 
 
 ################################################################################
@@ -74,12 +79,12 @@ define gui.interface_text_color = '#ffffff'
 define gui.text_font = presistent_text_font
 
 ## The font used for character names.
-define gui.name_text_font = presistent_medium_text_font
+define gui.name_text_font = presistent_text_font
 
 ## The font used for out-of-game text.
 define gui.interface_text_font = presistent_text_font
 
-define gui.chapterend_text_font = presistent_bold_text_font
+define gui.chapterend_text_font = presistent_text_font
 
 ## The size of normal dialogue text.
 define gui.text_size = 30
@@ -109,8 +114,13 @@ define gui.content_text_yalign = 0.5
 define gui.thirty_text_size = 30
 define gui.thirty_text_yalign = 0.5
 
-define gui.chaptertitle_text_font = presistent_bold_text_font
+define gui.chaptertitle_text_font = presistent_text_font
 define gui.chaptertitle_text_size = 34
+
+define gui.credit_text_font = "BaiJamjuree-Regular.ttf"
+define gui.creditname_text_font = "BaiJamjuree-SemiBold.ttf"
+define gui.credit_text_size = 40
+define gui.creditname_text_size = 42
 ## Main and Game Menus #########################################################
 
 ## The images used for the main and game menus.
@@ -191,7 +201,7 @@ define gui.button_borders = Borders(6, 6, 6, 6)
 define gui.button_tile = False
 
 ## The font used by the button.
-define gui.button_text_font = gui.interface_text_font
+define gui.button_text_font = presistent_text_font
 
 ## The size of the text used by the button.
 define gui.button_text_size = gui.interface_text_size

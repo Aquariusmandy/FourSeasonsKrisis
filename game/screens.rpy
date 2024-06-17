@@ -87,13 +87,24 @@ style inventory_screen_frame is frame:
     hover_background Frame("gui/archive/seasonal Album/frame_album_hover.png")
 
 style navigation_textbutton is textbutton:
-    idle_background Frame("temp/btn_menu_default.png", xoffset=-75, yoffset=-5, xanchor=0, yanchor=0)
-    hover_background Frame("temp/btn_menu_hover.png", xoffset=-75, yoffset=-5, xanchor=0, yanchor=0)
+    idle_background Frame("menubutton/btn_menu_default.png", xoffset=-75, yoffset=-5, xanchor=0, yanchor=0)
+    hover_background Frame("menubutton/btn_menu_hover.png", xoffset=-75, yoffset=-5, xanchor=0, yanchor=0)
     xysize (300, 56)
 style navigation_textbutton_text:
     properties gui.text_properties("label")
     anchor (0.5,0.5)
     xpos 0.28 ypos 0.4
+
+style navigation_button_text:
+    properties gui.text_properties("label")
+
+style setting_text:
+    properties gui.text_properties("content")
+    color '#8D86C9'
+
+style setting_button_text:
+    properties gui.text_properties("label")
+    color gui.accent_color
 
 style slime_textbutton is textbutton:
     idle_background Frame("menubutton/btn_default.png", xoffset=-0, yoffset=-0, xanchor=0, yanchor=0)
@@ -129,7 +140,7 @@ style choice_textbutton is textbutton:
     xysize (1500, 42)
 
 style choice_textbutton_text:
-    properties gui.text_properties("choice_button")
+    properties gui.text_properties("content")
     xalign 0.5 
 
 style chapterend_popup_text:
@@ -139,6 +150,20 @@ style chapterend_popup_text:
 style chapterend_title_popup_text:
     properties gui.text_properties("thirty")
     xalign 0.5  
+
+style about_text:
+    properties gui.text_properties("creditname")
+    xalign 0.5
+style about_label_text:
+    properties gui.text_properties("credit")
+    xalign 0.5
+    bottom_margin 15
+    top_margin 60
+    color '#ffffff'
+style about_small_text:
+    properties gui.text_properties("content")
+    xalign 0.5  
+
 
 
 ###### this is for option 1 ######
@@ -212,7 +237,10 @@ init python:
 init python:
     def get_achievement_image():
         # Map achievement names to corresponding image paths
-        return "temp/Group 120.png"  # Return an empty string if no matching image is found
+        return "system/Group 120.png"  # Return an empty string if no matching image is found
+    # def get_credits():
+    #     renpy.movie_cutscene("movies/Vantacrew.webm",stop_music=False) 
+    #     renpy.jump_out_of_context(start)
 
 init python:
     # Define a function to restart the game
@@ -236,23 +264,50 @@ screen inventory_screen():
         add "images/main_button/frame_item.png":
             xalign 0.35  # Move the frame to the left
             yalign 0.8
-        add "gui/archive/inventory-top.png":
-            xalign 0.06
-            yalign 0.115  
+        if (_preferences.language == "mandarin"):
+            add "gui/archive/inventory-top_cn.png":
+                xalign 0.06
+                yalign 0.115
+        elif (_preferences.language == "japanese"):
+            add "gui/archive/inventory-top_jp.png":
+                xalign 0.06
+                yalign 0.115 
+        else:
+            add "gui/archive/inventory-top.png":
+                xalign 0.06
+                yalign 0.115  
     elif active_set == "cg":
         add "images/main_button/frame_cg1.png":
             xalign 0.35  # Move the frame to the left
             yalign 0.8
-        add "gui/archive/inventory-top.png":
-            xalign 0.06
-            yalign 0.115
+        if (_preferences.language == "mandarin"):
+            add "gui/archive/inventory-top_cn.png":
+                xalign 0.06
+                yalign 0.115
+        elif (_preferences.language == "japanese"):
+            add "gui/archive/inventory-top_jp.png":
+                xalign 0.06
+                yalign 0.115 
+        else:
+            add "gui/archive/inventory-top.png":
+                xalign 0.06
+                yalign 0.115
     elif active_set == "gallery":
         add "images/main_button/frame_album.png":
             xalign 0.35  # Move the frame to the left
             yalign 0.8
-        add "gui/archive/inventory-top.png": 
-            xalign 0.06
-            yalign 0.115
+        if (_preferences.language == "mandarin"):
+            add "gui/archive/inventory-top_cn.png":
+                xalign 0.06
+                yalign 0.115
+        elif (_preferences.language == "japanese"):
+            add "gui/archive/inventory-top_jp.png":
+                xalign 0.06
+                yalign 0.115 
+        else:
+            add "gui/archive/inventory-top.png":
+                xalign 0.06
+                yalign 0.115
     hbox:
         xalign 0.903
         yalign 0.115
@@ -277,26 +332,69 @@ screen inventory_screen():
         xpos 0.876
         ypos 0.36
         # spacing 5
-        if (active_set == "set1"):
-            imagebutton idle "images/main_button/btn_item_hover.png" hover "images/main_button/btn_item_hover.png" action [SetVariable("active_set", "set1"), SetVariable("active_tab", "tab1")]:
-                ypos 130
+        if (_preferences.language == "mandarin"):
+            if (active_set == "set1"):
+                imagebutton idle "gui/archive/side label/cn/btn_item_hover_cn.png" hover "gui/archive/side label/cn/btn_item_hover_cn.png" action [SetVariable("active_set", "set1"), SetVariable("active_tab", "tab1")]:
+                    ypos 130
+            else:
+                imagebutton idle "gui/archive/side label/cn/btn_item_default_cn.png" hover "gui/archive/side label/cn/btn_item_hover_cn.png" action [SetVariable("active_set", "set1"), SetVariable("active_tab", "tab1")]:
+                    ypos 130
+            if (active_set == "gallery"):    
+                imagebutton idle "gui/archive/side label/cn/btn_album_hover_cn.png" hover "gui/archive/side label/cn/btn_album_hover_cn.png" action [SetVariable("active_set", "gallery"), SetVariable("active_tab", "tab1")]:
+                    ypos 65
+            else:
+                imagebutton idle "gui/archive/side label/cn/btn_album_default_cn.png" hover "gui/archive/side label/cn/btn_album_hover_cn.png" action [SetVariable("active_set", "gallery"), SetVariable("active_tab", "tab1")]:
+                    ypos 65
+            if (active_set == "cg"):
+                imagebutton idle "gui/archive/side label/cn/btn_snaps_hover_cn.png" hover "gui/archive/side label/cn/btn_snaps_hover_cn.png" action [SetVariable("active_set", "cg"), SetVariable("active_tab", "tab1")]:
+                    xalign 1.7 
+                    yalign 1.0
+            else:
+                imagebutton idle "gui/archive/side label/cn/btn_snaps_default_cn.png" hover "gui/archive/side label/cn/btn_snaps_hover_cn.png" action [SetVariable("active_set", "cg"), SetVariable("active_tab", "tab1")]:
+                    xalign 1.7 
+                    yalign 1.0
+        elif (_preferences.language == "japanese"):
+            if (active_set == "set1"):
+                imagebutton idle "gui/archive/side label/jp/btn_item_hover_jp.png" hover "gui/archive/side label/jp/btn_item_hover_jp.png" action [SetVariable("active_set", "set1"), SetVariable("active_tab", "tab1")]:
+                    ypos 130
+            else:
+                imagebutton idle "gui/archive/side label/jp/btn_item_default_jp.png" hover "gui/archive/side label/jp/btn_item_hover_jp.png" action [SetVariable("active_set", "set1"), SetVariable("active_tab", "tab1")]:
+                    ypos 130
+            if (active_set == "gallery"):    
+                imagebutton idle "gui/archive/side label/jp/btn_album_hover_jp.png" hover "gui/archive/side label/jp/btn_album_hover_jp.png" action [SetVariable("active_set", "gallery"), SetVariable("active_tab", "tab1")]:
+                    ypos 65
+            else:
+                imagebutton idle "gui/archive/side label/jp/btn_album_default_jp.png" hover "gui/archive/side label/jp/btn_album_hover_jp.png" action [SetVariable("active_set", "gallery"), SetVariable("active_tab", "tab1")]:
+                    ypos 65
+            if (active_set == "cg"):
+                imagebutton idle "gui/archive/side label/jp/btn_snaps_hover_jp.png" hover "gui/archive/side label/jp/btn_snaps_hover_jp.png" action [SetVariable("active_set", "cg"), SetVariable("active_tab", "tab1")]:
+                    xalign 1.7 
+                    yalign 1.0
+            else:
+                imagebutton idle "gui/archive/side label/jp/btn_snaps_default_jp.png" hover "gui/archive/side label/jp/btn_snaps_hover_jp.png" action [SetVariable("active_set", "cg"), SetVariable("active_tab", "tab1")]:
+                    xalign 1.7 
+                    yalign 1.0
         else:
-            imagebutton idle "images/main_button/btn_item_defalut.png" hover "images/main_button/btn_item_hover.png" action [SetVariable("active_set", "set1"), SetVariable("active_tab", "tab1")]:
-                ypos 130
-        if (active_set == "gallery"):    
-            imagebutton idle "images/main_button/btn_album_hover.png" hover "images/main_button/btn_album_hover.png" action [SetVariable("active_set", "gallery"), SetVariable("active_tab", "tab1")]:
-                ypos 65
-        else:
-            imagebutton idle "images/main_button/btn_album_default.png" hover "images/main_button/btn_album_hover.png" action [SetVariable("active_set", "gallery"), SetVariable("active_tab", "tab1")]:
-                ypos 65
-        if (active_set == "cg"):
-            imagebutton idle "images/main_button/btn_snaps_default-1.png" hover "images/main_button/btn_snaps_default-1.png" action [SetVariable("active_set", "cg"), SetVariable("active_tab", "tab1")]:
-                xalign 1.7 
-                yalign 1.0
-        else:
-            imagebutton idle "images/main_button/btn_snaps_default.png" hover "images/main_button/btn_snaps_default-1.png" action [SetVariable("active_set", "cg"), SetVariable("active_tab", "tab1")]:
-                xalign 1.7 
-                yalign 1.0
+            if (active_set == "set1"):
+                imagebutton idle "gui/archive/side label/en/btn_item_hover.png" hover "gui/archive/side label/en/btn_item_hover.png" action [SetVariable("active_set", "set1"), SetVariable("active_tab", "tab1")]:
+                    ypos 130
+            else:
+                imagebutton idle "gui/archive/side label/en/btn_item_defalut.png" hover "gui/archive/side label/en/btn_item_hover.png" action [SetVariable("active_set", "set1"), SetVariable("active_tab", "tab1")]:
+                    ypos 130
+            if (active_set == "gallery"):    
+                imagebutton idle "gui/archive/side label/en/btn_album_hover.png" hover "gui/archive/side label/en/btn_album_hover.png" action [SetVariable("active_set", "gallery"), SetVariable("active_tab", "tab1")]:
+                    ypos 65
+            else:
+                imagebutton idle "gui/archive/side label/en/btn_album_default.png" hover "gui/archive/side label/en/btn_album_hover.png" action [SetVariable("active_set", "gallery"), SetVariable("active_tab", "tab1")]:
+                    ypos 65
+            if (active_set == "cg"):
+                imagebutton idle "gui/archive/side label/en/btn_snaps_default-1.png" hover "gui/archive/side label/en/btn_snaps_default-1.png" action [SetVariable("active_set", "cg"), SetVariable("active_tab", "tab1")]:
+                    xalign 1.7 
+                    yalign 1.0
+            else:
+                imagebutton idle "gui/archive/side label/en/btn_snaps_default.png" hover "gui/archive/side label/en/btn_snaps_default-1.png" action [SetVariable("active_set", "cg"), SetVariable("active_tab", "tab1")]:
+                    xalign 1.7 
+                    yalign 1.0
 
     # Define gallery tabs
     if (active_set == "gallery") or (active_set == "cg"):
@@ -305,43 +403,123 @@ screen inventory_screen():
             spacing 2
             ypos 0.224 # Adjust this value to move the gallery tabs up or down
             xpos 0.123  
-            # Gallery Tab 1
-            if (active_tab == "tab1"):
-                imagebutton idle "images/main_button/btn_summer_pressed.png" hover "images/main_button/btn_summer_pressed.png" action [SetVariable("active_tab", "tab1")]:
-                    yanchor 1.0
-                    ypos 35
-            else:
-                imagebutton idle "images/main_button/btn_summer_default.png" hover "images/main_button/btn_summer_pressed.png" action [SetVariable("active_tab", "tab1")]:
-                    yanchor 1.0
-                    ypos 35
-            # Gallery Tab 2
-            if (active_tab == "tab2"):
-                imagebutton idle "images/main_button/btn_autumn_pressed.png" hover "images/main_button/btn_autumn_pressed.png" action [SetVariable("active_tab", "tab2")]:
-                    yanchor 1.0
-                    ypos 35
-            else:
-                imagebutton idle "images/main_button/btn_autumn_default.png" hover "images/main_button/btn_autumn_pressed.png" action [SetVariable("active_tab", "tab2")]:
-                    yanchor 1.0
-                    ypos 35
+            ### switch language ###
+            if (_preferences.language == "mandarin"):
+                # Gallery Tab 1
+                if (active_tab == "tab1"):
+                    imagebutton idle "gui/archive/label/cn/btn_summer_pressed_cn.png" hover "gui/archive/label/cn/btn_summer_pressed_cn.png" action [SetVariable("active_tab", "tab1")]:
+                        yanchor 1.0
+                        ypos 35
+                else:
+                    imagebutton idle "gui/archive/label/cn/btn_summer_default_cn.png" hover "gui/archive/label/cn/btn_summer_pressed_cn.png" action [SetVariable("active_tab", "tab1")]:
+                        yanchor 1.0
+                        ypos 35
+                # Gallery Tab 2
+                if (active_tab == "tab2"):
+                    imagebutton idle "gui/archive/label/cn/btn_autumn_pressed_cn.png" hover "gui/archive/label/cn/btn_autumn_pressed_cn.png" action [SetVariable("active_tab", "tab2")]:
+                        yanchor 1.0
+                        ypos 35
+                else:
+                    imagebutton idle "gui/archive/label/cn/btn_autumn_default_cn.png" hover "gui/archive/label/cn/btn_autumn_pressed_cn.png" action [SetVariable("active_tab", "tab2")]:
+                        yanchor 1.0
+                        ypos 35
 
-            # Gallery Tab 3
-            if (active_tab == "tab3"):
-                imagebutton idle "images/main_button/btn_winter_pressed.png" hover "images/main_button/btn_winter_pressed.png" action [SetVariable("active_tab", "tab3")]:
-                    yanchor 1.0
-                    ypos 35
+                # Gallery Tab 3
+                if (active_tab == "tab3"):
+                    imagebutton idle "gui/archive/label/cn/btn_winter_pressed_cn.png" hover "gui/archive/label/cn/btn_winter_pressed_cn.png" action [SetVariable("active_tab", "tab3")]:
+                        yanchor 1.0
+                        ypos 35
+                else:
+                    imagebutton idle "gui/archive/label/cn/btn_winter_default_cn.png" hover "gui/archive/label/cn/btn_winter_pressed_cn.png" action [SetVariable("active_tab", "tab3")]:
+                        yanchor 1.0
+                        ypos 35
+                # Gallery Tab 4
+                if (active_tab == "tab4"):
+                    imagebutton idle "gui/archive/label/cn/btn_spring_pressed_cn.png" hover "gui/archive/label/cn/btn_spring_pressed_cn.png" action [SetVariable("active_tab", "tab4")]:
+                        yanchor 1.0 
+                        ypos 35
+                else:
+                    imagebutton idle "gui/archive/label/cn/btn_spring_default_cn.png" hover "gui/archive/label/cn/btn_spring_pressed_cn.png" action [SetVariable("active_tab", "tab4")]:
+                        yanchor 1.0 
+                        ypos 35           
+                
+            elif (_preferences.language == "japanese"):
+                # Gallery Tab 1
+                if (active_tab == "tab1"):
+                    imagebutton idle "gui/archive/label/jp/btn_summer_pressed_jp.png" hover "gui/archive/label/jp/btn_summer_pressed_jp.png" action [SetVariable("active_tab", "tab1")]:
+                        yanchor 1.0
+                        ypos 35
+                else:
+                    imagebutton idle "gui/archive/label/jp/btn_summer_default_jp.png" hover "gui/archive/label/jp/btn_summer_pressed_jp.png" action [SetVariable("active_tab", "tab1")]:
+                        yanchor 1.0
+                        ypos 35
+                # Gallery Tab 2
+                if (active_tab == "tab2"):
+                    imagebutton idle "gui/archive/label/jp/btn_autumn_pressed_jp.png" hover "gui/archive/label/jp/btn_autumn_pressed_jp.png" action [SetVariable("active_tab", "tab2")]:
+                        yanchor 1.0
+                        ypos 35
+                else:
+                    imagebutton idle "gui/archive/label/jp/btn_autumn_default_jp.png" hover "gui/archive/label/jp/btn_autumn_pressed_jp.png" action [SetVariable("active_tab", "tab2")]:
+                        yanchor 1.0
+                        ypos 35
+
+                # Gallery Tab 3
+                if (active_tab == "tab3"):
+                    imagebutton idle "gui/archive/label/jp/btn_winter_pressed_jp.png" hover "gui/archive/label/jp/btn_winter_pressed_jp.png" action [SetVariable("active_tab", "tab3")]:
+                        yanchor 1.0
+                        ypos 35
+                else:
+                    imagebutton idle "gui/archive/label/jp/btn_winter_default_jp.png" hover "gui/archive/label/jp/btn_winter_pressed_jp.png" action [SetVariable("active_tab", "tab3")]:
+                        yanchor 1.0
+                        ypos 35
+                # Gallery Tab 4
+                if (active_tab == "tab4"):
+                    imagebutton idle "gui/archive/label/jp/btn_spring_pressed_jp.png" hover "gui/archive/label/jp/btn_spring_pressed_jp.png" action [SetVariable("active_tab", "tab4")]:
+                        yanchor 1.0 
+                        ypos 35
+                else:
+                    imagebutton idle "gui/archive/label/jp/btn_spring_default_jp.png" hover "gui/archive/label/jp/btn_spring_pressed_jp.png" action [SetVariable("active_tab", "tab4")]:
+                        yanchor 1.0 
+                        ypos 35           
             else:
-                imagebutton idle "images/main_button/btn_winter_default.png" hover "images/main_button/btn_winter_pressed.png" action [SetVariable("active_tab", "tab3")]:
-                    yanchor 1.0
-                    ypos 35
-            # Gallery Tab 4
-            if (active_tab == "tab4"):
-                imagebutton idle "images/main_button/btn_spring_pressed.png" hover "images/main_button/btn_spring_pressed.png" action [SetVariable("active_tab", "tab4")]:
-                    yanchor 1.0 
-                    ypos 35
-            else:
-                imagebutton idle "images/main_button/btn_spring_default.png" hover "images/main_button/btn_spring_pressed.png" action [SetVariable("active_tab", "tab4")]:
-                    yanchor 1.0 
-                    ypos 35           
+
+                # Gallery Tab 1
+                if (active_tab == "tab1"):
+                    imagebutton idle "gui/archive/label/en/btn_summer_pressed.png" hover "gui/archive/label/en/btn_summer_pressed.png" action [SetVariable("active_tab", "tab1")]:
+                        yanchor 1.0
+                        ypos 35
+                else:
+                    imagebutton idle "gui/archive/label/en/btn_summer_default.png" hover "gui/archive/label/en/btn_summer_pressed.png" action [SetVariable("active_tab", "tab1")]:
+                        yanchor 1.0
+                        ypos 35
+                # Gallery Tab 2
+                if (active_tab == "tab2"):
+                    imagebutton idle "gui/archive/label/en/btn_autumn_pressed.png" hover "gui/archive/label/en/btn_autumn_pressed.png" action [SetVariable("active_tab", "tab2")]:
+                        yanchor 1.0
+                        ypos 35
+                else:
+                    imagebutton idle "gui/archive/label/en/btn_autumn_default.png" hover "gui/archive/label/en/btn_autumn_pressed.png" action [SetVariable("active_tab", "tab2")]:
+                        yanchor 1.0
+                        ypos 35
+
+                # Gallery Tab 3
+                if (active_tab == "tab3"):
+                    imagebutton idle "gui/archive/label/en/btn_winter_pressed.png" hover "gui/archive/label/en/btn_winter_pressed.png" action [SetVariable("active_tab", "tab3")]:
+                        yanchor 1.0
+                        ypos 35
+                else:
+                    imagebutton idle "gui/archive/label/en/btn_winter_default.png" hover "gui/archive/label/en/btn_winter_pressed.png" action [SetVariable("active_tab", "tab3")]:
+                        yanchor 1.0
+                        ypos 35
+                # Gallery Tab 4
+                if (active_tab == "tab4"):
+                    imagebutton idle "gui/archive/label/en/btn_spring_pressed.png" hover "gui/archive/label/en/btn_spring_pressed.png" action [SetVariable("active_tab", "tab4")]:
+                        yanchor 1.0 
+                        ypos 35
+                else:
+                    imagebutton idle "gui/archive/label/en/btn_spring_default.png" hover "gui/archive/label/en/btn_spring_pressed.png" action [SetVariable("active_tab", "tab4")]:
+                        yanchor 1.0 
+                        ypos 35           
         
         image "gui/archive/Seasonal Album/album_line.png":
             yanchor 0.0
@@ -393,6 +571,12 @@ screen inventory_screen():
                             
                             # Conditional statement to set frame background based on active_set
                             if active_set == "set1":
+                                if (_preferences.language == "mandarin"):
+                                    $ item_background = get_item_cnbackground(active_set, active_tab, item_index)
+                                elif (_preferences.language == "japanese"):
+                                    $ item_background = get_item_jpbackground(active_set, active_tab, item_index)
+                                else:
+                                    $ item_background = get_item_background(active_set, active_tab, item_index)
                                 frame:
                                     xpos 0.8
                                     ypos 0.9
@@ -574,7 +758,7 @@ screen inventory_screen():
                         
                 if active_set == 'set1':
                     hbox: # create the vertical spacing
-                        xysize (1300,5)  
+                        xysize (1300,5) 
                     # Check if the achievement popup has not been shown previously
     # Check if the achievement popup has not been shown previously
     # if not persistent.achievement_popup_shown:
@@ -713,7 +897,7 @@ screen gallery_popup(item_click_background,active_set,active_tab,index):
                 xpos 1.05
                 yalign 0.5
 
-image spr_st_edcg_v = Movie(play="movies/Vantacrew.webm")
+image spr_st_edcg_v = Movie(play="movies/spr_animation.webm",channel='movie')
 
 
 screen picture_popup(item_click_background,active_set,active_tab,index):
@@ -766,7 +950,7 @@ screen picture_popup(item_click_background,active_set,active_tab,index):
                 yalign 0.5           
         
         ### body ###
-        if (active_set == 'cg') and (active_tab == 'tab4') and (index==3):
+        if (active_set == 'cg') and (active_tab == 'tab4') and (index==4):
             vbox:
                 xalign 0.5
                 yalign 0.5
@@ -840,7 +1024,7 @@ screen chapterend_popup(msg):
                 xalign 0.5
                 yalign 0.5
             text _("Visit the A.S.H. Archive to see your progress,\nincluding Collected Items, Secret Snaps of amazing\nmoments caught in 4K, and extra memories of Krisis\nand the Vezcrewneers in the Seasonal Album!"):
-                style "chapterend_popup_text"
+                style "chapterend_textbutton_text"
                 xalign 0.5
                 yalign 0.5
                 text_align 0.5 
@@ -849,15 +1033,16 @@ screen chapterend_popup(msg):
                 xalign 0.5
                 yalign 0.7
                 spacing 50
-                textbutton _("Check Now!") action [ShowMenu("inventory"),Hide("chapterend_popup"),Function(renpy.hide_screen, "OverlayScreen1")] style "menuback_textbutton"
+                textbutton _("Check Now!") action [ShowMenu("inventory"),Hide("chapterend_popup"),Function(renpy.hide_screen, "OverlayScreen1")] style "chapterend_textbutton":
+                    text_align 0.5
         
     imagebutton idle "gui/archive/Seasonal Album/btn/btn_close_2.png" action Hide("chapterend_popup"):
         xpos 0.655
         ypos 0.305
 
 
-style chapterend_popup_text is gui_text
-style chapterend_title_popup_text is gui_text
+style chapterend_popup_text is empty
+style chapterend_title_popup_text is empty
 style chapterend_popup_frame is gui_frame
 style chapterend_popup_frame:
     background Frame([ "system/system_popup_2.png", "system/system_popup_2.png"], gui.chapterend_popup_frame_borders, tile=gui.frame_tile)
@@ -869,7 +1054,7 @@ style chapterend_popup_frame:
 screen OverlayScreen():
     modal True
     # Background to dim the underlying content.
-    add "temp/transparent.png"  # Path to your overlay background image
+    add "system/transparent.png"  # Path to your overlay background image
 
     # Vertical box to contain your overlay content.
     vbox:
@@ -1061,7 +1246,7 @@ screen choice(items):
 
 style choice_vbox is vbox
 style choice_button is button
-style choice_button_text is button_text
+style choice_button_text is empty
 
 style choice_vbox:
     xalign 0.5
@@ -1073,7 +1258,7 @@ style choice_button is default:
     properties gui.button_properties("choice_button")
 
 style choice_button_text is default:
-    properties gui.text_properties("choice_button")
+    properties gui.text_properties("content")
 
 
 ## Quick Menu screen ###########################################################
@@ -1209,7 +1394,7 @@ style menuback_textbutton is quick_button
 screen navigation:
     add "images/cvisual/main_logo.png" xanchor 0.0 yanchor 0.0 ypos 0.705 xpos 0.41
 
-        ### Debug Quick Menu ###
+    #     ### Debug Quick Menu ###
     vbox:
         anchor(0, 0)
         xpos 0.05
@@ -1272,24 +1457,57 @@ screen gamemenu_navigation:
 
         ## Define the style for the textbuttons
         # textbutton _("Save") action ShowMenu("save") ## could not save in this action
-        textbutton _("Load") action ShowMenu("load")  
-        textbutton _("History") action ShowMenu("history") 
-        textbutton _("Settings") action ShowMenu("preferences") 
-        textbutton _("Credits") action ShowMenu("about") 
-        # textbutton _("ResetInventory") action achievement.clear_all() 
-        if not main_menu:
-            textbutton _("Main Menu") action MainMenu() 
-        else:
-            textbutton _("Main Menu") action Return()
+        if (_preferences.language=="mandarin"):
+            textbutton _("{font=GlowSansSC-Normal-Regular.ttf}讀檔{/font}") action ShowMenu("load")  
+            textbutton _("{font=GlowSansSC-Normal-Regular.ttf}對話歷史{/font}") action ShowMenu("history") 
+            textbutton _("{font=GlowSansSC-Normal-Regular.ttf}設定{/font}") action ShowMenu("preferences") 
+            textbutton _("{font=GlowSansSC-Normal-Regular.ttf}致謝名單{/font}") action ShowMenu("about") 
+            # textbutton _("ResetInventory") action achievement.clear_all() 
+            if not main_menu:
+                textbutton _("{font=GlowSansSC-Normal-Regular.ttf}主選單{/font}") action MainMenu() 
+            else:
+                textbutton _("{font=GlowSansSC-Normal-Regular.ttf}主選單{/font}") action Return()
 
-        # if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
-        #     textbutton _("Help") action ShowMenu("help") style "navigation_textbutton"
-        
-        if renpy.variant("pc"):
-            textbutton _("Quit") action Quit(confirm=not main_menu)
+            # if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+            #     textbutton _("Help") action ShowMenu("help") style "navigation_textbutton"
+            
+            if renpy.variant("pc"):
+                textbutton _("{font=GlowSansSC-Normal-Regular.ttf}退出{/font}") action Quit(confirm=not main_menu)
+        elif (_preferences.language=="japanese"):
+            textbutton _("{font=GlowSansSC-Normal-Regular.ttf}ロード{/font}") action ShowMenu("load")  
+            textbutton _("{font=GlowSansSC-Normal-Regular.ttf}テキストログ{/font}") action ShowMenu("history") 
+            textbutton _("{font=GlowSansSC-Normal-Regular.ttf}設定{/font}") action ShowMenu("preferences") 
+            textbutton _("{font=GlowSansSC-Normal-Regular.ttf}クレジット{/font}") action ShowMenu("about") 
+            # textbutton _("ResetInventory") action achievement.clear_all() 
+            if not main_menu:
+                textbutton _("{font=GlowSansSC-Normal-Regular.ttf}メインメニュー{/font}") action MainMenu() 
+            else:
+                textbutton _("{font=GlowSansSC-Normal-Regular.ttf}メインメニュー{/font}") action Return()
+
+            # if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+            #     textbutton _("Help") action ShowMenu("help") style "navigation_textbutton"
+            
+            if renpy.variant("pc"):
+                textbutton _("{font=GlowSansSC-Normal-Regular.ttf}戻る{/font}") action Quit(confirm=not main_menu)
+        else:
+            textbutton _("Load") action ShowMenu("load")  
+            textbutton _("History") action ShowMenu("history") 
+            textbutton _("Settings") action ShowMenu("preferences") 
+            textbutton _("Credits") action ShowMenu("about") 
+            # textbutton _("ResetInventory") action achievement.clear_all() 
+            if not main_menu:
+                textbutton _("Main Menu") action MainMenu() 
+            else:
+                textbutton _("Main Menu") action Return()
+
+            # if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+            #     textbutton _("Help") action ShowMenu("help") style "navigation_textbutton"
+            
+            if renpy.variant("pc"):
+                textbutton _("Quit") action Quit(confirm=not main_menu)
 
 style navigation_button is navigation_textbutton
-style navigation_button_text is gui_button_text
+style navigation_button_text is empty
 
 
 ## Main Menu screen ############################################################
@@ -1378,43 +1596,127 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
     frame:
         if CurrentScreenName() == "preferences":
             style "game_menu_settings_frame"
-            text _("Setting"):
-                style "main_menu_title"
-                # xyanchor (0,0)
-                xanchor 0.0
-                yanchor 1.0
-                xpos 68
-                ypos 27
+            if (_preferences.language == "mandarin") or (_preferences.language == "japanese"):
+                text _("{font=GlowSansSC-Normal-Regular.ttf}設定{/font}"):
+                    style "main_menu_title"
+                    # xyanchor (0,0)
+                    xanchor 0.0
+                    yanchor 1.0
+                    xpos 68
+                    ypos 27
+            else:
+                text _("Setting"):
+                    style "main_menu_title"
+                    # xyanchor (0,0)
+                    xanchor 0.0
+                    yanchor 1.0
+                    xpos 68
+                    ypos 27
 
         elif CurrentScreenName() == "save":
             style "game_menu_save_frame"
-            text _("Save"):
-                style "main_menu_title"
-                # xyanchor (0,0)
-                xanchor 0.0
-                yanchor 1.0
-                xpos 68
-                ypos 27
+            if (_preferences.language == "mandarin"):
+                text _("{font=GlowSansSC-Normal-Regular.ttf}存檔{/font}"):
+                    style "main_menu_title"
+                    # xyanchor (0,0)
+                    xanchor 0.0
+                    yanchor 1.0
+                    xpos 68
+                    ypos 27
+            elif (_preferences.language == "japanese"):
+                text _("{font=GlowSansSC-Normal-Regular.ttf}セーブ{/font}"):
+                    style "main_menu_title"
+                    # xyanchor (0,0)
+                    xanchor 0.0
+                    yanchor 1.0
+                    xpos 68
+                    ypos 27
+            else:
+                text _("Save"):
+                    style "main_menu_title"
+                    # xyanchor (0,0)
+                    xanchor 0.0
+                    yanchor 1.0
+                    xpos 68
+                    ypos 27
         elif CurrentScreenName() == "load":
             style "game_menu_load_frame"
-            text _("Load"):
-                style "main_menu_title"
-                # xyanchor (0,0)
-                xanchor 0.0
-                yanchor 1.0
-                xpos 68
-                ypos 27
+            if (_preferences.language == "mandarin"):
+                text _("{font=GlowSansSC-Normal-Regular.ttf}讀檔{/font}"):
+                    style "main_menu_title"
+                    # xyanchor (0,0)
+                    xanchor 0.0
+                    yanchor 1.0
+                    xpos 68
+                    ypos 27
+            elif (_preferences.language == "japanese"):
+                text _("{font=GlowSansSC-Normal-Regular.ttf}ロード{/font}"):
+                    style "main_menu_title"
+                    # xyanchor (0,0)
+                    xanchor 0.0
+                    yanchor 1.0
+                    xpos 68
+                    ypos 27
+            else:
+                text _("Load"):
+                    style "main_menu_title"
+                    # xyanchor (0,0)
+                    xanchor 0.0
+                    yanchor 1.0
+                    xpos 68
+                    ypos 27
         elif CurrentScreenName() == "history":
             style "game_menu_history_frame"
-            text _("History"):
-                style "main_menu_title"
-                # xyanchor (0,0)
-                xanchor 0.0
-                yanchor 1.0
-                xpos 68
-                ypos 27
-        else:
+            if (_preferences.language == "mandarin"):
+                text _("{font=GlowSansSC-Normal-Regular.ttf}對話歷史{/font}"):
+                    style "main_menu_title"
+                    # xyanchor (0,0)
+                    xanchor 0.0
+                    yanchor 1.0
+                    xpos 68
+                    ypos 27
+            elif (_preferences.language == "japanese"):
+                text _("{font=GlowSansSC-Normal-Regular.ttf}テキストログ{/font}"):
+                    style "main_menu_title"
+                    # xyanchor (0,0)
+                    xanchor 0.0
+                    yanchor 1.0
+                    xpos 68
+                    ypos 27
+            else:
+                text _("History"):
+                    style "main_menu_title"
+                    # xyanchor (0,0)
+                    xanchor 0.0
+                    yanchor 1.0
+                    xpos 68
+                    ypos 27
+        elif CurrentScreenName() == "about":
             style "game_menu_outer_frame"
+            if (_preferences.language == "mandarin"):
+                text _("{font=GlowSansSC-Normal-Regular.ttf}致謝名單{/font}"):
+                    style "main_menu_title"
+                    # xyanchor (0,0)
+                    xanchor 0.0
+                    yanchor 1.0
+                    xpos 68
+                    ypos 27
+            elif (_preferences.language == "japanese"):
+                text _("{font=GlowSansSC-Normal-Regular.ttf}クレジット{/font}"):
+                    style "main_menu_title"
+                    # xyanchor (0,0)
+                    xanchor 0.0
+                    yanchor 1.0
+                    xpos 68
+                    ypos 27
+            else:
+                text _("Credits"):
+                    style "main_menu_title"
+                    # xyanchor (0,0)
+                    xanchor 0.0
+                    yanchor 1.0
+                    xpos 68
+                    ypos 27
         
         hbox:
             
@@ -1497,7 +1799,7 @@ style return_button_text is navigation_button_text
 ### original game menu background setting
 style game_menu_outer_frame:
     bottom_padding 45
-    top_padding 180
+    top_padding 100
     xalign 0.5
     yalign 0.5
     background "gui/overlay/game_menu.png"
@@ -1585,28 +1887,235 @@ screen about():
     ## screen.
     use game_menu(_("About"), scroll="viewport"):
         
-        
-        vbox:
+        viewport:
+            viewport_xsize 1400
+            viewport_ysize 1000
+            child_size (1400, 2000)
+            yalign 0.0
+            xpos 0.08
             style_prefix "about"
-            xalign 1.0 
+            vbox:
+                image "images/cvisual/main_logo.png":
+                    xalign 0.5
+                label _('Game Director') style"about_label_text":
+                    xalign 0.5
+                text _('{i}LUNAFAYE{/i}     @Lunafaye__') 
+                text _('{i}          KEWAI{/i}     @KY_kewai_KY') 
+                text _('{i}      ELLEN{/i}     @ellenakaha') 
 
-            label "[config.name!t]"
-            text _("Version [config.version!t]\n")
+                label _('Story by') style"about_label_text":
+                    xalign 0.5
+                text _('{i}         YOHJI{/i}     @yohji_fanart')
+                text _('{i}MEREDITH{/i}     @Meredith_D')  
 
-            ## gui.about is usually set in options.rpy.
-            if gui.about:
-                text "[gui.about!t]\n"
+                label _('Producer & Project Manager') style"about_label_text":
+                    xalign 0.5
+                text _('{i}LUNAFAYE{/i}     @Lunafaye__') 
 
-            text _("Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
+                label _('Art Director') style"about_label_text":
+                    xalign 0.5
+                text _('{i}          KEWAI{/i}     @KY_kewai_KY') 
+                text _('{i}      ELLEN{/i}     @ellenakaha')
+                
+                label _('Art Team Lead') style"about_label_text":
+                    xalign 0.5
+                text _('{i}  NIGHTLINE{/i}     @nightlinestar')
+                text _('{i}LULULAMB{/i}     @lululamb312')
+
+                label _('Programmer') style"about_label_text":
+                    xalign 0.5
+                text _('{i}   ZERA{/i}     @zeraacat')
+                text _('{i}          KEWAI{/i}     @KY_kewai_KY') 
+                text _('{i}  TSUMIRE{/i}     @tsumire1122') 
+
+                label _('UI & UX Designer') style"about_label_text":
+                    xalign 0.5
+                text _('{i}SUUBEI{/i}     @suu_bei')
+
+                label _('English Script Writers & Sub Editors') style"about_label_text":
+                    xalign 0.5
+                text _('{i}  LUNAFAYE{/i}     @Lunafaye__')
+                text _('{i}DARLABUBBLES{/i}     @OriginalDBubble')
+                text _('{i} JESSYMON{/i}     @jessy_brudi')
+                text _('{i}              CRIPTID{/i}     @moss_the_witch')
+                text _('{i}       LEON{/i}     @pengubud')
+                text _('{i}         SARAH{/i}     @redmapleboi')
+                text _('{i}    LAKOYRSU{/i}     @Lakoyrsu_ZIP')
+
+                label _('Character Outfit Designer') style"about_label_text":
+                    xalign 0.5
+                text _('{i}           PILLOW{/i}     @anminpillowww')
+                text _('{i}HERIA                    {/i}')
+
+                label _('Character Sprites Artist') style"about_label_text":
+                    xalign 0.5
+                text _('{i}  SUSHIH{/i}     @sushih20')
+
+                label _('Vantacrew Sprites Artist') style"about_label_text":
+                    xalign 0.5
+                text _('{i}           AYU{/i}     @Ayuu_0769')
+
+                label _('Item Icons Artist') style"about_label_text":
+                    xalign 0.5
+                text _('{i}  NIGHTLINE{/i}     @nightlinestar')
+
+                label _('Illustration Artists') style"about_label_text":
+                    xalign 0.5
+                text _('{i}Game Title Art     KARIN                       {/i}     @HNYWONI')
+                text _('{i} Chapters Title Art     KEWAI                       {/i}     @KY_kewai_KY')
+                text _('{i}      Summer CG     ELLEN                  {/i}          @ellenakaha')
+                text _('{i}       Summer Comics     TRIPLE HAIRED DOG{/i}     @TriplehairedDog')
+                text _('{i}        Autumn CG     TSUMIRE                   {/i}     @tsumire1122')
+                text _('{i}  Autumn Comics     46                              {/i}     @46imgs        ')
+                text _('{i}           Winter CG     MEGAMI                      {/i}     @megami_twt')
+                text _('{i}  Winter Comics     RARIRU                     {/i}     @g_rariru_   ')
+                text _('{i}Spring CG (Zali & Wilson)     MAKUYA    {/i}     @y_makuya')
+                text _('{i}    Spring CG (Ryu)     20 CHIN                    {/i}     @20_chinn      ')
+                text _('{i}       Spring Comics     YOHJI                      {/i}     @yohji_fanart')
+                text _('{i}     Spring Animation     Lacia                       {/i}     @LaciaEverlight')
+                text _('{i}   Spring Animation     Kae                          {/i}     @KaeVeo          ')
+                
+                label _('Background Artist') style"about_label_text":
+                    xalign 0.5
+                text _('{i}  NIGHTLINE{/i}     @nightlinestar')
+                text _('{i}    DOUZI{/i}     @douzi_69')
+                text _('{i}LULULAMB{/i}     @lululamb312')
+                text _('{i}SUUBEI{/i}     @suu_bei')
+                text _('{i}PANDAJOJO{/i}     @Pandajojo_x  ')
+                text _('{i}          AFU{/i}     @ToAfufu_20')
+                text _('{i}       ELLEN{/i}     @ellenakaha')
+
+                label _('Logo & Graphic Designer') style"about_label_text":
+                    xalign 0.5
+                text _('{i}       FII{/i}     @fii_fth15')
+
+                label _('Splash Logo Animator') style"about_label_text":
+                    xalign 0.5
+                text _('{i}HINCARU KAIVA{/i}     @hincaru')
+
+                label _('Gallery Artist') style"about_label_text":
+                    xalign 0.5
+                text _('{i}ESSI{/i}     @ESSI_DEE     ')
+                text _('{i}    GAIKE{/i}     @galeria__dsenho')
+                text _('{i}YUMO{/i}     @gItzYumo         ')
+                text _('{i}JESSYMON{/i}     @gjessy_brudi           ')
+                text _('{i}EKKA{/i}     @ekarine_ehe  ')
+                text _('{i}PUFFLES{/i}     @pf42                     ')
+                text _('{i}POTAT{/i}     @3lusive_p0t4t')
+                text _('{i}KAM{/i}     @rainbowlizrd')
+                text _('{i}HANNI{/i}     @ggultteokks    ')
+                text _('{i}    DOC{/i}     @Edensresident')
+                text _('{i}EUNICE{/i}     @takayaren        ')
+                text _('{i}ZENTHI{/i}     @Zenthi1            ')
+                text _('{i}DOUZI{/i}     @douzi_69       ')
+                text _('{i}EMBER{/i}     @dnsduco          ')
+                text _('{i}HAL{/i}     @_sodhal      ')
+                text _('{i} BLUE{/i}     @ablueweirdo   ')
+                text _('{i}YEDILAMON{/i}     @Yedilamonyan         ')
+                text _('{i}ASHLEEE{/i}     @ashleee080         ')
+                text _('{i}BYNTHE{/i}     @aleiure              ')
+                text _('{i}DUAL{/i}     @Dual2Limit  ')
+                text _('{i}STELLA AOI{/i}     @stellaaoi0906       ')
+                text _('{i}LULULAMB{/i}     @lululamb312         ')
+                text _('{i}MUMI KORI{/i}     @KoriMumi              ')
+                text _('{i}REIYACARAMEL{/i}     @Cookiewithhat              ')
+                text _('{i}     WILD{/i}     @thewildmonarch')
+                text _('{i}MIYOSHI{/i}     @miyoshi_2536   ')
+                text _('{i}    AWES{/i}     @aresmaximoff     ')
+                text _('{i}ALLIE{/i}     @alliedeeznuts')
+                text _('{i} CANDY{/i}     @cc4ndy_csd29 ')
+                text _('{i}GARNET{/i}     @Garnet095882  ')
+                text _('{i}JANE{/i}     @glazeliliess   ')
+                text _('{i} KAL{/i}     @kalaluwa        ')
+                text _('{i}   KAZZ{/i}     @lasercutlegends')
+                text _('{i}KERES{/i}     @Nyx11162741    ')
+                text _('{i}YUZURU{/i}     @krisisonkrisis    ')
+                text _('{i}GOMI{/i}     @LT_Gomi       ')
+                text _('{i}OTTACA{/i}     @Ottaca2            ')
+                text _('{i}    SAM{/i}     @mochiminnt     ')
+                text _('{i}SUNLIGHT{/i}     @stargreydust       ')
+                text _('{i}GLITTER{/i}     @unicornbombz  ')
+                text _('{i}       PAKA{/i}     @KotatsuVpaka      ')
+                text _('{i}   ASH{/i}     @_a_ysh           ')
+                text _('{i}        YI{/i}     @ichiyi25           ')
+                text _('{i} YEANE{/i}     @ntgdengh          ')
+                text _('{i}MARSHY{/i}     @marshmallsy       ')
+                text _('{i}  MILFY{/i}     @MilfyMonsterr_  ')
+                text _('{i}MINIZEN{/i}     @minizennn            ')
+                text _('{i}LUKARION{/i}     @_lukarion              ')
+                text _('{i}SHAMROCK{/i}     @YangTakoyaki         ')
+                text _('{i}TAYJI{/i}     @itstayji           ')
+                text _('{i}PANDAJOJO{/i}     @Pandajojo_x             ')
+                text _('{i}    KI{/i}     @off_grid04    ')
+
+                label _('Japanese & Traditional Chinese Translation') style"about_label_text":
+                    xalign 0.5
+                text _('{i}    KIKUJIN{/i}     @KYO_KKJn')
+                text _('{i}MEREDITH{/i}     @Meredith_D')
+
+                label _('Web page') style"about_label_text":
+                    xalign 0.5
+                text _('{i}  SUUBEI{/i}     @suu_bei')
+                text _('{i}LUNAFAYE{/i}     @Lunafaye__')
+
+                label _('Other Royalty Free Materials') style"about_label_text":
+                    xalign 0.5
+                text _('yuhei komatsu, {font=GlowSansSC-Normal-Medium.ttf}えだまめ88{/font}, MagaMaga, {font=GlowSansSC-Normal-Medium.ttf}すもち, のる, まんぼう二等兵{/font},')
+                text _('MAKOOTO, {font=GlowSansSC-Normal-Medium.ttf}えすにっく・かわひろ{/font}, yuhei komatsu, NEKOZOU, Aisyu,')
+                text _('U_byub5wd934, OxidVideos, ShidenBeatsMusic, Liecio, u_f1ee7vf7na,')
+                text _('{font=GlowSansSC-Normal-Medium.ttf}ノタの森{/font},Pixabay, {font=GlowSansSC-Normal-Medium.ttf}小森 平, 効果音ラボ, ポケットサウンド{/font}, OtoLogic, voicebot, Epidemicsound, Typodermicfonts, Cadson Demak, Celestial Phineas, {font=GlowSansSC-Normal-Medium.ttf}みんちりえ{/font}')
+
+                # label "[config.name!t]" style"about_label_text"
+                # label _("Version [config.version!t]\n") style"about_label_text"
+
+
+                ## gui.about is usually set in options.rpy.
+                if gui.about:
+                    text "[gui.about!t]\n"
+
+                label _("Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")style"about_label_text":
+                    xalign 0.5 
+
+                label _('Very Special Thanks to') style"about_label_text":
+                    xalign 0.5
+                text _('{i}Lacia & Kae{/i}')
+
+                label _('A Word from the 86 Crew Members of Mission Bringer: Four Seasons of Krisis') style"about_label_text":
+                    xalign 0.5
+                label _('Happy 1-year anniversary to the amazing Krisis! We hope you have a blast playing this little game we made for you. We poured our hearts into it to show just how much the Vezcrewneers love you all. Thanks for making our past year so colorful and fun. We can\'t wait to see what the future holds!')style"about_label_text":
+                    xalign 0.5
+                label _('Itsumo doori balling!') style"about_label_text":
+                    xalign 0.5
+                label _('Lots of love,') style"about_label_text":
+                    xalign 0.5
+                label _('Vantacrew Project Department') style"about_label_text":
+                    xalign 0.5
+                vbox:
+                    xysize (1200,60)
+                image "system/VPD full text logo.png":
+                    xalign 0.5
+                vbox:
+                    xysize (1200,60)
+                # textbutton _("Play Credits") action [Function(get_credits)] style "menuback_textbutton":
+                #     xalign 0.5
             
+image credits_v3 = Movie(play="movies/credits_v3.webm",channel='movie')
+screen credit_video():
+    modal True
+    add "credits_v3"
        
 
 style about_label is gui_label
 style about_label_text is gui_label_text
 style about_text is gui_text
+style about_small_text is empty
 
-style about_label_text:
-    size gui.label_text_size
+# style about_text:
+#     properties gui.text_properties("creditname")
+#     text_align 0.5
+# style about_label_text:
+#     properties gui.text_properties("credit")
+#     text_align 0.5
 
 
 
@@ -1650,19 +2159,19 @@ screen file_slots(title):
 
             ## The page name, which can be edited by clicking on a button.
             button:
-                style "page_label"
+                # style "page_label"
 
                 key_events True
                 xalign 0.5
                 action page_name_value.Toggle()
 
                 input:
-                    style "page_label_text"
+                    style "chapterend_textbutton_text"
                     value page_name_value
 
             ## The grid of file slots.
             grid gui.file_slot_cols gui.file_slot_rows:
-                style_prefix "slot"
+                # style_prefix "slot"
 
                 xalign 0.5
                 yalign 0.5
@@ -1681,14 +2190,14 @@ screen file_slots(title):
                         add FileScreenshot(slot) xalign 0.5
 
                         text FileTime(slot, format=_("{#file_time}%A, %B %d %Y, %H:%M"), empty=_("empty slot")):
-                            style "slot_time_text"
+                            style "chapterend_textbutton_text"
 
                         text FileSaveName(slot):
-                            style "slot_name_text"
+                            style "chapterend_textbutton_text"
                         # this is for debug    
-                        # textbutton _("delete") action FileDelete(slot):
-                        #     style "quick_menu_text"
-                        #     ypos -0.9
+                        textbutton _("delete") action FileDelete(slot):
+                            style "quick_menu_text"
+                            ypos -0.9
 
                         key "save_delete" action FileDelete(slot)
                         
@@ -1730,8 +2239,8 @@ screen file_slots(title):
                 #             action DownloadSync()
                 #             xalign 0.5
        
-style page_label is gui_label
-style page_label_text is gui_label_text
+style page_label is empty
+style page_label_text is empty
 style page_button is gui_button
 style page_button_text is gui_button_text
 style game_menu_viewport is gui_viewport
@@ -1748,6 +2257,7 @@ style page_label:
     ypadding 5
 
 style page_label_text:
+    properties gui.button_properties("twenty")
     textalign 0.5
     layout "subtitle"
     hover_color gui.hover_color
@@ -1787,24 +2297,31 @@ screen preferences():
 
                     vbox:
                         style_prefix "radio"
-                        label _("Display")
-                        textbutton _("Window") action Preference("display", "window")
-                        textbutton _("Fullscreen") action Preference("display", "fullscreen")
+                        label _("Display") style "setting_text"
+                        if (_preferences.language == "mandarin"):
+                            textbutton _("視窗化") text_font "GlowSansSC-Normal-Regular.ttf" action Preference("display", "window") 
+                            textbutton _("全螢幕") text_font "GlowSansSC-Normal-Regular.ttf" action Preference("display", "fullscreen") 
+                        elif (_preferences.language == "japanese"):
+                            textbutton _("ウィンドウ") text_font "GlowSansSC-Normal-Regular.ttf" action Preference("display", "window") 
+                            textbutton _("フルスクリーン") text_font "GlowSansSC-Normal-Regular.ttf" action Preference("display", "fullscreen") 
+                        else:
+                            textbutton _("Window") action Preference("display", "window") 
+                            textbutton _("Fullscreen") action Preference("display", "fullscreen") 
 
-                vbox:
-                    style_prefix "check"
-                    label _("Skip")
-                    textbutton _("Unseen Text") action Preference("skip", "toggle")
-                    textbutton _("After Choices") action Preference("after choices", "toggle")
-                    textbutton _("Transitions") action InvertSelected(Preference("transitions", "toggle"))
+                # vbox:
+                #     style_prefix "check"
+                #     label _("Skip")
+                #     textbutton _("Unseen Text") action Preference("skip", "toggle")
+                #     textbutton _("After Choices") action Preference("after choices", "toggle")
+                #     textbutton _("Transitions") action InvertSelected(Preference("transitions", "toggle"))
                 
                 vbox:
                     style_prefix "radio"
-                    label _("Language")
+                    label _("Language") style "setting_text"
                     # Real languages should go alphabetical order by English name.
                     textbutton _("English") text_font "DejaVuSans.ttf" action Language(None)
-                    # textbutton _("繁體中文") text_font "GlowSansSC-Normal-Regular.ttf" action Language("mandarin")
-                    # textbutton _("日本語") text_font "GlowSansSC-Normal-Regular.ttf" action Language("japanese")
+                    textbutton _("繁體中文") text_font "GlowSansSC-Normal-Regular.ttf" action Language("mandarin")
+                    textbutton _("日本語") text_font "GlowSansSC-Normal-Regular.ttf" action Language("japanese")
 
 
                 ## Additional vboxes of type "radio_pref" or "check_pref" can be
@@ -1818,25 +2335,25 @@ screen preferences():
 
                 vbox:
 
-                    label _("Text Speed")
+                    label _("Text Speed") style "setting_text"
 
                     bar value Preference("text speed")
 
-                    label _("Auto-Forward Time")
+                    label _("Auto-Forward Time") style "setting_text"
 
                     bar value Preference("auto-forward time")
 
                 vbox:
 
                     if config.has_music:
-                        label _("Music Volume")
+                        label _("Music Volume") style "setting_text"
 
                         hbox:
                             bar value Preference("music volume")
 
                     if config.has_sound:
 
-                        label _("Sound Volume")
+                        label _("Sound Volume") style "setting_text"
 
                         hbox:
                             bar value Preference("sound volume")
@@ -1859,9 +2376,10 @@ screen preferences():
 
                         textbutton _("Mute All"):
                             action Preference("all mute", "toggle")
-                            style "mute_all_button"
+                            style "setting_text"
             
             
+style setting_text is empty
 
 style pref_label is gui_label
 style pref_label_text is gui_label_text
@@ -1957,9 +2475,9 @@ screen history():
         style_prefix "history"
 
         for h in _history_list:
-
+            
             window:
-                xsize 1400
+                xsize 1500
                 ## This lays things out properly if history_height is None.
                 has fixed:
                     yfit True
@@ -1967,7 +2485,8 @@ screen history():
                 if h.who:
 
                     label h.who:
-                        style "history_name"
+                        style "history_label_text"
+                        xalign 0.5
                         substitute False
 
                         ## Take the color of the who text from the Character, if
@@ -1975,13 +2494,18 @@ screen history():
                         if "color" in h.who_args:
                             text_color h.who_args["color"]
 
-                $ what = renpy.filter_text_tags(h.what, allow=gui.history_allow_tags)
-                text what:
+                # $ what = renpy.filter_text_tags(h.what, allow=gui.history_allow_tags)
+                text h.what: 
+                    # if (_preferences.language == 'mandarin') or (_preferences.language == 'japanese'):
+                    style "slime_textbutton_text"
+                    xpos 800
+                    xsize 1200
+                    textalign 0.0
                     substitute False
 
         if not _history_list:
-            label _("The dialogue history is empty.")
-
+            label _("The dialogue history is empty.") style"history_label_text"
+                
 
 ## This determines what tags are allowed to be displayed on the history screen.
 
@@ -1992,10 +2516,10 @@ style history_window is empty
 
 style history_name is gui_label
 style history_name_text is gui_label_text
-style history_text is gui_text
+style history_text is empty
 
-style history_label is gui_label
-style history_label_text is gui_label_text
+style history_label is empty
+style history_label_text is empty
 
 style history_window:
     xfill True
@@ -2012,19 +2536,22 @@ style history_name_text:
     textalign gui.history_name_xalign
 
 style history_text:
-    xpos gui.history_text_xpos
-    ypos gui.history_text_ypos
-    xanchor gui.history_text_xalign
-    xsize gui.history_text_width
-    min_width gui.history_text_width
-    textalign gui.history_text_xalign
-    layout ("subtitle" if gui.history_text_xalign else "tex")
+    properties gui.text_properties("label")
+    xpos 255
+    ypos 3
+    xanchor 0.0
+    xsize 1110
+    min_width 1110
+    textalign 0.0
+    layout ("subtitle" if 0.0 else "tex")
 
 style history_label:
     xfill True
 
 style history_label_text:
-    xalign 0.5
+    properties gui.text_properties("label")
+    xfill True
+    xpos 0.4
 
 
 ## Help screen #################################################################
@@ -2219,7 +2746,7 @@ screen confirm(message, yes_action, no_action):
             spacing 45
 
             label _(message):
-                style "confirm_prompt"
+                style "confirm_prompt_text"
                 xalign 0.5
                 yalign 0.5
 
@@ -2246,7 +2773,7 @@ screen confirm_start:
 
 style confirm_frame is gui_frame
 style confirm_prompt is gui_prompt
-style confirm_prompt_text is gui_prompt_text
+style confirm_prompt_text is empty
 style confirm_button is gui_medium_button
 style confirm_button_text is gui_medium_button_text
 

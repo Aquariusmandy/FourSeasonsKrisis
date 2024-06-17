@@ -848,7 +848,7 @@ translate mandarin strings:
 
     # renpy/common/00sync.rpy:622
     old "Continue"
-    new ""
+    new "繼續"
 
     # renpy/common/00sync.rpy:646
     old "Sync Error"
@@ -1192,7 +1192,7 @@ translate mandarin strings:
 
     # renpy/common/_errorhandling.rpym:761
     old "Quits the game."
-    new ""
+    new "退出遊戲"
 
     # renpy/common/_errorhandling.rpym:782
     old "Parsing the script failed."

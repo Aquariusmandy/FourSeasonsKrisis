@@ -4,15 +4,15 @@ translate japanese strings:
 
     # game/screens.rpy:770
     old "Visit the A.S.H. Archive to see your progress,\nincluding Collected Items, Secret Snaps of amazing\nmoments caught in 4K, and extra memories of Krisis\nand the Vezcrewneers in the Seasonal Album!"
-    new ""
+    new "これから取得済みアイテムや4K高画質CGなど、\n今までのバックログは全てA.S.H. アーカイブで確認出来ます。\nまたクライシスやヴェズクルーニアーズとの思い出もアルバムで閲覧可能です。"
 
     # game/screens.rpy:780
     old "Check Now!"
-    new ""
+    new "今すぐチェック！"
 
     # game/screens.rpy:818
     old "Next Chapter"
-    new ""
+    new "次のチャプターへ"
 
     # game/screens.rpy:1048
     old "Debug Quick Menu"
@@ -20,35 +20,35 @@ translate japanese strings:
 
     # game/screens.rpy:1049
     old "Back"
-    new ""
+    new "戻る"
 
     # game/screens.rpy:1050
     old "Skip"
-    new ""
+    new "スキップ"
 
     # game/screens.rpy:1087
     old "Save"
-    new ""
+    new "セーブ"
 
     # game/screens.rpy:1089
     old "Load"
-    new ""
+    new "ロード"
 
     # game/screens.rpy:1091
     old "History"
-    new ""
+    new "テキストログ"
 
     # game/screens.rpy:1093
     old "Settings"
-    new ""
+    new "設定"
 
     # game/screens.rpy:1095
     old "Main Menu"
-    new ""
+    new "メインメニュー"
 
     # game/screens.rpy:1097
     old "Quit"
-    new ""
+    new "戻る"
 
     # game/screens.rpy:1151
     old "ResetInventory"
@@ -56,15 +56,15 @@ translate japanese strings:
 
     # game/screens.rpy:1163
     old "New Game"
-    new ""
+    new "始める"
 
     # game/screens.rpy:1169
     old "Load Game"
-    new ""
+    new "ロード"
 
     # game/screens.rpy:1170
     old "A.S.H. Archive"
-    new ""
+    new "A.S.H. アーカイブ"
 
     # game/screens.rpy:1174
     old "End Replay"
@@ -72,7 +72,7 @@ translate japanese strings:
 
     # game/screens.rpy:1178
     old "Credits"
-    new ""
+    new "クレジット"
 
     # game/screens.rpy:1304
     old "Setting"
@@ -80,27 +80,27 @@ translate japanese strings:
 
     # game/screens.rpy:1509
     old "About"
-    new ""
+    new "ゲームについて"
 
     # game/screens.rpy:1517
     old "Version [config.version!t]\n"
-    new ""
+    new "バージョン"
 
     # game/screens.rpy:1523
     old "Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]"
-    new ""
+    new "制作にRen’Pyを使用"
 
     # game/screens.rpy:1563
     old "Page {}"
-    new ""
+    new "ページ"
 
     # game/screens.rpy:1563
     old "Automatic saves"
-    new ""
+    new "オートセーブ"
 
     # game/screens.rpy:1563
     old "Quick saves"
-    new ""
+    new "クイックセーブ"
 
     # game/screens.rpy:1605
     old "{#file_time}%A, %B %d %Y, %H:%M"
@@ -108,7 +108,7 @@ translate japanese strings:
 
     # game/screens.rpy:1605
     old "empty slot"
-    new ""
+    new "セーブスロット"
 
     # game/screens.rpy:1631
     old "<"
@@ -132,31 +132,31 @@ translate japanese strings:
 
     # game/screens.rpy:1712
     old "Display"
-    new ""
+    new "画面サイズ"
 
     # game/screens.rpy:1713
     old "Window"
-    new ""
+    new "ウィンドウ"
 
     # game/screens.rpy:1714
     old "Fullscreen"
-    new ""
+    new "フルスクリーン"
 
     # game/screens.rpy:1719
     old "Unseen Text"
-    new ""
+    new "未読スキップ"
 
     # game/screens.rpy:1720
     old "After Choices"
-    new ""
+    new "選択肢を選んだ後も継続"
 
     # game/screens.rpy:1721
     old "Transitions"
-    new ""
+    new "トランジション"
 
     # game/screens.rpy:1725
     old "Language"
-    new ""
+    new "言語"
 
     # game/screens.rpy:1727
     old "English"
@@ -172,31 +172,31 @@ translate japanese strings:
 
     # game/screens.rpy:1743
     old "Text Speed"
-    new ""
+    new "表示速度"
 
     # game/screens.rpy:1747
     old "Auto-Forward Time"
-    new ""
+    new "オートモード"
 
     # game/screens.rpy:1754
     old "Music Volume"
-    new ""
+    new "BGM調整"
 
     # game/screens.rpy:1761
     old "Sound Volume"
-    new ""
+    new "効果音調整"
 
     # game/screens.rpy:1767
     old "Test"
-    new ""
+    new "テスト"
 
     # game/screens.rpy:1782
     old "Mute All"
-    new ""
+    new "ミュート"
 
     # game/screens.rpy:1905
     old "The dialogue history is empty."
-    new ""
+    new "表示出来るログはありません"
 
     # game/screens.rpy:1965
     old "Help"
@@ -340,21 +340,20 @@ translate japanese strings:
 
     # game/screens.rpy:2153
     old "Yes"
-    new ""
+    new "はい"
 
     # game/screens.rpy:2154
     old "No"
-    new ""
+    new "いいえ"
 
     # game/screens.rpy:2202
     old "Skipping"
-    new ""
+    new "スキップ"
 
     # game/screens.rpy:2513
     old "Auto"
-    new ""
+    new "オート"
 
     # game/screens.rpy:2514
     old "Menu"
-    new ""
-
+    new "メニュー"

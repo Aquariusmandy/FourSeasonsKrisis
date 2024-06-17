@@ -115,7 +115,7 @@ translate None strings:
 
     # renpy/common/00accessibility.rpy:216
     old "Voice Volume"
-    new "Voice Volume"
+    new "語音音量"
 
     # renpy/common/00accessibility.rpy:224
     old "Self-Voicing Volume Drop"
@@ -127,7 +127,7 @@ translate None strings:
 
     # renpy/common/00accessibility.rpy:240
     old "Return"
-    new "Return"
+    new "返回"
 
     # renpy/common/00action_file.rpy:26
     old "{#weekday}Monday"
@@ -283,7 +283,7 @@ translate None strings:
 
     # renpy/common/00action_file.rpy:258
     old "%b %d, %H:%M"
-    new "%b %d, %H:%M"
+    new "%m月%d日, %H:%M"
 
     # renpy/common/00action_file.rpy:395
     old "Save slot %s: [text]"
@@ -331,7 +331,7 @@ translate None strings:
 
     # renpy/common/00action_file.rpy:948
     old "Quick save complete."
-    new "Quick save complete."
+    new "快速儲存。"
 
     # renpy/common/00action_file.rpy:963
     old "Quick save."
@@ -403,7 +403,7 @@ translate None strings:
 
     # renpy/common/00director.rpy:1666
     old "Cancel"
-    new "Cancel"
+    new "取消"
 
     # renpy/common/00director.rpy:1669
     old "Remove"
@@ -771,7 +771,7 @@ translate None strings:
 
     # renpy/common/00preferences.rpy:698
     old "Clipboard voicing enabled. Press 'shift+C' to disable."
-    new "Clipboard voicing enabled. Press 'shift+C' to disable."
+    new "Clipboard voicing 已啟用。按 'shift+C' 禁用"
 
     # renpy/common/00preferences.rpy:700
     old "Self-voicing would say \"[renpy.display.tts.last]\". Press 'alt+shift+V' to disable."
@@ -779,7 +779,7 @@ translate None strings:
 
     # renpy/common/00preferences.rpy:702
     old "Self-voicing enabled. Press 'v' to disable."
-    new "Self-voicing enabled. Press 'v' to disable."
+    new "Self-voicing 已啟用。按 'v' 禁用"
 
     # renpy/common/00speechbubble.rpy:392
     old "Speech Bubble Editor"
@@ -891,83 +891,83 @@ translate None strings:
 
     # renpy/common/00updater.rpy:763
     old "An error is being simulated."
-    new "An error is being simulated."
+    new "正在類比錯誤。"
 
     # renpy/common/00updater.rpy:951
     old "Either this project does not support updating, or the update status file was deleted."
-    new "Either this project does not support updating, or the update status file was deleted."
+    new "此專案不支援更新，或者更新狀態檔已被刪除。"
 
     # renpy/common/00updater.rpy:965
     old "This account does not have permission to perform an update."
-    new "This account does not have permission to perform an update."
+    new "此帳戶不具有執行更新的權限。"
 
     # renpy/common/00updater.rpy:968
     old "This account does not have permission to write the update log."
-    new "This account does not have permission to write the update log."
+    new "此帳戶沒有更新日誌的寫入權限。"
 
     # renpy/common/00updater.rpy:1048
     old "Could not verify update signature."
-    new "Could not verify update signature."
+    new "無法驗證更新簽名。"
 
     # renpy/common/00updater.rpy:1367
     old "The update file was not downloaded."
-    new "The update file was not downloaded."
+    new "不下載更新檔。"
 
     # renpy/common/00updater.rpy:1385
     old "The update file does not have the correct digest - it may have been corrupted."
-    new "The update file does not have the correct digest - it may have been corrupted."
+    new "無法驗證更新檔案 — 它可能已損壞。"
 
     # renpy/common/00updater.rpy:1535
     old "While unpacking {}, unknown type {}."
-    new "While unpacking {}, unknown type {}."
+    new "正在解壓缩 {}，未知類型 {}。"
 
     # renpy/common/00updater.rpy:2015
     old "Updater"
-    new "Updater"
+    new "更新"
 
     # renpy/common/00updater.rpy:2022
     old "An error has occured:"
-    new "An error has occured:"
+    new "一個錯誤發生："
 
     # renpy/common/00updater.rpy:2024
     old "Checking for updates."
-    new "Checking for updates."
+    new "正在檢查更新。"
 
     # renpy/common/00updater.rpy:2026
     old "This program is up to date."
-    new "This program is up to date."
+    new "該程式已是最新版本。"
 
     # renpy/common/00updater.rpy:2028
     old "[u.version] is available. Do you want to install it?"
-    new "[u.version] is available. Do you want to install it?"
+    new "[u.version] 已釋出。是否確認安裝？"
 
     # renpy/common/00updater.rpy:2030
     old "Preparing to download the updates."
-    new "Preparing to download the updates."
+    new "正在準備下載更新。"
 
     # renpy/common/00updater.rpy:2032
     old "Downloading the updates."
-    new "Downloading the updates."
+    new "正在下載更新。"
 
     # renpy/common/00updater.rpy:2034
     old "Unpacking the updates."
-    new "Unpacking the updates."
+    new "解壓縮更新檔案。"
 
     # renpy/common/00updater.rpy:2036
     old "Finishing up."
-    new "Finishing up."
+    new "即將完成。"
 
     # renpy/common/00updater.rpy:2038
     old "The updates have been installed. The program will restart."
-    new "The updates have been installed. The program will restart."
+    new "該更新檔案已安裝，程式將會重新啟動。"
 
     # renpy/common/00updater.rpy:2040
     old "The updates have been installed."
-    new "The updates have been installed."
+    new "已完成更新。"
 
     # renpy/common/00updater.rpy:2042
     old "The updates were cancelled."
-    new "The updates were cancelled."
+    new "已取消更新。"
 
     # renpy/common/00updater.rpy:2057
     old "Proceed"
@@ -1003,7 +1003,7 @@ translate None strings:
 
     # renpy/common/00gallery.rpy:627
     old "Image [index] of [count] locked."
-    new "Image [index] of [count] locked."
+    new "[count] 個圖片中的第 [index] 個圖片被鎖定。"
 
     # renpy/common/00gallery.rpy:647
     old "prev"
@@ -1091,7 +1091,7 @@ translate None strings:
 
     # renpy/common/00gltest.rpy:207
     old "Changes will take effect the next time this program is run."
-    new "Changes will take effect the next time this program is run."
+    new "變更將會在下次啟動程式時生效。"
 
     # renpy/common/00gltest.rpy:214
     old "Quit"
@@ -1099,11 +1099,11 @@ translate None strings:
 
     # renpy/common/00gltest.rpy:242
     old "Performance Warning"
-    new "Performance Warning"
+    new "效能警告"
 
     # renpy/common/00gltest.rpy:247
     old "This computer is using software rendering."
-    new "This computer is using software rendering."
+    new "該電腦正在使用軟體渲染。"
 
     # renpy/common/00gltest.rpy:249
     old "This game requires use of GL2 that can't be initialised."
@@ -1111,11 +1111,11 @@ translate None strings:
 
     # renpy/common/00gltest.rpy:251
     old "This computer has a problem displaying graphics: [problem]."
-    new "This computer has a problem displaying graphics: [problem]."
+    new "This computer has a problem displaying graphics: [problem]。"
 
     # renpy/common/00gltest.rpy:255
     old "Its graphics drivers may be out of date or not operating correctly. This can lead to slow or incorrect graphics display."
-    new "Its graphics drivers may be out of date or not operating correctly. This can lead to slow or incorrect graphics display."
+    new "目前圖形驅動程式版本可能過舊或者運作不正確。這樣會導致圖形顯示緩慢或者錯誤。"
 
     # renpy/common/00gltest.rpy:259
     old "The {a=edit:1:log.txt}log.txt{/a} file may contain information to help you determine what is wrong with your computer."
@@ -1167,7 +1167,7 @@ translate None strings:
 
     # renpy/common/_errorhandling.rpym:664
     old "Opens the traceback.txt file in a text editor."
-    new "Opens the traceback.txt file in a text editor."
+    new "在編輯器中開啟回溯檔案。"
 
     # renpy/common/_errorhandling.rpym:666
     old "Copy BBCode"
@@ -1247,11 +1247,11 @@ translate None strings:
 
     # renpy/common/_developer/developer.rpym:47
     old "Console (Shift+O)"
-    new "Console (Shift+O)"
+    new "控制臺 (Shift+O)"
 
     # renpy/common/_developer/developer.rpym:49
     old "Variable Viewer"
-    new "Variable Viewer"
+    new "變數觀察器"
 
     # renpy/common/_developer/developer.rpym:51
     old "Persistent Viewer"
@@ -1259,11 +1259,11 @@ translate None strings:
 
     # renpy/common/_developer/developer.rpym:53
     old "Image Location Picker"
-    new "Image Location Picker"
+    new "圖片座標撿選器"
 
     # renpy/common/_developer/developer.rpym:55
     old "Filename List"
-    new "Filename List"
+    new "檔案清單"
 
     # renpy/common/_developer/developer.rpym:59
     old "Show Image Load Log (F4)"
@@ -1311,7 +1311,7 @@ translate None strings:
 
     # renpy/common/_developer/developer.rpym:187
     old "Nothing to inspect."
-    new "Nothing to inspect."
+    new "沒有東西被檢閱"
 
     # renpy/common/_developer/developer.rpym:198
     old "Hide deleted"
@@ -1323,23 +1323,23 @@ translate None strings:
 
     # renpy/common/_developer/developer.rpym:349
     old "Rectangle copied to clipboard."
-    new "Rectangle copied to clipboard."
+    new "選擇區域複製到剪貼簿。"
 
     # renpy/common/_developer/developer.rpym:352
     old "Position copied to clipboard."
-    new "Position copied to clipboard."
+    new "選擇位置複製到剪貼簿。"
 
     # renpy/common/_developer/developer.rpym:364
     old "Rectangle: %r"
-    new "Rectangle: %r"
+    new "矩形區域: %r"
 
     # renpy/common/_developer/developer.rpym:367
     old "Mouse position: %r"
-    new "Mouse position: %r"
+    new "滑鼠位置: %r"
 
     # renpy/common/_developer/developer.rpym:372
     old "Right-click or escape to quit."
-    new "Right-click or escape to quit."
+    new "點選滑鼠右鍵或者按 Esc 鍵來退出。"
 
     # renpy/common/_developer/developer.rpym:420
     old "Type to filter: "
@@ -1379,51 +1379,51 @@ translate None strings:
 
     # renpy/common/_developer/inspector.rpym:38
     old "Displayable Inspector"
-    new "Displayable Inspector"
+    new "Displayable 檢閱器"
 
     # renpy/common/_developer/inspector.rpym:61
     old "Size"
-    new "Size"
+    new "大小"
 
     # renpy/common/_developer/inspector.rpym:65
     old "Style"
-    new "Style"
+    new "風格"
 
     # renpy/common/_developer/inspector.rpym:71
     old "Location"
-    new "Location"
+    new "位置"
 
     # renpy/common/_developer/inspector.rpym:122
     old "Inspecting Styles of [displayable_name!q]"
-    new "Inspecting Styles of [displayable_name!q]"
+    new "檢閱 [displayable_name!q] 的風格"
 
     # renpy/common/_developer/inspector.rpym:139
     old "displayable:"
-    new "displayable:"
+    new "Displayable:"
 
     # renpy/common/_developer/inspector.rpym:145
     old "        (no properties affect the displayable)"
-    new "        (no properties affect the displayable)"
+    new "        (沒有偏好的可顯示屬性)"
 
     # renpy/common/_developer/inspector.rpym:147
     old "        (default properties omitted)"
-    new "        (default properties omitted)"
+    new "        (省略預設屬性)"
 
     # renpy/common/_developer/inspector.rpym:185
     old "<repr() failed>"
-    new "<repr() failed>"
+    new "<repr() 失敗>"
 
     # renpy/common/00console.rpy:537
     old "Press <esc> to exit console. Type help for help.\n"
-    new "Press <esc> to exit console. Type help for help.\n"
+    new "按 <esc> 來退出控制臺。輸入 help 來檢視說明。\n"
 
     # renpy/common/00console.rpy:541
     old "Ren'Py script enabled."
-    new "Ren'Py script enabled."
+    new "使用 Ren'Py 腳本。"
 
     # renpy/common/00console.rpy:543
     old "Ren'Py script disabled."
-    new "Ren'Py script disabled."
+    new "禁用 Ren'Py 腳本。"
 
     # renpy/common/00console.rpy:793
     old "help: show this help\n help <expr>: show signature and documentation of <expr>"
@@ -1435,23 +1435,23 @@ translate None strings:
 
     # renpy/common/00console.rpy:826
     old "commands:\n"
-    new "commands:\n"
+    new "命令列:\n"
 
     # renpy/common/00console.rpy:836
     old " <renpy script statement>: run the statement\n"
-    new " <renpy script statement>: run the statement\n"
+    new "<Ren'py 腳本語句>: 運行語句\n"
 
     # renpy/common/00console.rpy:838
     old " <python expression or statement>: run the expression or statement"
-    new " <python expression or statement>: run the expression or statement"
+    new " <Python 運算式或語句>: 運行運算式或語句"
 
     # renpy/common/00console.rpy:846
     old "clear: clear the console history"
-    new "clear: clear the console history"
+    new "clear: 清除控制臺歷史記錄"
 
     # renpy/common/00console.rpy:850
     old "exit: exit the console"
-    new "exit: exit the console"
+    new "exit: 離開控制臺"
 
     # renpy/common/00console.rpy:858
     old "stack: print the return stack"
@@ -1459,15 +1459,15 @@ translate None strings:
 
     # renpy/common/00console.rpy:880
     old "load <slot>: loads the game from slot"
-    new "load <slot>: loads the game from slot"
+    new "load <檔位>: 從檔位載入遊戲"
 
     # renpy/common/00console.rpy:893
     old "save <slot>: saves the game in slot"
-    new "save <slot>: saves the game in slot"
+    new "save <檔位>: 保存遊戲到檔位"
 
     # renpy/common/00console.rpy:904
     old "reload: reloads the game, refreshing the scripts"
-    new "reload: reloads the game, refreshing the scripts"
+    new "reload: 重新載入遊戲，並重新整理腳本"
 
     # renpy/common/00console.rpy:912
     old "watch <expression>: watch a python expression\n watch short: makes the representation of traced expressions short (default)\n watch long: makes the representation of traced expressions as is"
@@ -1475,15 +1475,15 @@ translate None strings:
 
     # renpy/common/00console.rpy:949
     old "unwatch <expression>: stop watching an expression"
-    new "unwatch <expression>: stop watching an expression"
+    new "unwatch <運算式>: 停止監視某個運算式"
 
     # renpy/common/00console.rpy:995
     old "unwatchall: stop watching all expressions"
-    new "unwatchall: stop watching all expressions"
+    new "unwatchall: 停止監視索引運算式"
 
     # renpy/common/00console.rpy:1016
     old "jump <label>: jumps to label"
-    new "jump <label>: jumps to label"
+    new "jump <標籤>: 跳移至標籤"
 
     # renpy/common/00console.rpy:1032
     old "short: Shorten the representation of objects on the console (default)."
