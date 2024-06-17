@@ -848,7 +848,7 @@ translate mandarin strings:
 
     # renpy/common/00sync.rpy:622
     old "Continue"
-    new "繼續"
+    new "繼續遊戲"
 
     # renpy/common/00sync.rpy:646
     old "Sync Error"

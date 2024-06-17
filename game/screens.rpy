@@ -6,7 +6,7 @@ init offset = -1
 init python:
     for i in range(100):
         FileDelete(i)
-    _preferences.language = None
+    # _preferences.language = None
 
 ################################################################################
 ## Styles
@@ -1020,7 +1020,10 @@ screen chapterend_popup(msg):
             spacing 45
 
             text _(msg):
-                style "chapterend_title_popup_text"
+                if (_preferences.language == 'japanese') or (_preferences.language == 'mandarin'):
+                    style "chapterend_textbutton_text"
+                else:
+                    style "chapterend_title_popup_text"
                 xalign 0.5
                 yalign 0.5
             text _("Visit the A.S.H. Archive to see your progress,\nincluding Collected Items, Secret Snaps of amazing\nmoments caught in 4K, and extra memories of Krisis\nand the Vezcrewneers in the Seasonal Album!"):
@@ -1035,10 +1038,19 @@ screen chapterend_popup(msg):
                 spacing 50
                 textbutton _("Check Now!") action [ShowMenu("inventory"),Hide("chapterend_popup"),Function(renpy.hide_screen, "OverlayScreen1")] style "chapterend_textbutton":
                     text_align 0.5
-        
-    imagebutton idle "gui/archive/Seasonal Album/btn/btn_close_2.png" action Hide("chapterend_popup"):
-        xpos 0.655
-        ypos 0.305
+
+    if (_preferences.language=='japanese'):
+        imagebutton idle "gui/archive/Seasonal Album/btn/btn_close_2.png" action Hide("chapterend_popup"):
+            xpos 0.73  
+            ypos 0.31
+    elif (_preferences.language=='mandarin'):
+        imagebutton idle "gui/archive/Seasonal Album/btn/btn_close_2.png" action Hide("chapterend_popup"):
+            xpos 0.65 
+            ypos 0.31
+    else:    
+        imagebutton idle "gui/archive/Seasonal Album/btn/btn_close_2.png" action Hide("chapterend_popup"):
+            xpos 0.655
+            ypos 0.305
 
 
 style chapterend_popup_text is empty
@@ -1421,7 +1433,7 @@ screen navigation:
         ## Define the style for the textbuttons
         
         if main_menu:
-            textbutton _("New Game") action Start() style "navigation_textbutton"
+            textbutton _("New Game") action ShowMenu("confirm_start") style "navigation_textbutton" 
             textbutton _("Continue") action Continue() style "navigation_textbutton"
 
         else:
@@ -1881,19 +1893,21 @@ style return_button:
 
 screen about():
     tag menu
-    
     ## This use statement includes the game_menu screen inside this one. The
     ## vbox child is then included inside the viewport inside the game_menu
     ## screen.
-    use game_menu(_("About"), scroll="viewport"):
+    use game_menu(_("About"), scroll="viewport",yinitial=0.0):
         
         viewport:
-            viewport_xsize 1400
+            style_prefix "about"
+            viewport_xsize 1200
             viewport_ysize 1000
-            child_size (1400, 2000)
+            child_size (1200, 3000)
             yalign 0.0
             xpos 0.08
-            style_prefix "about"
+            # scrollbars "vertical"
+            # mousewheel True
+            # draggable True
             vbox:
                 image "images/cvisual/main_logo.png":
                     xalign 0.5
@@ -2096,13 +2110,41 @@ screen about():
                     xalign 0.5
                 vbox:
                     xysize (1200,60)
-                # textbutton _("Play Credits") action [Function(get_credits)] style "menuback_textbutton":
-                #     xalign 0.5
+                textbutton _("Play Credits") action ShowMenu("video_credits") style "chapterend_textbutton":
+                    xalign 0.5
             
-image credits_v3 = Movie(play="movies/credits_v3.webm",channel='movie')
-screen credit_video():
+# image credits_v3 = Movie(play="movies/credits_v3.webm",channel='movie')
+screen video_credits():
     modal True
-    add "credits_v3"
+    style_prefix "confirm"
+    add "transparent2.png" xpos -0.1 ypos -0.8
+    frame:
+
+        vbox:
+            xalign .55
+            yalign .5
+            spacing 45
+
+            label _("Do you want to watch the video?"):
+                style "confirm_prompt_text"
+                xalign 0.5
+                yalign 0.5
+
+            hbox:
+                xalign 0.5
+                yalign 0.7
+                spacing 50
+
+                textbutton _("Yes") action Start("video_scene")   style "menuback_textbutton"
+                textbutton _("No") action Hide("video_credits")  style "menuback_textbutton" 
+
+# Define the video scene
+label video_scene():
+    $ renpy.movie_cutscene("movies/credits_v3.webm",stop_music=False)
+
+# Function to return to credits screen after video ends
+label ReturnToMainMenu():
+    show screen main_menu
        
 
 style about_label is gui_label
@@ -2195,9 +2237,9 @@ screen file_slots(title):
                         text FileSaveName(slot):
                             style "chapterend_textbutton_text"
                         # this is for debug    
-                        textbutton _("delete") action FileDelete(slot):
-                            style "quick_menu_text"
-                            ypos -0.9
+                        # textbutton _("delete") action FileDelete(slot):
+                        #     style "quick_menu_text"
+                        #     ypos -0.9
 
                         key "save_delete" action FileDelete(slot)
                         
@@ -2320,8 +2362,8 @@ screen preferences():
                     label _("Language") style "setting_text"
                     # Real languages should go alphabetical order by English name.
                     textbutton _("English") text_font "DejaVuSans.ttf" action Language(None)
-                    textbutton _("繁體中文") text_font "GlowSansSC-Normal-Regular.ttf" action Language("mandarin")
-                    textbutton _("日本語") text_font "GlowSansSC-Normal-Regular.ttf" action Language("japanese")
+                    textbutton _("繁體中文") text_font "GlowSansSC-Normal-Regular.ttf" action [Language("mandarin"),Start('after_load')]
+                    textbutton _("日本語") text_font "GlowSansSC-Normal-Regular.ttf" action [Language("japanese"),Start('after_load')]
 
 
                 ## Additional vboxes of type "radio_pref" or "check_pref" can be
@@ -2765,11 +2807,27 @@ screen confirm(message, yes_action, no_action):
 #confirm start screen
 screen confirm_start:
     modal True
-    add "system/system_popup.png" xpos 0.3 ypos 0.2
-    hbox:
-        text _("Are you sure you want to start a new game?") xpos 1.2 ypos 4.3
-        textbutton _("Yes") action Start() xpos 1.5 ypos 4.6
-        textbutton _("No") action Function(renpy.hide_screen, "confirm_start") xpos 1.8 ypos 4.6
+    style_prefix "confirm"
+    add "transparent2.png" xpos -0.1 ypos -0.8
+    frame:
+
+        vbox:
+            xalign .55
+            yalign .5
+            spacing 45
+
+            label _("Are you sure you want to start a new game?"):
+                style "confirm_prompt_text"
+                xalign 0.5
+                yalign 0.5
+
+            hbox:
+                xalign 0.5
+                yalign 0.7
+                spacing 50
+
+                textbutton _("Yes") action Start() style "menuback_textbutton"
+                textbutton _("No") action Function(renpy.hide_screen, "confirm_start") style "menuback_textbutton"
 
 style confirm_frame is gui_frame
 style confirm_prompt is gui_prompt

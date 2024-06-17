@@ -498,199 +498,21 @@ init:
     image spr_com_26_img = "images/comic/spr/spr_com_26.png"
 
 # キャラクター定義
-define vanta_char = Character("", color="#ffffff", window_style='vanta_window', namebox_style="vanta_namebox")
-define wilson_char = Character("", color="#ffffff", window_style='wilson_window', namebox_style="wilson_namebox")
-define zali_char = Character("", color="#ffffff", window_style='zali_window', namebox_style="zali_namebox")
-define vandw_char = Character("", color="#ffffff", window_style='vandw_window', namebox_style="vandw_namebox")
-define wandv_char = Character("", color="#ffffff", window_style='wandv_window', namebox_style="wandv_namebox")
-define vandz_char = Character("", color="#ffffff", window_style='vandz_window', namebox_style="vandz_namebox")
-define zandw_char = Character("", color="#ffffff", window_style='zandw_window', namebox_style="zandw_namebox")
-define vandc_char = Character("", color="#ffffff", window_style='vandc_window', namebox_style="vandc_namebox")
-define npc1_char = Character("", color="#ffffff", window_style='npc_window', namebox_style="npc01_namebox")
-define npc2_char = Character("", color="#ffffff", window_style='npc_window', namebox_style="npc02_namebox")
-define npc3_char = Character("", color="#ffffff", window_style='npc_window', namebox_style="npc03_namebox")
-define npc4_char = Character("", color="#ffffff", window_style='npc_window', namebox_style="npc04_namebox")
-define npc5_char = Character("", color="#ffffff", window_style='npc_window', namebox_style="npc05_namebox")
-define npc6_char = Character("", color="#ffffff", window_style='npc_window', namebox_style="npc06_namebox")
+# define vanta_char = Character("", color="#ffffff", window_style='vanta_window', namebox_style="vanta_namebox")
+# define wilson_char = Character("", color="#ffffff", window_style='wilson_window', namebox_style="wilson_namebox")
+# define zali_char = Character("", color="#ffffff", window_style='zali_window', namebox_style="zali_namebox")
+# define vandw_char = Character("", color="#ffffff", window_style='vandw_window', namebox_style="vandw_namebox")
+# define wandv_char = Character("", color="#ffffff", window_style='wandv_window', namebox_style="wandv_namebox")
+# define vandz_char = Character("", color="#ffffff", window_style='vandz_window', namebox_style="vandz_namebox")
+# define zandw_char = Character("", color="#ffffff", window_style='zandw_window', namebox_style="zandw_namebox")
+# define vandc_char = Character("", color="#ffffff", window_style='vandc_window', namebox_style="vandc_namebox")
+# define npc1_char = Character("", color="#ffffff", window_style='npc_window', namebox_style="npc01_namebox")
+# define npc2_char = Character("", color="#ffffff", window_style='npc_window', namebox_style="npc02_namebox")
+# define npc3_char = Character("", color="#ffffff", window_style='npc_window', namebox_style="npc03_namebox")
+# define npc4_char = Character("", color="#ffffff", window_style='npc_window', namebox_style="npc04_namebox")
+# define npc5_char = Character("", color="#ffffff", window_style='npc_window', namebox_style="npc05_namebox")
+# define npc6_char = Character("", color="#ffffff", window_style='npc_window', namebox_style="npc06_namebox")
 
-# キャラクター画像の定義
-init:
-    image van_sum_nor = "images/chara/van_sum_nor.png"
-    image van_sum_thi = "images/chara/van_sum_thi.png"
-    image van_sum_ser = "images/chara/van_sum_ser.png"
-    image van_sum_hap = "images/chara/van_sum_hap.png"
-    image van_sum_sur = "images/chara/van_sum_sur.png"
-    image van_sum_emb = "images/chara/van_sum_emb.png"
-    image van_sum_con = "images/chara/van_sum_con.png"
-
-    image van_ci_nor = "images/chara/van_ci_nor.png"
-    image van_ci_thi = "images/chara/van_ci_thi.png"
-    image van_ci_ser = "images/chara/van_ci_ser.png"
-    image van_ci_hap = "images/chara/van_ci_hap.png"
-    image van_ci_sur = "images/chara/van_ci_sur.png"
-    image van_ci_emb = "images/chara/van_ci_emb.png"
-    image van_ci_con = "images/chara/van_ci_con.png"
-    image van_ci_3 = "images/chara/van_ci_3.png" 
-
-    image van_hr_nor = "images/chara/van_hr_nor.png"
-    image van_hr_thi = "images/chara/van_hr_thi.png"
-    image van_hr_ser = "images/chara/van_hr_ser.png"
-    image van_hr_hap = "images/chara/van_hr_hap.png"
-    image van_hr_sur = "images/chara/van_hr_sur.png"
-    image van_hr_emb = "images/chara/van_hr_emb.png"
-    image van_hr_con = "images/chara/van_hr_con.png"
-    image van_hr_3 = "images/chara/van_hr_3.png"
-
-    image wil_ci_nor = "images/chara/wil_ci_nor.png"
-    image wil_ci_thi = "images/chara/wil_ci_thi.png"
-    image wil_ci_ser = "images/chara/wil_ci_ser.png"
-    image wil_ci_hap = "images/chara/wil_ci_hap.png"
-    image wil_ci_sur = "images/chara/wil_ci_sur.png"
-    
-    image wil_hr_nor = "images/chara/wil_hr_nor.png"
-    image wil_hr_thi = "images/chara/wil_hr_thi.png"
-    image wil_hr_ser = "images/chara/wil_hr_ser.png"
-    image wil_hr_hap = "images/chara/wil_hr_hap.png"
-    image wil_hr_sur = "images/chara/wil_hr_sur.png"
-
-    image zal_ci_nor = "images/chara/zal_ci_nor.png"
-    image zal_ci_thi = "images/chara/zal_ci_thi.png"
-    image zal_ci_ser = "images/chara/zal_ci_ser.png"
-    image zal_ci_hap = "images/chara/zal_ci_hap.png"
-    image zal_ci_sur = "images/chara/zal_ci_sur.png"
-    
-    image zal_hr_nor = "images/chara/zal_hr_nor.png"
-    image zal_hr_thi = "images/chara/zal_hr_thi.png"
-    image zal_hr_ser = "images/chara/zal_hr_ser.png"
-    image zal_hr_hap = "images/chara/zal_hr_hap.png"
-    image zal_hr_sur = "images/chara/zal_hr_sur.png"
-    
-    image crew1_nor_img = "images/chara/crew1_nor.png"
-    image crew1_3_img = "images/chara/crew1_3.png"
-    image crew3_nor_img = "images/chara/crew3_nor.png"
-    image crew3_ang_img = "images/chara/crew3_ang.png"
-    image crew3_hap_img = "images/chara/crew3_hap.png"
-    image crew3_3_img = "images/chara/crew3_3.png"
-
-    image npc1_img = "images/chara/npc_01.png"
-    image npc2_img = "images/chara/npc_02.png"
-    image npc3_img = "images/chara/npc_03.png"
-    image npc4_img = "images/chara/npc_04.png"
-    image npc5_img = "images/chara/npc_05.png"
-    image npc6_img = "images/chara/npc_06.png"
-
-    image sum_cv_img = "images/cvisual/sum_cv.png"
-    image aut_cv_img = "images/cvisual/aut_cv.png"
-    image win_cv_img = "images/cvisual/win_cv.png"
-    image spr_cv_img = "images/cvisual/spr_cv.png"
-
-    image sum_bg_beach1_img = "images/bg/sum_bg_beach_01.png"
-    image sum_bg_beach2_img = "images/bg/sum_bg_beach_02.png"
-    image sum_bg_beach3_img = "images/bg/sum_bg_beach_03.png"
-    image sum_bg_beach4_img = "images/bg/sum_bg_beach_04.png"
-    image sum_bg_shop1_img = "images/bg/sum_bg_shop_01.png"
-    image sum_bg_shop2_img = "images/bg/sum_bg_shop_02.png"
-
-    image aut_bg_village1_img = "images/bg/aut_bg_village_01.png"
-    image aut_bg_village2_img = "images/bg/aut_bg_village_02.png"
-    image aut_bg_forest1_img = "images/bg/aut_bg_forest_01.png"
-    image aut_bg_forest2_img = "images/bg/aut_bg_forest_02.png"
-    image aut_bg_forest3_img = "images/bg/aut_bg_forest_03.png"
-
-    image win_bg_office1_img = "images/bg/win_bg_office_01.png"
-    image win_bg_office2_img = "images/bg/win_bg_office_02.png"
-    image win_bg_shop_img = "images/bg/win_bg_shop_01.png"
-    image win_bg_park_img = "images/bg/win_bg_park_01.png"
-    image win_bg_home_img = "images/bg/win_bg_home_01.png"
-    image win_bg_street1_img = "images/bg/win_bg_street_01.png"
-    image win_bg_street2_img = "images/bg/win_bg_street_02.png"
-    image win_bg_run_img = "images/bg/win_bg_run.png"
-
-    image spr_bg_office1_img = "images/bg/spr_bg_office_01.png"
-    image spr_bg_buil1_img = "images/bg/spr_bg_buil_01.png"
-    image spr_bg_buil2_img = "images/bg/spr_bg_buil_02.png"
-    image spr_bg_lab1_img = "images/bg/spr_bg_lab_01.png"
-    image spr_bg_lab2_img = "images/bg/spr_bg_lab_02.png"
-    image spr_bg_hall1_img = "images/bg/spr_bg_hall_01.png"
-    image spr_bg_hall2_img = "images/bg/spr_bg_hall_02.png"
-
-    image sum_st_btst_img = "images/still/sum_st_btst.png"
-    image sum_st_bten_img = "images/still/sum_st_bten.png"
-    image sum_st_fny_img = "images/still/sum_st_fny.png"
-    image sum_edcg_img = "images/still/sum_st_edcg.png"
-
-    image aut_st_btst_img = "images/still/aut_st_btst.png"
-    image aut_st_bten_img = "images/still/aut_st_bten.png"
-    image aut_st_fny_img = "images/still/aut_st_fny.png"
-    image aut_edcg_img = "images/still/aut_st_edcg.png"
-
-    image win_st_btst_img = "images/still/win_st_btst.png"
-    image win_st_bten_img = "images/still/win_st_bten.png"
-    image win_st_fny_img = "images/still/win_st_fny.png"
-    image win_edcg_img = "images/still/win_st_edcg.png"
-
-    image spr_st_wilson_img = "images/still/spr_st_wilson.png"
-    image spr_st_zali_img = "images/still/spr_st_zali.png"
-    image spr_st_fny_img = "images/still/spr_st_fny.png"
-    image spr_edcg_img = "images/still/spr_st_edcg.png"
-
-    image com_base_img = "images/comic/com_base.png"
-
-    image sum_com_1_img = "images/comic/sum_com_1.png"
-    image sum_com_2_img = "images/comic/sum_com_2.png"
-    image sum_com_3_img = "images/comic/sum_com_3.png"
-    image sum_com_4_img = "images/comic/sum_com_4.png"
-    image sum_com_5_img = "images/comic/sum_com_5.png"
-    image sum_com_6_img = "images/comic/sum_com_6.png"
-    image sum_com_7_img = "images/comic/sum_com_7.png"
-    image sum_com_8_img = "images/comic/sum_com_8.png"
-
-    image aut_com_1_img = "images/comic/aut_com_1.png"
-    image aut_com_2_img = "images/comic/aut_com_2.png"
-    image aut_com_3_img = "images/comic/aut_com_3.png"
-    image aut_com_4_img = "images/comic/aut_com_4.png"
-    image aut_com_5_img = "images/comic/aut_com_5.png"
-    image aut_com_6_img = "images/comic/aut_com_6.png"
-    image aut_com_7_img = "images/comic/aut_com_7.png"
-    image aut_com_8_img = "images/comic/aut_com_8.png"
-    image aut_com_9_img = "images/comic/aut_com_9.png"
-    image aut_com_10_img = "images/comic/aut_com_10.png"
-
-    image win_com_1_img = "images/comic/win_com_1.png"
-    image win_com_2_img = "images/comic/win_com_2.png"
-    image win_com_3_img = "images/comic/win_com_3.png"
-    image win_com_4_img = "images/comic/win_com_4.png"
-    image win_com_5_img = "images/comic/win_com_5.png"
-
-    image spr_com_1_img = "images/comic/spr/spr_com_01.png"
-    image spr_com_2_img = "images/comic/spr/spr_com_02.png"
-    image spr_com_3_img = "images/comic/spr/spr_com_03.png"
-    image spr_com_4_img = "images/comic/spr/spr_com_04.png"
-    image spr_com_5_img = "images/comic/spr/spr_com_05.png"
-    image spr_com_6_img = "images/comic/spr/spr_com_06.png"
-    image spr_com_7_img = "images/comic/spr/spr_com_07.png"
-    image spr_com_8_img = "images/comic/spr/spr_com_08.png"
-    image spr_com_9_img = "images/comic/spr/spr_com_09.png"
-    image spr_com_10_img = "images/comic/spr/spr_com_10.png"
-    image spr_com_11_img = "images/comic/spr/spr_com_11.png"
-    image spr_com_12_img = "images/comic/spr/spr_com_12.png"
-    image spr_com_13_img = "images/comic/spr/spr_com_13.png"
-    image spr_com_14_img = "images/comic/spr/spr_com_14.png"
-    image spr_com_15_img = "images/comic/spr/spr_com_15.png"
-    image spr_com_16_img = "images/comic/spr/spr_com_16.png"
-    image spr_com_17_img = "images/comic/spr/spr_com_17.png"
-    image spr_com_18_img = "images/comic/spr/spr_com_18.png"
-    image spr_com_19_img = "images/comic/spr/spr_com_19.png"
-    image spr_com_20_img = "images/comic/spr/spr_com_20.png"
-    image spr_com_21_img = "images/comic/spr/spr_com_21.png"
-    image spr_com_22_img = "images/comic/spr/spr_com_22.png"
-    image spr_com_23_img = "images/comic/spr/spr_com_23.png"
-    image spr_com_24_img = "images/comic/spr/spr_com_24.png"
-    image spr_com_25_img = "images/comic/spr/spr_com_25.png"
-    image spr_com_26_img = "images/comic/spr/spr_com_26.png"
-
-    ### spring ending cg
-    # image spr_st_edcg_v = Movie(play="movies/Vantacrew.webm")
 
 
 
@@ -817,7 +639,7 @@ label splashscreen:
     show white
     $ renpy.music.play("audio/main_theme.mp3", channel="music", loop=True)
     # Display the video
-    $ renpy.movie_cutscene("movies/testingnew.webm", loops=0, stop_music=False) 
+    $ renpy.movie_cutscene("movies/60 seconds.webm", loops=20, stop_music=False) 
     show white with dissolve
     # show 5 with dissolve
     pause 0.5
@@ -1304,7 +1126,317 @@ label start:
     $ persistent._clear()
     $ renpy.clear_retain()
     $ renpy.restart_interaction() 
-    call chapter_1 from _call_chapter_1
+    
+    jump chapter_1 
+    return
+label after_load:
+    if (_preferences.language == "japanese"):
+        style vanta_namebox:
+            background "gui/gui/jp/ui_namebox_vanta_jp.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style wilson_namebox:
+            background "gui/gui/jp/ui_namebox_wilson_jp.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style zali_namebox:
+            background "gui/gui/jp/ui_namebox_zali_jp.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style vandw_namebox:
+            background "gui/gui/jp/ui_namebox_v&w_jp.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style wandv_namebox:
+            background "gui/gui/jp/ui_namebox_w&v_jp.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style vandz_namebox:
+            background "gui/gui/jp/ui_namebox_z&v_jp.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style zandw_namebox:
+            background "gui/gui/jp/ui_namebox_z&w_jp.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style vandc_namebox:
+            background "gui/gui/jp/ui_namebox_v&c_jp.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+        style npc01_namebox:
+            background "gui/gui/jp/ui_namebox_npc03_jp.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style npc02_namebox:
+            background "gui/gui/jp/ui_namebox_npc02_jp.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style npc03_namebox:
+            background "gui/gui/jp/ui_namebox_npc01_jp.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style npc04_namebox:
+            background "gui/gui/jp/ui_namebox_npc04_jp.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style npc05_namebox:
+            background "gui/gui/jp/ui_namebox_npc05_jp.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style npc06_namebox:
+            background "gui/gui/jp/ui_namebox_npc06_jp.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+    elif (_preferences.language == "mandarin"):
+        style vanta_namebox:
+            background "gui/gui/ui_namebox_vanta.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style wilson_namebox:
+            background "gui/gui/ui_namebox_wilson.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style zali_namebox:
+            background "gui/gui/ui_namebox_zali.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style vandw_namebox:
+            background "gui/gui/ui_namebox_v&w.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style wandv_namebox:
+            background "gui/gui/ui_namebox_w+v.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style vandz_namebox:
+            background "gui/gui/ui_namebox_v&z.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style zandw_namebox:
+            background "gui/gui/ui_namebox_z&w.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style vandc_namebox:
+            background "gui/gui/ui_namebox_v&c.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+        
+        style npc01_namebox:
+            background "gui/gui/cn/ui_namebox_npc03_cn.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style npc02_namebox:
+            background "gui/gui/cn/ui_namebox_npc02_cn.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style npc03_namebox:
+            background "gui/gui/cn/ui_namebox_npc01_cn.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style npc04_namebox:
+            background "gui/gui/cn/ui_namebox_npc04_cn.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style npc05_namebox:
+            background "gui/gui/cn/ui_namebox_npc05_cn.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style npc06_namebox:
+            background "gui/gui/cn/ui_namebox_npc06_cn.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+    else:
+        style vanta_namebox:
+            background "gui/gui/ui_namebox_vanta.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style wilson_namebox:
+            background "gui/gui/ui_namebox_wilson.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style zali_namebox:
+            background "gui/gui/ui_namebox_zali.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style vandw_namebox:
+            background "gui/gui/ui_namebox_v&w.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style wandv_namebox:
+            background "gui/gui/ui_namebox_w+v.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style vandz_namebox:
+            background "gui/gui/ui_namebox_v&z.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style zandw_namebox:
+            background "gui/gui/ui_namebox_z&w.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style vandc_namebox:
+            background "gui/gui/ui_namebox_v&c.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+        style npc01_namebox:
+            background "gui/gui/ui_namebox_npc01.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style npc02_namebox:
+            background "gui/gui/ui_namebox_npc02.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style npc03_namebox:
+            background "gui/gui/ui_namebox_npc03.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style npc04_namebox:
+            background "gui/gui/ui_namebox_npc04.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style npc05_namebox:
+            background "gui/gui/ui_namebox_npc05.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+        style npc06_namebox:
+            background "gui/gui/ui_namebox_npc06.png"
+            xalign 0.135
+            xoffset 2 # これはピクセル単位での指定です。
+            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+        define vanta_char = Character("", color="#ffffff", window_style='vanta_window', namebox_style="vanta_namebox")
+        define wilson_char = Character("", color="#ffffff", window_style='wilson_window', namebox_style="wilson_namebox")
+        define zali_char = Character("", color="#ffffff", window_style='zali_window', namebox_style="zali_namebox")
+        define vandw_char = Character("", color="#ffffff", window_style='vandw_window', namebox_style="vandw_namebox")
+        define wandv_char = Character("", color="#ffffff", window_style='wandv_window', namebox_style="wandv_namebox")
+        define vandz_char = Character("", color="#ffffff", window_style='vandz_window', namebox_style="vandz_namebox")
+        define zandw_char = Character("", color="#ffffff", window_style='zandw_window', namebox_style="zandw_namebox")
+        define vandc_char = Character("", color="#ffffff", window_style='vandc_window', namebox_style="vandc_namebox")
+        define npc1_char = Character("", color="#ffffff", window_style='npc_window', namebox_style="npc01_namebox")
+        define npc2_char = Character("", color="#ffffff", window_style='npc_window', namebox_style="npc02_namebox")
+        define npc3_char = Character("", color="#ffffff", window_style='npc_window', namebox_style="npc03_namebox")
+        define npc4_char = Character("", color="#ffffff", window_style='npc_window', namebox_style="npc04_namebox")
+        define npc5_char = Character("", color="#ffffff", window_style='npc_window', namebox_style="npc05_namebox")
+        define npc6_char = Character("", color="#ffffff", window_style='npc_window', namebox_style="npc06_namebox")
     return
 
 
@@ -1706,7 +1838,13 @@ label chapter_1:
         active_set = "gallery"
         active_tab = "tab1"
     show screen OverlayScreen
-    show screen chapterend_popup("Congratulations! We ball!")
+
+    if _preferences.language == 'mandarin':
+        show screen chapterend_popup("恭喜！We ball！")
+    elif _preferences.language == 'japanese':
+        show screen chapterend_popup("We Ball! よく出来ましたね！")
+    else:
+        show screen chapterend_popup("Congratulations! We ball!")
     # Wait until the user clicks
     pause
     call chapter_2 from _call_chapter_2
@@ -2233,7 +2371,12 @@ label chapter_2:
     # Wait for user to click
     
     show screen OverlayScreen
-    show screen chapterend_popup("Congratulations! Let's make conversation!")
+    if _preferences.language == 'mandarin':
+        show screen chapterend_popup("恭喜！Let's make conversation！")
+    elif _preferences.language == 'japanese':
+        show screen chapterend_popup("お見事！Let's make conversation!")
+    else:
+        show screen chapterend_popup("Congratulations! Let's make conversation!")
     python:
         active_set ="gallery"
         active_tab ="tab2"
@@ -2643,7 +2786,12 @@ label chapter_3:
     ### achievement package ###
     ### ending screen ###
     show screen OverlayScreen
-    show screen chapterend_popup("Congratulations! Oh my goodness!")
+    if _preferences.language == 'mandarin':
+        show screen chapterend_popup("恭喜！Oh my goodness！")
+    elif _preferences.language == 'japanese':
+        show screen chapterend_popup("クリアおめでとう！Oh my goodness!")
+    else:
+        show screen chapterend_popup("Congratulations! Oh my goodness!")
     python:
         active_set = "gallery"
         active_tab = "tab3"
@@ -3159,8 +3307,8 @@ label chapter_4:
     # show screen OverlayScreen
 
     # ユーザーがクリックするまで待つ
-    pause 1.0
-    show white with dissolve 
+    # pause 1.0
+    # show white with dissolve 
     pause 3.0
     show screen unclickable_screen
     $ renpy.movie_cutscene("movies/spr_animation.webm", stop_music=False)

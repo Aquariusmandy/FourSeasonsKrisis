@@ -848,7 +848,7 @@ translate japanese strings:
 
     # renpy/common/00sync.rpy:622
     old "Continue"
-    new ""
+    new "つづきから"
 
     # renpy/common/00sync.rpy:646
     old "Sync Error"

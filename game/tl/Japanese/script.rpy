@@ -3397,3 +3397,137 @@ translate japanese spr_cho2_1_accepted_3ec36bf9:
 
     # "An idea pops into your mind, prompting you to glance over your desk."
     "そしてあなたはふと何かを思いつき、デスクの上に目をやる。"
+# TODO: Translation updated at 2024-06-17 18:03
+
+# game/script.rpy:1471
+translate japanese chapter_1_4d26ba66:
+
+    # "Further along, there's a trendy drink shop that catches everyone's attention with its visually captivating beverages."
+    "少し歩くと目の前にとてもオシャレなドリンクスタンドが現れた。浜辺にいる人々はそこで売られている映えドリンクに目を奪われていた。"
+
+# game/script.rpy:1755
+translate japanese after_accepted_2a6d308d:
+
+    # "You parkour through the other waving limbs to get closer to the octopus' body."
+    "あなたは暴れる触手の間を跳び回り、タコの胴体に近づいた。"
+
+# game/script.rpy:2447
+translate japanese chapter_3_8a692109:
+
+    # "They start to huddle around your legs to keep you from going out without them. Sometimes you wonder who's really in charge here."
+    "彼らはあなたが自分たちを置いたまま家から出ないように、あなたの足の周りにぐるぐると回っていた。ここを統轄しているのは一体どっちなんだか、あなたは時々そう思う。"
+
+# game/script.rpy:2657
+translate japanese win_cho_one2_accepted_86b1ccad:
+
+    # npc5_char "{size=45}WOW!! YOU'RE SO COOL!{/size}\nAre you Spider Guy? Oh, but... you're not wearing tights."
+    npc5_char "{size=45}すっげぇ！かっけぇー！！{/size}お兄ちゃんもしかしてスパイダーガイなの？あ、でも⋯⋯タイツ穿いてないね。"
+
+# game/script.rpy:2660
+translate japanese win_cho_one2_accepted_2ad43c44:
+
+    # vanta_char "I'm not Spider Guy! I'm a tyrant! A hero of Krisis!\nYeah, one of my fellow heroes does wear tights, but not all heroes wear tights!"
+    vanta_char "スパイダーガイなんかじゃない！俺は暴君！Krisisのヒーローだ！まぁ仲間の一人は確かにタイツを穿いてるけど、全てのヒーローがそういうわけじゃないからな！"
+
+# game/script.rpy:2852
+translate japanese chapter_4_16470f3b:
+
+    # wilson_char "Morning guys! You guys aren't seriously going without me, are you?"
+    wilson_char "二人ともおはーまさか僕抜きで行くつもりじゃないだろうね？"
+
+# game/script.rpy:2853
+translate japanese chapter_4_f996daac:
+
+    # zali_char " No, we were just talking about it. Don't worry!"
+    zali_char "まさか。ただ話していただけだよ。心配しないで！"
+
+# game/script.rpy:2862
+translate japanese chapter_4_978c5e36:
+
+    # wilson_char "I can't wait!"
+    wilson_char "楽しみー！"
+
+# game/script.rpy:2869
+translate japanese chapter_4_8967df9a:
+
+    # "Wilson walks over to the coffee maker and makes his French vanilla latte. He's about to add the French vanilla coffee creamer, like he normally does, until he realizes that it's not there."
+    "ウィルソンはコーヒーメーカーに向かい、フレンチバニララテを淹れる。いつものようにフレンチバニラクリーマーを入れようとしたが、それがもうないことに気づく。"
+
+# game/script.rpy:2890
+translate japanese chapter_4_e3a14541:
+
+    # wilson_char "You're a lifesaver, thank you!"
+    wilson_char "えっ救世主じゃん。サンキュー。"
+
+# game/script.rpy:2899
+translate japanese chapter_4_cd4efb2e:
+
+    # "Maple syrup would work very well with Wilson's coffee. Technically, the same can be said for the ice cream cake, but it's been in here for a while…"
+    "メープルシロップはウィルソンのコーヒーにピッタリなはず。もちろんアイスクリームケーキも合うと思うのだが⋯⋯暫くの間に放置されたままだ。"
+
+# game/script.rpy:2900
+translate japanese chapter_4_7effb56d:
+
+    # "But for the content, it's tempting to show off to Wilson. Even a few of the Vantacrew seem to snicker at the notion. You decide to give Wilson—"
+    "しかし、内容的にはウィルソンに見せびらかしたくなる。 バンタクルーの何匹かも、その考えにニヤニヤと笑っていた。あなたはウィルソンにーー"
+
+# game/script.rpy:2933
+translate japanese chapter_4_04b04b2b:
+
+    # wilson_char "Oh my god! I remember this! Didn't we get this from that one village we helped out?"
+    wilson_char "おっ、これ覚えてる！僕たちが助けてあげた村からもらったものじゃん。"
+
+# game/script.rpy:2934
+translate japanese chapter_4_ee28f3c3:
+
+    # vanta_char "Yeah! It's still good, not close to expiring or anything like that."
+    vanta_char "正解！まだまだ使えるし、期限間近とかでもないんだ。"
+
+# game/script.rpy:2935
+translate japanese chapter_4_3e3e6911:
+
+    # wilson_char "Now I really can't wait for my coffee! Thank you!"
+    wilson_char "今朝のコーヒーがマジで待ち遠しいーありがとう！"
+
+# game/script.rpy:2958
+translate japanese spr_cho2_1_accepted_ca80a00f:
+
+    # zali_char "Oh, I'm in the mood for that croissant, as always."
+    zali_char "ああ、クロワッサンが食べたい気分だよねーいつも通りに。"
+
+# game/script.rpy:2961
+translate japanese spr_cho2_1_accepted_c178eb45:
+
+    # vanta_char "You know, Zali, it's funny that you like croissants because they lowkey look like they're eggplant-shaped."
+    vanta_char "てかザリがクロワッサン好きだなんて何か可笑しくないか？茄子の形に見えないか？あれ。"
+
+# game/script.rpy:2972
+translate japanese spr_cho2_1_accepted_c3580d4d:
+
+    # "Now is the perfect time to give Zali the gift you've been holding onto for a while."
+    "あなたはずっとこのことを先延ばしにしてきた――今こそザリにプレゼントを贈る絶好のチャンスだ。"
+
+# game/script.rpy:2973
+translate japanese spr_cho2_1_accepted_4eb85061:
+
+    # "There's the eggplant-shaped candy: knowing how much he hates eggplant, it would be pretty funny to see his reaction to the gag gift. "
+    "茄子の形をしたキャンディーがある。彼がどれほどの茄子嫌いかを知っているだけに、このウケ狙いのプレゼントに対してどう反応するのかかなり気になる。"
+
+# game/script.rpy:2981
+translate japanese spr_cho2_1_accepted_caa1dbcf:
+
+    # "You grab the keychain from your desk and return to the kitchen. You tap Zali's shoulder to get his attention. When he turns his head, you show him the croissant keychain."
+    "あなたはデスクの上からストラップを手に取り、キッチンに戻ってザリの肩をぽんと叩く。彼が振り向くと、あなたはそのストラップを見せた。"
+
+# game/script.rpy:2983
+translate japanese spr_cho2_1_accepted_09ebc6d3:
+
+    # vanta_char "I got it from a souvenir shop while I was on a brief vacation in the summer. I've been meaning to give it to you sooner, but there hasn't been a good time lately."
+    vanta_char "この前夏の短期休暇に土産屋で手に入れたんだ。もっと早く渡そうと思っていたんだが、なかなかタイミングが掴めなくて⋯⋯。"
+
+# game/script.rpy:3009
+translate japanese spr_cho2_1_accepted_3358ce8e:
+
+    # vanta_char "Ah, that's how the shop made it. Don't worry, it doesn't taste like eggplant, I promise."
+    vanta_char "あー元々そういうデザインなんだ。でも全然茄子の味じゃないよ。本当だって。心配するな。"
+

@@ -376,7 +376,7 @@ define gui.vslider_borders = Borders(6, 6, 6, 6)
 
 ## What to do with unscrollable scrollbars in the gui. "hide" hides them, while
 ## None shows them.
-define gui.unscrollable = "hide"
+define gui.unscrollable = None
 
 
 ## History #####################################################################

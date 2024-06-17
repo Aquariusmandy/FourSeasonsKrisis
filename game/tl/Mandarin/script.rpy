@@ -3521,3 +3521,17 @@ translate mandarin spr_cho2_1_accepted_3358ce8e:
     # vanta_char "Ah, that's how the shop made it. Don't worry, it doesn't taste like eggplant, I promise."
     vanta_char "阿——店裡就是這樣設計的。安啦，我保證吃起來一點也不像茄子。"
 
+# TODO: Translation updated at 2024-06-17 17:45
+
+# game/script.rpy:2657
+translate mandarin win_cho_one2_accepted_86b1ccad:
+
+    # npc5_char "{size=45}WOW!! YOU'RE SO COOL!{/size}\nAre you Spider Guy? Oh, but... you're not wearing tights."
+    npc5_char "哇！你太酷了！\n你是蜘蛛哥嗎？哦，不過⋯⋯你沒有穿緊身衣。"
+
+# game/script.rpy:2660
+translate mandarin win_cho_one2_accepted_2ad43c44:
+
+    # vanta_char "I'm not Spider Guy! I'm a tyrant! A hero of Krisis!\nYeah, one of my fellow heroes does wear tights, but not all heroes wear tights!"
+    vanta_char "我不是蜘蛛哥！我是Krisis的暴君！英雄哥！\n然後沒錯，我的某位夥伴英雄的確是穿緊身衣，但不是所有的英雄都穿緊身衣！"
+
