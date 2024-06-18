@@ -945,3 +945,11 @@ translate mandarin strings:
     old "Are you sure you want to start a new game?"
     new "確定開始新遊戲？\n未保存進度將不做保留。"
 
+# TODO: Translation updated at 2024-06-18 13:39
+
+translate mandarin strings:
+
+    # game/screens.rpy:2241
+    old "{size=20}delete save{/size}"
+    new ""
+

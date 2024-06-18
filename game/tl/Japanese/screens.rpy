@@ -48,7 +48,7 @@ translate japanese strings:
 
     # game/screens.rpy:1097
     old "Quit"
-    new "戻る"
+    new "ゲーム終了"
 
     # game/screens.rpy:1151
     old "ResetInventory"
@@ -945,3 +945,10 @@ translate japanese strings:
     old "Are you sure you want to start a new game?"
     new "新しくゲームを始めますか？\n現在のデータは失われます。"
 
+# TODO: Translation updated at 2024-06-18 13:39
+
+translate japanese strings:
+
+    # game/screens.rpy:2241
+    old "{size=20}delete save{/size}"
+    new ""

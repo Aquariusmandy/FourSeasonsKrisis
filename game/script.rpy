@@ -498,20 +498,20 @@ init:
     image spr_com_26_img = "images/comic/spr/spr_com_26.png"
 
 # キャラクター定義
-# define vanta_char = Character("", color="#ffffff", window_style='vanta_window', namebox_style="vanta_namebox")
-# define wilson_char = Character("", color="#ffffff", window_style='wilson_window', namebox_style="wilson_namebox")
-# define zali_char = Character("", color="#ffffff", window_style='zali_window', namebox_style="zali_namebox")
-# define vandw_char = Character("", color="#ffffff", window_style='vandw_window', namebox_style="vandw_namebox")
-# define wandv_char = Character("", color="#ffffff", window_style='wandv_window', namebox_style="wandv_namebox")
-# define vandz_char = Character("", color="#ffffff", window_style='vandz_window', namebox_style="vandz_namebox")
-# define zandw_char = Character("", color="#ffffff", window_style='zandw_window', namebox_style="zandw_namebox")
-# define vandc_char = Character("", color="#ffffff", window_style='vandc_window', namebox_style="vandc_namebox")
-# define npc1_char = Character("", color="#ffffff", window_style='npc_window', namebox_style="npc01_namebox")
-# define npc2_char = Character("", color="#ffffff", window_style='npc_window', namebox_style="npc02_namebox")
-# define npc3_char = Character("", color="#ffffff", window_style='npc_window', namebox_style="npc03_namebox")
-# define npc4_char = Character("", color="#ffffff", window_style='npc_window', namebox_style="npc04_namebox")
-# define npc5_char = Character("", color="#ffffff", window_style='npc_window', namebox_style="npc05_namebox")
-# define npc6_char = Character("", color="#ffffff", window_style='npc_window', namebox_style="npc06_namebox")
+define vanta_char = Character("", color="#ffffff", window_style='vanta_window', namebox_style="vanta_namebox")
+define wilson_char = Character("", color="#ffffff", window_style='wilson_window', namebox_style="wilson_namebox")
+define zali_char = Character("", color="#ffffff", window_style='zali_window', namebox_style="zali_namebox")
+define vandw_char = Character("", color="#ffffff", window_style='vandw_window', namebox_style="vandw_namebox")
+define wandv_char = Character("", color="#ffffff", window_style='wandv_window', namebox_style="wandv_namebox")
+define vandz_char = Character("", color="#ffffff", window_style='vandz_window', namebox_style="vandz_namebox")
+define zandw_char = Character("", color="#ffffff", window_style='zandw_window', namebox_style="zandw_namebox")
+define vandc_char = Character("", color="#ffffff", window_style='vandc_window', namebox_style="vandc_namebox")
+define npc1_char = Character("", color="#ffffff", window_style='npc_window', namebox_style="npc01_namebox")
+define npc2_char = Character("", color="#ffffff", window_style='npc_window', namebox_style="npc02_namebox")
+define npc3_char = Character("", color="#ffffff", window_style='npc_window', namebox_style="npc03_namebox")
+define npc4_char = Character("", color="#ffffff", window_style='npc_window', namebox_style="npc04_namebox")
+define npc5_char = Character("", color="#ffffff", window_style='npc_window', namebox_style="npc05_namebox")
+define npc6_char = Character("", color="#ffffff", window_style='npc_window', namebox_style="npc06_namebox")
 
 
 
@@ -639,16 +639,326 @@ label splashscreen:
     show white
     $ renpy.music.play("audio/main_theme.mp3", channel="music", loop=True)
     # Display the video
-    $ renpy.movie_cutscene("movies/60 seconds.webm", loops=20, stop_music=False) 
+    $ renpy.movie_cutscene("movies/splash_60.webm", loops=20, stop_music=False) 
     show white with dissolve
     # show 5 with dissolve
-    pause 0.5
-
+    pause 1.0
+    hide white with dissolve
     # Hide the image with dissolve
     # hide 5 
     return
 image red_dot = "gui/menubutton/red_dot.png" 
 image white = "temp/white.jpg"
+
+# label update_namebox:
+#     if (_preferences.language == "japanese"):
+#         style vanta_namebox:
+#             background "gui/gui/jp/ui_namebox_vanta_jp.png"
+#             xalign 0.135
+#             xoffset 2 # これはピクセル単位での指定です。
+#             yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+#             yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+#         style wilson_namebox:
+#             background "gui/gui/jp/ui_namebox_wilson_jp.png"
+#             xalign 0.135
+#             xoffset 2 # これはピクセル単位での指定です。
+#             yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+#             yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+#         style zali_namebox:
+#             background "gui/gui/jp/ui_namebox_zali_jp.png"
+#             xalign 0.135
+#             xoffset 2 # これはピクセル単位での指定です。
+#             yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+#             yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+#         style vandw_namebox:
+#             background "gui/gui/jp/ui_namebox_v&w_jp.png"
+#             xalign 0.135
+#             xoffset 2 # これはピクセル単位での指定です。
+#             yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+#             yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+#         style wandv_namebox:
+#             background "gui/gui/jp/ui_namebox_w&v_jp.png"
+#             xalign 0.135
+#             xoffset 2 # これはピクセル単位での指定です。
+#             yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+#             yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+#         style vandz_namebox:
+#             background "gui/gui/jp/ui_namebox_z&v_jp.png"
+#             xalign 0.135
+#             xoffset 2 # これはピクセル単位での指定です。
+#             yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+#             yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+#         style zandw_namebox:
+#             background "gui/gui/jp/ui_namebox_z&w_jp.png"
+#             xalign 0.135
+#             xoffset 2 # これはピクセル単位での指定です。
+#             yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+#             yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+#         style vandc_namebox:
+#             background "gui/gui/jp/ui_namebox_v&c_jp.png"
+#             xalign 0.135
+#             xoffset 2 # これはピクセル単位での指定です。
+#             yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+#             yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+#         style npc01_namebox:
+#             background "gui/gui/jp/ui_namebox_npc03_jp.png"
+#             xalign 0.135
+#             xoffset 2 # これはピクセル単位での指定です。
+#             yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+#             yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+#         style npc02_namebox:
+#             background "gui/gui/jp/ui_namebox_npc02_jp.png"
+#             xalign 0.135
+#             xoffset 2 # これはピクセル単位での指定です。
+#             yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+#             yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+#         style npc03_namebox:
+#             background "gui/gui/jp/ui_namebox_npc01_jp.png"
+#             xalign 0.135
+#             xoffset 2 # これはピクセル単位での指定です。
+#             yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+#             yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+#         style npc04_namebox:
+#             background "gui/gui/jp/ui_namebox_npc04_jp.png"
+#             xalign 0.135
+#             xoffset 2 # これはピクセル単位での指定です。
+#             yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+#             yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+#         style npc05_namebox:
+#             background "gui/gui/jp/ui_namebox_npc05_jp.png"
+#             xalign 0.135
+#             xoffset 2 # これはピクセル単位での指定です。
+#             yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+#             yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+#         style npc06_namebox:
+#             background "gui/gui/jp/ui_namebox_npc06_jp.png"
+#             xalign 0.135
+#             xoffset 2 # これはピクセル単位での指定です。
+#             yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+#             yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+#     elif (_preferences.language == "mandarin"):
+#         style vanta_namebox:
+#             background "gui/gui/ui_namebox_vanta.png"
+#             xalign 0.135
+#             xoffset 2 # これはピクセル単位での指定です。
+#             yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+#             yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+#         style wilson_namebox:
+#             background "gui/gui/ui_namebox_wilson.png"
+#             xalign 0.135
+#             xoffset 2 # これはピクセル単位での指定です。
+#             yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+#             yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+#         style zali_namebox:
+#             background "gui/gui/ui_namebox_zali.png"
+#             xalign 0.135
+#             xoffset 2 # これはピクセル単位での指定です。
+#             yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+#             yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+#         style vandw_namebox:
+#             background "gui/gui/ui_namebox_v&w.png"
+#             xalign 0.135
+#             xoffset 2 # これはピクセル単位での指定です。
+#             yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+#             yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+#         style wandv_namebox:
+#             background "gui/gui/ui_namebox_w+v.png"
+#             xalign 0.135
+#             xoffset 2 # これはピクセル単位での指定です。
+#             yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+#             yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+#         style vandz_namebox:
+#             background "gui/gui/ui_namebox_v&z.png"
+#             xalign 0.135
+#             xoffset 2 # これはピクセル単位での指定です。
+#             yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+#             yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+#         style zandw_namebox:
+#             background "gui/gui/ui_namebox_z&w.png"
+#             xalign 0.135
+#             xoffset 2 # これはピクセル単位での指定です。
+#             yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+#             yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+#         style vandc_namebox:
+#             background "gui/gui/ui_namebox_v&c.png"
+#             xalign 0.135
+#             xoffset 2 # これはピクセル単位での指定です。
+#             yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+#             yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+        
+#         style npc01_namebox:
+#             background "gui/gui/cn/ui_namebox_npc03_cn.png"
+#             xalign 0.135
+#             xoffset 2 # これはピクセル単位での指定です。
+#             yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+#             yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+#         style npc02_namebox:
+#             background "gui/gui/cn/ui_namebox_npc02_cn.png"
+#             xalign 0.135
+#             xoffset 2 # これはピクセル単位での指定です。
+#             yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+#             yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+#         style npc03_namebox:
+#             background "gui/gui/cn/ui_namebox_npc01_cn.png"
+#             xalign 0.135
+#             xoffset 2 # これはピクセル単位での指定です。
+#             yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+#             yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+#         style npc04_namebox:
+#             background "gui/gui/cn/ui_namebox_npc04_cn.png"
+#             xalign 0.135
+#             xoffset 2 # これはピクセル単位での指定です。
+#             yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+#             yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+#         style npc05_namebox:
+#             background "gui/gui/cn/ui_namebox_npc05_cn.png"
+#             xalign 0.135
+#             xoffset 2 # これはピクセル単位での指定です。
+#             yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+#             yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+#         style npc06_namebox:
+#             background "gui/gui/cn/ui_namebox_npc06_cn.png"
+#             xalign 0.135
+#             xoffset 2 # これはピクセル単位での指定です。
+#             yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+#             yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+#     else:
+#         style vanta_namebox:
+#             background "gui/gui/ui_namebox_vanta.png"
+#             xalign 0.135
+#             xoffset 2 # これはピクセル単位での指定です。
+#             yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+#             yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+#         style wilson_namebox:
+#             background "gui/gui/ui_namebox_wilson.png"
+#             xalign 0.135
+#             xoffset 2 # これはピクセル単位での指定です。
+#             yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+#             yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+#         style zali_namebox:
+#             background "gui/gui/ui_namebox_zali.png"
+#             xalign 0.135
+#             xoffset 2 # これはピクセル単位での指定です。
+#             yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+#             yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+#         style vandw_namebox:
+#             background "gui/gui/ui_namebox_v&w.png"
+#             xalign 0.135
+#             xoffset 2 # これはピクセル単位での指定です。
+#             yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+#             yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+#         style wandv_namebox:
+#             background "gui/gui/ui_namebox_w+v.png"
+#             xalign 0.135
+#             xoffset 2 # これはピクセル単位での指定です。
+#             yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+#             yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+#         style vandz_namebox:
+#             background "gui/gui/ui_namebox_v&z.png"
+#             xalign 0.135
+#             xoffset 2 # これはピクセル単位での指定です。
+#             yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+#             yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+#         style zandw_namebox:
+#             background "gui/gui/ui_namebox_z&w.png"
+#             xalign 0.135
+#             xoffset 2 # これはピクセル単位での指定です。
+#             yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+#             yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+#         style vandc_namebox:
+#             background "gui/gui/ui_namebox_v&c.png"
+#             xalign 0.135
+#             xoffset 2 # これはピクセル単位での指定です。
+#             yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+#             yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+#         style npc01_namebox:
+#             background "gui/gui/ui_namebox_npc01.png"
+#             xalign 0.135
+#             xoffset 2 # これはピクセル単位での指定です。
+#             yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+#             yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+#         style npc02_namebox:
+#             background "gui/gui/ui_namebox_npc02.png"
+#             xalign 0.135
+#             xoffset 2 # これはピクセル単位での指定です。
+#             yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+#             yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+#         style npc03_namebox:
+#             background "gui/gui/ui_namebox_npc03.png"
+#             xalign 0.135
+#             xoffset 2 # これはピクセル単位での指定です。
+#             yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+#             yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+#         style npc04_namebox:
+#             background "gui/gui/ui_namebox_npc04.png"
+#             xalign 0.135
+#             xoffset 2 # これはピクセル単位での指定です。
+#             yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+#             yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+#         style npc05_namebox:
+#             background "gui/gui/ui_namebox_npc05.png"
+#             xalign 0.135
+#             xoffset 2 # これはピクセル単位での指定です。
+#             yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+#             yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+
+#         style npc06_namebox:
+#             background "gui/gui/ui_namebox_npc06.png"
+#             xalign 0.135
+#             xoffset 2 # これはピクセル単位での指定です。
+#             yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
+#             yoffset -285  # ネームボックスをピクセル単位で上に移動させる
+#     define vanta_char = Character("", color="#ffffff", window_style='vanta_window', namebox_style="vanta_namebox")
+#     define wilson_char = Character("", color="#ffffff", window_style='wilson_window', namebox_style="wilson_namebox")
+#     define zali_char = Character("", color="#ffffff", window_style='zali_window', namebox_style="zali_namebox")
+#     define vandw_char = Character("", color="#ffffff", window_style='vandw_window', namebox_style="vandw_namebox")
+#     define wandv_char = Character("", color="#ffffff", window_style='wandv_window', namebox_style="wandv_namebox")
+#     define vandz_char = Character("", color="#ffffff", window_style='vandz_window', namebox_style="vandz_namebox")
+#     define zandw_char = Character("", color="#ffffff", window_style='zandw_window', namebox_style="zandw_namebox")
+#     define vandc_char = Character("", color="#ffffff", window_style='vandc_window', namebox_style="vandc_namebox")
+#     define npc1_char = Character("", color="#ffffff", window_style='npc_window', namebox_style="npc01_namebox")
+#     define npc2_char = Character("", color="#ffffff", window_style='npc_window', namebox_style="npc02_namebox")
+#     define npc3_char = Character("", color="#ffffff", window_style='npc_window', namebox_style="npc03_namebox")
+#     define npc4_char = Character("", color="#ffffff", window_style='npc_window', namebox_style="npc04_namebox")
+#     define npc5_char = Character("", color="#ffffff", window_style='npc_window', namebox_style="npc05_namebox")
+#     define npc6_char = Character("", color="#ffffff", window_style='npc_window', namebox_style="npc06_namebox")
+#     return 
 
 init python:
 
@@ -672,15 +982,27 @@ init python:
     for i in items:
         name = i
         defaultname ="gui/archive/Collected Items/btn/btn_"+name+"_default.png"
+        jpdefault="gui/archive/Collected Items/btn/jp/btn_"+name+"_default_jp.png"
+        cndefault="gui/archive/Collected Items/btn/cn/btn_"+name+"_default_cn.png"
         hovername="gui/archive/Collected Items/btn/btn_"+name+"_hover.png"
+        jphover="gui/archive/Collected Items/btn/jp/btn_"+name+"_hover_jp.png"
+        cnhover="gui/archive/Collected Items/btn/cn/btn_"+name+"_hover_cn.png"
         lockname = "gui/archive/Collected Items/btn/btn_"+name+"_locked.png"
+        jplocked="gui/archive/Collected Items/btn/jp/btn_"+name+"_locked_jp.png"
+        cnlocked="gui/archive/Collected Items/btn/cn/btn_"+name+"_locked_cn.png"
         popname = "gui/archive/Collected Items/popup_"+name+".png"
         jppopname = "gui/archive/Collected Items/jp/popup_"+name+"_jp.png"
         cnpopname = "gui/archive/Collected Items/cn/popup_"+name+"_cn.png"
         itemlist[i]=[name,
                             defaultname,
+                            jpdefault,
+                            cndefault,
                             hovername,
+                            jphover,
+                            cnhover,
                             lockname,
+                            jplocked,
+                            cnlocked,
                             popname,
                             jppopname,
                             cnpopname
@@ -967,15 +1289,15 @@ init python:
     image_button_images = {
         "set1": {
             "tab1": [
-                {"name": itemlist['croissant'][0], "idle": itemlist['croissant'][1], "hover": itemlist['croissant'][2], "locked": itemlist['croissant'][3],"background": itemlist['croissant'][4],"jpbackground": itemlist['croissant'][5],"cnbackground": itemlist['croissant'][6] },
-                {"name": itemlist['drink'][0], "idle": itemlist['drink'][1], "hover": itemlist['drink'][2], "locked": itemlist['drink'][3], "background": itemlist['drink'][4],"jpbackground": itemlist['drink'][5],"cnbackground": itemlist['drink'][6] },
-                {"name": itemlist['takoyaki'][0], "idle": itemlist['takoyaki'][1], "hover": itemlist['takoyaki'][2], "locked": itemlist['takoyaki'][3], "background": itemlist['takoyaki'][4],"jpbackground": itemlist['takoyaki'][5],"cnbackground": itemlist['takoyaki'][6] },
-                {"name": itemlist['walkietalkie'][0], "idle": itemlist['walkietalkie'][1], "hover": itemlist['walkietalkie'][2], "locked": itemlist['walkietalkie'][3], "background": itemlist['walkietalkie'][4],"jpbackground": itemlist['walkietalkie'][5],"cnbackground": itemlist['walkietalkie'][6] },
-                {"name": itemlist['mushroom'][0], "idle": itemlist['mushroom'][1], "hover":itemlist['mushroom'][2] , "locked": itemlist['mushroom'][3], "background": itemlist['mushroom'][4],"jpbackground": itemlist['mushroom'][5],"cnbackground": itemlist['mushroom'][6] },
-                {"name": itemlist['maplesyrup'][0], "idle": itemlist['maplesyrup'][1], "hover": itemlist['maplesyrup'][2] , "locked": itemlist['maplesyrup'][3], "background": itemlist['maplesyrup'][4],"jpbackground": itemlist['maplesyrup'][5],"cnbackground": itemlist['maplesyrup'][6] },
-                {"name": itemlist['eggplant'][0], "idle": itemlist['eggplant'][1], "hover": itemlist['eggplant'][2], "locked": itemlist['eggplant'][3], "background": itemlist['eggplant'][4],"jpbackground": itemlist['eggplant'][5],"cnbackground": itemlist['eggplant'][6] },
-                {"name": itemlist['dietsoda'][0], "idle": itemlist['dietsoda'][1], "hover": itemlist['dietsoda'][2] , "locked": itemlist['dietsoda'][3], "background": itemlist['dietsoda'][4],"jpbackground": itemlist['dietsoda'][5],"cnbackground": itemlist['dietsoda'][6] },
-                {"name": itemlist['icecreamcake'][0], "idle": itemlist['icecreamcake'][1], "hover": itemlist['icecreamcake'][2] , "locked": itemlist['icecreamcake'][3], "background": itemlist['icecreamcake'][4],"jpbackground": itemlist['icecreamcake'][5],"cnbackground": itemlist['icecreamcake'][6] },
+                {"name": itemlist['croissant'][0], "idle": itemlist['croissant'][1],"jpidle":itemlist['croissant'][2],"cnidle":itemlist['croissant'][3], "hover":itemlist['croissant'][4],"jphover":itemlist['croissant'][5],"cnhover":itemlist['croissant'][6], "locked":itemlist['croissant'][7] ,"jplocked":itemlist['croissant'][8],"cnlocked":itemlist['croissant'][9],"background":itemlist['croissant'][10] ,"jpbackground":itemlist['croissant'][11] ,"cnbackground":itemlist['croissant'][12] },
+                {"name": itemlist['drink'][0], "idle": itemlist['drink'][1],"jpidle":itemlist['drink'][2],"cnidle":itemlist['drink'][3], "hover":itemlist['drink'][4],"jphover":itemlist['drink'][5],"cnhover":itemlist['drink'][6], "locked":itemlist['drink'][7] ,"jplocked":itemlist['drink'][8],"cnlocked":itemlist['drink'][9],"drink":itemlist['drink'][10] ,"jpbackground":itemlist['drink'][11] ,"cnbackground":itemlist['drink'][12] },
+                {"name": itemlist['takoyaki'][0], "idle": itemlist['takoyaki'][1],"jpidle":itemlist['takoyaki'][2],"cnidle":itemlist['takoyaki'][3], "hover":itemlist['takoyaki'][4],"jphover":itemlist['takoyaki'][5],"cnhover":itemlist['takoyaki'][6], "locked":itemlist['takoyaki'][7] ,"jplocked":itemlist['takoyaki'][8],"cnlocked":itemlist['takoyaki'][9],"background":itemlist['takoyaki'][10] ,"jpbackground":itemlist['takoyaki'][11] ,"cnbackground":itemlist['takoyaki'][12] },
+                {"name": itemlist['walkietalkie'][0], "idle": itemlist['walkietalkie'][1],"jpidle":itemlist['walkietalkie'][2],"cnidle":itemlist['walkietalkie'][3], "hover":itemlist['walkietalkie'][4],"jphover":itemlist['walkietalkie'][5],"cnhover":itemlist['walkietalkie'][6], "locked":itemlist['walkietalkie'][7] ,"jplocked":itemlist['walkietalkie'][8],"cnlocked":itemlist['walkietalkie'][9],"background":itemlist['walkietalkie'][10] ,"jpbackground":itemlist['walkietalkie'][11] ,"cnbackground":itemlist['walkietalkie'][12] },
+                {"name": itemlist['mushroom'][0], "idle": itemlist['mushroom'][1],"jpidle":itemlist['mushroom'][2],"cnidle":itemlist['mushroom'][3], "hover":itemlist['mushroom'][4],"jphover":itemlist['mushroom'][5],"cnhover":itemlist['mushroom'][6], "locked":itemlist['mushroom'][7] ,"jplocked":itemlist['mushroom'][8],"cnlocked":itemlist['mushroom'][9],"background":itemlist['mushroom'][10] ,"jpbackground":itemlist['mushroom'][11] ,"cnbackground":itemlist['mushroom'][12] },
+                {"name": itemlist['maplesyrup'][0], "idle": itemlist['maplesyrup'][1],"jpidle":itemlist['maplesyrup'][2],"cnidle":itemlist['maplesyrup'][3], "hover":itemlist['maplesyrup'][4],"jphover":itemlist['maplesyrup'][5],"cnhover":itemlist['maplesyrup'][6], "locked":itemlist['maplesyrup'][7] ,"jplocked":itemlist['maplesyrup'][8],"cnlocked":itemlist['maplesyrup'][9],"background":itemlist['maplesyrup'][10] ,"jpbackground":itemlist['maplesyrup'][11] ,"cnbackground":itemlist['maplesyrup'][12] },
+                {"name": itemlist['eggplant'][0], "idle": itemlist['eggplant'][1],"jpidle":itemlist['eggplant'][2],"cnidle":itemlist['eggplant'][3], "hover":itemlist['eggplant'][4],"jphover":itemlist['eggplant'][5],"cnhover":itemlist['eggplant'][6], "locked":itemlist['eggplant'][7] ,"jplocked":itemlist['eggplant'][8],"cnlocked":itemlist['eggplant'][9],"background":itemlist['eggplant'][10] ,"jpbackground":itemlist['eggplant'][11] ,"cnbackground":itemlist['eggplant'][12] },
+                {"name": itemlist['dietsoda'][0], "idle": itemlist['dietsoda'][1],"jpidle":itemlist['dietsoda'][2],"cnidle":itemlist['dietsoda'][3], "hover":itemlist['dietsoda'][4],"jphover":itemlist['dietsoda'][5],"cnhover":itemlist['dietsoda'][6], "locked":itemlist['dietsoda'][7] ,"jplocked":itemlist['dietsoda'][8],"cnlocked":itemlist['dietsoda'][9],"background":itemlist['dietsoda'][10] ,"jpbackground":itemlist['dietsoda'][11] ,"cnbackground":itemlist['dietsoda'][12] },
+                {"name": itemlist['icecreamcake'][0], "idle": itemlist['icecreamcake'][1],"jpidle":itemlist['icecreamcake'][2],"cnidle":itemlist['icecreamcake'][3], "hover":itemlist['icecreamcake'][4],"jphover":itemlist['icecreamcake'][5],"cnhover":itemlist['icecreamcake'][6], "locked":itemlist['icecreamcake'][7] ,"jplocked":itemlist['icecreamcake'][8],"cnlocked":itemlist['icecreamcake'][9],"background":itemlist['icecreamcake'][10] ,"jpbackground":itemlist['icecreamcake'][11] ,"cnbackground":itemlist['icecreamcake'][12] },
                 
 
             ],
@@ -1126,318 +1448,8 @@ label start:
     $ persistent._clear()
     $ renpy.clear_retain()
     $ renpy.restart_interaction() 
-    
+    define config.autosave_on_choice = False 
     jump chapter_1 
-    return
-label after_load:
-    if (_preferences.language == "japanese"):
-        style vanta_namebox:
-            background "gui/gui/jp/ui_namebox_vanta_jp.png"
-            xalign 0.135
-            xoffset 2 # これはピクセル単位での指定です。
-            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
-
-        style wilson_namebox:
-            background "gui/gui/jp/ui_namebox_wilson_jp.png"
-            xalign 0.135
-            xoffset 2 # これはピクセル単位での指定です。
-            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
-
-        style zali_namebox:
-            background "gui/gui/jp/ui_namebox_zali_jp.png"
-            xalign 0.135
-            xoffset 2 # これはピクセル単位での指定です。
-            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
-
-        style vandw_namebox:
-            background "gui/gui/jp/ui_namebox_v&w_jp.png"
-            xalign 0.135
-            xoffset 2 # これはピクセル単位での指定です。
-            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
-
-        style wandv_namebox:
-            background "gui/gui/jp/ui_namebox_w&v_jp.png"
-            xalign 0.135
-            xoffset 2 # これはピクセル単位での指定です。
-            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
-
-        style vandz_namebox:
-            background "gui/gui/jp/ui_namebox_z&v_jp.png"
-            xalign 0.135
-            xoffset 2 # これはピクセル単位での指定です。
-            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
-
-        style zandw_namebox:
-            background "gui/gui/jp/ui_namebox_z&w_jp.png"
-            xalign 0.135
-            xoffset 2 # これはピクセル単位での指定です。
-            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
-
-        style vandc_namebox:
-            background "gui/gui/jp/ui_namebox_v&c_jp.png"
-            xalign 0.135
-            xoffset 2 # これはピクセル単位での指定です。
-            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
-        style npc01_namebox:
-            background "gui/gui/jp/ui_namebox_npc03_jp.png"
-            xalign 0.135
-            xoffset 2 # これはピクセル単位での指定です。
-            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
-
-        style npc02_namebox:
-            background "gui/gui/jp/ui_namebox_npc02_jp.png"
-            xalign 0.135
-            xoffset 2 # これはピクセル単位での指定です。
-            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
-
-        style npc03_namebox:
-            background "gui/gui/jp/ui_namebox_npc01_jp.png"
-            xalign 0.135
-            xoffset 2 # これはピクセル単位での指定です。
-            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
-
-        style npc04_namebox:
-            background "gui/gui/jp/ui_namebox_npc04_jp.png"
-            xalign 0.135
-            xoffset 2 # これはピクセル単位での指定です。
-            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
-
-        style npc05_namebox:
-            background "gui/gui/jp/ui_namebox_npc05_jp.png"
-            xalign 0.135
-            xoffset 2 # これはピクセル単位での指定です。
-            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
-
-        style npc06_namebox:
-            background "gui/gui/jp/ui_namebox_npc06_jp.png"
-            xalign 0.135
-            xoffset 2 # これはピクセル単位での指定です。
-            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
-    elif (_preferences.language == "mandarin"):
-        style vanta_namebox:
-            background "gui/gui/ui_namebox_vanta.png"
-            xalign 0.135
-            xoffset 2 # これはピクセル単位での指定です。
-            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
-
-        style wilson_namebox:
-            background "gui/gui/ui_namebox_wilson.png"
-            xalign 0.135
-            xoffset 2 # これはピクセル単位での指定です。
-            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
-
-        style zali_namebox:
-            background "gui/gui/ui_namebox_zali.png"
-            xalign 0.135
-            xoffset 2 # これはピクセル単位での指定です。
-            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
-
-        style vandw_namebox:
-            background "gui/gui/ui_namebox_v&w.png"
-            xalign 0.135
-            xoffset 2 # これはピクセル単位での指定です。
-            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
-
-        style wandv_namebox:
-            background "gui/gui/ui_namebox_w+v.png"
-            xalign 0.135
-            xoffset 2 # これはピクセル単位での指定です。
-            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
-
-        style vandz_namebox:
-            background "gui/gui/ui_namebox_v&z.png"
-            xalign 0.135
-            xoffset 2 # これはピクセル単位での指定です。
-            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
-
-        style zandw_namebox:
-            background "gui/gui/ui_namebox_z&w.png"
-            xalign 0.135
-            xoffset 2 # これはピクセル単位での指定です。
-            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
-
-        style vandc_namebox:
-            background "gui/gui/ui_namebox_v&c.png"
-            xalign 0.135
-            xoffset 2 # これはピクセル単位での指定です。
-            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
-        
-        style npc01_namebox:
-            background "gui/gui/cn/ui_namebox_npc03_cn.png"
-            xalign 0.135
-            xoffset 2 # これはピクセル単位での指定です。
-            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
-
-        style npc02_namebox:
-            background "gui/gui/cn/ui_namebox_npc02_cn.png"
-            xalign 0.135
-            xoffset 2 # これはピクセル単位での指定です。
-            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
-
-        style npc03_namebox:
-            background "gui/gui/cn/ui_namebox_npc01_cn.png"
-            xalign 0.135
-            xoffset 2 # これはピクセル単位での指定です。
-            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
-
-        style npc04_namebox:
-            background "gui/gui/cn/ui_namebox_npc04_cn.png"
-            xalign 0.135
-            xoffset 2 # これはピクセル単位での指定です。
-            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
-
-        style npc05_namebox:
-            background "gui/gui/cn/ui_namebox_npc05_cn.png"
-            xalign 0.135
-            xoffset 2 # これはピクセル単位での指定です。
-            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
-
-        style npc06_namebox:
-            background "gui/gui/cn/ui_namebox_npc06_cn.png"
-            xalign 0.135
-            xoffset 2 # これはピクセル単位での指定です。
-            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
-
-    else:
-        style vanta_namebox:
-            background "gui/gui/ui_namebox_vanta.png"
-            xalign 0.135
-            xoffset 2 # これはピクセル単位での指定です。
-            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
-
-        style wilson_namebox:
-            background "gui/gui/ui_namebox_wilson.png"
-            xalign 0.135
-            xoffset 2 # これはピクセル単位での指定です。
-            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
-
-        style zali_namebox:
-            background "gui/gui/ui_namebox_zali.png"
-            xalign 0.135
-            xoffset 2 # これはピクセル単位での指定です。
-            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
-
-        style vandw_namebox:
-            background "gui/gui/ui_namebox_v&w.png"
-            xalign 0.135
-            xoffset 2 # これはピクセル単位での指定です。
-            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
-
-        style wandv_namebox:
-            background "gui/gui/ui_namebox_w+v.png"
-            xalign 0.135
-            xoffset 2 # これはピクセル単位での指定です。
-            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
-
-        style vandz_namebox:
-            background "gui/gui/ui_namebox_v&z.png"
-            xalign 0.135
-            xoffset 2 # これはピクセル単位での指定です。
-            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
-
-        style zandw_namebox:
-            background "gui/gui/ui_namebox_z&w.png"
-            xalign 0.135
-            xoffset 2 # これはピクセル単位での指定です。
-            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
-
-        style vandc_namebox:
-            background "gui/gui/ui_namebox_v&c.png"
-            xalign 0.135
-            xoffset 2 # これはピクセル単位での指定です。
-            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
-        style npc01_namebox:
-            background "gui/gui/ui_namebox_npc01.png"
-            xalign 0.135
-            xoffset 2 # これはピクセル単位での指定です。
-            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
-
-        style npc02_namebox:
-            background "gui/gui/ui_namebox_npc02.png"
-            xalign 0.135
-            xoffset 2 # これはピクセル単位での指定です。
-            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
-
-        style npc03_namebox:
-            background "gui/gui/ui_namebox_npc03.png"
-            xalign 0.135
-            xoffset 2 # これはピクセル単位での指定です。
-            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
-
-        style npc04_namebox:
-            background "gui/gui/ui_namebox_npc04.png"
-            xalign 0.135
-            xoffset 2 # これはピクセル単位での指定です。
-            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
-
-        style npc05_namebox:
-            background "gui/gui/ui_namebox_npc05.png"
-            xalign 0.135
-            xoffset 2 # これはピクセル単位での指定です。
-            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
-
-        style npc06_namebox:
-            background "gui/gui/ui_namebox_npc06.png"
-            xalign 0.135
-            xoffset 2 # これはピクセル単位での指定です。
-            yalign 1.0  # ネームボックスを画面の下端に配置することを意味する
-            yoffset -285  # ネームボックスをピクセル単位で上に移動させる
-        define vanta_char = Character("", color="#ffffff", window_style='vanta_window', namebox_style="vanta_namebox")
-        define wilson_char = Character("", color="#ffffff", window_style='wilson_window', namebox_style="wilson_namebox")
-        define zali_char = Character("", color="#ffffff", window_style='zali_window', namebox_style="zali_namebox")
-        define vandw_char = Character("", color="#ffffff", window_style='vandw_window', namebox_style="vandw_namebox")
-        define wandv_char = Character("", color="#ffffff", window_style='wandv_window', namebox_style="wandv_namebox")
-        define vandz_char = Character("", color="#ffffff", window_style='vandz_window', namebox_style="vandz_namebox")
-        define zandw_char = Character("", color="#ffffff", window_style='zandw_window', namebox_style="zandw_namebox")
-        define vandc_char = Character("", color="#ffffff", window_style='vandc_window', namebox_style="vandc_namebox")
-        define npc1_char = Character("", color="#ffffff", window_style='npc_window', namebox_style="npc01_namebox")
-        define npc2_char = Character("", color="#ffffff", window_style='npc_window', namebox_style="npc02_namebox")
-        define npc3_char = Character("", color="#ffffff", window_style='npc_window', namebox_style="npc03_namebox")
-        define npc4_char = Character("", color="#ffffff", window_style='npc_window', namebox_style="npc04_namebox")
-        define npc5_char = Character("", color="#ffffff", window_style='npc_window', namebox_style="npc05_namebox")
-        define npc6_char = Character("", color="#ffffff", window_style='npc_window', namebox_style="npc06_namebox")
-    return
 
 
 label chapter_1:
@@ -1571,6 +1583,7 @@ label chapter_1:
 
     "You order a purple drink from the menu that reminds you of a dear friend."
     "After you get your order you decide to—"
+    $ renpy.force_autosave() #put this where u want to autosave to be within the script
     menu:
         "Resist curiosity and not take a sip":
             vanta_char "I don't want to get told off for messing with the samples again, better not taste this."
@@ -1579,7 +1592,7 @@ label chapter_1:
             jump JXJX_accepted
         "We ball! Take a sip of the drink":
             "You've defeated 100,000 armed combatants without breaking a sweat, what's the worst that could happen?"
-            "You taste the drink...and nothing happens"
+            "You taste the drink...and nothing happens."
             hide van_sum_nor
             show van_sum_hap at center
             vanta_char "Huh. It actually tastes quite nice. Esperanza!"
@@ -1674,6 +1687,7 @@ label chapter_1:
     # show text "{b}{size=34}Chapter 1.  SUMMER{/size}{/b}" at Position(xalign=0.03, yalign=0.03)
     show van_sum_ser at center
     with fade
+    $ renpy.force_autosave() #put this where u want to autosave to be within the script
     menu:
         "Run towards the ferocious octopus and fight":
             jump BT1_accepted
@@ -1693,6 +1707,7 @@ label chapter_1:
     play sound "audio/sum/sum_se_tako_02.mp3"  #Sound of tentacles attacking
     "It hurtles one of its tentacles towards you."
     "Reacting immediately, you jump to the—"
+    $ renpy.force_autosave() #put this where u want to autosave to be within the script
     menu:
 
         "Left":
@@ -1847,7 +1862,7 @@ label chapter_1:
         show screen chapterend_popup("Congratulations! We ball!")
     # Wait until the user clicks
     pause
-    call chapter_2 from _call_chapter_2
+    jump chapter_2 
 
 label chapter_2:
     hide screen OverlayScreen
@@ -1996,6 +2011,7 @@ label chapter_2:
     show van_hr_nor at center
     "After a few minutes of walking, you find a cluster of amethyst-colored mushrooms."
     "You pick one up and—"
+    $ renpy.force_autosave() #put this where u want to autosave to be within the script
     menu:
         "Give it a sniff":
             hide van_hr_nor
@@ -2059,6 +2075,7 @@ label chapter_2:
     hide wil_hr_sur
     show wil_hr_nor at right
     "You look around, and you answer confidently—"
+    $ renpy.force_autosave() #put this where u want to autosave to be within the script
     menu:
         "I'm under a cloud":
             "The walkie-talkie goes silent, is it broken?"           
@@ -2381,7 +2398,7 @@ label chapter_2:
         active_set ="gallery"
         active_tab ="tab2"
     pause
-    call chapter_3 from _call_chapter_3
+    jump chapter_3 
 
 label chapter_3:
     hide screen OverlayScreen
@@ -2511,7 +2528,7 @@ label chapter_3:
     vanta_char "Oh? You guys like the Christmas tree? {size=40}Merry Krisis!{/size}"
     play sound "audio/win/win_se_slime_01.mp3" #slime sound
     "They look eager to capture a festive photo, and you can't resist their enthusiasm. You oblige and take out your phone."
-    
+    $ renpy.force_autosave() #put this where u want to autosave to be within the script
     menu:
         "Ask the Crew to nestle around the tree, and take a picture together":
             hide van_ci_con #### Tsumire
@@ -2898,7 +2915,7 @@ label chapter_4:
     show van_ci_3 at center
     "Maple syrup would work very well with Wilson's coffee. Technically, the same can be said for the ice cream cake, but it's been in here for a while…"
     "But for the content, it's tempting to show off to Wilson. Even a few of the Vantacrew seem to snicker at the notion. You decide to give Wilson—"
-
+    $ renpy.force_autosave() #put this where u want to autosave to be within the script
     menu:
         
         "Ice Cream Cake":
@@ -2972,6 +2989,7 @@ label chapter_4:
     "Now is the perfect time to give Zali the gift you've been holding onto for a while."
     "There's the eggplant-shaped candy: knowing how much he hates eggplant, it would be pretty funny to see his reaction to the gag gift. "
     "On the other hand, you bought the croissant keychain with Zali in mind because it reminded you of him. In the end, you decided to give Zali—"
+    $ renpy.force_autosave() #put this where u want to autosave to be within the script
     menu:
         "Croissant Keychain":
             scene spr_st_zali_img
@@ -3287,11 +3305,11 @@ label chapter_4:
     "As you move forward, the flowers signal the arrival of a new season. With each step, you embrace the promise of many seasons ahead—filled with love, support, and adventures waiting to unfold."
     "Cherry blossoms will continue bloom."
     pause 0.8
-    stop music fadeout 4.0  # Fade out music
+    stop music fadeout 5.0  # Fade out music
     hide wil_hr_hap with dissolve
     hide zal_hr_hap with dissolve
     hide van_hr_hap with dissolve
-    play music "audio/main_theme.mp3" fadein 5.0 loop #Music for Battle
+    pause 1.0
     ### achievement package ###
     if (achievement.has('spr_st_edcg')== False) or(achievement.has('spr_gallery')== False):
         $ achievement.grant('spr_st_edcg')#the ending cg video
@@ -3308,8 +3326,10 @@ label chapter_4:
 
     # ユーザーがクリックするまで待つ
     # pause 1.0
-    # show white with dissolve 
-    pause 3.0
+    # show white with dissolve
+    hide spr_bg_buil2_img with dissolve
+    pause 1.5
+    play music "audio/main_theme.mp3" fadein 5.0 loop #Music for Battle
     show screen unclickable_screen
     $ renpy.movie_cutscene("movies/spr_animation.webm", stop_music=False)
     $ renpy.movie_cutscene("movies/credits_v3.webm", stop_music=False)

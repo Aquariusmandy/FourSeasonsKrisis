@@ -167,19 +167,6 @@ style about_small_text:
 
 
 ###### this is for option 1 ######
-# init python:
-    # Set the initial state of achievement popup to not shown
-    # persistent.achievement_popup_shown = False
-
-    # persistent.croissant = False
-    # persistent.drink = False
-    # persistent.takoyaki = False
-    # persistent.walkietalkie = False
-    # persistent.mushroom = False
-    # persistent.maplesyrup = False
-    # persistent.eggplant = False
-    # persistent.dietsoda = False
-    # persistent.icecreamcake = False
 
 # Function to mark achievement popup as shown
 init python:
@@ -248,6 +235,8 @@ init python:
         renpy.restart()
     persistent.new_game_clicked = False 
 default persistent.new_game_clicked = True
+
+
     
 
 ################################################################################
@@ -261,7 +250,7 @@ screen inventory_screen():
     $ showItem = -1 # if click on the inventory, then reset the var "showItem"
 
     if active_set == "set1":
-        add "images/main_button/frame_item.png":
+        add "gui/archive/Collected Items/frame_item.png":
             xalign 0.35  # Move the frame to the left
             yalign 0.8
         if (_preferences.language == "mandarin"):
@@ -277,7 +266,7 @@ screen inventory_screen():
                 xalign 0.06
                 yalign 0.115  
     elif active_set == "cg":
-        add "images/main_button/frame_cg1.png":
+        add "gui/archive/Secret Snaps/frame_snaps.png":
             xalign 0.35  # Move the frame to the left
             yalign 0.8
         if (_preferences.language == "mandarin"):
@@ -293,7 +282,7 @@ screen inventory_screen():
                 xalign 0.06
                 yalign 0.115
     elif active_set == "gallery":
-        add "images/main_button/frame_album.png":
+        add "gui/archive/Seasonal Album/frame_album.png":
             xalign 0.35  # Move the frame to the left
             yalign 0.8
         if (_preferences.language == "mandarin"):
@@ -312,7 +301,7 @@ screen inventory_screen():
         xalign 0.903
         yalign 0.115
         # imagebutton idle "images/main_button/btn_close_1.png" hover "images/main_button/btn_close_1-1.png" action [Function(renpy.hide_screen, "OverlayScreen1"),Return()]
-        imagebutton idle "images/main_button/btn_close_1.png" hover "images/main_button/btn_close_1-1.png" action Return()
+        imagebutton idle "gui/archive/Collected Items/btn/btn_close_1.png" hover "gui/archive/Collected Items/btn/btn_close_1-1.png" action Return()
 
     # Separate vbox for each set
     if active_set == "cg":
@@ -573,10 +562,19 @@ screen inventory_screen():
                             if active_set == "set1":
                                 if (_preferences.language == "mandarin"):
                                     $ item_background = get_item_cnbackground(active_set, active_tab, item_index)
+                                    $ have_idle = "cnidle"
+                                    $ have_hover = "cnhover"
+                                    $ have_locked = "cnlocked"
                                 elif (_preferences.language == "japanese"):
                                     $ item_background = get_item_jpbackground(active_set, active_tab, item_index)
+                                    $ have_idle = "jpidle"
+                                    $ have_hover = "jphover"
+                                    $ have_locked = "jplocked"
                                 else:
                                     $ item_background = get_item_background(active_set, active_tab, item_index)
+                                    $ have_idle = "idle"
+                                    $ have_hover = "hover"
+                                    $ have_locked = "locked"
                                 frame:
                                     xpos 0.8
                                     ypos 0.9
@@ -585,7 +583,7 @@ screen inventory_screen():
                                     xysize (380, 250)
                                     if achievement.has(item_name):
                                         if item_name == "croissant" and persistent.croissant==False:
-                                            imagebutton idle image_dict["idle"] hover image_dict["hover"] action Function(set_croissant_shown),Show("item_description_popup",item_click_background=item_background):
+                                            imagebutton idle image_dict[have_idle] hover image_dict[have_hover] action Function(set_croissant_shown),Show("item_description_popup",item_click_background=item_background):
                                                 anchor (0.5,0.5)
                                                 xpos 0.5
                                                 ypos 0.5
@@ -594,7 +592,7 @@ screen inventory_screen():
                                                 xpos 0.85
                                                 ypos 0.1
                                         elif item_name == "drink" and persistent.drink==False:
-                                            imagebutton idle image_dict["idle"] hover image_dict["hover"] action Function(set_drink_shown),Show("item_description_popup",item_click_background=item_background):
+                                            imagebutton idle image_dict[have_idle] hover image_dict[have_hover] action Function(set_drink_shown),Show("item_description_popup",item_click_background=item_background):
                                                 anchor (0.5,0.5)
                                                 xpos 0.5
                                                 ypos 0.5
@@ -603,7 +601,7 @@ screen inventory_screen():
                                                 xpos 0.85
                                                 ypos 0.1
                                         elif item_name == "takoyaki" and persistent.takoyaki==False:
-                                            imagebutton idle image_dict["idle"] hover image_dict["hover"] action Function(set_takoyaki_shown),Show("item_description_popup",item_click_background=item_background):
+                                            imagebutton idle image_dict[have_idle] hover image_dict[have_hover] action Function(set_takoyaki_shown),Show("item_description_popup",item_click_background=item_background):
                                                 anchor (0.5,0.5)
                                                 xpos 0.5
                                                 ypos 0.5
@@ -612,7 +610,7 @@ screen inventory_screen():
                                                 xpos 0.85
                                                 ypos 0.1
                                         elif item_name == "walkietalkie" and persistent.walkietalkie==False:
-                                            imagebutton idle image_dict["idle"] hover image_dict["hover"] action Function(set_walkietalkie_shown),Show("item_description_popup",item_click_background=item_background):
+                                            imagebutton idle image_dict[have_idle] hover image_dict[have_hover] action Function(set_walkietalkie_shown),Show("item_description_popup",item_click_background=item_background):
                                                 anchor (0.5,0.5)
                                                 xpos 0.5
                                                 ypos 0.5
@@ -621,7 +619,7 @@ screen inventory_screen():
                                                 xpos 0.85
                                                 ypos 0.1
                                         elif item_name == "mushroom" and persistent.mushroom==False:
-                                            imagebutton idle image_dict["idle"] hover image_dict["hover"] action Function(set_mushroom_shown),Show("item_description_popup",item_click_background=item_background):
+                                            imagebutton idle image_dict[have_idle] hover image_dict[have_hover] action Function(set_mushroom_shown),Show("item_description_popup",item_click_background=item_background):
                                                 anchor (0.5,0.5)
                                                 xpos 0.5
                                                 ypos 0.5
@@ -630,7 +628,7 @@ screen inventory_screen():
                                                 xpos 0.85
                                                 ypos 0.1
                                         elif item_name == "maplesyrup" and persistent.maplesyrup==False:
-                                            imagebutton idle image_dict["idle"] hover image_dict["hover"] action Function(set_maplesyrup_shown),Show("item_description_popup",item_click_background=item_background):
+                                            imagebutton idle image_dict[have_idle] hover image_dict[have_hover] action Function(set_maplesyrup_shown),Show("item_description_popup",item_click_background=item_background):
                                                 anchor (0.5,0.5)
                                                 xpos 0.5
                                                 ypos 0.5
@@ -639,7 +637,7 @@ screen inventory_screen():
                                                 xpos 0.85
                                                 ypos 0.1
                                         elif item_name == "eggplant" and persistent.eggplant==False:
-                                            imagebutton idle image_dict["idle"] hover image_dict["hover"] action Function(set_eggplant_shown),Show("item_description_popup",item_click_background=item_background):
+                                            imagebutton idle image_dict[have_idle] hover image_dict[have_hover] action Function(set_eggplant_shown),Show("item_description_popup",item_click_background=item_background):
                                                 anchor (0.5,0.5)
                                                 xpos 0.5
                                                 ypos 0.5
@@ -648,7 +646,7 @@ screen inventory_screen():
                                                 xpos 0.85
                                                 ypos 0.1
                                         elif item_name == "dietsoda" and persistent.dietsoda==False:
-                                            imagebutton idle image_dict["idle"] hover image_dict["hover"] action Function(set_dietsoda_shown),Show("item_description_popup",item_click_background=item_background):
+                                            imagebutton idle image_dict[have_idle] hover image_dict[have_hover] action Function(set_dietsoda_shown),Show("item_description_popup",item_click_background=item_background):
                                                 anchor (0.5,0.5)
                                                 xpos 0.5
                                                 ypos 0.5
@@ -657,7 +655,7 @@ screen inventory_screen():
                                                 xpos 0.85
                                                 ypos 0.1
                                         elif item_name == "icecreamcake" and persistent.icecreamcake==False:
-                                            imagebutton idle image_dict["idle"] hover image_dict["hover"] action Function(set_icecreamcake_shown),Show("item_description_popup",item_click_background=item_background):
+                                            imagebutton idle image_dict[have_idle] hover image_dict[have_hover] action Function(set_icecreamcake_shown),Show("item_description_popup",item_click_background=item_background):
                                                 anchor (0.5,0.5)
                                                 xpos 0.5
                                                 ypos 0.5
@@ -666,12 +664,12 @@ screen inventory_screen():
                                                 xpos 0.85
                                                 ypos 0.1
                                         else:
-                                            imagebutton idle image_dict["idle"] hover image_dict["hover"] action [Show("item_description_popup",item_click_background=item_background)]:
+                                            imagebutton idle image_dict[have_idle] hover image_dict[have_hover] action [Show("item_description_popup",item_click_background=item_background)]:
                                                 anchor (0.5,0.5)
                                                 xpos 0.5
                                                 ypos 0.5
                                     else:
-                                        image item_locked:
+                                        image image_dict[have_locked]:
                                             anchor (0.5,0.5)
                                             xpos 0.5
                                             ypos 0.5
@@ -842,7 +840,7 @@ screen item_description_popup(item_click_background):
         image item_click_background:  # Change this to your description frame background
             xalign 0.5
             yalign 0.5
-        imagebutton idle "images/main_button/btn_close.png" action Hide("item_description_popup"):
+        imagebutton idle "gui/archive/Collected Items/btn/btn_close.png" action Hide("item_description_popup"):
             xpos 0.6948
             ypos 0.366
 
@@ -925,7 +923,7 @@ screen picture_popup(item_click_background,active_set,active_tab,index):
                 yalign 0.5
         elif (index_left > 0):
             for i in range(index_left):
-                $ j = index_left - i
+                $ j = index_left - i-1
                 $ name_temp = get_item_name(active_set, active_tab, j)
                 if achievement.has(name_temp):
                     $ haveunlocked = True
@@ -1896,221 +1894,33 @@ screen about():
     ## This use statement includes the game_menu screen inside this one. The
     ## vbox child is then included inside the viewport inside the game_menu
     ## screen.
-    use game_menu(_("About"), scroll="viewport",yinitial=0.0):
+    use game_menu(_("About"), scroll=("vpgrid" if gui.history_height else "viewport"),yinitial=0.0):
         
         viewport:
             style_prefix "about"
-            viewport_xsize 1200
-            viewport_ysize 1000
-            child_size (1200, 3000)
+            viewport_xsize 1400
+            viewport_ysize 6900
+            child_size (1200, 6900)
             yalign 0.0
-            xpos 0.08
-            # scrollbars "vertical"
-            # mousewheel True
-            # draggable True
+            xpos 0.1
+            scrollbars "vertical"
+            mousewheel True
+            draggable True
             vbox:
-                image "images/cvisual/main_logo.png":
-                    xalign 0.5
-                label _('Game Director') style"about_label_text":
-                    xalign 0.5
-                text _('{i}LUNAFAYE{/i}     @Lunafaye__') 
-                text _('{i}          KEWAI{/i}     @KY_kewai_KY') 
-                text _('{i}      ELLEN{/i}     @ellenakaha') 
-
-                label _('Story by') style"about_label_text":
-                    xalign 0.5
-                text _('{i}         YOHJI{/i}     @yohji_fanart')
-                text _('{i}MEREDITH{/i}     @Meredith_D')  
-
-                label _('Producer & Project Manager') style"about_label_text":
-                    xalign 0.5
-                text _('{i}LUNAFAYE{/i}     @Lunafaye__') 
-
-                label _('Art Director') style"about_label_text":
-                    xalign 0.5
-                text _('{i}          KEWAI{/i}     @KY_kewai_KY') 
-                text _('{i}      ELLEN{/i}     @ellenakaha')
+                image "system/Credits image.png":
+                    xanchor 0.0
+                    xpos 0.0
+                vbox:
+                    xysize (1000,30)
                 
-                label _('Art Team Lead') style"about_label_text":
+                textbutton _("Play Credits") action ShowMenu("video_credits") style "chapterend_textbutton":
                     xalign 0.5
-                text _('{i}  NIGHTLINE{/i}     @nightlinestar')
-                text _('{i}LULULAMB{/i}     @lululamb312')
 
-                label _('Programmer') style"about_label_text":
-                    xalign 0.5
-                text _('{i}   ZERA{/i}     @zeraacat')
-                text _('{i}          KEWAI{/i}     @KY_kewai_KY') 
-                text _('{i}  TSUMIRE{/i}     @tsumire1122') 
-
-                label _('UI & UX Designer') style"about_label_text":
-                    xalign 0.5
-                text _('{i}SUUBEI{/i}     @suu_bei')
-
-                label _('English Script Writers & Sub Editors') style"about_label_text":
-                    xalign 0.5
-                text _('{i}  LUNAFAYE{/i}     @Lunafaye__')
-                text _('{i}DARLABUBBLES{/i}     @OriginalDBubble')
-                text _('{i} JESSYMON{/i}     @jessy_brudi')
-                text _('{i}              CRIPTID{/i}     @moss_the_witch')
-                text _('{i}       LEON{/i}     @pengubud')
-                text _('{i}         SARAH{/i}     @redmapleboi')
-                text _('{i}    LAKOYRSU{/i}     @Lakoyrsu_ZIP')
-
-                label _('Character Outfit Designer') style"about_label_text":
-                    xalign 0.5
-                text _('{i}           PILLOW{/i}     @anminpillowww')
-                text _('{i}HERIA                    {/i}')
-
-                label _('Character Sprites Artist') style"about_label_text":
-                    xalign 0.5
-                text _('{i}  SUSHIH{/i}     @sushih20')
-
-                label _('Vantacrew Sprites Artist') style"about_label_text":
-                    xalign 0.5
-                text _('{i}           AYU{/i}     @Ayuu_0769')
-
-                label _('Item Icons Artist') style"about_label_text":
-                    xalign 0.5
-                text _('{i}  NIGHTLINE{/i}     @nightlinestar')
-
-                label _('Illustration Artists') style"about_label_text":
-                    xalign 0.5
-                text _('{i}Game Title Art     KARIN                       {/i}     @HNYWONI')
-                text _('{i} Chapters Title Art     KEWAI                       {/i}     @KY_kewai_KY')
-                text _('{i}      Summer CG     ELLEN                  {/i}          @ellenakaha')
-                text _('{i}       Summer Comics     TRIPLE HAIRED DOG{/i}     @TriplehairedDog')
-                text _('{i}        Autumn CG     TSUMIRE                   {/i}     @tsumire1122')
-                text _('{i}  Autumn Comics     46                              {/i}     @46imgs        ')
-                text _('{i}           Winter CG     MEGAMI                      {/i}     @megami_twt')
-                text _('{i}  Winter Comics     RARIRU                     {/i}     @g_rariru_   ')
-                text _('{i}Spring CG (Zali & Wilson)     MAKUYA    {/i}     @y_makuya')
-                text _('{i}    Spring CG (Ryu)     20 CHIN                    {/i}     @20_chinn      ')
-                text _('{i}       Spring Comics     YOHJI                      {/i}     @yohji_fanart')
-                text _('{i}     Spring Animation     Lacia                       {/i}     @LaciaEverlight')
-                text _('{i}   Spring Animation     Kae                          {/i}     @KaeVeo          ')
-                
-                label _('Background Artist') style"about_label_text":
-                    xalign 0.5
-                text _('{i}  NIGHTLINE{/i}     @nightlinestar')
-                text _('{i}    DOUZI{/i}     @douzi_69')
-                text _('{i}LULULAMB{/i}     @lululamb312')
-                text _('{i}SUUBEI{/i}     @suu_bei')
-                text _('{i}PANDAJOJO{/i}     @Pandajojo_x  ')
-                text _('{i}          AFU{/i}     @ToAfufu_20')
-                text _('{i}       ELLEN{/i}     @ellenakaha')
-
-                label _('Logo & Graphic Designer') style"about_label_text":
-                    xalign 0.5
-                text _('{i}       FII{/i}     @fii_fth15')
-
-                label _('Splash Logo Animator') style"about_label_text":
-                    xalign 0.5
-                text _('{i}HINCARU KAIVA{/i}     @hincaru')
-
-                label _('Gallery Artist') style"about_label_text":
-                    xalign 0.5
-                text _('{i}ESSI{/i}     @ESSI_DEE     ')
-                text _('{i}    GAIKE{/i}     @galeria__dsenho')
-                text _('{i}YUMO{/i}     @gItzYumo         ')
-                text _('{i}JESSYMON{/i}     @gjessy_brudi           ')
-                text _('{i}EKKA{/i}     @ekarine_ehe  ')
-                text _('{i}PUFFLES{/i}     @pf42                     ')
-                text _('{i}POTAT{/i}     @3lusive_p0t4t')
-                text _('{i}KAM{/i}     @rainbowlizrd')
-                text _('{i}HANNI{/i}     @ggultteokks    ')
-                text _('{i}    DOC{/i}     @Edensresident')
-                text _('{i}EUNICE{/i}     @takayaren        ')
-                text _('{i}ZENTHI{/i}     @Zenthi1            ')
-                text _('{i}DOUZI{/i}     @douzi_69       ')
-                text _('{i}EMBER{/i}     @dnsduco          ')
-                text _('{i}HAL{/i}     @_sodhal      ')
-                text _('{i} BLUE{/i}     @ablueweirdo   ')
-                text _('{i}YEDILAMON{/i}     @Yedilamonyan         ')
-                text _('{i}ASHLEEE{/i}     @ashleee080         ')
-                text _('{i}BYNTHE{/i}     @aleiure              ')
-                text _('{i}DUAL{/i}     @Dual2Limit  ')
-                text _('{i}STELLA AOI{/i}     @stellaaoi0906       ')
-                text _('{i}LULULAMB{/i}     @lululamb312         ')
-                text _('{i}MUMI KORI{/i}     @KoriMumi              ')
-                text _('{i}REIYACARAMEL{/i}     @Cookiewithhat              ')
-                text _('{i}     WILD{/i}     @thewildmonarch')
-                text _('{i}MIYOSHI{/i}     @miyoshi_2536   ')
-                text _('{i}    AWES{/i}     @aresmaximoff     ')
-                text _('{i}ALLIE{/i}     @alliedeeznuts')
-                text _('{i} CANDY{/i}     @cc4ndy_csd29 ')
-                text _('{i}GARNET{/i}     @Garnet095882  ')
-                text _('{i}JANE{/i}     @glazeliliess   ')
-                text _('{i} KAL{/i}     @kalaluwa        ')
-                text _('{i}   KAZZ{/i}     @lasercutlegends')
-                text _('{i}KERES{/i}     @Nyx11162741    ')
-                text _('{i}YUZURU{/i}     @krisisonkrisis    ')
-                text _('{i}GOMI{/i}     @LT_Gomi       ')
-                text _('{i}OTTACA{/i}     @Ottaca2            ')
-                text _('{i}    SAM{/i}     @mochiminnt     ')
-                text _('{i}SUNLIGHT{/i}     @stargreydust       ')
-                text _('{i}GLITTER{/i}     @unicornbombz  ')
-                text _('{i}       PAKA{/i}     @KotatsuVpaka      ')
-                text _('{i}   ASH{/i}     @_a_ysh           ')
-                text _('{i}        YI{/i}     @ichiyi25           ')
-                text _('{i} YEANE{/i}     @ntgdengh          ')
-                text _('{i}MARSHY{/i}     @marshmallsy       ')
-                text _('{i}  MILFY{/i}     @MilfyMonsterr_  ')
-                text _('{i}MINIZEN{/i}     @minizennn            ')
-                text _('{i}LUKARION{/i}     @_lukarion              ')
-                text _('{i}SHAMROCK{/i}     @YangTakoyaki         ')
-                text _('{i}TAYJI{/i}     @itstayji           ')
-                text _('{i}PANDAJOJO{/i}     @Pandajojo_x             ')
-                text _('{i}    KI{/i}     @off_grid04    ')
-
-                label _('Japanese & Traditional Chinese Translation') style"about_label_text":
-                    xalign 0.5
-                text _('{i}    KIKUJIN{/i}     @KYO_KKJn')
-                text _('{i}MEREDITH{/i}     @Meredith_D')
-
-                label _('Web page') style"about_label_text":
-                    xalign 0.5
-                text _('{i}  SUUBEI{/i}     @suu_bei')
-                text _('{i}LUNAFAYE{/i}     @Lunafaye__')
-
-                label _('Other Royalty Free Materials') style"about_label_text":
-                    xalign 0.5
-                text _('yuhei komatsu, {font=GlowSansSC-Normal-Medium.ttf}えだまめ88{/font}, MagaMaga, {font=GlowSansSC-Normal-Medium.ttf}すもち, のる, まんぼう二等兵{/font},')
-                text _('MAKOOTO, {font=GlowSansSC-Normal-Medium.ttf}えすにっく・かわひろ{/font}, yuhei komatsu, NEKOZOU, Aisyu,')
-                text _('U_byub5wd934, OxidVideos, ShidenBeatsMusic, Liecio, u_f1ee7vf7na,')
-                text _('{font=GlowSansSC-Normal-Medium.ttf}ノタの森{/font},Pixabay, {font=GlowSansSC-Normal-Medium.ttf}小森 平, 効果音ラボ, ポケットサウンド{/font}, OtoLogic, voicebot, Epidemicsound, Typodermicfonts, Cadson Demak, Celestial Phineas, {font=GlowSansSC-Normal-Medium.ttf}みんちりえ{/font}')
-
-                # label "[config.name!t]" style"about_label_text"
-                # label _("Version [config.version!t]\n") style"about_label_text"
-
-
-                ## gui.about is usually set in options.rpy.
                 if gui.about:
                     text "[gui.about!t]\n"
 
-                label _("Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")style"about_label_text":
-                    xalign 0.5 
-
-                label _('Very Special Thanks to') style"about_label_text":
-                    xalign 0.5
-                text _('{i}Lacia & Kae{/i}')
-
-                label _('A Word from the 86 Crew Members of Mission Bringer: Four Seasons of Krisis') style"about_label_text":
-                    xalign 0.5
-                label _('Happy 1-year anniversary to the amazing Krisis! We hope you have a blast playing this little game we made for you. We poured our hearts into it to show just how much the Vezcrewneers love you all. Thanks for making our past year so colorful and fun. We can\'t wait to see what the future holds!')style"about_label_text":
-                    xalign 0.5
-                label _('Itsumo doori balling!') style"about_label_text":
-                    xalign 0.5
-                label _('Lots of love,') style"about_label_text":
-                    xalign 0.5
-                label _('Vantacrew Project Department') style"about_label_text":
-                    xalign 0.5
-                vbox:
-                    xysize (1200,60)
-                image "system/VPD full text logo.png":
-                    xalign 0.5
-                vbox:
-                    xysize (1200,60)
-                textbutton _("Play Credits") action ShowMenu("video_credits") style "chapterend_textbutton":
+                label _("{size=20}Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]{/size}")style"about_label_text":
+                    xsize 1000
                     xalign 0.5
             
 # image credits_v3 = Movie(play="movies/credits_v3.webm",channel='movie')
@@ -2138,13 +1948,19 @@ screen video_credits():
                 textbutton _("Yes") action Start("video_scene")   style "menuback_textbutton"
                 textbutton _("No") action Hide("video_credits")  style "menuback_textbutton" 
 
+# screen video_screen():
+#     modal True
+#     python: 
+#         renpy.movie_cutscene("movies/credits_v3.webm", stop_music=False) 
+
 # Define the video scene
 label video_scene():
+    $ MainMenu()
     $ renpy.movie_cutscene("movies/credits_v3.webm",stop_music=False)
 
 # Function to return to credits screen after video ends
 label ReturnToMainMenu():
-    show screen main_menu
+    $ MainMenu()
        
 
 style about_label is gui_label
@@ -2188,8 +2004,8 @@ screen load():
 
 screen file_slots(title):
 
-    default page_name_value = FilePageNameInputValue(pattern=_("Page {}"))
-    # auto=_("Automatic saves"), quick=_("Quick saves")
+    default page_name_value = FilePageNameInputValue(pattern=_("Page {}"),auto=_("Automatic saves"), quick=_("Quick saves"))
+    
 
     use game_menu(title):
 
@@ -2213,8 +2029,8 @@ screen file_slots(title):
 
             ## The grid of file slots.
             grid gui.file_slot_cols gui.file_slot_rows:
-                # style_prefix "slot"
-
+                style_prefix "slot"
+                # style_prefix "page"
                 xalign 0.5
                 yalign 0.5
 
@@ -2236,18 +2052,20 @@ screen file_slots(title):
 
                         text FileSaveName(slot):
                             style "chapterend_textbutton_text"
-                        # this is for debug    
-                        # textbutton _("delete") action FileDelete(slot):
-                        #     style "quick_menu_text"
-                        #     ypos -0.9
+                        # this is for debug
+                          
+                        textbutton _("{size=20}delete save{/size}") action FileDelete(slot):
+                            style "chapterend_textbutton_text"
+                            xpos 0.5
+                            ypos -0.85
 
                         key "save_delete" action FileDelete(slot)
                         
 
             ## Buttons to access other pages.
             vbox:
+                # style_prefix "slot"
                 style_prefix "page"
-
                 xalign 0.5
                 yalign 1.0
 
@@ -2262,8 +2080,8 @@ screen file_slots(title):
                     if config.has_autosave:
                         textbutton _("{#auto_page}A") action FilePage("auto")
 
-                    if config.has_quicksave:
-                        textbutton _("{#quick_page}Q") action FilePage("quick")
+                    # if config.has_quicksave:
+                    #     textbutton _("{#quick_page}Q") action FilePage("quick")
 
                     ## range(1, 10) gives the numbers from 1 to 9.
                     for page in range(1, 10):
@@ -2292,6 +2110,8 @@ style slot_button is gui_button
 style slot_button_text is gui_button_text
 style slot_time_text is slot_button_text
 style slot_name_text is slot_button_text
+style slot_textbutton is empty
+style slot_textbutton_text is empty
 style return_button is navigation_button
 style return_button_text is navigation_button_text
 style page_label:
@@ -2314,7 +2134,7 @@ style slot_button:
     properties gui.button_properties("slot_button")
 
 style slot_button_text:
-    properties gui.text_properties("slot_button")
+    properties gui.text_properties("twenty")
 
 
 ## Preferences screen ##########################################################
@@ -2362,8 +2182,8 @@ screen preferences():
                     label _("Language") style "setting_text"
                     # Real languages should go alphabetical order by English name.
                     textbutton _("English") text_font "DejaVuSans.ttf" action Language(None)
-                    textbutton _("繁體中文") text_font "GlowSansSC-Normal-Regular.ttf" action [Language("mandarin"),Start('after_load')]
-                    textbutton _("日本語") text_font "GlowSansSC-Normal-Regular.ttf" action [Language("japanese"),Start('after_load')]
+                    textbutton _("繁體中文") text_font "GlowSansSC-Normal-Regular.ttf" action [Language("mandarin")]
+                    textbutton _("日本語") text_font "GlowSansSC-Normal-Regular.ttf" action [Language("japanese")]
 
 
                 ## Additional vboxes of type "radio_pref" or "check_pref" can be
@@ -2516,37 +2336,31 @@ screen history():
 
         style_prefix "history"
 
-        for h in _history_list:
-            
+        # Limit the number of history entries displayed
+        $ displayed_history = _history_list[-5:]  # Limiting to the last 50 entries
+
+        for h in displayed_history:
             window:
                 xsize 1500
-                ## This lays things out properly if history_height is None.
                 has fixed:
                     yfit True
 
                 if h.who:
-
                     label h.who:
                         style "history_label_text"
                         xalign 0.5
-                        substitute False
-
-                        ## Take the color of the who text from the Character, if
-                        ## set.
                         if "color" in h.who_args:
                             text_color h.who_args["color"]
 
-                # $ what = renpy.filter_text_tags(h.what, allow=gui.history_allow_tags)
-                text h.what: 
-                    # if (_preferences.language == 'mandarin') or (_preferences.language == 'japanese'):
+                text h.what:
                     style "slime_textbutton_text"
                     xpos 800
                     xsize 1200
                     textalign 0.0
-                    substitute False
+        # Add your empty history message as before
+        if not displayed_history:
+            label _("The dialogue history is empty.") style "history_label_text"
 
-        if not _history_list:
-            label _("The dialogue history is empty.") style"history_label_text"
                 
 
 ## This determines what tags are allowed to be displayed on the history screen.

@@ -245,7 +245,7 @@ translate mandarin cho_one3_accepted_0725d2d6:
 translate mandarin cho_one3_accepted_3d166291:
 
     # "You taste the drink...and nothing happens"
-    "你嚐了嚐飲料……什麼也沒發生"
+    "你嚐了嚐飲料……什麼也沒發生。"
 
 # game/script.rpy:1100
 translate mandarin cho_one3_accepted_acc17f11:
@@ -701,7 +701,7 @@ translate mandarin chapter_2_033721ed:
 translate mandarin chapter_2_45eb18b7:
 
     # vanta_char "Look, I'm just saying, what if—"
-    vanta_char "我只是想說，要是如果—"
+    vanta_char "我只是想說，要是如果——"
 
 # game/script.rpy:1452
 translate mandarin chapter_2_d1583f7d:
@@ -857,37 +857,37 @@ translate mandarin aut_cho01_accepted_f65c0760:
 translate mandarin aut_cho01_accepted_70c02428:
 
     # wilson_char "Hello? Hello? Can you hear me? This is Wilson speaking. Over."
-    wilson_char "喂？喂？你聽得到嗎？我是Wilson。完畢。"
+    wilson_char "喂？喂？你聽得到嗎？我是Wilson。Over。"
 
 # game/script.rpy:1549
 translate mandarin aut_cho01_accepted_e0b265b1:
 
     # wilson_char "Mr. Bringer, do you copy? Over."
-    wilson_char "Bringer先生，你聽得到嗎？完畢。"
+    wilson_char "Bringer先生，你聽得到嗎？Over。"
 
 # game/script.rpy:1550
 translate mandarin aut_cho01_accepted_63528735:
 
     # vanta_char "Hello? Wilson? This is Vantacrow Bringer. Over."
-    vanta_char "喂？Wilson？我是Vantacrow Bringer。完畢。"
+    vanta_char "喂？Wilson？我是Vantacrow Bringer。Over。"
 
 # game/script.rpy:1557
 translate mandarin aut_cho01_accepted_a6f3d65b:
 
     # vanta_char "You see, there's this small situation I'm in. I may or may not be lost, I'm not sure where I am. Over."
-    vanta_char "咳、是這樣的，我這裡有點情況。我可能應該或許大概是迷路了，我不知道我現在在哪。完畢。"
+    vanta_char "咳、是這樣的，我這裡有點情況。我可能應該或許大概是迷路了，我不知道我現在在哪。Over。"
 
 # game/script.rpy:1561
 translate mandarin aut_cho01_accepted_dd23d417:
 
     # wilson_char "Vanta, Vanta, Vanta... I look away for 10 seconds and you are gone. Over."
-    wilson_char "Vanta，Vanta，Vanta……我10秒鐘不盯著你，你就不見了。完畢。"
+    wilson_char "Vanta，Vanta，Vanta……我10秒鐘不盯著你，你就不見了。Over。"
 
 # game/script.rpy:1562
 translate mandarin aut_cho01_accepted_a9f138bb:
 
     # wilson_char "Tell me what you can see. Over."
-    wilson_char "告訴我你眼前跟附近都有什麼東西。完畢。"
+    wilson_char "告訴我你眼前跟附近都有什麼東西。Over。"
 
 # game/script.rpy:1569
 translate mandarin aut_cho01_accepted_39046746:
@@ -917,19 +917,19 @@ translate mandarin aut_cho01_accepted_33ba9ed2:
 translate mandarin aut_cho01_accepted_4f605227:
 
     # wilson_char "Just stay still, and I'll find you. Over."
-    wilson_char "別動，不要亂跑，我來找你。完畢。"
+    wilson_char "別動，不要亂跑，我來找你。Over。"
 
 # game/script.rpy:1585
 translate mandarin aut_cho01_accepted_f13448ba:
 
     # vanta_char "Bro, I know this sounds insane, but the cloud I'm under actually looks like Tentapod! Over."
-    vanta_char "老兄，我知道這聽起來很扯，但我頭上的那朵雲真的長得很像Tentapod！完畢。"
+    vanta_char "老兄，我知道這聽起來很扯，但我頭上的那朵雲真的長得很像Tentapod！Over。"
 
 # game/script.rpy:1587
 translate mandarin aut_cho01_accepted_27939589:
 
     # wilson_char "Hey Bro... This also sounds insane, but I know exactly where you are, I can see the Tentapod cloud, too! Over."
-    wilson_char "嘿，老弟……我聽起來是很扯，但我知道你在哪，因為我也能看到那片長得像Tentapod的雲！完畢。"
+    wilson_char "嘿，老弟……我聽起來是很扯，但我知道你在哪，因為我也能看到那片長得像Tentapod的雲！Over。"
 
 # game/script.rpy:1594
 translate mandarin aut_cho01_accepted_a7415b55:
@@ -941,7 +941,7 @@ translate mandarin aut_cho01_accepted_a7415b55:
 translate mandarin aut_cho01_accepted_9c7eaab4:
 
     # wilson_char "Vanta... that doesn't tell me anything. There must be something else around you. Over."
-    wilson_char "Vanta……這麽模糊我哪知道啊。你看看周圍有沒有其他東西啊。完畢。"
+    wilson_char "Vanta……這麽模糊我哪知道啊。你看看周圍有沒有其他東西啊。Over。"
 
 # game/script.rpy:1606
 translate mandarin aut_cho01_accepted_37c54a1d:
@@ -953,13 +953,13 @@ translate mandarin aut_cho01_accepted_37c54a1d:
 translate mandarin aut_cho01_accepted_38f2b9f7:
 
     # wilson_char "Try to find a huge rock or a tall tree to climb for a better view. Let me know what you see. Over."
-    wilson_char "找塊大石頭或一棵高樹爬上去看看。告訴我你看到了什麼。完畢。"
+    wilson_char "找塊大石頭或一棵高樹爬上去看看。告訴我你看到了什麼。Over。"
 
 # game/script.rpy:1608
 translate mandarin aut_cho01_accepted_8039b810:
 
     # vanta_char "Wilson! Don't laugh at my pain. Alright, I can see a huge tree. I'm going to climb up the tree and take a look. Over."
-    vanta_char "Wilson！不要在我傷口上灑鹽！好吧，前面有一棵大樹。我爬上去看看。完畢。"
+    vanta_char "Wilson！不要在我傷口上灑鹽！好吧，前面有一棵大樹。我爬上去看看。Over。"
 
 # game/script.rpy:1610
 translate mandarin aut_cho01_accepted_e49ca88c:
@@ -1031,7 +1031,7 @@ translate mandarin aut_cho01_accepted_8e59a7c1:
 translate mandarin aut_cho01_accepted_017bf934:
 
     # wilson_char "Answer me! Tell me what's going on! OVER!"
-    wilson_char "回答我！告訴我發生了什麼！完畢！"
+    wilson_char "回答我！告訴我發生了什麼！Over！"
 
 # game/script.rpy:1637
 translate mandarin aut_cho01_accepted_dbe7ae97:
@@ -2784,7 +2784,7 @@ translate mandarin spr_cho2_2_accepted_3c114074:
 translate mandarin spr_cho2_2_accepted_acc42939:
 
     # "You take a deep breath and nod at Wilson. With precision, Tentapod swiftly extends its robotic octopus arm and effortlessly hacks into the lockpad. The door is unlocked within a matter of seconds."
-    "你深吸一口氣，向著站在門旁面板前的威爾森點點頭，Tentapod迅速將水母般的機械觸手纏上面板，眨眼間便解開了門鎖。"
+    "你深吸一口氣，向著站在門旁面板前的Wilson點點頭，Tentapod迅速將水母般的機械觸手纏上面板，眨眼間便解開了門鎖。"
 
 # game/script.rpy:2610
 translate mandarin spr_cho2_2_accepted_b980f046:
@@ -3054,7 +3054,7 @@ translate mandarin spr_cho2_2_accepted_41142d02:
 translate mandarin spr_cho2_2_accepted_b5538df4:
 
     # wilson_char "You are clear to initiate building demolition at the same time. Over."
-    wilson_char "授權許可炸毀目標建築物，完畢。"
+    wilson_char "授權許可炸毀目標建築物，Over。"
 
 # game/script.rpy:2698
 translate mandarin spr_cho2_2_accepted_43072d85:
@@ -3535,3 +3535,10 @@ translate mandarin win_cho_one2_accepted_2ad43c44:
     # vanta_char "I'm not Spider Guy! I'm a tyrant! A hero of Krisis!\nYeah, one of my fellow heroes does wear tights, but not all heroes wear tights!"
     vanta_char "我不是蜘蛛哥！我是Krisis的暴君！英雄哥！\n然後沒錯，我的某位夥伴英雄的確是穿緊身衣，但不是所有的英雄都穿緊身衣！"
 
+# TODO: Translation updated at 2024-06-18 13:39
+
+# game/script.rpy:1582
+translate mandarin cho_one3_accepted_6e31b261:
+
+    # "You taste the drink...and nothing happens."
+    "你嚐了嚐飲料……什麼也沒發生。"

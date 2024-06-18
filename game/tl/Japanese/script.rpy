@@ -298,7 +298,7 @@ translate japanese JXJX_accepted_d2709bca:
 translate japanese cho_one4_accepted_64cddfce:
 
     # vanta_char "I'm Special Agent Vantacrow Bringer from A.S.H. Mind if I take a look at your kitchen?"
-    vanta_char "A.S.H. の特別捜査官ベンタクロウ・ブリンカーだ。ここのキッチンを見させてもらっても？"
+    vanta_char "A.S.H. の特別捜査官ベンタクロウ・ブリンガーだ。ここのキッチンを見させてもらっても？"
 
 # game/script.rpy:1151
 translate japanese cho_one4_accepted_1950bd0a:
@@ -598,7 +598,7 @@ translate japanese chapter_2_e7aa8539:
 translate japanese chapter_2_76ea7d91:
 
     # vanta_char "Of course! We need no introduction. But regardless, my name is Vantacrow Bringer. Here to save you all."
-    vanta_char "あぁそうだ！俺たちも顔が売れてるってことだな。っと、俺はベンタクロウ・ブリンカー。あなたたちを救うためにここへ来た。"
+    vanta_char "あぁそうだ！俺たちも顔が売れてるってことだな。っと、俺はベンタクロウ・ブリンガー。あなたたちを救うためにここへ来た。"
 
 # game/script.rpy:1391
 translate japanese chapter_2_7e42440d:
@@ -784,7 +784,7 @@ translate japanese chapter_2_0ef4a4f4:
 translate japanese chapter_2_35e117de:
 
     # "The scent is familiar, it's something earthy."
-    "土臭い。たが、嗅いだことのある臭いだ。"
+    "土臭い。だが、嗅いだことのある臭いだ。"
 
 # game/script.rpy:1499
 translate japanese chapter_2_be1a0689:
@@ -862,13 +862,13 @@ translate japanese aut_cho01_accepted_70c02428:
 translate japanese aut_cho01_accepted_e0b265b1:
 
     # wilson_char "Mr. Bringer, do you copy? Over."
-    wilson_char "ブリンカーさん、聞こえますか？どうぞ。"
+    wilson_char "ブリンガーさん、聞こえますか？どうぞ。"
 
 # game/script.rpy:1550
 translate japanese aut_cho01_accepted_63528735:
 
     # vanta_char "Hello? Wilson? This is Vantacrow Bringer. Over."
-    vanta_char "もしもし、ウィルソン？こちらベンタクロウ・ブリンカーだ。"
+    vanta_char "もしもし、ウィルソン？こちらベンタクロウ・ブリンガーだ。"
 
 # game/script.rpy:1557
 translate japanese aut_cho01_accepted_a6f3d65b:
@@ -1102,7 +1102,7 @@ translate japanese aut_cho01_accepted_44a60453:
 translate japanese aut_cho01_accepted_b1d0461e:
 
     # wilson_char "I told you to stay still and not to touch anything, Mr. Vantacrow Bringer."
-    wilson_char "何も触らずじっとしていろって言ったよね？ベンタクロウ・ブリンカー氏？"
+    wilson_char "何も触らずじっとしていろって言ったよね？ベンタクロウ・ブリンガー氏？"
 
 # game/script.rpy:1656
 translate japanese aut_cho01_accepted_a3e86e1b:
@@ -1378,7 +1378,7 @@ translate japanese aut_cho02_accepted_62f98177:
 translate japanese aut_cho02_accepted_37aa6888:
 
     # vanta_char "... That also sounds bad, forget it. {size=40}I'LL BE THERE IN JUST A SECOND!!{/size}"
-    vanta_char "⋯⋯これも違うな。あぁもういい。{size=40}すぐに行く！！/size}"
+    vanta_char "⋯⋯これも違うな。あぁもういい。{size=40}すぐに行く！！{/size}"
 
 # game/script.rpy:1779
 translate japanese aut_cho02_accepted_afd7214c:
@@ -2350,7 +2350,7 @@ translate japanese chapter_4_fd7d8d21:
 translate japanese chapter_4_fb15da94:
 
     # "But for the content, it’s tempting to show off to Wilson. Even a few of the Vantacrew seem to snicker at the notion. You decide to give Wilson—"
-    "しかし、内容的にはウィルソンに見せびらかしたくなる。 バンタクルーの何匹かも、その考えにニヤニヤと笑っていた。あなたはウィルソンにーー"
+    "しかし、内容的にはウィルソンに見せびらかしたくなる。 ベンタクルーの何匹かも、その考えにニヤニヤと笑っていた。あなたはウィルソンにーー"
 
 # game/script.rpy:2398
 translate japanese chapter_4_fe0fe77a:
@@ -2782,7 +2782,7 @@ translate japanese spr_cho2_2_accepted_3c114074:
 translate japanese spr_cho2_2_accepted_acc42939:
 
     # "You take a deep breath and nod at Wilson. With precision, Tentapod swiftly extends its robotic octopus arm and effortlessly hacks into the lockpad. The door is unlocked within a matter of seconds."
-    "あなたは深呼吸をし、ドア脇のパネルの前に立つウィルソンに頷いた。一方、テンタポッドはクラゲのような機械の触手を素早くパネルに差し込み、一瞬でロックを解錠した。。"
+    "あなたは深呼吸をし、ドア脇のパネルの前に立つウィルソンに頷いた。一方、テンタポッドはクラゲのような機械の触手を素早くパネルに差し込み、一瞬でロックを解錠した。"
 
 # game/script.rpy:2610
 translate japanese spr_cho2_2_accepted_b980f046:
@@ -2818,7 +2818,7 @@ translate japanese spr_cho2_2_accepted_dd71bfee:
 translate japanese spr_cho2_2_accepted_7d234b0a:
 
     # "You turn your body sideways to show Zali and Wilson. Inside a small metal cage, an anxious puppy bites and scratches, whining with unease; its eyes pleading to be released."
-    "あなたはザリとウィルソンに見せるため体を横にずらした。小さな金属製の檻の中で、仔犬が不安そうに噛んだり引っ掻いたりして鳴いている。その潤んだ瞳は「ここから出して」と懇願しているように見える。。"
+    "あなたはザリとウィルソンに見せるため体を横にずらした。小さな金属製の檻の中で、仔犬が不安そうに噛んだり引っ掻いたりして鳴いている。その潤んだ瞳は「ここから出して」と懇願しているように見える。"
 
 # game/script.rpy:2622
 translate japanese spr_cho2_2_accepted_3d3a0758:
@@ -2980,7 +2980,7 @@ translate japanese spr_cho2_2_accepted_442e0ca3:
 translate japanese spr_cho2_2_accepted_353f439f:
 
     # vanta_char "You were just a nameless Shiba without a home, but not anymore. From this moment forward, you belong to me, Vantacrow Bringer. You are my puppy."
-    vanta_char "君は誰の家のコでもない名無しの柴だったが、これからはもう違うんだ。今日から君はベンタクロウ・ブリンカーである俺の子だ。"
+    vanta_char "君は誰の家のコでもない名無しの柴だったが、これからはもう違うんだ。今日から君はベンタクロウ・ブリンガーである俺の子だ。"
 
 # game/script.rpy:2665
 translate japanese spr_cho2_2_accepted_a03d5a34:
@@ -3034,7 +3034,7 @@ translate japanese spr_cho2_2_accepted_2cb83266:
 translate japanese spr_cho2_2_accepted_4428cd94:
 
     # wilson_char "Team Krisis to Squad A, come in. This is it."
-    wilson_char "KrisisからＡ班へ、どうぞ。。"
+    wilson_char "KrisisからＡ班へ、どうぞ。"
 
 # game/script.rpy:2695
 translate japanese spr_cho2_2_accepted_a9a03b23:
@@ -3469,7 +3469,7 @@ translate japanese chapter_4_cd4efb2e:
 translate japanese chapter_4_7effb56d:
 
     # "But for the content, it's tempting to show off to Wilson. Even a few of the Vantacrew seem to snicker at the notion. You decide to give Wilson—"
-    "しかし、内容的にはウィルソンに見せびらかしたくなる。 バンタクルーの何匹かも、その考えにニヤニヤと笑っていた。あなたはウィルソンにーー"
+    "しかし、内容的にはウィルソンに見せびらかしたくなる。 ベンタクルーの何匹かも、その考えにニヤニヤと笑っていた。あなたはウィルソンにーー"
 
 # game/script.rpy:2933
 translate japanese chapter_4_04b04b2b:
@@ -3531,3 +3531,10 @@ translate japanese spr_cho2_1_accepted_3358ce8e:
     # vanta_char "Ah, that's how the shop made it. Don't worry, it doesn't taste like eggplant, I promise."
     vanta_char "あー元々そういうデザインなんだ。でも全然茄子の味じゃないよ。本当だって。心配するな。"
 
+# TODO: Translation updated at 2024-06-18 13:39
+
+# game/script.rpy:1582
+translate japanese cho_one3_accepted_6e31b261:
+
+    # "You taste the drink...and nothing happens."
+    "あなたはドリンクを飲んでみたが⋯⋯何も起こらなかった。"

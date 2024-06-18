@@ -476,7 +476,7 @@ translate japanese strings:
 
     # renpy/common/00gui.rpy:452
     old "Are you sure you want to quit?"
-    new "本当に戻りますか？"
+    new "本当にゲームを終了しますか？"
 
     # renpy/common/00gui.rpy:453
     old "Are you sure you want to return to the main menu?\nThis will lose unsaved progress."
