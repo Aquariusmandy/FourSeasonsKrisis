@@ -88,7 +88,7 @@ translate japanese strings:
 
     # game/screens.rpy:1523
     old "Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]"
-    new "制作にRen’Pyを使用"
+    new "{a=https://www.renpy.org/}Ren 'Py{/a}で制作 [renpy.version_only].\n\n[renpy.license!t]"
 
     # game/screens.rpy:1563
     old "Page {}"
@@ -915,7 +915,7 @@ translate japanese strings:
 
     # game/screens.rpy:2099
     old "Play Credits"
-    new "クレジットを再生する"
+    new "クレジットを見る"
 
     # game/screens.rpy:2114
     old "Do you want to watch the video?"
@@ -951,4 +951,20 @@ translate japanese strings:
 
     # game/screens.rpy:2241
     old "{size=20}delete save{/size}"
-    new ""
+    new "{size=20}セーブを削除{/size}"
+# TODO: Translation updated at 2024-06-19 00:13
+
+translate japanese strings:
+
+    # game/screens.rpy:1922
+    old "{size=20}Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]{/size}"
+    new "{size=20}{a=https://www.renpy.org/}Ren 'Py{/a}で制作 [renpy.version_only].\n\n[renpy.license!t]{/size}"
+
+# TODO: Translation updated at 2024-06-19 14:34
+
+translate japanese strings:
+
+    # game/screens.rpy:1501
+    old "{font=GlowSansSC-Normal-Regular.ttf}ゲーム終了{/font}"
+    new "{font=GlowSansSC-Normal-Regular.ttf}ゲーム終了{/font}"
+

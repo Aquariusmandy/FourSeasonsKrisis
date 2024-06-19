@@ -1431,7 +1431,10 @@ screen navigation:
         ## Define the style for the textbuttons
         
         if main_menu:
-            textbutton _("New Game") action ShowMenu("confirm_start") style "navigation_textbutton" 
+            if persistent.new_game_clicked:
+                textbutton _("New Game") action ShowMenu("confirm_start") style "navigation_textbutton"
+            else:
+                textbutton _("New Game") action Start() style "navigation_textbutton"
             textbutton _("Continue") action Continue() style "navigation_textbutton"
 
         else:
@@ -1498,7 +1501,7 @@ screen gamemenu_navigation:
             #     textbutton _("Help") action ShowMenu("help") style "navigation_textbutton"
             
             if renpy.variant("pc"):
-                textbutton _("{font=GlowSansSC-Normal-Regular.ttf}戻る{/font}") action Quit(confirm=not main_menu)
+                textbutton _("{font=GlowSansSC-Normal-Regular.ttf}ゲーム終了{/font}") action Quit(confirm=not main_menu)
         else:
             textbutton _("Load") action ShowMenu("load")  
             textbutton _("History") action ShowMenu("history") 

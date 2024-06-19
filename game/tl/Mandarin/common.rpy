@@ -524,7 +524,7 @@ translate mandarin strings:
 
     # renpy/common/00library.rpy:317
     old "This program contains free software under a number of licenses, including the MIT License and GNU Lesser General Public License. A complete list of software, including links to full source code, can be found {a=https://www.renpy.org/l/license}here{/a}."
-    new ""
+    new "本程式包含多種授權條款下的自由軟體，包括MIT授權條款和GNU較寬鬆通用公眾授權條款。完整的軟體清單及源代碼連結可在{a=https://www.renpy.org/l/license}此處{/a}找到。"
 
     # renpy/common/00preferences.rpy:288
     old "display"

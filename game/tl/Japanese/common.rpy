@@ -524,7 +524,7 @@ translate japanese strings:
 
     # renpy/common/00library.rpy:317
     old "This program contains free software under a number of licenses, including the MIT License and GNU Lesser General Public License. A complete list of software, including links to full source code, can be found {a=https://www.renpy.org/l/license}here{/a}."
-    new ""
+    new "このプログラムには、MITライセンスおよびGNU Lesser General Public Licenseを含むいくつかのライセンスの下で提供されるフリーソフトウェアが含まれています。ソフトウェアの完全なリスト、ならびに完全なソースコードへのリンクは{a=https://www.renpy.org/l/license}こちら{/a}で確認できます。"
 
     # renpy/common/00preferences.rpy:288
     old "display"
