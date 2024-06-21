@@ -11,7 +11,7 @@
 ## title, and shows up in the interface and error reports.
 ##
 ## The _() surrounding the string marks it as eligible for translation.
-define config.name = _("BetaTest")
+define config.name = _("FourSeasonKrisis_Gold")
 
 define build.itch_project = "testcrew/test2"
 
@@ -23,7 +23,7 @@ define gui.show_name = True
 
 ## The version of the game.
 
-define config.version = "0.6"
+define config.version = "1.0"
 
 
 ## Text that is placed on the game's about screen. Place the text between the
@@ -37,7 +37,7 @@ define gui.about = _p("""
 ## distribution. This must be ASCII-only, and must not contain spaces, colons,
 ## or semicolons.
 
-define build.name = "Beta_test"
+define build.name = "FourSeasonKrisis_Gold"
 
 
 ## Sounds and music ############################################################
@@ -146,8 +146,8 @@ define widget_selected = "#9867FF",
 ## This generally should not be changed, and if it is, should always be a
 ## literal string, not an expression.
 
-define config.save_directory = "test38-1714853493"
-
+define config.save_directory = "FourSeasonGame-1714853493"
+define config.developer = False
 
 ## Icon ########################################################################
 ##
@@ -210,6 +210,9 @@ init python:
 
     build.documentation('*.html')
     build.documentation('*.txt')
+
+    build.directory_name = "Gold1.0" # 決定遊戲資料夾名稱。但依據平台不同，會在最後附上 -win 之類的後綴。
+    build.executable_name = "FourSeasonKrisis"    # 決定遊戲執行檔檔名，但不含副檔名。依據平台不同，會自動決定正確的附檔名。
 
 
 ## A Google Play license key is required to perform in-app purchases. It can be

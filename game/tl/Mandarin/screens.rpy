@@ -923,7 +923,7 @@ translate mandarin strings:
 
     # game/screens.rpy:2226
     old "delete"
-    new "delete"
+    new "刪除"
 
     # game/screens.rpy:2330
     old "視窗化"
@@ -964,4 +964,11 @@ translate mandarin strings:
     # game/screens.rpy:1922
     old "{size=20}Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]{/size}"
     new "{size=20}由{a=https://www.renpy.org/}Ren'Py{/a}製作  [renpy.version_only].\n\n[renpy.license!t]{/size}"
+# TODO: Translation updated at 2024-06-21 00:27
+
+translate mandarin strings:
+
+    # game/screens.rpy:1034
+    old "Your A.S.H. Archive has been updated with the latest achievements!"
+    new "現在打開A.S.H. 檔案室確認你的最新成就吧！"
 

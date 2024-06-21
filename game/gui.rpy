@@ -11,16 +11,6 @@ init offset = -2
 init python:
     gui.init(1920, 1080)
     
-    
-    # if _preferences.language == "mandarin":
-    #     presistent_text_font = u"SourceHanSansLite.ttf"
-    #     presistent_medium_text_font = u"GlowSansSC-Normal-Medium.ttf"
-    #     presistent_bold_text_font = u"GlowSansSC-Normal-Bold.ttf"
-    # elif _preferences.language == "japanese":
-    #     presistent_text_font = u"GlowSansSC-Normal-Regular.ttf"
-    #     presistent_medium_text_font = u"GlowSansSC-Normal-Medium.ttf"
-    #     presistent_bold_text_font = u"GlowSansSC-Normal-Bold.ttf"
-    # elif _preferences.language == None:
     presistent_text_font = "BaiJamjuree-Regular.ttf"
     presistent_medium_text_font = "BaiJamjuree-SemiBold.ttf"
     presistent_bold_text_font = "BaiJamjuree-Bold.ttf"
@@ -110,6 +100,9 @@ define gui.twenty_text_yalign = 0.5
 
 define gui.content_text_size = 24
 define gui.content_text_yalign = 0.5
+
+define gui.choice_text_size = 28
+define gui.choice_text_yalign = 0.5
 
 define gui.thirty_text_size = 30
 define gui.thirty_text_yalign = 0.5

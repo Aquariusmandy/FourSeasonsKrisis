@@ -10,7 +10,7 @@ translate japanese chapter_1_07c2cbb0:
 translate japanese chapter_1_b85f6f09:
 
     # "You are Vantacrow Bringer, fearsome tyrant and ace of the hero team Krisis."
-    "あなた ベンタクロウ・ブリンガーは、恐ろしい暴君であり、Krisisというヒーローグループのエースである。"
+    "あなたはベンタクロウブリンガー。恐ろしい暴君であり、Krisisというヒーローグループのエースである。"
 
 # game/script.rpy:980
 translate japanese chapter_1_bc5a0cab:
@@ -154,7 +154,7 @@ translate japanese cho_one1_accepted_2bac1b22:
 translate japanese cho_one1_accepted_1f927595:
 
     # vanta_char "Haha! To tell you the truth, I am an incredibly influential individual, the true paragon of virtue. Standing before you is—"
-    vanta_char "ハハッ！まぁそれなりに影響力はあるんだ。美徳の模範となったこの人物⋯⋯そう、あなたの目の前にいるこの俺こそが――"
+    vanta_char "ハハッ！まぁそれなりに影響力はあるんだ。美徳の模範となった人物⋯⋯そう、あなたの目の前にいるこの俺こそが――"
 
 # game/script.rpy:1050
 translate japanese cho_one1_accepted_ef1c9284:
@@ -184,7 +184,7 @@ translate japanese cho_one1_accepted_bae4f6a7:
 translate japanese cho_one1_accepted_f16be9be:
 
     # npc1_char "I haven't had time to investigate, but something in my gut says it has to do with the new drinks shop, Octa-Brew."
-    npc1_char "訊ねるヒマはなかったの。だけど、直感では新しくオープンした「Octa-Brew」っていうドリンクスタンドと関係がある気がするのよ。"
+    npc1_char "訊ねるヒマはなかったの。だけど、新しくオープンした「Octa-Brew」っていうドリンクスタンドと関係がある気がするのよ。"
 
 # game/script.rpy:1061
 translate japanese cho_one1_accepted_32a4b822:
@@ -256,7 +256,7 @@ translate japanese cho_one3_accepted_acc17f11:
 translate japanese cho_one3_accepted_338976d2:
 
     # "Since it tastes so good and nothing happened, you decide to keep this one for yourself, and order another one to send to A.S.H. for analysis."
-    "結構美味いし、特に身体に変化はない。あなたはこのドリンクを取っておくことにした。そしてもう一本を注文して、A.S.H. に分析を頼んでた。"
+    "結構美味いし、特に身体に変化はない。あなたはこのドリンクを取っておくことにした。そしてもう一本を注文して、A.S.H. に分析を頼んた。"
 
 # game/script.rpy:1120
 translate japanese JXJX_accepted_fa994762:
@@ -268,7 +268,7 @@ translate japanese JXJX_accepted_fa994762:
 translate japanese JXJX_accepted_a6515d26:
 
     # "The next day, you receive the analysis report from A.S.H."
-    "翌日、あなたはA.S.H. から分析の結果を貰った"
+    "翌日、あなたはA.S.H. から分析の結果を貰った。"
 
 # game/script.rpy:1134
 translate japanese JXJX_accepted_befd7b76:
@@ -454,7 +454,7 @@ translate japanese after_accepted_b9539218:
 translate japanese after_accepted_762c6637:
 
     # "Hanging upside down, you see the octopus' blood-red eyes staring right at you."
-    "逆さ吊りにされ藻掻いているあなたを血のように赤いタコの目が見つめる。"
+    "逆さ吊りにされ、もがいているあなたを血のように赤いタコの目が見つめる。"
 
 # game/script.rpy:1263
 translate japanese after_accepted_f0554fde:
@@ -754,7 +754,7 @@ translate japanese chapter_2_8c2ccd62:
 translate japanese chapter_2_167af661:
 
     # vanta_char "The air is so fresh today. I love this time of year."
-    vanta_char "めちゃくちゃいい空気だな〜大好きだわ、この季節。"
+    vanta_char "めちゃくちゃいい空気だな〜。大好きだわ、この季節。"
 
 # game/script.rpy:1488
 translate japanese chapter_2_709035e9:
@@ -766,7 +766,7 @@ translate japanese chapter_2_709035e9:
 translate japanese chapter_2_0d2f78ec:
 
     # wilson_char "Do you remember that time we went to a forest to hunt down Bigfoot with Alban and Fulgur? You were princess carried the whole way during the mission. That was actually so funny. Ah-hahahah."
-    wilson_char "アルバーンとファルガーと一緒にビッグフットを探しに森へ行ったの覚えてる？そん時お前、ずっとお姫様抱っこされてたんだよね〜ウケる。"
+    wilson_char "アルバーンとファルガーと一緒にビッグフットを探しに森へ行ったの覚えてる？そん時お前、ずっとお姫様抱っこされてたんだよね。ウケる！"
 
 # game/script.rpy:1492
 translate japanese chapter_2_0ac7174d:
@@ -820,7 +820,7 @@ translate japanese chapter_2_403eb762:
 translate japanese chapter_2_444a3920:
 
     # vanta_char "Hmm, the taste is familiar, I wish I could remember where I had it."
-    vanta_char "んー何か、どっかで食べたことあるような味だなぁ。"
+    vanta_char "んー。何か、どっかで食べたことあるような味だなぁ。"
 
 # game/script.rpy:1518
 translate japanese chapter_2_af7b0a78:
@@ -880,7 +880,7 @@ translate japanese aut_cho01_accepted_a6f3d65b:
 translate japanese aut_cho01_accepted_dd23d417:
 
     # wilson_char "Vanta, Vanta, Vanta... I look away for 10 seconds and you are gone. Over."
-    wilson_char "ベンタ、ベンタ、ベンタ⋯⋯10秒くらい目を離した隙に君はもういなくなっていたよ⋯⋯。"
+    wilson_char "ベンタ、ベンタ、ベンタ⋯⋯10秒くらい目を離した隙にお前はもういなくなっていたよ⋯⋯。"
 
 # game/script.rpy:1562
 translate japanese aut_cho01_accepted_a9f138bb:
@@ -928,7 +928,7 @@ translate japanese aut_cho01_accepted_f13448ba:
 translate japanese aut_cho01_accepted_27939589:
 
     # wilson_char "Hey Bro... This also sounds insane, but I know exactly where you are, I can see the Tentapod cloud, too! Over."
-    wilson_char "おいおい兄弟……ふざけているように聞こえるかもしれないけど、君のいる場所が分かるかもしれない。ちょうどテンタポッドのような雲が見えてきた。どうぞ。"
+    wilson_char "おいおい兄弟……ふざけているように聞こえるかもしれないけど、お前のいる場所が分かるかもしれない。ちょうどテンタポッドのような雲が見えてきた。どうぞ。"
 
 # game/script.rpy:1594
 translate japanese aut_cho01_accepted_a7415b55:
@@ -1006,7 +1006,7 @@ translate japanese aut_cho01_accepted_75844b0c:
 translate japanese aut_cho01_accepted_59594ac9:
 
     # vanta_char "Oh please, not like this!!"
-    vanta_char "ちょっ、頼む！これだけは！"
+    vanta_char "ちょっ、頼む！それだけは！"
 
 # game/script.rpy:1631
 translate japanese aut_cho01_accepted_14011006:
@@ -1018,7 +1018,7 @@ translate japanese aut_cho01_accepted_14011006:
 translate japanese aut_cho01_accepted_3ec11cf2:
 
     # "Panicked, you leap from the tree, but instead of landing in your signature hero pose, you stumble, struggling to maintain your balance."
-    "パニックになったあなたは木から飛び降りたが、いつもの見事な着地もできずただただバランスを保つのに必死だった。"
+    "パニックになったあなたは木から飛び降りたが、いつもの見事な着地もできず、ただただバランスを保つのに必死だった。"
 
 # game/script.rpy:1635
 translate japanese aut_cho01_accepted_8e59a7c1:
@@ -1054,13 +1054,13 @@ translate japanese aut_cho01_accepted_609e3e64:
 translate japanese aut_cho01_accepted_544ef236:
 
     # "The enraged bees chase you relentlessly. Your heart races as you sprint through the forest, weaving between trees in a frantic attempt to throw off the bees."
-    "怒り狂った蜜蜂たちがあなたを追いかける。あなたは心臓がバクバクさせながら森の中を必死で走り回り、蜜蜂を追い払おうとした。"
+    "怒り狂った蜜蜂たちがあなたを追いかける。心臓をバクバクさせながら森の中を必死で走り回り、蜜蜂を追い払おうとした。"
 
 # game/script.rpy:1643
 translate japanese aut_cho01_accepted_941a36e7:
 
     # "Adrenaline fuels your legs as you push yourself to your limits. Every step is a leap of faith."
-    "アドレナリンが出ているのか、信じられない脚力であなたは駆け回ることができた。"
+    "アドレナリンが出ているのか、信じられない脚力で駆け回ることができた。"
 
 # game/script.rpy:1644
 translate japanese aut_cho01_accepted_b5badc3a:
@@ -1084,7 +1084,7 @@ translate japanese aut_cho01_accepted_22f980c6:
 translate japanese aut_cho01_accepted_8c0dcaf9:
 
     # "Startled, you find yourself in a princess carry, the unexpected encounter leaving you momentarily breathless as you gaze up into the eyes of..."
-    "驚いたあなたは自分がお姫様抱っこされてることに気づいた。相手の目を見上げたその瞬間、あなたはこの思いがけない出会いに息が詰まった。その目の持ち主は――"
+    "驚いたあなたは自分がお姫様抱っこされてることに気づいた。相手の目を見上げたその瞬間、この思いがけない出会いに息が詰まった。その目の持ち主は――"
 
 # game/script.rpy:1653
 translate japanese aut_cho01_accepted_d0eb14bf:
@@ -1150,7 +1150,7 @@ translate japanese aut_cho02_accepted_a3bdb30c:
 translate japanese aut_cho02_accepted_ed11f874:
 
     # wilson_char "Oh my god, that is sho cyute. Oh! We should make sure it doesn't accidentally get into the trap."
-    wilson_char "何かわちぃ〜……ハッ！うっかり罠に掛からないようにしてあげなきゃ！"
+    wilson_char "うわ、かっわいい〜……ハッ！うっかり罠に掛からないようにしてあげなきゃ！"
 
 # game/script.rpy:1688
 translate japanese aut_cho02_accepted_65fbb8a5:
@@ -1222,7 +1222,7 @@ translate japanese aut_cho02_accepted_e86e4048:
 translate japanese aut_cho02_accepted_cfcafb0e:
 
     # vanta_char "Ahhh!! THAT IS HUGE..."
-    vanta_char "うわっやっべぇクソデカ⋯⋯。"
+    vanta_char "うわっ！やっべぇ、クソデカ⋯⋯。"
 
 # game/script.rpy:1726
 translate japanese aut_cho02_accepted_a7c5282a:
@@ -1282,7 +1282,7 @@ translate japanese aut_cho02_accepted_e392cc9c:
 translate japanese aut_cho02_accepted_3714d8e7:
 
     # "As Wilson nimbly dodges the attack, he accidentally triggers a snare trap, finding himself abruptly hoisted upside down."
-    "素早く攻撃をかわしたものの誤って罠を踏んでしまい、逆さ吊りの状態になったウィルソン。"
+    "素早く攻撃をかわしたもののあやまって罠を踏んでしまい、逆さ吊りの状態になったウィルソン。"
 
 # game/script.rpy:1753
 translate japanese aut_cho02_accepted_b0f2551d:
@@ -1318,7 +1318,7 @@ translate japanese aut_cho02_accepted_44496eb6:
 translate japanese aut_cho02_accepted_a899cfe6:
 
     # vanta_char "God damn it. This rope is so fricking tight..."
-    vanta_char "ちくしょう！縛りが固すぎる⋯⋯"
+    vanta_char "ちくしょう！縛りが固すぎる⋯⋯。"
 
 # game/script.rpy:1767
 translate japanese aut_cho02_accepted_493d10fa:
@@ -1366,19 +1366,19 @@ translate japanese aut_cho02_accepted_f9533716:
 translate japanese aut_cho02_accepted_983d660c:
 
     # vanta_char "{size=40}ZALI!!! HANG ON!!! I'M COMING!!{/size}"
-    vanta_char "{size=40}ザリ！！！待ってろ！！！俺行く！！！{/size}"
+    vanta_char "{size=40}ザリ！！！待ってろ！！！今イく！！！{/size}"
 
 # game/script.rpy:1777
 translate japanese aut_cho02_accepted_62f98177:
 
     # vanta_char "Oh that sounds bad, I mean {size=40}I'M ARRIVING!!{/size}"
-    vanta_char "⋯⋯いや言い方やばいな。{size=40}もう行っちゃうから！！！{/size}"
+    vanta_char "あ、それはやばいな、{size=40}つまり、イくぞ！！{/size}"
 
 # game/script.rpy:1778
 translate japanese aut_cho02_accepted_37aa6888:
 
     # vanta_char "... That also sounds bad, forget it. {size=40}I'LL BE THERE IN JUST A SECOND!!{/size}"
-    vanta_char "⋯⋯これも違うな。あぁもういい。{size=40}すぐに行く！！{/size}"
+    vanta_char "⋯⋯これも違うな。もういい。{size=40}すぐそっちに行く！！{/size}"
 
 # game/script.rpy:1779
 translate japanese aut_cho02_accepted_afd7214c:
@@ -1390,7 +1390,7 @@ translate japanese aut_cho02_accepted_afd7214c:
 translate japanese aut_cho02_accepted_5ca4309a:
 
     # "With unwavering determination, you leap onto the bear, swiftly wrapping your arms and legs around its massive form."
-    "あなたは揺るぎない決意でクマに飛び乗り、彼女の大きな体に素早く手足を巻きつける。"
+    "あなたは揺るぎない決意でクマに飛び乗り、大きな体に素早く手足を巻きつける。"
 
 # game/script.rpy:1783
 translate japanese aut_cho02_accepted_e3da8d54:
@@ -1414,7 +1414,7 @@ translate japanese aut_cho02_accepted_0c5842ec:
 translate japanese aut_cho02_accepted_f81c81a9:
 
     # "Zali regains his composure and speaks with a soothing tone. He produces a syringe seemingly out of thin air, and before you can register any movement, the needle is already under the bear's skin."
-    "ザリはいつもの落ち着きを取り戻し、なだめるような口調でクマに話しかける。そしていつの間にか取り出した注射器をクマの皮膚に刺してた。"
+    "ザリはいつもの落ち着きを取り戻し、なだめるような口調でクマに話しかける。そしていつの間にか取り出した注射器をクマの皮膚に刺した。。"
 
 # game/script.rpy:1792
 translate japanese aut_cho02_accepted_2b845765:
@@ -1444,7 +1444,7 @@ translate japanese aut_cho02_accepted_93014b7d:
 translate japanese aut_cho02_accepted_1382f578:
 
     # zali_char "I'll call A.S.H.'s team to get a case to take the bear back. If there are cubs, I'll take care of them, too."
-    zali_char "クマを引き取るための檻を用意することは私からA.S.H. に伝えとく。もし子グマがいたら、その面倒も私がちゃんと見るわ。"
+    zali_char "クマを引き取るための檻を用意することは私からA.S.H. に伝えておく。もし子グマがいたら、その面倒も私がちゃんと見るわ。"
 
 # game/script.rpy:1810
 translate japanese aut_cho02_accepted_8459c3df:
@@ -1474,7 +1474,7 @@ translate japanese aut_cho02_accepted_4b868393:
 translate japanese aut_cho02_accepted_bf4bf60e:
 
     # vanta_char "… That he gracefully injected that mysterious syringe to sedate that huge bear, all without batting an eye?"
-    vanta_char "クマを眠らせるために謎の液体を使って潔くやっちゃったところがね。"
+    vanta_char "…あの大きなクマを静かに鎮めるために、ザリが何のためらいもなくあの謎の注射器を使ったこと？"
 
 # game/script.rpy:1820
 translate japanese aut_cho02_accepted_4e497d03:
@@ -1498,7 +1498,7 @@ translate japanese aut_cho02_accepted_b14cff75:
 translate japanese aut_cho02_accepted_bf8cc6cd:
 
     # "Zali looks at the two of you, clearly puzzled, but with a smile adorning his face."
-    "あぁ……クマを眠らせるために謎の液体を使って潔くやっちまったところをな。"
+    "ザリは明らかに困惑しながらも、微笑みを浮かべてあなたたち2人を見ている。"
 
 # game/script.rpy:1824
 translate japanese aut_cho02_accepted_aac8b166:
@@ -1546,13 +1546,13 @@ translate japanese aut_cho02_accepted_a8069320:
 translate japanese aut_cho02_accepted_04425088:
 
     # "The three of you also indulge in some delicious mushroom dishes prepared by the villagers, savoring the flavors of their generosity."
-    "あなたたち三人は村人たちが作ってくれた美味しいマッシュルーム料理にも舌鼓を打ち、彼らの厚意を堪能した。"
+    "あなたたち三人は村人たちが作ってくれた美味しいマッシュルーム料理にも舌鼓を打ち、彼らの厚意を受け取った。"
 
 # game/script.rpy:1860
 translate japanese aut_cho02_accepted_ebf6d03b:
 
     # "As peace returns to the mountain, you bid the villagers farewell, the tranquility of the moment etched in your memory."
-    "山に平和な日々が戻り、村人たちに別れを告げた。この瞬きの静けさがきっとあなたの記憶に刻まれたことだろう。"
+    "山に平和な日々が戻り、村人たちに別れを告げた。この瞬間の静けさがきっとあなたの記憶に刻まれたことだろう。"
 
 # game/script.rpy:1861
 translate japanese aut_cho02_accepted_32bc7a4f:
@@ -1594,13 +1594,13 @@ translate japanese chapter_3_6e27153b:
 translate japanese chapter_3_38b1b4f1:
 
     # wilson_char "Ooo! I haven't had coffee today! I'm gonna go make myself a cup. Vanta, can I have a cheesecake, pwease?"
-    wilson_char "そうそう、今日はまだコーヒーを飲んでないんだから淹れてくる。ベンタ、チーズケーキを買ってくれる？お願い〜。"
+    wilson_char "そうそう、今日はまだコーヒーを飲んでないから淹れてくる。ベンタ、チーズケーキを買ってきてくれる？お願い。"
 
 # game/script.rpy:1920
 translate japanese chapter_3_b4e6153e:
 
     # wilson_char "Zali, do you want anything? A croissant maybe?"
-    wilson_char "ザリは？食べたいもんある？クロワッサンとか。"
+    wilson_char "ザリは？食べたいものある？クロワッサンとか。"
 
 # game/script.rpy:1923
 translate japanese chapter_3_e49a41ac:
@@ -1660,7 +1660,7 @@ translate japanese chapter_3_f95fb2fe:
 translate japanese chapter_3_6002978a:
 
     # vanta_char "AND... You're staying here."
-    vanta_char "君たちは⋯⋯留守番だ。"
+    vanta_char "お前たちは⋯⋯留守番だ。"
 
 # game/script.rpy:1947
 translate japanese chapter_3_d0c13433:
@@ -1702,7 +1702,7 @@ translate japanese chapter_3_404caf24:
 translate japanese chapter_3_00019e32:
 
     # "After all, it's snowing, and you couldn't bear to let them bounce around in the cold."
-    "雪はまだ降っているし、この寒さの中を飛び跳ねさせるのはあまりにも忍びない。"
+    "雪はまだ降っているし、この寒さの中を飛び跳ねさせるのはあまりにもかわいそうだ。"
 
 # game/script.rpy:1959
 translate japanese chapter_3_d024a46b:
@@ -1804,7 +1804,7 @@ translate japanese win_cho_one1_accepted_62367ab2:
 translate japanese win_cho_one1_accepted_2999addf:
 
     # "One of the Crew accidentally gets their little leg entangled in the string lights, prompting a frantic tug. With a jolt, the wire gives way, and the tree begins to wobble."
-    "その時、一匹のクルーが誤って小さな足をストリングライトに絡めてしまった。必死に引っ張ったらワイヤーがそのまま外れてしまい、ツリーがぐらついた。"
+    "その時、一匹のクルーがあやまって小さな足をストリングライトに絡めてしまった。必死に引っ張ったらワイヤーがそのまま外れてしまい、ツリーがぐらついた。"
 
 # game/script.rpy:2028
 translate japanese win_cho_one1_accepted_f046519b:
@@ -2170,7 +2170,7 @@ translate japanese win_cho_one2_accepted_fe171ce7:
 translate japanese win_cho_one2_accepted_a831c7e0:
 
     # wilson_char "Really?! For me?! You're too kind, Vanta! Well, how about... I make some curry for dinner?"
-    wilson_char "マジ！？僕に！？君はなんていい奴なんだ！じゃあー晩ごはんにカレーを作ってあげよう！"
+    wilson_char "マジ！？僕に！？お前はなんていい奴なんだ！じゃあー晩ごはんにカレーを作ってあげよう！"
 
 # game/script.rpy:2242
 translate japanese win_cho_one2_accepted_4a9d9903:
@@ -2224,7 +2224,7 @@ translate japanese chapter_4_f6558872:
 translate japanese chapter_4_faae7733:
 
     # "As you step into HQ, Zali is already there, surrounded by a couple of Vezkits, perhaps even earlier than usual. You head straight for the kitchen, eager to brew yourself a cup of coffee to kickstart your day."
-    "あなたが本部に足を踏み入れとザリは既に到着していた。いつもより少し早めで、何匹かのヴェズキッツに囲まれていた。"
+    "あなたが本部に足を踏み入れるとザリは既に到着していた。いつもより少し早めで、何匹かのヴェズキッツに囲まれていた。"
 
 # game/script.rpy:2326
 translate japanese chapter_4_5332633e:
@@ -2242,13 +2242,13 @@ translate japanese chapter_4_6ff8b1a4:
 translate japanese chapter_4_fbc1adb1:
 
     # vanta_char "Yeah! It is! Although it's still kind of gloomy, but the flowers have started to bloom for sure."
-    vanta_char "だよな？空はまだ少し曇っているが、蕾が確実に綻んでいるんだ。"
+    vanta_char "だよな？空はまだ少し曇っているが、確かに花は咲き始めてるよな。"
 
 # game/script.rpy:2331
 translate japanese chapter_4_7fe9879f:
 
     # zali_char "Yes! Ohhh, you know what we should do? {font=SourceHanSansLite.ttf}おはなみ !{/font} We should go see cherry blossoms!"
-    zali_char "そうだねーあっ、こういう時期何をすべきかわかる？{font=SourceHanSansLite.ttf}お花見！{/font} 桜を見に行こう！"
+    zali_char "そうだね。あっ、こういう時期何をすべきかわかる？{font=SourceHanSansLite.ttf}お花見！{/font} 桜を見に行こう！"
 
 # game/script.rpy:2336
 translate japanese chapter_4_8e4bebd0:
@@ -2272,7 +2272,7 @@ translate japanese chapter_4_0488eba8:
 translate japanese chapter_4_542fe801:
 
     # wilson_char "Morning guys! You guys aren’t seriously going without me, are you?"
-    wilson_char "二人ともおはーまさか僕抜きで行くつもりじゃないだろうね？"
+    wilson_char "二人ともおはよう！まさか僕抜きで行くつもりじゃないだろうね？"
 
 # game/script.rpy:2344
 translate japanese chapter_4_a2868df3:
@@ -2308,7 +2308,7 @@ translate japanese chapter_4_d1c64095:
 translate japanese chapter_4_10a88c25:
 
     # wilson_char "Oh shoot, did I run out?"
-    wilson_char "しまったー切らしちゃった！"
+    wilson_char "しまった、切らしちゃった！"
 
 # game/script.rpy:2368
 translate japanese chapter_4_062b12f6:
@@ -2344,19 +2344,19 @@ translate japanese chapter_4_8d35cfaf:
 translate japanese chapter_4_fd7d8d21:
 
     # "Maple syrup would work very well with Wilson’s coffee. Technically, the same can be said for the ice cream cake, but it’s been in here for a while…"
-    "メープルシロップはウィルソンのコーヒーにピッタリなはず。もちろんアイスクリームケーキも合うと思うのだが⋯⋯暫くの間に放置されたままだ。"
+    "メープルシロップはウィルソンのコーヒーにピッタリなはず。もちろんアイスクリームケーキも合うと思うのだが⋯⋯しばらくの間放置されたままだ。"
 
 # game/script.rpy:2391
 translate japanese chapter_4_fb15da94:
 
     # "But for the content, it’s tempting to show off to Wilson. Even a few of the Vantacrew seem to snicker at the notion. You decide to give Wilson—"
-    "しかし、内容的にはウィルソンに見せびらかしたくなる。 ベンタクルーの何匹かも、その考えにニヤニヤと笑っていた。あなたはウィルソンにーー"
+    "しかし、内容的にはウィルソンに見せびらかしたくなる。ベンタクルーの何匹かも、その考えにニヤニヤと笑っていた。あなたはウィルソンにーー"
 
 # game/script.rpy:2398
 translate japanese chapter_4_fe0fe77a:
 
     # "Snickering to yourself, you bring out the ice cream cake, closing the doors with your back. You place the cake next to the coffee maker. Wilson turns in your direction and immediately furrows his brows."
-    "あなたはニヤニヤ笑いながらアイスクリームケーキを取り出し、背中でドアを閉める。ウィルソンはケーキをコーヒーメーカーの横に置いてきたあなたを振り返り、すぐに眉をしかめる。"
+    "あなたはニヤニヤ笑いながらアイスクリームケーキを取り出し、背中で冷蔵庫のドアを閉める。ウィルソンはケーキをコーヒーメーカーの横に置いてきたあなたを振り返り、すぐに眉をしかめる。"
 
 # game/script.rpy:2402
 translate japanese chapter_4_15d98763:
@@ -2386,7 +2386,7 @@ translate japanese chapter_4_ab08fb4a:
 translate japanese chapter_4_f7faa1aa:
 
     # wilson_char "You idiot, you could've used this instead!"
-    wilson_char "代わりにこれを渡せばよかったじゃないかこのバカチンが！"
+    wilson_char "代わりにこれを渡せばよかったじゃん、このバカっ！"
 
 # game/script.rpy:2413
 translate japanese chapter_4_6dd76647:
@@ -2416,7 +2416,7 @@ translate japanese chapter_4_ddf99ce4:
 translate japanese chapter_4_b505add6:
 
     # wilson_char "Now I really can’t wait for my coffee! Thank you!"
-    wilson_char "今朝のコーヒーがマジで待ち遠しいーありがとう！"
+    wilson_char "今朝のコーヒーがマジで待ち遠しい！ありがとう！"
 
 # game/script.rpy:2445
 translate japanese spr_cho2_1_accepted_c754576d:
@@ -2434,7 +2434,7 @@ translate japanese spr_cho2_1_accepted_b7c471dd:
 translate japanese spr_cho2_1_accepted_8042ac0b:
 
     # zali_char "Oh, I’m in the mood for that croissant, as always."
-    zali_char "ああ、クロワッサンが食べたい気分だよねーいつも通りに。"
+    zali_char "ああ、クロワッサンが食べたい気分だね、いつも通り。"
 
 # game/script.rpy:2452
 translate japanese spr_cho2_1_accepted_9101f89a:
@@ -2542,7 +2542,7 @@ translate japanese spr_cho2_1_accepted_5b4bd9fd:
 translate japanese spr_cho2_1_accepted_c42418d3:
 
     # zali_char "This is really good, thank you!"
-    zali_char "これ、めちゃくちゃ美味しいじゃん！ありがとう。"
+    zali_char "これ、めちゃくちゃ美味しいね！ありがとう。"
 
 # game/script.rpy:2512
 translate japanese spr_cho2_1_accepted_b60d58c0:
@@ -2560,7 +2560,7 @@ translate japanese spr_cho2_1_accepted_ad948029:
 translate japanese spr_cho2_1_accepted_72116979:
 
     # "You grab the bag full of eggplant candy from the counter and put it on the table for the two to enjoy."
-    "あなたはカウンターから茄子型のキャンディーが詰まった袋を手に取り、二人が堪能できるよう前にあるテーブルに置いていた。"
+    "あなたはカウンターから茄子型のキャンディーが詰まった袋を手に取り、二人が楽しめるようにテーブルに置いた。"
 
 # game/script.rpy:2523
 translate japanese spr_cho2_2_accepted_44e98921:
@@ -2620,7 +2620,7 @@ translate japanese spr_cho2_2_accepted_b494fd56:
 translate japanese spr_cho2_2_accepted_3304026f:
 
     # wilson_char "Wait, Vanta, is that the same place you found out about when you were on vacation in the summer?"
-    wilson_char "ちょっとベンタ、ここって君が夏休みの時に見つけた場所じゃない？"
+    wilson_char "ちょっとベンタ、ここってお前が夏休みの時に見つけた場所じゃない？"
 
 # game/script.rpy:2550
 translate japanese spr_cho2_2_accepted_edbdb4c3:
@@ -2716,7 +2716,7 @@ translate japanese spr_cho2_2_accepted_bd995243:
 translate japanese spr_cho2_2_accepted_413dd00f:
 
     # zali_char "Look at all these different food byproducts. How many are they producing, and how many have already made their way into the public?"
-    zali_char "見て、様々な食品副産物が⋯⋯どれだけ生産され世に出ていたんだろう。"
+    zali_char "見て、いろんな食品副産物が⋯⋯どれだけ生産され世に出ていたんだろう。"
 
 # game/script.rpy:2587
 translate japanese spr_cho2_2_accepted_6a070bd8:
@@ -2740,7 +2740,7 @@ translate japanese spr_cho2_2_accepted_d3cc2ad8:
 translate japanese spr_cho2_2_accepted_f67870f1:
 
     # zali_char "Alright, let me report this to Squad A so they're aware and can prepare if needed."
-    zali_char "よしっ。できるだけ準備しとけって私がＡ班に伝えとく。"
+    zali_char "よし。私がA班にできるだけ準備しておいてって伝えておく。"
 
 # game/script.rpy:2594
 translate japanese spr_cho2_2_accepted_d8b79c38:
@@ -2830,7 +2830,7 @@ translate japanese spr_cho2_2_accepted_3d3a0758:
 translate japanese spr_cho2_2_accepted_0d27da96:
 
     # wilson_char "Oh my god, it is sho small! Sho cyute!!"
-    wilson_char "えっやばっちっちゃ！かわちぃ！！"
+    wilson_char "えっ、やば！ちっちゃ！かわいい～！！"
 
 # game/script.rpy:2624
 translate japanese spr_cho2_2_accepted_0762c345:
@@ -2866,7 +2866,7 @@ translate japanese spr_cho2_2_accepted_11aa33ce:
 translate japanese spr_cho2_2_accepted_48f8194e:
 
     # wilson_char "Seems like your tyrant reputation does wonders for calming down the puppy!"
-    wilson_char "暴君の異名は動物にも効くんだなーさすがだ。"
+    wilson_char "暴君の異名は動物にも効くんだな。さすがだ。"
 
 # game/script.rpy:2634
 translate japanese spr_cho2_2_accepted_96883e46:
@@ -2884,7 +2884,7 @@ translate japanese spr_cho2_2_accepted_182aa4f6:
 translate japanese spr_cho2_2_accepted_9fbf250f:
 
     # zali_char "Oh my goodness. According to this data, the company was completely surprised by the effect of the octopus when it accidentally consumed a highly concentrated dosage of the mushroom solution. "
-    zali_char "何ということだ。この資料によると、夏の事件で高濃度のマッシュルーム溶剤を大量に摂取したタコの変異に、この会社の人たちもすっかり驚いてしまったらしい。"
+    zali_char "なんてことだ。このデータによると、会社はタコが高濃度のマッシュルーム溶液をあやまって摂取した際の効果に完全に驚かされたようだ。"
 
 # game/script.rpy:2640
 translate japanese spr_cho2_2_accepted_c6793137:
@@ -2914,7 +2914,7 @@ translate japanese spr_cho2_2_accepted_92f40d7f:
 translate japanese spr_cho2_2_accepted_e9285dce:
 
     # wilson_char "Wait, Vanta, didn't you try that drink?"
-    wilson_char "てか待って、ベンタ、君はたしかあのドリンクを飲んだんじゃ。"
+    wilson_char "てか待って、ベンタ、お前たしかあのドリンクを飲んだんじゃ？"
 
 # game/script.rpy:2645
 translate japanese spr_cho2_2_accepted_27c3e2b0:
@@ -2926,7 +2926,7 @@ translate japanese spr_cho2_2_accepted_27c3e2b0:
 translate japanese spr_cho2_2_accepted_43078138:
 
     # zali_char "Didn't we also eat the mushroom dishes in the mountain village?\nYou ate a lot at the time, Vanta."
-    zali_char "村でマッシュルームも食べたよね？あの時もよく食べてたじゃん。"
+    zali_char "村でマッシュルームも食べたよね？あの時もよく食べてたし。"
 
 # game/script.rpy:2647
 translate japanese spr_cho2_2_accepted_a0a42e50:
@@ -2950,7 +2950,7 @@ translate japanese spr_cho2_2_accepted_e1b43784:
 translate japanese spr_cho2_2_accepted_352a4267:
 
     # wilson_char "What the hell? That's pretty cool, though, isn't it? Maybe I should've eaten more of those mushrooms."
-    wilson_char "何それカッコ良すぎない？もっとマッシュルームを食べておくんだったー"
+    wilson_char "何それカッコ良すぎない？もっとマッシュルームを食べておくんだった。"
 
 # game/script.rpy:2653
 translate japanese spr_cho2_2_accepted_2a0a3be5:
@@ -2980,7 +2980,7 @@ translate japanese spr_cho2_2_accepted_442e0ca3:
 translate japanese spr_cho2_2_accepted_353f439f:
 
     # vanta_char "You were just a nameless Shiba without a home, but not anymore. From this moment forward, you belong to me, Vantacrow Bringer. You are my puppy."
-    vanta_char "君は誰の家のコでもない名無しの柴だったが、これからはもう違うんだ。今日から君はベンタクロウ・ブリンガーである俺の子だ。"
+    vanta_char "お前は誰の家のコでもない名無しの柴だったが、これからはもう違う。今日からベンタクロウ・ブリンガーである俺の子だ。"
 
 # game/script.rpy:2665
 translate japanese spr_cho2_2_accepted_a03d5a34:
@@ -3004,13 +3004,13 @@ translate japanese spr_cho2_2_accepted_f74e8857:
 translate japanese spr_cho2_2_accepted_acda83a3:
 
     # vanta_char "How do I get out of this building with you?"
-    vanta_char "どうやって君を連れてこのビルを脱出するか……。"
+    vanta_char "どうやってお前を連れてこのビルを脱出するか……。"
 
 # game/script.rpy:2684
 translate japanese spr_cho2_2_accepted_2dc89fb6:
 
     # zali_char "Oh. Let me handle this, I am so good with bondage, I will wrap him onto your back. Let's go!"
-    zali_char "ああ、私に任せて。捕縛は得意だからね。彼を君の背中に巻きつけてあげるよ。さぁ行こう！"
+    zali_char "ああ、私に任せて。縛るのは得意だからね。彼を君の背中に巻きつけてあげるよ。さぁ行こう！"
 
 # game/script.rpy:2685
 translate japanese spr_cho2_2_accepted_4f5c1d62:
@@ -3064,7 +3064,7 @@ translate japanese spr_cho2_2_accepted_43072d85:
 translate japanese spr_cho2_2_accepted_e62891a9:
 
     # "As several security personnel charge towards you, you brace yourself for a fight. However, before you can react, they all collapse in front of you. Turning around, you see Zali holding his tranquilizer gun."
-    "数人の警備員が目の前に現れた。あなたは防御態勢をとったが、彼らは銃を構える前に急に倒れ込んだ。そっと振り向くとザリが麻酔銃を握りしめていた。普段落ち着いたザリの表情が、今こそ特に重々しいように見えた。"
+    "数人の警備員が目の前に現れた。あなたは防御態勢をとったが、彼らは銃を構える前に急に倒れ込んだ。振り向くとザリが麻酔銃を握りしめていた。"
 
 # game/script.rpy:2702
 translate japanese spr_cho2_2_accepted_aab86b20:
@@ -3076,13 +3076,13 @@ translate japanese spr_cho2_2_accepted_aab86b20:
 translate japanese spr_cho2_2_accepted_adce0fcf:
 
     # "With the majority of people already evacuated due to the blaring siren, the three of you make your way to the ground floor. Racing towards the front door, you can see Squad A standing by, prepared to detonate."
-    "警報のおかげで、ビルの中にいた大半の人は避難が完了した。あなたたち三人は急いでビルから駆け出そうとしていた時、Ａ班の方々が既に配備され、ビルの破壊の準備が全て整っていた。"
+    "警報のおかげで、ビルの中にいた大半の人は避難が完了した。あなたたち三人は急いでビルから駆け出そうとしていた時、Ａ班は既に配備しており、ビルの破壊の準備が全て整っていた。"
 
 # game/script.rpy:2711
 translate japanese spr_cho2_2_accepted_73298e4f:
 
     # "Squad A spots your exit. With a quick gesture, the explosion detonates, sending shockwaves rippling through the structure."
-    "あなたたちを見かけた途端、Ａ班の人は素早くジェスチャーで爆発を起こし衝撃波が走る。"
+    "あなたたちを見かけた途端、Ａ班は素早くジェスチャーで爆発を起こした。"
 
 # game/script.rpy:2713
 translate japanese spr_cho2_2_accepted_f1a9a896:
@@ -3208,7 +3208,7 @@ translate japanese spr_cho2_2_accepted_2374cc69:
 translate japanese spr_cho2_2_accepted_4b8e88c0:
 
     # vanta_char "I believe... I feel alright. Perhaps I wasn't impacted by the mushrooms. It's been quite a year, with its ups and downs. I have my moments of vulnerability, and sometimes I tend to overthink things."
-    vanta_char "俺は⋯⋯大丈夫だと思う。マッシュルームの影響も最初からなかった気がするし。今年って本当に浮き沈みの激しい一年だったわ⋯⋯この俺ですら弱気になることもあったし、考えすぎたこともあった。"
+    vanta_char "俺は⋯⋯大丈夫だと思う。マッシュルームの影響も最初からなかった気がするし。今年は本当に浮き沈みの激しい一年だった⋯⋯この俺ですら弱気になることもあったし、考えすぎたこともあった。"
 
 # game/script.rpy:2751
 translate japanese spr_cho2_2_accepted_5b0b42d5:
@@ -3244,7 +3244,7 @@ translate japanese spr_cho2_2_accepted_aac31ea0:
 translate japanese spr_cho2_2_accepted_5ddb9a74:
 
     # wilson_char "Absolutely. You've come a long way since we first teamed up.\nEven if you always disagree with me, I will always have your back."
-    wilson_char "その通り。僕たちが初めてチームを組んだ時から、君は長い道のりを歩んできた。たとえ君がいつも僕と意見が合わなくても、僕はいつも君の背中を押しているよ。"
+    wilson_char "その通り。僕たちが初めてチームを組んだ時から、長い道のりを歩んできた。例えお前がいつも僕と意見が合わなくても、僕はいつもお前の背中を押しているよ。"
 
 # game/script.rpy:2763
 translate japanese spr_cho2_2_accepted_977ce245:
@@ -3262,7 +3262,7 @@ translate japanese spr_cho2_2_accepted_79ec57b6:
 translate japanese spr_cho2_2_accepted_a9b4e349:
 
     # "Together, you all laugh, sharing a moment that solidifies the countless memories you've made. You feel a profound sense of belonging, knowing you've found a family in these two."
-    "一緒に笑い合い、数え切れないほどの思い出を共有する。あなたは三人の間に家族を見つけ、強い帰属意識が芽生えた。"
+    "一緒に笑い合い、数え切れないほどの思い出を共有する。あなたは三人の間に家族を見つけ、強い絆が芽生えた。"
 
 # game/script.rpy:2772
 translate japanese spr_cho2_2_accepted_107fb70b:
@@ -3274,7 +3274,7 @@ translate japanese spr_cho2_2_accepted_107fb70b:
 translate japanese spr_cho2_2_accepted_d4b3f21b:
 
     # "As you move forward, the flowers signal the arrival of a new season. With each step, you embrace the promise of many seasons ahead—filled with love, support, and adventures waiting to unfold."
-    "あなたが前に進むと、花は新しい季節の到来を告げる。その一歩一歩は、これから先の多くの季節の到来を約束しているーー愛と支えで満ちた、冒険の始まりを。"
+    "あなたが前に進むと、花は新しい季節の到来を告げる。その一歩一歩は、これから先の多くの季節の到来を約束しているーー愛と温もりで満ちた、冒険の始まりを。"
 
 # game/script.rpy:2774
 translate japanese spr_cho2_2_accepted_9ad555ed:

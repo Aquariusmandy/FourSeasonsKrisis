@@ -6,7 +6,7 @@ init offset = -1
 init python:
     for i in range(100):
         FileDelete(i)
-    # _preferences.language = None
+    _preferences.language = None
 
 ################################################################################
 ## Styles
@@ -140,7 +140,7 @@ style choice_textbutton is textbutton:
     xysize (1500, 42)
 
 style choice_textbutton_text:
-    properties gui.text_properties("content")
+    properties gui.text_properties("choice")
     xalign 0.5 
 
 style chapterend_popup_text:
@@ -191,6 +191,8 @@ init python:
         persistent.dietsoda = True
     def set_icecreamcake_shown():
         persistent.icecreamcake = True
+    def set_msgtype():
+        persistent.msgtype = 0
     
     ### define language text fonts ###
     def update_fonts(language):
@@ -301,7 +303,11 @@ screen inventory_screen():
         xalign 0.903
         yalign 0.115
         # imagebutton idle "images/main_button/btn_close_1.png" hover "images/main_button/btn_close_1-1.png" action [Function(renpy.hide_screen, "OverlayScreen1"),Return()]
-        imagebutton idle "gui/archive/Collected Items/btn/btn_close_1.png" hover "gui/archive/Collected Items/btn/btn_close_1-1.png" action Return()
+        if (persistent.msgtype==3):
+            # $ persistent.msgtype = 0
+            imagebutton idle "gui/archive/Collected Items/btn/btn_close_1.png" hover "gui/archive/Collected Items/btn/btn_close_1-1.png" action [Function(set_msgtype),Hide('inventory_screen'),MainMenu(confirm=False)]
+        else:
+            imagebutton idle "gui/archive/Collected Items/btn/btn_close_1.png" hover "gui/archive/Collected Items/btn/btn_close_1-1.png" action Return()
 
     # Separate vbox for each set
     if active_set == "cg":
@@ -1024,11 +1030,25 @@ screen chapterend_popup(msg):
                     style "chapterend_title_popup_text"
                 xalign 0.5
                 yalign 0.5
-            text _("Visit the A.S.H. Archive to see your progress,\nincluding Collected Items, Secret Snaps of amazing\nmoments caught in 4K, and extra memories of Krisis\nand the Vezcrewneers in the Seasonal Album!"):
-                style "chapterend_textbutton_text"
-                xalign 0.5
-                yalign 0.5
                 text_align 0.5 
+            if (persistent.msgtype == 1):
+                text _("Visit the A.S.H. Archive to see your progress,\nincluding Collected Items, Secret Snaps of amazing\nmoments caught in 4K, and extra memories of Krisis\nand the Vezcrewneers in the Seasonal Album!"):
+                    style "chapterend_textbutton_text"
+                    xalign 0.5
+                    yalign 0.5
+                    text_align 0.5 
+            elif(persistent.msgtype == 2):
+                text _("Your A.S.H. Archive has been updated with the latest achievements!"):
+                    style "chapterend_textbutton_text"
+                    xalign 0.5
+                    yalign 0.5
+                    text_align 0.5 
+            else:
+                text _("Your A.S.H. Archive has been updated with the latest achievements!"):
+                    style "chapterend_textbutton_text"
+                    xalign 0.5
+                    yalign 0.5
+                    text_align 0.5 
 
             hbox:
                 xalign 0.5
@@ -1037,18 +1057,17 @@ screen chapterend_popup(msg):
                 textbutton _("Check Now!") action [ShowMenu("inventory"),Hide("chapterend_popup"),Function(renpy.hide_screen, "OverlayScreen1")] style "chapterend_textbutton":
                     text_align 0.5
 
-    if (_preferences.language=='japanese'):
-        imagebutton idle "gui/archive/Seasonal Album/btn/btn_close_2.png" action Hide("chapterend_popup"):
-            xpos 0.73  
-            ypos 0.31
-    elif (_preferences.language=='mandarin'):
-        imagebutton idle "gui/archive/Seasonal Album/btn/btn_close_2.png" action Hide("chapterend_popup"):
-            xpos 0.65 
-            ypos 0.31
-    else:    
+    if (persistent.msgtype == 3):
+        # $ persistent.msgtype = 0
+        imagebutton idle "gui/archive/Seasonal Album/btn/btn_close_2.png" action [Function(set_msgtype),Hide("chapterend_popup"),MainMenu(confirm=False)]:
+            xpos 0.655
+            ypos 0.30
+
+    else:
+        # $ persistent.msgtype = 0    
         imagebutton idle "gui/archive/Seasonal Album/btn/btn_close_2.png" action Hide("chapterend_popup"):
             xpos 0.655
-            ypos 0.305
+            ypos 0.30
 
 
 style chapterend_popup_text is empty
@@ -1058,6 +1077,7 @@ style chapterend_popup_frame:
     background Frame([ "system/system_popup_2.png", "system/system_popup_2.png"], gui.chapterend_popup_frame_borders, tile=gui.frame_tile)
     # background Frame([ "gui/confirm_frame.png", "temp/frame_album_default.png"], gui.confirm_frame_borders, tile=gui.frame_tile)
     padding gui.chapterend_popup_frame_borders.padding
+    xysize (700,460)
     xalign .5
     yalign .5
 
@@ -1262,13 +1282,13 @@ style choice_vbox:
     xalign 0.5
     ypos 656
     yanchor 0.5
-    spacing 10
+    spacing 25
 
 style choice_button is default:
     properties gui.button_properties("choice_button")
 
 style choice_button_text is default:
-    properties gui.text_properties("content")
+    properties gui.text_properties("choice")
 
 
 ## Quick Menu screen ###########################################################
@@ -1312,13 +1332,14 @@ screen quick_menu():
         xpos 0.9  # Align the image button to the right
         ypos 0.032  # Align the image button to the top
 
-    vbox:
-        anchor (0,0)
-        xpos 0.03
-        ypos 0.03
-        text _("Debug Quick Menu")
-        textbutton _("Back") action Rollback() style "slime_textbutton"
-        textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True) style "slime_textbutton"
+    # This is for debug
+    # vbox:
+    #     anchor (0,0)
+    #     xpos 0.03
+    #     ypos 0.03
+    #     text _("Debug Quick Menu")
+    #     textbutton _("Back") action Rollback() style "slime_textbutton"
+    #     textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True) style "slime_textbutton"
         
 ## Define the menu options
 
@@ -1405,20 +1426,20 @@ screen navigation:
     add "images/cvisual/main_logo.png" xanchor 0.0 yanchor 0.0 ypos 0.705 xpos 0.41
 
     #     ### Debug Quick Menu ###
-    vbox:
-        anchor(0, 0)
-        xpos 0.05
-        ypos 0.02
-        spacing 5
-        label _("Debug Quick Menu")
-        textbutton "Chapter 1" action Start("chapter_1"):
-            style "slime_textbutton"
-        textbutton "Chapter 2" action Start("chapter_2"):
-            style "slime_textbutton"
-        textbutton "Chapter 3" action Start("chapter_3"):
-            style "slime_textbutton"
-        textbutton "Chapter 4" action Start("chapter_4"):
-            style "slime_textbutton"
+    # vbox:
+    #     anchor(0, 0)
+    #     xpos 0.05
+    #     ypos 0.02
+    #     spacing 5
+    #     label _("Debug Quick Menu")
+    #     textbutton "Chapter 1" action Start("chapter_1"):
+    #         style "slime_textbutton"
+    #     textbutton "Chapter 2" action Start("chapter_2"):
+    #         style "slime_textbutton"
+    #     textbutton "Chapter 3" action Start("chapter_3"):
+    #         style "slime_textbutton"
+    #     textbutton "Chapter 4" action Start("chapter_4"):
+    #         style "slime_textbutton"
         # textbutton _("ResetInventory") action achievement.clear_all() style "slime_textbutton"
 
     vbox:
@@ -1439,16 +1460,16 @@ screen navigation:
 
         else:
             
-            textbutton _("Save") action ShowMenu("save") style "navigation_textbutton" 
+            textbutton _("New Game") action [MainMenu(confirm=False),ShowMenu("confirm_start")] style "navigation_textbutton"
 
         textbutton _("Load Game") action ShowMenu("load")  style "navigation_textbutton" 
         textbutton _("A.S.H. Archive") action ShowMenu("inventory") style "navigation_textbutton" 
         textbutton _("Settings") action ShowMenu("preferences") style "navigation_textbutton" 
 
-        if _in_replay:
-            textbutton _("End Replay") action EndReplay(confirm=True) style "navigation_textbutton"
-        elif not main_menu:
-            textbutton _("Main Menu") action MainMenu() style "navigation_textbutton" 
+        # if _in_replay:
+        #     textbutton _("End Replay") action EndReplay(confirm=True) style "navigation_textbutton"
+        # elif not main_menu:
+        #     textbutton _("Main Menu") action MainMenu() style "navigation_textbutton" 
 
         textbutton _("Credits") action ShowMenu("about") style "navigation_textbutton" 
         # textbutton _("History") action ShowMenu("history") style "navigation_textbutton" 
@@ -1537,8 +1558,13 @@ screen main_menu():
     add gui.main_menu_background
 
     ## This empty frame darkens the main menu.
-    frame:
-        style "main_menu_frame"
+    # frame:
+    #     style "main_menu_frame"
+    #     text "Beta 1.2": 
+    #         xysize(300,300)
+    #         color "#8D86C9"
+    #         xpos 0.9
+    #         size 50
 
     ## The use statement includes another screen inside this one. The actual
     ## contents of the main menu are in the navigation screen.
@@ -1959,7 +1985,8 @@ screen video_credits():
 # Define the video scene
 label video_scene():
     $ MainMenu()
-    $ renpy.movie_cutscene("movies/credits_v3.webm",stop_music=False)
+    $ renpy.movie_cutscene("movies/Credits 60fps.webm",stop_music=False)
+    # $ renpy.movie_cutscene("movies/credits_v3.webm", stop_music=False)
 
 # Function to return to credits screen after video ends
 label ReturnToMainMenu():
@@ -2185,8 +2212,8 @@ screen preferences():
                     label _("Language") style "setting_text"
                     # Real languages should go alphabetical order by English name.
                     textbutton _("English") text_font "DejaVuSans.ttf" action Language(None)
-                    textbutton _("繁體中文") text_font "GlowSansSC-Normal-Regular.ttf" action [Language("mandarin")]
-                    textbutton _("日本語") text_font "GlowSansSC-Normal-Regular.ttf" action [Language("japanese")]
+                    # textbutton _("繁體中文") text_font "GlowSansSC-Normal-Regular.ttf" action [Language("mandarin")]
+                    # textbutton _("日本語") text_font "GlowSansSC-Normal-Regular.ttf" action [Language("japanese")]
 
 
                 ## Additional vboxes of type "radio_pref" or "check_pref" can be
@@ -2204,9 +2231,10 @@ screen preferences():
 
                     bar value Preference("text speed")
 
-                    label _("Auto-Forward Time") style "setting_text"
+                    # we don't have auto play function
+                    # label _("Auto-Forward Time") style "setting_text"
 
-                    bar value Preference("auto-forward time")
+                    # bar value Preference("auto-forward time")
 
                 vbox:
 
@@ -2656,6 +2684,7 @@ style confirm_frame:
     background Frame([ "system/system_popup.png", "system/system_popup.png"], gui.confirm_frame_borders, tile=gui.frame_tile)
     # background Frame([ "gui/confirm_frame.png", "temp/frame_album_default.png"], gui.confirm_frame_borders, tile=gui.frame_tile)
     padding gui.confirm_frame_borders.padding
+    # xysize(900,375)
     xalign .5
     yalign .5
 
@@ -3003,29 +3032,29 @@ screen quick_menu():
             textbutton _("Menu") action ShowMenu()
 
 
-style window:
-    variant "small"
-    background "gui/phone/textbox.png"
+# style window:
+#     variant "small"
+#     background "gui/phone/textbox.png"
 
-style radio_button:
-    variant "small"
-    foreground "gui/phone/button/radio_[prefix_]foreground.png"
+# style radio_button:
+#     variant "small"
+#     foreground "gui/phone/button/radio_[prefix_]foreground.png"
 
-style check_button:
-    variant "small"
-    foreground "gui/phone/button/check_[prefix_]foreground.png"
+# style check_button:
+#     variant "small"
+#     foreground "gui/phone/button/check_[prefix_]foreground.png"
 
-style nvl_window:
-    variant "small"
-    background "gui/phone/nvl.png"
+# style nvl_window:
+#     variant "small"
+#     background "gui/phone/nvl.png"
 
-style main_menu_frame:
-    variant "small"
-    background "gui/phone/overlay/main_menu.png"
+# style main_menu_frame:
+#     variant "small"
+#     background "gui/phone/overlay/main_menu.png"
 
-style game_menu_outer_frame:
-    variant "small"
-    background "gui/phone/overlay/game_menu.png"
+# style game_menu_outer_frame:
+#     variant "small"
+#     background "gui/phone/overlay/game_menu.png"
 
 style game_menu_navigation_frame:
     variant "small"
@@ -3039,41 +3068,41 @@ style pref_vbox:
     variant "small"
     xsize 600
 
-style bar:
-    variant "small"
-    ysize gui.bar_size
-    left_bar Frame("gui/phone/bar/left.png", gui.bar_borders, tile=gui.bar_tile)
-    right_bar Frame("gui/phone/bar/right.png", gui.bar_borders, tile=gui.bar_tile)
+# style bar:
+#     variant "small"
+#     ysize gui.bar_size
+#     left_bar Frame("gui/phone/bar/left.png", gui.bar_borders, tile=gui.bar_tile)
+#     right_bar Frame("gui/phone/bar/right.png", gui.bar_borders, tile=gui.bar_tile)
 
-style vbar:
-    variant "small"
-    xsize gui.bar_size
-    top_bar Frame("gui/phone/bar/top.png", gui.vbar_borders, tile=gui.bar_tile)
-    bottom_bar Frame("gui/phone/bar/bottom.png", gui.vbar_borders, tile=gui.bar_tile)
+# style vbar:
+#     variant "small"
+#     xsize gui.bar_size
+#     top_bar Frame("gui/phone/bar/top.png", gui.vbar_borders, tile=gui.bar_tile)
+#     bottom_bar Frame("gui/phone/bar/bottom.png", gui.vbar_borders, tile=gui.bar_tile)
 
-style scrollbar:
-    variant "small"
-    ysize gui.scrollbar_size
-    base_bar Frame("gui/phone/scrollbar/horizontal_[prefix_]bar.png", gui.scrollbar_borders, tile=gui.scrollbar_tile)
-    thumb Frame("gui/phone/scrollbar/horizontal_[prefix_]thumb.png", gui.scrollbar_borders, tile=gui.scrollbar_tile)
+# style scrollbar:
+#     variant "small"
+#     ysize gui.scrollbar_size
+#     base_bar Frame("gui/phone/scrollbar/horizontal_[prefix_]bar.png", gui.scrollbar_borders, tile=gui.scrollbar_tile)
+#     thumb Frame("gui/phone/scrollbar/horizontal_[prefix_]thumb.png", gui.scrollbar_borders, tile=gui.scrollbar_tile)
 
-style vscrollbar:
-    variant "small"
-    xsize gui.scrollbar_size
-    base_bar Frame("gui/phone/scrollbar/vertical_[prefix_]bar.png", gui.vscrollbar_borders, tile=gui.scrollbar_tile)
-    thumb Frame("gui/phone/scrollbar/vertical_[prefix_]thumb.png", gui.vscrollbar_borders, tile=gui.scrollbar_tile)
+# style vscrollbar:
+#     variant "small"
+#     xsize gui.scrollbar_size
+#     base_bar Frame("gui/phone/scrollbar/vertical_[prefix_]bar.png", gui.vscrollbar_borders, tile=gui.scrollbar_tile)
+#     thumb Frame("gui/phone/scrollbar/vertical_[prefix_]thumb.png", gui.vscrollbar_borders, tile=gui.scrollbar_tile)
 
-style slider:
-    variant "small"
-    ysize gui.slider_size
-    base_bar Frame("gui/phone/slider/horizontal_[prefix_]bar.png", gui.slider_borders, tile=gui.slider_tile)
-    thumb "gui/phone/slider/horizontal_[prefix_]thumb.png"
+# style slider:
+#     variant "small"
+#     ysize gui.slider_size
+#     base_bar Frame("gui/phone/slider/horizontal_[prefix_]bar.png", gui.slider_borders, tile=gui.slider_tile)
+#     thumb "gui/phone/slider/horizontal_[prefix_]thumb.png"
 
-style vslider:
-    variant "small"
-    xsize gui.slider_size
-    base_bar Frame("gui/phone/slider/vertical_[prefix_]bar.png", gui.vslider_borders, tile=gui.slider_tile)
-    thumb "gui/phone/slider/vertical_[prefix_]thumb.png"
+# style vslider:
+#     variant "small"
+#     xsize gui.slider_size
+#     base_bar Frame("gui/phone/slider/vertical_[prefix_]bar.png", gui.vslider_borders, tile=gui.slider_tile)
+#     thumb "gui/phone/slider/vertical_[prefix_]thumb.png"
 
 style slider_vbox:
     variant "small"

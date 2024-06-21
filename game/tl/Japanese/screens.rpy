@@ -56,7 +56,7 @@ translate japanese strings:
 
     # game/screens.rpy:1163
     old "New Game"
-    new "始める"
+    new "はじめから"
 
     # game/screens.rpy:1169
     old "Load Game"
@@ -967,4 +967,12 @@ translate japanese strings:
     # game/screens.rpy:1501
     old "{font=GlowSansSC-Normal-Regular.ttf}ゲーム終了{/font}"
     new "{font=GlowSansSC-Normal-Regular.ttf}ゲーム終了{/font}"
+
+# TODO: Translation updated at 2024-06-21 00:27
+
+translate japanese strings:
+
+    # game/screens.rpy:1034
+    old "Your A.S.H. Archive has been updated with the latest achievements!"
+    new "A.S.H. アーカイブで実績が更新されました！"
 

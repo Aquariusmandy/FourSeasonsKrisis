@@ -1,0 +1,818 @@
+.DS_Store
+BaiJamjuree-Bold.ttf
+BaiJamjuree-Regular.ttf
+BaiJamjuree-SemiBold.ttf
+BaiJamjuree-SemiBoldItalic.ttf
+GlowSansSC-Normal-Bold.ttf
+GlowSansSC-Normal-Medium.ttf
+GlowSansSC-Normal-Regular.ttf
+SourceHanSansLite.ttf
+custom_screens
+custom_screens.rpyc.bak
+gui.rpy
+gui.rpyc
+options.rpy
+options.rpyc
+screens.rpy
+screens.rpyc
+script.rpy
+script.rpyc
+script_version.txt
+omic/com_base.png
+temp/Group 120.png
+temp/btn_Archive_default.png
+temp/btn_Archive_hover.png
+temp/btn_HBMenu_default.png
+temp/btn_HBMenu_hover.png
+temp/btn_auto.png
+temp/btn_back.png
+temp/btn_default.png
+temp/btn_hover.png
+temp/btn_inventory.png
+temp/btn_main_ASHArchive.png
+temp/btn_main_Credit.png
+temp/btn_main_Help.png
+temp/btn_main_LoadGame.png
+temp/btn_main_NewGame.png
+temp/btn_main_Quit.png
+temp/btn_main_Setting.png
+temp/btn_main_inventory.png
+temp/btn_menu_default.png
+temp/btn_menu_hover.png
+temp/btn_prefs.png
+temp/btn_qload.png
+temp/btn_qsave.png
+temp/btn_save.png
+temp/check_archive.png
+temp/frame_album_default.png
+temp/frame_album_default_big.png
+temp/frame_album_hover.png
+temp/frame_snaps_hover2.png
+temp/handpointer.png
+temp/logo.png
+temp/menu_idle_dot.png
+temp/transparent.png
+temp/transparent3.png
+temp/white.jpg
+menubutton/btn_Archive_default.png
+menubutton/btn_Archive_hover.png
+menubutton/btn_HBMenu_default.png
+menubutton/btn_HBMenu_hover.png
+menubutton/btn_chend_default.png
+menubutton/btn_chend_hover.png
+menubutton/btn_default.png
+menubutton/btn_hover.png
+menubutton/btn_menu_default.png
+menubutton/btn_menu_hover.png
+menubutton/red dot.png
+cache/build_info.json
+cache/bytecode-39.rpyb
+cache/py3analysis.rpyb
+cache/screens.rpyb
+cache/shaders.txt
+images/.DS_Store
+images/black.png
+images/system_frame.png
+images/transparent1.png
+images/transparent2.png
+images/transparent4.png
+images/cvisual/aut_cv.png
+images/cvisual/main_logo.png
+images/cvisual/main_menu.png
+images/cvisual/spr_cv.png
+images/cvisual/sum_cv.png
+images/cvisual/win_cv.png
+images/gallery/fsk_gall_aut_01.webp
+images/gallery/fsk_gall_aut_02.webp
+images/gallery/fsk_gall_aut_03.webp
+images/gallery/fsk_gall_aut_04.webp
+images/gallery/fsk_gall_aut_05.webp
+images/gallery/fsk_gall_aut_06.webp
+images/gallery/fsk_gall_aut_07.webp
+images/gallery/fsk_gall_aut_08.webp
+images/gallery/fsk_gall_aut_09.webp
+images/gallery/fsk_gall_aut_10.webp
+images/gallery/fsk_gall_aut_11.webp
+images/gallery/fsk_gall_aut_12.webp
+images/gallery/fsk_gall_aut_13.webp
+images/gallery/fsk_gall_aut_14.webp
+images/gallery/fsk_gall_spr_01.webp
+images/gallery/fsk_gall_spr_02.webp
+images/gallery/fsk_gall_spr_03.webp
+images/gallery/fsk_gall_spr_04.webp
+images/gallery/fsk_gall_spr_05.webp
+images/gallery/fsk_gall_spr_06.webp
+images/gallery/fsk_gall_spr_07.webp
+images/gallery/fsk_gall_spr_08.webp
+images/gallery/fsk_gall_spr_09.webp
+images/gallery/fsk_gall_spr_10.webp
+images/gallery/fsk_gall_spr_11.webp
+images/gallery/fsk_gall_spr_12.webp
+images/gallery/fsk_gall_spr_13.webp
+images/gallery/fsk_gall_sum_01.webp
+images/gallery/fsk_gall_sum_02.webp
+images/gallery/fsk_gall_sum_03.webp
+images/gallery/fsk_gall_sum_04.webp
+images/gallery/fsk_gall_sum_05.webp
+images/gallery/fsk_gall_sum_06.webp
+images/gallery/fsk_gall_sum_07.webp
+images/gallery/fsk_gall_sum_08.webp
+images/gallery/fsk_gall_sum_09.webp
+images/gallery/fsk_gall_sum_10.webp
+images/gallery/fsk_gall_sum_11.webp
+images/gallery/fsk_gall_sum_12.webp
+images/gallery/fsk_gall_sum_13.webp
+images/gallery/fsk_gall_sum_14.webp
+images/gallery/fsk_gall_sum_15.webp
+images/gallery/fsk_gall_win_01.webp
+images/gallery/fsk_gall_win_02.webp
+images/gallery/fsk_gall_win_03.webp
+images/gallery/fsk_gall_win_04.webp
+images/gallery/fsk_gall_win_05.webp
+images/gallery/fsk_gall_win_06.webp
+images/gallery/fsk_gall_win_07.webp
+images/gallery/fsk_gall_win_08.webp
+images/gallery/fsk_gall_win_09.webp
+images/gallery/fsk_gall_win_10.webp
+images/gallery/fsk_gall_win_11.webp
+images/chara/crew1_3.png
+images/chara/crew1_nor.png
+images/chara/crew3_3.png
+images/chara/crew3_ang.png
+images/chara/crew3_hap.png
+images/chara/crew3_nor.png
+images/chara/npc_01.png
+images/chara/npc_02.png
+images/chara/npc_03.png
+images/chara/npc_04.png
+images/chara/npc_05.png
+images/chara/npc_06.png
+images/chara/van_ci_3.png
+images/chara/van_ci_con.png
+images/chara/van_ci_emb.png
+images/chara/van_ci_hap.png
+images/chara/van_ci_nor.png
+images/chara/van_ci_ser.png
+images/chara/van_ci_sur.png
+images/chara/van_ci_thi.png
+images/chara/van_hr_3.png
+images/chara/van_hr_con.png
+images/chara/van_hr_emb.png
+images/chara/van_hr_hap.png
+images/chara/van_hr_nor.png
+images/chara/van_hr_ser.png
+images/chara/van_hr_sur.png
+images/chara/van_hr_thi.png
+images/chara/van_sum_3.png
+images/chara/van_sum_con.png
+images/chara/van_sum_emb.png
+images/chara/van_sum_hap.png
+images/chara/van_sum_nor.png
+images/chara/van_sum_ser.png
+images/chara/van_sum_sur.png
+images/chara/van_sum_thi.png
+images/chara/wil_ci_hap.png
+images/chara/wil_ci_nor.png
+images/chara/wil_ci_ser.png
+images/chara/wil_ci_sur.png
+images/chara/wil_ci_thi.png
+images/chara/wil_hr_hap.png
+images/chara/wil_hr_nor.png
+images/chara/wil_hr_ser.png
+images/chara/wil_hr_sur.png
+images/chara/wil_hr_thi.png
+images/chara/zal_ci_hap.png
+images/chara/zal_ci_nor.png
+images/chara/zal_ci_ser.png
+images/chara/zal_ci_sur.png
+images/chara/zal_ci_thi.png
+images/chara/zal_hr_hap.png
+images/chara/zal_hr_nor.png
+images/chara/zal_hr_ser.png
+images/chara/zal_hr_sur.png
+images/chara/zal_hr_thi.png
+images/comic/.DS_Store
+images/comic/aut_com_1.png
+images/comic/aut_com_10.png
+images/comic/aut_com_2.png
+images/comic/aut_com_3.png
+images/comic/aut_com_4.png
+images/comic/aut_com_5.png
+images/comic/aut_com_6.png
+images/comic/aut_com_7.png
+images/comic/aut_com_8.png
+images/comic/aut_com_9.png
+images/comic/com_base.png
+images/comic/sum_com_1.png
+images/comic/sum_com_2.png
+images/comic/sum_com_3.png
+images/comic/sum_com_4.png
+images/comic/sum_com_5.png
+images/comic/sum_com_6.png
+images/comic/sum_com_7.png
+images/comic/sum_com_8.png
+images/comic/win_com_1.png
+images/comic/win_com_2.png
+images/comic/win_com_3.png
+images/comic/win_com_4.png
+images/comic/spr/spr_com_01.PNG
+images/comic/spr/spr_com_02.PNG
+images/comic/spr/spr_com_03.PNG
+images/comic/spr/spr_com_04.PNG
+images/comic/spr/spr_com_05.PNG
+images/comic/spr/spr_com_06.PNG
+images/comic/spr/spr_com_07.PNG
+images/comic/spr/spr_com_08.PNG
+images/comic/spr/spr_com_09.PNG
+images/comic/spr/spr_com_10.PNG
+images/comic/spr/spr_com_11.PNG
+images/comic/spr/spr_com_12.PNG
+images/comic/spr/spr_com_13.PNG
+images/comic/spr/spr_com_14.PNG
+images/comic/spr/spr_com_15.PNG
+images/comic/spr/spr_com_16.PNG
+images/comic/spr/spr_com_17.PNG
+images/comic/spr/spr_com_18.PNG
+images/comic/spr/spr_com_19.PNG
+images/comic/spr/spr_com_20.PNG
+images/comic/spr/spr_com_21.PNG
+images/comic/spr/spr_com_22.PNG
+images/comic/spr/spr_com_23.PNG
+images/comic/spr/spr_com_24.PNG
+images/comic/spr/spr_com_25.PNG
+images/comic/spr/spr_com_26.PNG
+images/btn/btn_album_default.png
+images/btn/btn_close.png
+images/btn/btn_croissant_default.png
+images/btn/btn_croissant_hover.png
+images/btn/btn_croissant_locked.png
+images/btn/btn_drink_default.png
+images/btn/btn_drink_hover.png
+images/btn/btn_drink_locked.png
+images/btn/btn_eggplant_default.png
+images/btn/btn_eggplant_hover.png
+images/btn/btn_eggplant_locked.png
+images/btn/btn_load_default.png
+images/btn/btn_load_hover.png
+images/btn/btn_maple_syrup_defalut.png
+images/btn/btn_maple_syrup_hover.png
+images/btn/btn_maple_syrup_locked.png
+images/btn/btn_mushroom_default.png
+images/btn/btn_mushroom_hover.png
+images/btn/btn_mushroom_locked.png
+images/btn/btn_save_default.png
+images/btn/btn_save_hover.png
+images/btn/btn_setting1-1_default.png
+images/btn/btn_setting1-1_pressed.png
+images/btn/btn_setting1-2_default.png
+images/btn/btn_setting1-2_pressed.png
+images/btn/btn_setting2-1_default.png
+images/btn/btn_setting2-1_pressed.png
+images/btn/btn_setting2-2_default.png
+images/btn/btn_setting2-2_pressed.png
+images/btn/btn_setting2-3_default.png
+images/btn/btn_setting2-3_pressed.png
+images/btn/btn_soda_default.png
+images/btn/btn_soda_hover.png
+images/btn/btn_soda_locked.png
+images/btn/btn_takoyaki_default.png
+images/btn/btn_takoyaki_hover.png
+images/btn/btn_takoyaki_locked.png
+images/btn/btn_walkietalkie_default.png
+images/btn/btn_walkietalkie_hover.png
+images/btn/btn_walkietalkie_locked.png
+images/btn/pop_up_diet_soda.png
+images/btn/popup_candy.png
+images/btn/popup_croissant.png
+images/btn/popup_drink.png
+images/btn/popup_maple_syrup.png
+images/btn/popup_mushroom.png
+images/btn/popup_takoyaki.png
+images/btn/popup_walkietalkie.png
+images/bg/aut_bg_forest_01.png
+images/bg/aut_bg_forest_02.png
+images/bg/aut_bg_forest_03.png
+images/bg/aut_bg_village_01.png
+images/bg/aut_bg_village_02.png
+images/bg/spr_bg_buil_01.png
+images/bg/spr_bg_buil_02.png
+images/bg/spr_bg_hall_01.png
+images/bg/spr_bg_hall_02.png
+images/bg/spr_bg_lab_01.png
+images/bg/spr_bg_lab_02.png
+images/bg/spr_bg_office_01.png
+images/bg/sum_bg_beach_01.png
+images/bg/sum_bg_beach_02.png
+images/bg/sum_bg_beach_03.png
+images/bg/sum_bg_shop_01.png
+images/bg/sum_bg_shop_02.png
+images/bg/win_bg_office_01.png
+images/bg/win_bg_office_02.png
+images/bg/win_bg_park_01.png
+images/bg/win_bg_run.png
+images/bg/win_bg_shop_01.png
+images/bg/win_bg_street_01.png
+images/bg/win_bg_street_02.png
+images/still/.DS_Store
+images/still/aut_st_bten.png
+images/still/aut_st_btst.png
+images/still/aut_st_edcg.png
+images/still/aut_st_fny.png
+images/still/spr_st_edcg.png
+images/still/spr_st_fny.png
+images/still/spr_st_wilson.png
+images/still/spr_st_zali.png
+images/still/sum_st_bten.png
+images/still/sum_st_btst.png
+images/still/sum_st_edcg.png
+images/still/sum_st_fny.png
+images/still/win_st_bten.png
+images/still/win_st_btst.png
+images/still/win_st_edcg.png
+images/still/win_st_fny.png
+images/main_button/.DS_Store
+images/main_button/btn_close.png
+images/main_button/btn_close_1-1.png
+images/main_button/btn_close_1.png
+tl/japanese/common.rpy
+tl/japanese/common.rpyc
+tl/japanese/options.rpy
+tl/japanese/options.rpyc
+tl/japanese/screens.rpy
+tl/japanese/screens.rpyc
+tl/japanese/script.rpy
+tl/japanese/script.rpyc
+tl/mandarin/common.rpy
+tl/mandarin/common.rpyc
+tl/mandarin/options.rpy
+tl/mandarin/options.rpyc
+tl/mandarin/screens.rpy
+tl/mandarin/screens.rpyc
+tl/mandarin/script.rpy
+tl/mandarin/script.rpyc
+tl/None/common.rpym
+tl/None/common.rpymc
+system/.DS_Store
+system/Credits image.png
+system/Group 120.png
+system/VPD full text logo.png
+system/choice_hover_background.png
+system/choice_idle_background.png
+system/cursor.png
+system/game-logo_250.png
+system/history_bg.png
+system/load_bg.png
+system/red dot.png
+system/save_bg.png
+system/settings_bg.png
+system/system_popup.png
+system/system_popup_2.png
+system/transparent.png
+system/slider_bar/vertical_hover_bar.png
+system/slider_bar/vertical_hover_thumb.png
+system/slider_bar/vertical_idle_bar.png
+system/slider_bar/vertical_idle_thumb.png
+system/btn/btn_system_default.png
+system/btn/btn_system_hover.png
+saves/.DS_Store
+saves/navigation.json
+saves/persistent
+audio/.DS_Store
+audio/collected_item_ping.mp3
+audio/main_theme.mp3
+audio/main_theme_old.mp3
+audio/aut/aut_bgm_01.mp3
+audio/aut/aut_bgm_02.mp3
+audio/aut/aut_bgm_03.mp3
+audio/aut/aut_se_bandage.mp3
+audio/aut/aut_se_bear_01.mp3
+audio/aut/aut_se_bear_02.mp3
+audio/aut/aut_se_bird.mp3
+audio/aut/aut_se_clothes.mp3
+audio/aut/aut_se_leaves_01.mp3
+audio/aut/aut_se_leaves_02.mp3
+audio/aut/aut_se_needle.mp3
+audio/aut/aut_se_rope.mp3
+audio/aut/aut_se_syojyo.mp3
+audio/aut/aut_se_taser.mp3
+audio/aut/aut_se_transceiver.mp3
+audio/aut/aut_se_tree.mp3
+audio/aut/aut_se_wasp.mp3
+audio/win/win_bgm_01.mp3
+audio/win/win_se_camera.mp3
+audio/win/win_se_car.mp3
+audio/win/win_se_kiran.mp3
+audio/win/win_se_phone.mp3
+audio/win/win_se_slime_01.mp3
+audio/win/win_se_snow_run.mp3
+audio/spr/spr_bgm_01.mp3
+audio/spr/spr_bgm_02.mp3
+audio/spr/spr_se_Tentapod.mp3
+audio/spr/spr_se_belt.mp3
+audio/spr/spr_se_buzzer.mp3
+audio/spr/spr_se_clanging.mp3
+audio/spr/spr_se_crush.mp3
+audio/spr/spr_se_dog.mp3
+audio/spr/spr_se_door.mp3
+audio/spr/spr_se_explosion.mp3
+audio/spr/spr_se_firealarm.mp3
+audio/spr/spr_se_gatagata.mp3
+audio/spr/spr_se_ground.mp3
+audio/spr/spr_se_keyboard.mp3
+audio/spr/spr_se_mystery.mp3
+audio/spr/spr_se_padlock.mp3
+audio/spr/spr_se_phone_vib.mp3
+audio/spr/spr_se_scrape.mp3
+audio/spr/spr_se_scratch.mp3
+audio/sum/sum_bgm_01.mp3
+audio/sum/sum_bgm_02.mp3
+audio/sum/sum_se_bell.mp3
+audio/sum/sum_se_bochan.mp3
+audio/sum/sum_se_cash.mp3
+audio/sum/sum_se_cheer.mp3
+audio/sum/sum_se_fanfan.mp3
+audio/sum/sum_se_koke.mp3
+audio/sum/sum_se_kougeki_01.mp3
+audio/sum/sum_se_kougeki_02.mp3
+audio/sum/sum_se_paper.mp3
+audio/sum/sum_se_sand_01.mp3
+audio/sum/sum_se_sand_02.mp3
+audio/sum/sum_se_syakin.mp3
+audio/sum/sum_se_tako_01.mp3
+audio/sum/sum_se_tako_02.mp3
+audio/sum/sum_se_tako_03.mp3
+audio/sum/sum_se_tako_04.mp3
+audio/sum/sum_se_waves_01.mp3
+gui/.DS_Store
+gui/frame.png
+gui/frame_album_default.png
+gui/frame_album_hover.png
+gui/game_menu.png
+gui/main_menu.png
+gui/namebox.png
+gui/notify.png
+gui/nvl.png
+gui/skip.png
+gui/textbox.png
+gui/thoughtbubble.png
+gui/transparent.png
+gui/window_icon.png
+gui/archive/.DS_Store
+gui/archive/aut_cv_thu.png
+gui/archive/aut_cv_thu_sil.png
+gui/archive/aut_st_bten_thu.png
+gui/archive/aut_st_bten_thu_sil.png
+gui/archive/aut_st_btst_thu.png
+gui/archive/aut_st_btst_thu_sil.png
+gui/archive/aut_st_edcg_thu.png
+gui/archive/aut_st_edcg_thu_sil.png
+gui/archive/aut_st_fny_thu.png
+gui/archive/aut_st_fny_thu_sil.png
+gui/archive/inventory-top.png
+gui/archive/inventory-top_cn.png
+gui/archive/inventory-top_jp.png
+gui/archive/inventory_bg.png
+gui/archive/spr_cv_thu.png
+gui/archive/spr_cv_thu_sil.png
+gui/archive/spr_st_end_thu.png
+gui/archive/spr_st_end_thu_sil.png
+gui/archive/spr_st_fny_thu.png
+gui/archive/spr_st_fny_thu_blur.png
+gui/archive/spr_st_wilson_thu.png
+gui/archive/spr_st_wilson_thu_sil.png
+gui/archive/spr_st_zali_thu.png
+gui/archive/spr_st_zali_thu_sil.png
+gui/archive/sum_cv_thu.png
+gui/archive/sum_cv_thu_sil.png
+gui/archive/sum_st_bten_thu.png
+gui/archive/sum_st_bten_thu_blur.png
+gui/archive/sum_st_btst_thu.png
+gui/archive/sum_st_btst_thu_blur.png
+gui/archive/sum_st_edcg_thu.png
+gui/archive/sum_st_edcg_thu_blur.png
+gui/archive/sum_st_fny_thu.png
+gui/archive/sum_st_fny_thu_blur.png
+gui/archive/win_cv_thu.png
+gui/archive/win_cv_thu_sil.png
+gui/archive/win_st_bten_thu.png
+gui/archive/win_st_bten_thu_blur.png
+gui/archive/win_st_btst_thu.png
+gui/archive/win_st_btst_thu_blur.png
+gui/archive/win_st_edcg_thu.png
+gui/archive/win_st_edcg_thu_blur.png
+gui/archive/win_st_fny_thu.png
+gui/archive/win_st_fny_thu_blur.png
+gui/archive/Secret Snaps/.DS_Store
+gui/archive/Secret Snaps/frame_gradient.png
+gui/archive/Secret Snaps/frame_snaps.png
+gui/archive/Secret Snaps/frame_snaps_default.png
+gui/archive/Secret Snaps/frame_snaps_hover.png
+gui/archive/Secret Snaps/frame_snaps_hover2.png
+gui/archive/Secret Snaps/frame_snaps_locked.png
+gui/archive/Secret Snaps/btn/btn_down_1.png
+gui/archive/Secret Snaps/btn/btn_down_2.png
+gui/archive/Collected Items/.DS_Store
+gui/archive/Collected Items/blackframe.png
+gui/archive/Collected Items/frame_item.png
+gui/archive/Collected Items/popup_croissant.png
+gui/archive/Collected Items/popup_dietsoda.png
+gui/archive/Collected Items/popup_drink.png
+gui/archive/Collected Items/popup_eggplant.png
+gui/archive/Collected Items/popup_icecreamcake.png
+gui/archive/Collected Items/popup_maplesyrup.png
+gui/archive/Collected Items/popup_mushroom.png
+gui/archive/Collected Items/popup_takoyaki.png
+gui/archive/Collected Items/popup_walkietalkie.png
+gui/archive/Collected Items/cn/popup_croissant_cn.png
+gui/archive/Collected Items/cn/popup_dietsoda_cn.png
+gui/archive/Collected Items/cn/popup_drink_cn.png
+gui/archive/Collected Items/cn/popup_eggplant_cn.png
+gui/archive/Collected Items/cn/popup_icecreamcake_cn.png
+gui/archive/Collected Items/cn/popup_maplesyrup_cn.png
+gui/archive/Collected Items/cn/popup_mushroom_cn.png
+gui/archive/Collected Items/cn/popup_takoyaki_cn.png
+gui/archive/Collected Items/cn/popup_walkietalkie_cn.png
+gui/archive/Collected Items/btn/.DS_Store
+gui/archive/Collected Items/btn/btn_close.png
+gui/archive/Collected Items/btn/btn_close_1-1.png
+gui/archive/Collected Items/btn/btn_close_1.png
+gui/archive/Collected Items/btn/btn_croissant_default.png
+gui/archive/Collected Items/btn/btn_croissant_hover.png
+gui/archive/Collected Items/btn/btn_croissant_locked.png
+gui/archive/Collected Items/btn/btn_dietsoda_default.png
+gui/archive/Collected Items/btn/btn_dietsoda_hover.png
+gui/archive/Collected Items/btn/btn_dietsoda_locked.png
+gui/archive/Collected Items/btn/btn_drink_default.png
+gui/archive/Collected Items/btn/btn_drink_hover.png
+gui/archive/Collected Items/btn/btn_drink_locked.png
+gui/archive/Collected Items/btn/btn_eggplant_default.png
+gui/archive/Collected Items/btn/btn_eggplant_hover.png
+gui/archive/Collected Items/btn/btn_eggplant_locked.png
+gui/archive/Collected Items/btn/btn_icecreamcake_default.png
+gui/archive/Collected Items/btn/btn_icecreamcake_hover.png
+gui/archive/Collected Items/btn/btn_icecreamcake_locked.png
+gui/archive/Collected Items/btn/btn_maplesyrup_default.png
+gui/archive/Collected Items/btn/btn_maplesyrup_hover.png
+gui/archive/Collected Items/btn/btn_maplesyrup_locked.png
+gui/archive/Collected Items/btn/btn_mushroom_default.png
+gui/archive/Collected Items/btn/btn_mushroom_hover.png
+gui/archive/Collected Items/btn/btn_mushroom_locked.png
+gui/archive/Collected Items/btn/btn_takoyaki_default.png
+gui/archive/Collected Items/btn/btn_takoyaki_hover.png
+gui/archive/Collected Items/btn/btn_takoyaki_locked.png
+gui/archive/Collected Items/btn/btn_walkietalkie_default.png
+gui/archive/Collected Items/btn/btn_walkietalkie_hover.png
+gui/archive/Collected Items/btn/btn_walkietalkie_locked.png
+gui/archive/Collected Items/btn/cn/btn_croissant_default_cn.png
+gui/archive/Collected Items/btn/cn/btn_croissant_hover_cn.png
+gui/archive/Collected Items/btn/cn/btn_croissant_locked_cn.png
+gui/archive/Collected Items/btn/cn/btn_dietsoda_default_cn.png
+gui/archive/Collected Items/btn/cn/btn_dietsoda_hover_cn.png
+gui/archive/Collected Items/btn/cn/btn_dietsoda_locked_cn.png
+gui/archive/Collected Items/btn/cn/btn_drink_default_cn.png
+gui/archive/Collected Items/btn/cn/btn_drink_hover_cn.png
+gui/archive/Collected Items/btn/cn/btn_drink_locked_cn.png
+gui/archive/Collected Items/btn/cn/btn_eggplant_default_cn.png
+gui/archive/Collected Items/btn/cn/btn_eggplant_hover_cn.png
+gui/archive/Collected Items/btn/cn/btn_eggplant_locked_cn.png
+gui/archive/Collected Items/btn/cn/btn_icecreamcake_default_cn.png
+gui/archive/Collected Items/btn/cn/btn_icecreamcake_hover_cn.png
+gui/archive/Collected Items/btn/cn/btn_icecreamcake_locked_cn.png
+gui/archive/Collected Items/btn/cn/btn_maplesyrup_default_cn.png
+gui/archive/Collected Items/btn/cn/btn_maplesyrup_hover_cn.png
+gui/archive/Collected Items/btn/cn/btn_maplesyrup_locked_cn.png
+gui/archive/Collected Items/btn/cn/btn_mushroom_default_cn.png
+gui/archive/Collected Items/btn/cn/btn_mushroom_hover_cn.png
+gui/archive/Collected Items/btn/cn/btn_mushroom_locked_cn.png
+gui/archive/Collected Items/btn/cn/btn_takoyaki_default_cn.png
+gui/archive/Collected Items/btn/cn/btn_takoyaki_hover_cn.png
+gui/archive/Collected Items/btn/cn/btn_takoyaki_locked_cn.png
+gui/archive/Collected Items/btn/cn/btn_walkietalkie_default_cn.png
+gui/archive/Collected Items/btn/cn/btn_walkietalkie_hover_cn.png
+gui/archive/Collected Items/btn/cn/btn_walkietalkie_locked_cn.png
+gui/archive/Collected Items/btn/jp/btn_croissant_default_jp.png
+gui/archive/Collected Items/btn/jp/btn_croissant_hover_jp.png
+gui/archive/Collected Items/btn/jp/btn_croissant_locked_jp.png
+gui/archive/Collected Items/btn/jp/btn_dietsoda_default_jp.png
+gui/archive/Collected Items/btn/jp/btn_dietsoda_hover_jp.png
+gui/archive/Collected Items/btn/jp/btn_dietsoda_locked_jp.png
+gui/archive/Collected Items/btn/jp/btn_drink_default_jp.png
+gui/archive/Collected Items/btn/jp/btn_drink_hover_jp.png
+gui/archive/Collected Items/btn/jp/btn_drink_locked_jp.png
+gui/archive/Collected Items/btn/jp/btn_eggplant_default_jp.png
+gui/archive/Collected Items/btn/jp/btn_eggplant_hover_jp.png
+gui/archive/Collected Items/btn/jp/btn_eggplant_locked_jp.png
+gui/archive/Collected Items/btn/jp/btn_icecreamcake_default_jp.png
+gui/archive/Collected Items/btn/jp/btn_icecreamcake_hover_jp.png
+gui/archive/Collected Items/btn/jp/btn_icecreamcake_locked_jp.png
+gui/archive/Collected Items/btn/jp/btn_maplesyrup_default_jp.png
+gui/archive/Collected Items/btn/jp/btn_maplesyrup_hover_jp.png
+gui/archive/Collected Items/btn/jp/btn_maplesyrup_locked_jp.png
+gui/archive/Collected Items/btn/jp/btn_mushroom_default_jp.png
+gui/archive/Collected Items/btn/jp/btn_mushroom_hover_jp.png
+gui/archive/Collected Items/btn/jp/btn_mushroom_locked_jp.png
+gui/archive/Collected Items/btn/jp/btn_takoyaki_default_jp.png
+gui/archive/Collected Items/btn/jp/btn_takoyaki_hover_jp.png
+gui/archive/Collected Items/btn/jp/btn_takoyaki_locked_jp.png
+gui/archive/Collected Items/btn/jp/btn_walkietalkie_default_jp.png
+gui/archive/Collected Items/btn/jp/btn_walkietalkie_hover_jp.png
+gui/archive/Collected Items/btn/jp/btn_walkietalkie_locked_jp.png
+gui/archive/Collected Items/jp/popup_croissant_jp.png
+gui/archive/Collected Items/jp/popup_dietsoda_jp.png
+gui/archive/Collected Items/jp/popup_drink_jp.png
+gui/archive/Collected Items/jp/popup_eggplant_jp.png
+gui/archive/Collected Items/jp/popup_icecreamcake_jp.png
+gui/archive/Collected Items/jp/popup_maplesyrup_jp.png
+gui/archive/Collected Items/jp/popup_mushroom_jp.png
+gui/archive/Collected Items/jp/popup_takoyaki_jp.png
+gui/archive/Collected Items/jp/popup_walkietalkie_jp.png
+gui/archive/label/.DS_Store
+gui/archive/label/cn/btn_autumn_default_cn.png
+gui/archive/label/cn/btn_autumn_pressed_cn.png
+gui/archive/label/cn/btn_spring_default_cn.png
+gui/archive/label/cn/btn_spring_pressed_cn.png
+gui/archive/label/cn/btn_summer_default_cn.png
+gui/archive/label/cn/btn_summer_pressed_cn.png
+gui/archive/label/cn/btn_winter_default_cn.png
+gui/archive/label/cn/btn_winter_pressed_cn.png
+gui/archive/label/jp/btn_autumn_default_jp.png
+gui/archive/label/jp/btn_autumn_pressed_jp.png
+gui/archive/label/jp/btn_spring_default_jp.png
+gui/archive/label/jp/btn_spring_pressed_jp.png
+gui/archive/label/jp/btn_summer_default_jp.png
+gui/archive/label/jp/btn_summer_pressed_jp.png
+gui/archive/label/jp/btn_winter_default_jp.png
+gui/archive/label/jp/btn_winter_pressed_jp.png
+gui/archive/label/en/btn_autumn_default.png
+gui/archive/label/en/btn_autumn_pressed.png
+gui/archive/label/en/btn_spring_default.png
+gui/archive/label/en/btn_spring_pressed.png
+gui/archive/label/en/btn_summer_default.png
+gui/archive/label/en/btn_summer_pressed.png
+gui/archive/label/en/btn_winter_default.png
+gui/archive/label/en/btn_winter_pressed.png
+gui/archive/Seasonal Album/.DS_Store
+gui/archive/Seasonal Album/album_line.png
+gui/archive/Seasonal Album/frame_album.png
+gui/archive/Seasonal Album/frame_album_default.png
+gui/archive/Seasonal Album/frame_album_hover.png
+gui/archive/Seasonal Album/frame_album_hover2.png
+gui/archive/Seasonal Album/btn/btn_autumn_default.png
+gui/archive/Seasonal Album/btn/btn_autumn_pressed.png
+gui/archive/Seasonal Album/btn/btn_close.png
+gui/archive/Seasonal Album/btn/btn_close_2.png
+gui/archive/Seasonal Album/btn/btn_left_1.png
+gui/archive/Seasonal Album/btn/btn_left_2.png
+gui/archive/Seasonal Album/btn/btn_right_1.png
+gui/archive/Seasonal Album/btn/btn_right_2.png
+gui/archive/Seasonal Album/btn/btn_spring_default.png
+gui/archive/Seasonal Album/btn/btn_spring_pressed.png
+gui/archive/Seasonal Album/btn/btn_summer_default.png
+gui/archive/Seasonal Album/btn/btn_summer_pressed.png
+gui/archive/Seasonal Album/btn/btn_winter_default.png
+gui/archive/Seasonal Album/btn/btn_winter_pressed.png
+gui/archive/side label/.DS_Store
+gui/archive/side label/cn/btn_album_default_cn.png
+gui/archive/side label/cn/btn_album_hover_cn.png
+gui/archive/side label/cn/btn_item_default_cn.png
+gui/archive/side label/cn/btn_item_hover_cn.png
+gui/archive/side label/cn/btn_snaps_default_cn.png
+gui/archive/side label/cn/btn_snaps_hover_cn.png
+gui/archive/side label/jp/btn_album_default_jp.png
+gui/archive/side label/jp/btn_album_hover_jp.png
+gui/archive/side label/jp/btn_item_default_jp.png
+gui/archive/side label/jp/btn_item_hover_jp.png
+gui/archive/side label/jp/btn_snaps_default_jp.png
+gui/archive/side label/jp/btn_snaps_hover_jp.png
+gui/archive/side label/en/btn_album_default.png
+gui/archive/side label/en/btn_album_hover.png
+gui/archive/side label/en/btn_item_defalut.png
+gui/archive/side label/en/btn_item_hover.png
+gui/archive/side label/en/btn_snaps_default-1.png
+gui/archive/side label/en/btn_snaps_default.png
+gui/slider/horizontal_hover_bar.png
+gui/slider/horizontal_hover_thumb.png
+gui/slider/horizontal_idle_bar.png
+gui/slider/horizontal_idle_thumb.png
+gui/slider/vertical_hover_bar.png
+gui/slider/vertical_hover_thumb.png
+gui/slider/vertical_idle_bar.png
+gui/slider/vertical_idle_thumb.png
+gui/button/check_foreground.png
+gui/button/check_selected_foreground.png
+gui/button/choice_hover_background.png
+gui/button/choice_idle_background.png
+gui/button/hover_background.png
+gui/button/idle_background.png
+gui/button/quick_hover_background.png
+gui/button/quick_idle_background.png
+gui/button/radio_foreground.png
+gui/button/radio_selected_foreground.png
+gui/button/slot_hover_background.png
+gui/button/slot_idle_background.png
+gui/gui/.DS_Store
+gui/gui/textbox.png
+gui/gui/ui_dialoguebox_c&v.png
+gui/gui/ui_dialoguebox_crew.png
+gui/gui/ui_dialoguebox_npc.png
+gui/gui/ui_dialoguebox_v&w.png
+gui/gui/ui_dialoguebox_v&z.png
+gui/gui/ui_dialoguebox_vanta.png
+gui/gui/ui_dialoguebox_w&v.png
+gui/gui/ui_dialoguebox_wilson.png
+gui/gui/ui_dialoguebox_z&v.png
+gui/gui/ui_dialoguebox_z&w.png
+gui/gui/ui_dialoguebox_zali.png
+gui/gui/ui_namebox_V&W.png
+gui/gui/ui_namebox_crew.png
+gui/gui/ui_namebox_npc.png
+gui/gui/ui_namebox_npc01.png
+gui/gui/ui_namebox_npc02.png
+gui/gui/ui_namebox_npc03.png
+gui/gui/ui_namebox_npc04.png
+gui/gui/ui_namebox_npc05.png
+gui/gui/ui_namebox_npc06.png
+gui/gui/ui_namebox_v&c.png
+gui/gui/ui_namebox_v&z.png
+gui/gui/ui_namebox_vanta.png
+gui/gui/ui_namebox_w+v.png
+gui/gui/ui_namebox_wilson.png
+gui/gui/ui_namebox_z&w.png
+gui/gui/ui_namebox_z+v.png
+gui/gui/ui_namebox_zali.png
+gui/gui/cn/ui_namebox_npc01_cn.png
+gui/gui/cn/ui_namebox_npc02_cn.png
+gui/gui/cn/ui_namebox_npc03_cn.png
+gui/gui/cn/ui_namebox_npc04_cn.png
+gui/gui/cn/ui_namebox_npc05_cn.png
+gui/gui/cn/ui_namebox_npc06_cn.png
+gui/gui/button/choice_hover_background.png
+gui/gui/button/choice_idle_background.png
+gui/gui/jp/ui_namebox_crew_jp.png
+gui/gui/jp/ui_namebox_npc01_jp.png
+gui/gui/jp/ui_namebox_npc02_jp.png
+gui/gui/jp/ui_namebox_npc03_jp.png
+gui/gui/jp/ui_namebox_npc04_jp.png
+gui/gui/jp/ui_namebox_npc05_jp.png
+gui/gui/jp/ui_namebox_npc06_jp.png
+gui/gui/jp/ui_namebox_v&c_jp.png
+gui/gui/jp/ui_namebox_v&w_jp.png
+gui/gui/jp/ui_namebox_vanta_jp.png
+gui/gui/jp/ui_namebox_w&v_jp.png
+gui/gui/jp/ui_namebox_wilson_jp.png
+gui/gui/jp/ui_namebox_z&v_jp.png
+gui/gui/jp/ui_namebox_z&w_jp.png
+gui/gui/jp/ui_namebox_zali_jp.png
+gui/phone/nvl.png
+gui/phone/textbox.png
+gui/phone/slider/horizontal_hover_bar.png
+gui/phone/slider/horizontal_hover_thumb.png
+gui/phone/slider/horizontal_idle_bar.png
+gui/phone/slider/horizontal_idle_thumb.png
+gui/phone/slider/vertical_hover_bar.png
+gui/phone/slider/vertical_hover_thumb.png
+gui/phone/slider/vertical_idle_bar.png
+gui/phone/slider/vertical_idle_thumb.png
+gui/phone/button/check_foreground.png
+gui/phone/button/check_selected_foreground.png
+gui/phone/button/choice_hover_background.png
+gui/phone/button/choice_idle_background.png
+gui/phone/button/hover_background.png
+gui/phone/button/idle_background.png
+gui/phone/button/radio_foreground.png
+gui/phone/button/radio_selected_foreground.png
+gui/phone/button/slot_hover_background.png
+gui/phone/button/slot_idle_background.png
+gui/phone/bar/bottom.png
+gui/phone/bar/left.png
+gui/phone/bar/right.png
+gui/phone/bar/top.png
+gui/phone/overlay/game_menu.png
+gui/phone/overlay/main_menu.png
+gui/phone/scrollbar/horizontal_hover_bar.png
+gui/phone/scrollbar/horizontal_hover_thumb.png
+gui/phone/scrollbar/horizontal_idle_bar.png
+gui/phone/scrollbar/horizontal_idle_thumb.png
+gui/phone/scrollbar/vertical_hover_bar.png
+gui/phone/scrollbar/vertical_hover_thumb.png
+gui/phone/scrollbar/vertical_idle_bar.png
+gui/phone/scrollbar/vertical_idle_thumb.png
+gui/bar/bottom.png
+gui/bar/left.png
+gui/bar/right.png
+gui/bar/top.png
+gui/overlay/confirm.png
+gui/overlay/game_menu.png
+gui/scrollbar/horizontal_hover_bar.png
+gui/scrollbar/horizontal_hover_thumb.png
+gui/scrollbar/horizontal_idle_bar.png
+gui/scrollbar/horizontal_idle_thumb.png
+gui/scrollbar/vertical_hover_bar.png
+gui/scrollbar/vertical_hover_thumb.png
+gui/scrollbar/vertical_idle_bar.png
+gui/scrollbar/vertical_idle_thumb.png
+movies/.DS_Store
+movies/30 seconds.webm
+movies/credits_v3.webm
+movies/spr_animation.webm
+movies/video.webm
